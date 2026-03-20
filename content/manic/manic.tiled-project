@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -8,20 +9,10 @@
     ],
     "properties": [
         {
-            "name": "MapName",
-            "type": "string",
-            "value": "Manic Willy"
-        },
-        {
             "name": "Author",
+            "propertytype": "",
             "type": "string",
             "value": "Ovine+MauS"
-        },
-        {
-            "name": "ValidGameModes",
-            "propertytype": "GameModes",
-            "type": "int",
-            "value": 2049
         },
         {
             "name": "FallDamageMode",
@@ -31,13 +22,39 @@
         },
         {
             "name": "IncludeMapPreview",
+            "propertytype": "",
+            "type": "bool",
+            "value": true
+        },
+        {
+            "name": "InfiniteLives",
+            "propertytype": "",
             "type": "bool",
             "value": true
         },
         {
             "name": "ManicFinalRoom",
+            "propertytype": "",
             "type": "int",
             "value": 20
+        },
+        {
+            "name": "MapName",
+            "propertytype": "",
+            "type": "string",
+            "value": "Manic Willy"
+        },
+        {
+            "name": "SoftLifts",
+            "propertytype": "",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "ValidGameModes",
+            "propertytype": "GameModes",
+            "type": "int",
+            "value": 2049
         }
     ],
     "propertyTypes": [
@@ -55,20 +72,13 @@
             "valuesAsFlags": false
         },
         {
-            "id": 2,
-            "name": "Speed",
+            "id": 14,
+            "name": "FallDamageMode",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "0",
-                "1 (Normal)",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7 (Very Fast)",
-                "8 (Very Slow)"
+                "Lenient",
+                "Strict"
             ],
             "valuesAsFlags": false
         },
@@ -78,10 +88,34 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 12,
+            "name": "GameModes",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "COLLECT_X_ITEMS",
+                "TIMED_GAMES",
+                "RACE_TO_GAMES",
+                "DISCOVERY_GAMES",
+                "GOLDEN_WILLY",
+                "WILLY_TAG",
+                "BRITISH_BULLDOG",
+                "WILLY_TEAMS",
+                "CAPTURE_THE_FLAG",
+                "LOBBY",
+                "FIRST_TO_COLLECT",
+                "COLLECT_ALL",
+                "CHAIN_GAMES",
+                "IT_TAG",
+                "MM_START"
+            ],
+            "valuesAsFlags": true
         },
         {
             "id": 4,
@@ -103,6 +137,22 @@
                 "MIRROR_TRIGGER"
             ],
             "valuesAsFlags": true
+        },
+        {
+            "id": 13,
+            "name": "RoomPurpose",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Gameplay",
+                "Lobby",
+                "Team Select",
+                "Launchpad",
+                "Victory Room",
+                "Briefing",
+                "Team Select 4"
+            ],
+            "valuesAsFlags": false
         },
         {
             "id": 6,
@@ -148,6 +198,24 @@
             ]
         },
         {
+            "id": 2,
+            "name": "Speed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "0",
+                "1 (Normal)",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7 (Very Fast)",
+                "8 (Very Slow)"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 8,
             "name": "Team",
             "storageType": "int",
@@ -159,6 +227,22 @@
                 "It",
                 "Green",
                 "Orange"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 11,
+            "name": "TileType",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "solid",
+                "stairs",
+                "platform",
+                "hazard",
+                "decoration",
+                "conveyor",
+                "collapsible"
             ],
             "valuesAsFlags": false
         },
@@ -183,73 +267,6 @@
             "values": [
                 "Normal",
                 "SpaceSuit"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 11,
-            "name": "TileType",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "solid",
-                "stairs",
-                "platform",
-                "hazard",
-                "decoration",
-                "conveyor",
-                "collapsible"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 12,
-            "name": "GameModes",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "COLLECT_X_ITEMS",
-                "TIMED_GAMES",
-                "RACE_TO_GAMES",
-                "DISCOVERY_GAMES",
-                "GOLDEN_WILLY",
-                "WILLY_TAG",
-                "BRITISH_BULLDOG",
-                "WILLY_TEAMS",
-                "CAPTURE_THE_FLAG",
-                "LOBBY",
-                "FIRST_TO_COLLECT",
-                "COLLECT_ALL",
-                "CHAIN_GAMES",
-                "IT_TAG",
-                "MM_START"
-            ],
-            "valuesAsFlags": true
-        },
-        {
-            "id": 13,
-            "name": "RoomPurpose",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Gameplay",
-                "Lobby",
-                "Team Select",
-                "Launchpad",
-                "Victory Room",
-                "Briefing",
-                "Team Select 4"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 14,
-            "name": "FallDamageMode",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Lenient",
-                "Strict"
             ],
             "valuesAsFlags": false
         }

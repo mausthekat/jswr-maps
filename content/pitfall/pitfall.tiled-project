@@ -33,6 +33,21 @@
             "name": "IncludeMapPreview",
             "type": "bool",
             "value": true
+        },
+        {
+            "name": "SoftLifts",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLives",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "ManicFinalRoom",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [

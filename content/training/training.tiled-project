@@ -36,6 +36,21 @@
             "propertytype": "GameModes",
             "type": "int",
             "value": 1024
+        },
+        {
+            "name": "SoftLifts",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLives",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "ManicFinalRoom",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
