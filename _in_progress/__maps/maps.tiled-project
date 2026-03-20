@@ -28,6 +28,26 @@
             "propertytype": "FallDamageMode",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "IncludeMapPreview",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "SoftLifts",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLives",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "ManicFinalRoom",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [

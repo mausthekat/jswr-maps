@@ -166,6 +166,28 @@ def copy_extensions(src_dir: Path, dst_dir: Path, dry_run: bool = False) -> list
     return changes
 
 
+def merge_properties(existing: list, archetype: list) -> tuple[list, list]:
+    """
+    Merge archetype project properties into existing list.
+
+    Adds missing properties with their default values. Never modifies
+    existing property values — only adds properties that don't exist yet.
+
+    Returns:
+        Tuple of (merged list, list of change descriptions)
+    """
+    existing_by_name = {p["name"] for p in existing}
+    changes = []
+
+    for arch_prop in archetype:
+        name = arch_prop["name"]
+        if name not in existing_by_name:
+            existing.append(arch_prop.copy())
+            changes.append(name)
+
+    return existing, changes
+
+
 def merge_property_types(existing: list, archetype: list) -> tuple[list, list]:
     """
     Merge archetype property types into existing list.
@@ -272,18 +294,33 @@ def update_project(project_path: Path, dry_run: bool = False) -> tuple[bool, lis
             print(f"  Raw bytes around pos {pos}: {raw[max(0,pos-10):pos+10].hex(' ')}")
             raise
 
+        dirty = False
+
         existing_types = project_data.get("propertyTypes", [])
         archetype_types = archetype_data.get("propertyTypes", [])
 
-        merged, added = merge_property_types(existing_types, archetype_types)
+        merged_types, added_types = merge_property_types(existing_types, archetype_types)
 
-        if added:
-            changes.append(f"Property types added: {', '.join(added)}")
-            if not dry_run:
-                project_data["propertyTypes"] = merged
-                with open(project_file, "w", encoding="utf-8") as f:
-                    json.dump(project_data, f, indent=4)
-                    f.write("\n")
+        if added_types:
+            changes.append(f"Property types added: {', '.join(added_types)}")
+            project_data["propertyTypes"] = merged_types
+            dirty = True
+
+        # Merge project-level properties (add missing with defaults)
+        existing_props = project_data.get("properties", [])
+        archetype_props = archetype_data.get("properties", [])
+
+        merged_props, added_props = merge_properties(existing_props, archetype_props)
+
+        if added_props:
+            changes.append(f"Properties added: {', '.join(added_props)}")
+            project_data["properties"] = merged_props
+            dirty = True
+
+        if dirty and not dry_run:
+            with open(project_file, "w", encoding="utf-8") as f:
+                json.dump(project_data, f, indent=4)
+                f.write("\n")
 
     # 2. Update extensions
     src_extensions = template_dir / ".extensions"

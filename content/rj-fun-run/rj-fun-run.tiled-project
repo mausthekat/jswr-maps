@@ -38,6 +38,16 @@
             "name": "SoftLifts",
             "type": "bool",
             "value": true
+        },
+        {
+            "name": "InfiniteLives",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "ManicFinalRoom",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
