@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="3">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="009.tmx" />
+  <property name="Left" type="file" value="" />
+  <property name="Name" value="The Tyne Bridge" />
+  <property name="Right" type="file" value="012.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,28,0,0,0,0,0,0,0,0,0,0,0,0,8201,8201,8201,8201,8201,8201,8201,0,0,0,0,0,0,0,0,0,0,0,0,28,0,0,0,0,0,0,0,0,0,0,8201,8201,0,8201,0,8201,0,8201,0,8201,8201,0,0,0,0,0,4121,4121,4121,4121,4121,28,0,0,0,0,0,0,0,0,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,0,0,0,0,0,0,0,0,28,0,0,0,0,0,0,0,0,8201,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,8201,0,0,0,4120,0,0,0,0,28,0,0,0,0,8201,8201,8195,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,8201,8195,0,0,0,28,0,0,0,0,8201,8201,8201,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,8201,4120,8201,8196,0,0,0,28,0,0,0,0,8201,8201,8196,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,8201,8196,2067,4157,4157,28,0,0,0,0,8201,8201,8196,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,0,8201,4120,2097,0,0,0,28,4157,4157,4157,0,8201,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,4127,8196,0,0,0,28,0,0,0,0,8201,8201,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8196,8201,8201,8196,0,0,0,28,4157,0,0,0,8201,8201,8196,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8201,8201,8196,0,0,0,28,0,0,0,0,8201,8201,8196,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8201,8201,8196,0,0,0,28,4157,0,0,0,8201,8201,8196,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8201,8201,8196,0,0,0,4116,4116,4116,4116,4130,8201,8201,8196,0,4130,4116,4116,4116,4130,0,0,0,0,4130,4116,4116,4116,4116,4116,4116,4116,4116,4116,4116,4116,4116,4116</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Bunny" type="Guardian" gid="14351" x="184" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#bfff40" />
+   </properties>
+  </object>
+  
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="2" type="Route" x="64" y="72">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 136,0"/>
+  </object>
+ </objectgroup>
+</map>

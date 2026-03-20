@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="8" nextobjectid="56">
+ <properties>
+  <property name="Chunk" type="int" value="1" />
+  <property name="Down" type="file" value="" />
+  <property name="Flags" propertytype="RoomFlags" value="" />
+  <property name="Left" type="file" value="182.tmx" />
+  <property name="Name" value="Select Your Team" />
+  <property name="Right" type="file" value="182.tmx" />
+  <property name="RoomPurpose" type="int" propertytype="RoomPurpose" value="6" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Rope Offset" type="int" value="0" />
+  <property name="Up" type="file" value="" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,
+112,8275,8275,8275,8275,8275,8275,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8274,8274,8274,8274,8274,8274,112,
+112,8275,8275,8275,8275,8275,8275,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8274,8274,8274,8274,8274,8274,112,
+112,8275,8275,8293,8294,8275,8275,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8274,8274,8291,8292,8274,8274,112,
+8275,8275,8275,8309,8310,8275,8275,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8274,8274,8307,8308,8274,8274,8274,
+8275,8275,8275,8275,8275,8275,8275,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8274,8274,8274,8274,8274,8274,8274,
+8275,8275,8275,8275,8275,8275,8275,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8274,8274,8274,8274,8274,8274,8274,
+112,112,112,112,112,112,112,4123,2068,0,0,0,4111,4111,4111,4111,4111,4111,4111,4111,0,0,0,2067,4123,112,112,112,112,112,112,112,
+112,8223,8223,8223,8223,8223,8223,0,0,2068,0,0,0,0,0,4123,4123,0,0,0,0,0,2067,0,0,8201,8201,8201,8201,8201,8201,112,
+112,8223,8223,8223,8223,8223,8223,0,0,0,4111,4111,0,0,0,0,0,0,0,0,4111,4111,0,0,0,8201,8201,8201,8201,8201,8201,112,
+112,8223,8223,8289,8290,8223,8223,0,0,0,0,0,0,0,0,4123,4123,0,0,0,0,0,0,0,0,8201,8201,8295,8296,8201,8201,112,
+8223,8223,8223,8305,8306,8223,8223,0,0,0,4123,4123,4123,2068,0,4111,4111,0,2067,4123,4123,4123,0,0,0,8201,8201,8311,8312,8201,8201,8201,
+8223,8223,8223,8223,8223,8223,8223,0,0,0,0,0,0,0,2068,4123,4123,2067,0,0,0,0,0,0,0,8201,8201,8201,8201,8201,8201,8201,
+8223,8223,8223,8223,8223,8223,8223,0,0,0,0,0,0,0,0,4111,4111,0,0,0,0,0,0,0,0,8201,8201,8201,8201,8201,8201,8201,
+112,112,112,112,112,112,112,112,112,84,84,84,84,112,112,112,112,112,112,84,84,84,84,112,112,112,112,112,112,112,112,112,
+4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143,4143
+</data>
+ </layer>
+ <objectgroup id="5" name="Collectables" />
+ <objectgroup id="4" name="Enemies" />
+ <objectgroup color="#00ffff" id="6" name="Routes" />
+ <objectgroup id="7" name="Special">
+  <object id="13" gid="13" x="192" y="32" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="8" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="14" gid="13" x="192" y="16" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="8" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="15" gid="13" x="192" y="24" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="8" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="16" gid="13" x="192" y="40" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="8" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="17" gid="13" x="192" y="48" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="8" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="18" gid="13" x="192" y="56" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="8" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="19" gid="13" x="56" y="16" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="6" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="20" gid="13" x="56" y="24" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="6" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="21" gid="13" x="56" y="32" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="6" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="22" gid="13" x="56" y="40" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="6" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="23" gid="13" x="56" y="48" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="6" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="24" gid="13" x="56" y="56" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="6" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="27" gid="112" x="248" y="112" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="28" gid="112" x="248" y="104" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="29" gid="112" x="248" y="96" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="30" gid="112" x="248" y="40" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="31" gid="112" x="248" y="48" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="32" gid="112" x="248" y="56" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="33" gid="112" x="0" y="40" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="34" gid="112" x="0" y="48" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="35" gid="112" x="0" y="56" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="36" gid="112" x="0" y="96" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+  <object id="37" gid="112" x="0" y="104" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+  <object id="38" gid="112" x="0" y="112" width="8" height="8">
+   <properties>
+    <property name="Team" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+  <object id="41" gid="112" x="192" y="64" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="8" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="42" gid="112" x="56" y="64" width="8" height="8">
+   <properties>
+    <property name="MinPlayerCount" type="int" value="6" />
+    <property name="RequiredTeam" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="43" template="templates/spawn_player.tx" x="120" y="112">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="512" />
+   </properties>
+  </object>
+  <object id="44" gid="13" x="192" y="88" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="45" gid="13" x="192" y="72" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="46" gid="13" x="192" y="80" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="47" gid="13" x="192" y="96" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="48" gid="13" x="192" y="104" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="49" gid="13" x="192" y="112" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="50" gid="13" x="56" y="88" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+  <object id="51" gid="13" x="56" y="72" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+  <object id="52" gid="13" x="56" y="80" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+  <object id="53" gid="13" x="56" y="96" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+  <object id="54" gid="13" x="56" y="104" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+  <object id="55" gid="13" x="56" y="112" width="8" height="8">
+   <properties>
+    <property name="RequiredTeam" type="int" propertytype="Team" value="1" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="18">
+ <properties>
+  <property name="Name" value="Forgotten abbey" />
+  <property name="Border" type="int" value="1" />
+  <property name="Left" type="file" value="048.tmx" />
+  <property name="Up" type="file" value="025.tmx" />
+  <property name="Right" type="file" value="073.tmx" />
+  <property name="Down" type="file" value="059.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="SpecialCode" type="int" value="0" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,0,0,0,0,0,0,0,84,0,0,0,0,0,0,84,0,0,0,0,0,0,0,84,0,0,0,0,0,1,1,
+1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,8265,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,0,0,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,4118,1,1,
+1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,84,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8265,8265,1,1,
+1,1,8265,8265,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+8265,8265,0,0,0,0,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,8265,1,1,
+8265,8265,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+1,1,1,2050,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1,1,1,1,2050,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <objectgroup id="2" name="Collectables">
+  <object id="1" gid="12289" x="16" y="32" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="3" name="Enemies">
+  <object id="2" gid="14353" width="16" height="16" type="Guardian" x="64" y="56">
+   <properties>
+    <property name="Color" type="color" value="#00ff00" />
+   </properties>
+  </object>
+  <object id="3" gid="14353" width="16" height="16" type="Guardian" x="128" y="56">
+   <properties>
+    <property name="Color" type="color" value="#ffff00" />
+   </properties>
+  </object>
+  <object id="4" gid="14353" width="16" height="16" type="Guardian" x="144" y="120">
+   <properties>
+    <property name="Color" type="color" value="#00ff00" />
+   </properties>
+  </object>
+  <object id="5" gid="14353" width="16" height="16" type="Guardian" x="192" y="120">
+   <properties>
+    <property name="Color" type="color" value="#ffff00" />
+   </properties>
+  </object>
+  <object id="6" gid="14353" width="16" height="16" type="Guardian" x="88" y="88">
+   <properties>
+    <property name="Color" type="color" value="#00ffff" />
+   </properties>
+  </object>
+  <object id="7" gid="14353" width="16" height="16" type="Guardian" x="192" y="88">
+   <properties>
+    <property name="Color" type="color" value="#ffffff" />
+   </properties>
+  </object>
+  <object id="8" gid="14353" width="16" height="16" type="Guardian" x="56" y="120">
+   <properties>
+    <property name="Color" type="color" value="#ffff00" />
+   </properties>
+  </object>
+  <object id="9" gid="14353" width="16" height="16" type="Guardian" x="96" y="120">
+   <properties>
+    <property name="Color" type="color" value="#00ffff" />
+   </properties>
+  </object>
+  <object id="10" type="Route" x="32" y="40" width="152" height="16">
+   <properties>
+    <property name="Guardian" type="object" value="2" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="11" type="Route" x="96" y="40" width="152" height="16">
+   <properties>
+    <property name="Guardian" type="object" value="3" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="12" type="Route" x="128" y="104" width="80" height="16">
+   <properties>
+    <property name="Guardian" type="object" value="4" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="13" type="Route" x="184" y="104" width="72" height="16">
+   <properties>
+    <property name="Guardian" type="object" value="5" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="14" type="Route" x="72" y="72" width="112" height="16">
+   <properties>
+    <property name="Guardian" type="object" value="6" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="15" type="Route" x="176" y="72" width="64" height="16">
+   <properties>
+    <property name="Guardian" type="object" value="7" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="16" type="Route" x="40" y="104" width="80" height="16">
+   <properties>
+    <property name="Guardian" type="object" value="8" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="17" type="Route" x="88" y="104" width="80" height="16">
+   <properties>
+    <property name="Guardian" type="object" value="9" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="10">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="001.tmx" />
+  <property name="Name" value="Death Row" />
+  <property name="Right" type="file" value="003.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">93,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,89,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,101,101,101,87,87,0,0,0,0,0,87,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,10257,0,0,87,87,0,0,87,87,0,0,0,0,0,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,87,0,0,87,87,6158,6158,6158,6158,6158,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,87,88,88,87,91,88,88,88,88,88,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2085,101,101,101,101,87,87,0,0,87,0,0,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2085,101,101,0,0,0,87,87,0,0,87,0,0,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2085,101,101,101,0,0,0,87,87,88,88,87,88,88,87,0,0,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,0,0,0,87,87,0,0,87,0,0,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,0,0,87,0,0,87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,91,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Butler" type="Guardian" gid="14369" x="8" y="96" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#efff04" />
+   </properties>
+  </object>
+  <object id="2" name="Hunchback" type="Guardian" gid="14372" x="8" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#10ff1f" />
+   </properties>
+  </object>
+  <object id="3" name="Waiter" type="Guardian" gid="14371" x="8" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff082f" />
+   </properties>
+  </object>
+  <object id="4" name="Chef" type="Guardian" gid="14352" x="32" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#10ffff" />
+   </properties>
+  </object>
+  <object id="5" name="Monkey" type="Guardian" gid="14398" x="32" y="96" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#1f28ff" />
+   </properties>
+  </object>
+  <object id="6" name="Spear Hunter" type="Guardian" gid="14404" x="72" y="96" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#fff50b" />
+   </properties>
+  </object>
+  
+  <object id="8" name="Saw" type="Guardian" gid="14337" x="216" y="48" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#10ff20" />
+   </properties>
+  </object>
+  
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="7" type="Route" x="72" y="88">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="6"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 120,0"/>
+  </object>
+  <object id="9" type="Route" x="88" y="40">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="2"/>
+    <property name="Guardian" type="object" value="8"/>
+    <property name="Speed" type="int" propertytype="Speed" value="3"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 144,0"/>
+  </object>
+ </objectgroup>
+</map>

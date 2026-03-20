@@ -1,0 +1,69 @@
+{
+    "maps": [
+        {
+            "fileName": "001.tmx",
+            "height": 0,
+            "width": 0,
+            "x": 256,
+            "y": 256
+        },
+        {
+            "fileName": "002.tmx",
+            "height": 0,
+            "width": 0,
+            "x": 512,
+            "y": 256
+        },
+        {
+            "fileName": "003.tmx",
+            "height": 128,
+            "width": 256,
+            "x": 768,
+            "y": 256
+        },
+        {
+            "fileName": "004.tmx",
+            "height": 128,
+            "width": 256,
+            "x": 768,
+            "y": 128
+        },
+        {
+            "fileName": "005.tmx",
+            "height": 128,
+            "width": 256,
+            "x": 768,
+            "y": 0
+        },
+        {
+            "fileName": "006.tmx",
+            "height": 128,
+            "width": 256,
+            "x": 512,
+            "y": 0
+        },
+        {
+            "fileName": "007.tmx",
+            "height": 0,
+            "width": 0,
+            "x": 256,
+            "y": 0
+        },
+        {
+            "fileName": "008.tmx",
+            "height": 0,
+            "width": 0,
+            "x": 256,
+            "y": 128
+        },
+        {
+            "fileName": "009.tmx",
+            "height": 0,
+            "width": 0,
+            "x": 512,
+            "y": 128
+        }
+    ],
+    "onlyShowAdjacentMaps": false,
+    "type": "world"
+}

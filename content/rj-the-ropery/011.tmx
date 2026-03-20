@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="8" nextobjectid="12">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="" />
+  <property name="Name" value="End This Ropey Nightmare!" />
+  <property name="Right" type="file" value="010.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8226,8226,0,0,0,0,0,0,0,8226,8226,0,0,0,2,
+2,0,0,0,8226,8226,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8226,8226,0,0,0,0,0,0,0,0,0,0,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,
+3,5,5,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,5,5,3,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,8226,8226,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,8226,8226,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,6163,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6163,0,
+104,104,104,6163,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6163,104,104,104,
+104,104,104,104,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,104,104,104,104,
+104,104,104,104,104,104,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,6145,104,104,104,104,104,104,104
+</data>
+ </layer>
+ <objectgroup id="5" name="Collectables" />
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Lift 1" type="Guardian" gid="14407" x="56" y="64" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffe83f" />
+   </properties>
+  </object>
+  <object id="3" name="Lift 2" type="Guardian" gid="14407" x="88" y="48" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffa720" />
+   </properties>
+  </object>
+  <object id="5" name="Lift 3" type="Guardian" gid="14407" x="120" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffdd3b" />
+   </properties>
+  </object>
+  <object id="7" name="Lift 4" type="Guardian" gid="14407" x="152" y="96" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffa740" />
+   </properties>
+  </object>
+  <object id="9" name="Lift 5" type="Guardian" gid="14407" x="184" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffd74a" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="6" name="Routes">
+  <object id="2" type="Route" x="64" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 0,88" />
+  </object>
+  <object id="4" type="Route" x="96" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="3" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 0,88" />
+  </object>
+  <object id="6" type="Route" x="128" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="5" />
+    <property name="Speed" type="int" propertytype="Speed" value="3" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 0,88" />
+  </object>
+  <object id="8" type="Route" x="160" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="7" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 0,88" />
+  </object>
+  <object id="10" type="Route" x="192" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="9" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 0,88" />
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="Spawn">
+  <object id="11" template="templates/spawn_flag_neutral.tx" x="16" y="56">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="256" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>

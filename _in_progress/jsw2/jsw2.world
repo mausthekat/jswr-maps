@@ -1,0 +1,943 @@
+{
+    "maps": [
+        {
+            "fileName": "001.tmx",
+            "x": 5632,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "002.tmx",
+            "x": 5120,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "003.tmx",
+            "x": 4864,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "004.tmx",
+            "x": 4608,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "005.tmx",
+            "x": 4352,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "006.tmx",
+            "x": 4096,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "007.tmx",
+            "x": 4096,
+            "y": 1664,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "008.tmx",
+            "x": 4864,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "009.tmx",
+            "x": 4608,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "010.tmx",
+            "x": 4352,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "011.tmx",
+            "x": 4096,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "012.tmx",
+            "x": 3840,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "013.tmx",
+            "x": 4608,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "014.tmx",
+            "x": 4352,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "015.tmx",
+            "x": 3328,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "016.tmx",
+            "x": 3072,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "017.tmx",
+            "x": 2816,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "018.tmx",
+            "x": 2560,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "019.tmx",
+            "x": 2304,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "020.tmx",
+            "x": 3328,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "021.tmx",
+            "x": 2560,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "022.tmx",
+            "x": 2304,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "023.tmx",
+            "x": 2048,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "024.tmx",
+            "x": 1792,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "025.tmx",
+            "x": 3584,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "026.tmx",
+            "x": 3328,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "027.tmx",
+            "x": 2560,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "028.tmx",
+            "x": 1024,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "029.tmx",
+            "x": 2304,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "030.tmx",
+            "x": 2048,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "031.tmx",
+            "x": 3584,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "032.tmx",
+            "x": 3328,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "033.tmx",
+            "x": 2560,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "034.tmx",
+            "x": 2304,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "035.tmx",
+            "x": 2048,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "036.tmx",
+            "x": 1792,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "037.tmx",
+            "x": 3584,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "038.tmx",
+            "x": 3328,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "039.tmx",
+            "x": 2816,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "040.tmx",
+            "x": 2304,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "041.tmx",
+            "x": 2048,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "042.tmx",
+            "x": 1792,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "043.tmx",
+            "x": 3584,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "044.tmx",
+            "x": 4352,
+            "y": 1536,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "045.tmx",
+            "x": 4608,
+            "y": 1536,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "046.tmx",
+            "x": 2048,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "047.tmx",
+            "x": 1536,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "048.tmx",
+            "x": 1280,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "049.tmx",
+            "x": 2816,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "050.tmx",
+            "x": 1536,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "051.tmx",
+            "x": 1280,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "052.tmx",
+            "x": 1536,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "053.tmx",
+            "x": 1280,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "054.tmx",
+            "x": 1536,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "055.tmx",
+            "x": 1280,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "056.tmx",
+            "x": 512,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "057.tmx",
+            "x": 768,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "058.tmx",
+            "x": 1792,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "059.tmx",
+            "x": 3584,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "060.tmx",
+            "x": 4096,
+            "y": 1536,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "061.tmx",
+            "x": 2560,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "062.tmx",
+            "x": 3072,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "063.tmx",
+            "x": 2816,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "064.tmx",
+            "x": 3072,
+            "y": 1024,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "065.tmx",
+            "x": 2816,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "066.tmx",
+            "x": 3072,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "067.tmx",
+            "x": 2816,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "068.tmx",
+            "x": 3072,
+            "y": 1280,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "069.tmx",
+            "x": 3328,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "070.tmx",
+            "x": 5376,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "071.tmx",
+            "x": 1792,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "072.tmx",
+            "x": 2048,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "073.tmx",
+            "x": 2304,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "074.tmx",
+            "x": 2560,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "075.tmx",
+            "x": 2816,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "076.tmx",
+            "x": 3072,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "077.tmx",
+            "x": 3328,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "078.tmx",
+            "x": 3584,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "079.tmx",
+            "x": 3840,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "080.tmx",
+            "x": 256,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "081.tmx",
+            "x": 0,
+            "y": 1408,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "082.tmx",
+            "x": 2304,
+            "y": 1536,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "083.tmx",
+            "x": 2560,
+            "y": 1536,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "084.tmx",
+            "x": 2816,
+            "y": 1536,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "085.tmx",
+            "x": 3072,
+            "y": 1536,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "086.tmx",
+            "x": 3328,
+            "y": 1536,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "087.tmx",
+            "x": 3328,
+            "y": 1664,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "088.tmx",
+            "x": 3584,
+            "y": 1664,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "089.tmx",
+            "x": 3584,
+            "y": 1792,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "090.tmx",
+            "x": 0,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "091.tmx",
+            "x": 256,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "092.tmx",
+            "x": 512,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "093.tmx",
+            "x": 768,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "094.tmx",
+            "x": 1024,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "095.tmx",
+            "x": 1024,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "096.tmx",
+            "x": 1024,
+            "y": 896,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "097.tmx",
+            "x": 1280,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "098.tmx",
+            "x": 1536,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "099.tmx",
+            "x": 1792,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "100.tmx",
+            "x": 2048,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "101.tmx",
+            "x": 2304,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "102.tmx",
+            "x": 2560,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "103.tmx",
+            "x": 2816,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "104.tmx",
+            "x": 3072,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "105.tmx",
+            "x": 2048,
+            "y": 256,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "106.tmx",
+            "x": 2304,
+            "y": 256,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "107.tmx",
+            "x": 2048,
+            "y": 384,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "108.tmx",
+            "x": 2304,
+            "y": 384,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "109.tmx",
+            "x": 2560,
+            "y": 384,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "110.tmx",
+            "x": 2816,
+            "y": 384,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "111.tmx",
+            "x": 3072,
+            "y": 384,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "112.tmx",
+            "x": 3328,
+            "y": 384,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "113.tmx",
+            "x": 3584,
+            "y": 384,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "114.tmx",
+            "x": 3584,
+            "y": 256,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "115.tmx",
+            "x": 3584,
+            "y": 128,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "116.tmx",
+            "x": 3584,
+            "y": 0,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "117.tmx",
+            "x": 3840,
+            "y": 0,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "118.tmx",
+            "x": 4096,
+            "y": 0,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "119.tmx",
+            "x": 4352,
+            "y": 0,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "120.tmx",
+            "x": 2816,
+            "y": 512,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "121.tmx",
+            "x": 4096,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "122.tmx",
+            "x": 4352,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "123.tmx",
+            "x": 4608,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "124.tmx",
+            "x": 4864,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "125.tmx",
+            "x": 5120,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "126.tmx",
+            "x": 5376,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "127.tmx",
+            "x": 5632,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "128.tmx",
+            "x": 5888,
+            "y": 640,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "129.tmx",
+            "x": 4864,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "130.tmx",
+            "x": 5120,
+            "y": 768,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "131.tmx",
+            "x": 4096,
+            "y": 1152,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "132.tmx",
+            "x": 3584,
+            "y": 1920,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "133.tmx",
+            "x": 3584,
+            "y": 2048,
+            "width": 256,
+            "height": 128
+        },
+        {
+            "fileName": "134.tmx",
+            "x": 0,
+            "y": 2304,
+            "width": 256,
+            "height": 128
+        }
+    ],
+    "type": "world"
+}

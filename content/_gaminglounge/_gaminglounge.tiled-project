@@ -1,0 +1,247 @@
+{
+    "automappingRulesFile": "",
+    "commands": [],
+    "compatibilityVersion": 1100,
+    "extensionsPath": ".extensions",
+    "folders": [
+        "."
+    ],
+    "properties": [
+        {
+            "name": "MapName",
+            "type": "string",
+            "value": "Gaming Lounge"
+        },
+        {
+            "name": "Author",
+            "type": "string",
+            "value": "Ovine+MauS"
+        },
+        {
+            "name": "ValidGameModes",
+            "propertytype": "GameModes",
+            "type": "int",
+            "value": 512
+        },
+        {
+            "name": "FallDamageMode",
+            "propertytype": "FallDamageMode",
+            "type": "int",
+            "value": 0
+        }
+    ],
+    "propertyTypes": [
+        {
+            "id": 1,
+            "name": "Direction",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Up",
+                "Down",
+                "Left",
+                "Right"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 3,
+            "name": "FlightDirection",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Right\u2192Left",
+                "Left\u2192Right"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 4,
+            "name": "GuardianFlags",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "HARMLESS",
+                "ALWAYS_DEADLY"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "id": 5,
+            "name": "RoomFlags",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "MIRROR_TRIGGER"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "id": 6,
+            "name": "SpawnKind",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Player Start",
+                "Flag",
+                "Exit"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 7,
+            "members": [
+                {
+                    "name": "Kind",
+                    "propertyType": "SpawnKind",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Team",
+                    "propertyType": "Team",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "SpawnPoint",
+            "type": "class",
+            "useAs": [
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset",
+                "project"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Speed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "0",
+                "1 (Normal)",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7 (Very Fast)",
+                "8 (Very Slow)"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 8,
+            "name": "Team",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "No Team",
+                "Red",
+                "Blue",
+                "It",
+                "Green",
+                "Orange"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 13,
+            "name": "RoomPurpose",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Gameplay",
+                "Lobby",
+                "Team Select",
+                "Launchpad",
+                "Victory Room",
+                "Briefing",
+                "Team Select 4"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 10,
+            "name": "TileType",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "solid",
+                "stairs",
+                "platform",
+                "hazard",
+                "decoration",
+                "conveyor",
+                "collapsible"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 9,
+            "name": "Traversal",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Ping-Pong",
+                "One-Way Reset",
+                "One-Way Stop",
+                "Loop"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 11,
+            "name": "WillySuit",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Normal",
+                "SpaceSuit"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 12,
+            "name": "GameModes",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "COLLECT_X_ITEMS",
+                "TIMED_GAMES",
+                "RACE_TO_GAMES",
+                "DISCOVERY_GAMES",
+                "GOLDEN_WILLY",
+                "WILLY_TAG",
+                "BRITISH_BULLDOG",
+                "WILLY_TEAMS",
+                "CAPTURE_THE_FLAG",
+                "LOBBY",
+                "FIRST_TO_COLLECT",
+                "COLLECT_ALL",
+                "CHAIN_GAMES",
+                "IT_TAG",
+                "MM_START"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "id": 14,
+            "name": "FallDamageMode",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Lenient",
+                "Strict"
+            ],
+            "valuesAsFlags": false
+        }
+    ]
+}

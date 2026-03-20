@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="7">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="237.tmx" />
+  <property name="Name" value="The Box Rooms" />
+  <property name="Right" type="file" value="239.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,8204,0,0,0,0,0,0,0,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,2068,0,0,0,0,0,0,4,120,120,120,120,120,120,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,4159,13,0,2068,0,0,0,0,0,4,9,9,9,9,9,9,0,0,0,2061,4159,0,0,0,0,0,0,0,0,0,63,63,63,13,0,0,2068,0,0,0,0,4117,4117,4117,4117,4117,4117,4117,4117,4117,4117,65,4159,0,0,0,0,0,0,0,0,0,0,8223,8223,13,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,0,0,0,65,4159,0,0,0,0,0,0,0,0,0,0,8223,8223,13,0,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,0,0,2098,4159,0,0,0,0,0,0,35,8223,63,63,63,10,13,0,0,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,0,4136,4136,0,0,0,0,0,0,0,0,0,63,63,10,13,0,0,0,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,83,83,0,0,0,0,0,0,0,0,63,4159,4159,10,13,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,83,83,0,0,0,0,0,0,0,0,4159,10,10,10,13,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,83,83,0,0,0,0,0,0,0,63,4159,10,0,10,13,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4103,4103,4103,4103,4103,4103,4103,4103,4103,4103,4103,4103,4103,4103,13,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122,4122</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+  <object id="1" gid="12373" x="128" y="96" width="8" height="8" />
+  <object id="2" gid="12305" x="136" y="96" width="8" height="8" />
+  <object id="3" gid="12289" x="136" y="88" width="8" height="8" />
+  <object id="4" gid="12289" x="144" y="96" width="8" height="8" />
+  <object id="5" gid="12305" x="144" y="88" width="8" height="8" />
+  <object id="6" gid="12357" x="152" y="96" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+ </objectgroup>
+</map>

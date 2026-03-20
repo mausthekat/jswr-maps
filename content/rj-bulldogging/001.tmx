@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="3">
+ <properties>
+  <property name="Chunk" type="int" value="0"/>
+  <property name="Down" type="file" value="005.tmx"/>
+  <property name="Left" type="file" value="004.tmx"/>
+  <property name="Name" value="Chaffing Trouser Troubles"/>
+  <property name="Right" type="file" value="002.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value="013.tmx"/>
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx"/>
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx"/>
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx"/>
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx"/>
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx"/>
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx"/>
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx"/>
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,5,5,5,5,5,5,5,5,5,5,5,73,6151,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,0,0,0,0,0,0,0,0,6151,71,0,0,0,0,0,73,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,73,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,73,0,0,0,95,73,73,95,0,0,0,71,0,0,0,95,73,73,73,73,73,73,95,0,0,0,71,0,0,0,0,0,73,0,0,0,71,6151,0,0,0,0,0,71,0,0,0,71,6151,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,73,0,0,4117,71,0,0,0,0,0,4117,71,0,0,4117,71,0,0,0,0,0,0,0,0,0,4117,71,0,0,0,0,0,73,0,0,0,71,0,0,0,0,0,0,71,0,0,0,71,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,73,4117,0,0,71,0,0,0,95,73,73,95,4117,0,0,71,0,0,0,95,73,73,73,73,73,73,95,0,0,0,0,2067,73,0,0,0,71,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2067,0,73,0,0,4117,71,4117,0,0,0,0,0,0,0,0,4117,71,4117,0,0,0,0,0,0,0,0,0,0,0,0,2067,0,0,73,0,0,0,71,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,0,0,0,0,0,0,0,2067,0,0,0,73,4117,0,0,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,95,2068,0,0,0,4107,4107,0,0,0,0,73,0,0,0,71,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2068,0,0,0,0,0,0,0,2067,73,0,0,4117,71,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2068,0,0,0,0,0,2067,0,73,0,0,0,71,0,0,0,0,0,0,2067,4152,4152,4152,4152,4152,4152,4152,4152,4152,4152,4152,4152,4152,4152,4152,0,0,4152,0,0</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Two Globes" type="Guardian" gid="14350" x="152" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#9fafff"/>
+   </properties>
+  </object>
+  
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="2" type="Route" x="40" y="112">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 200,0"/>
+  </object>
+ </objectgroup>
+</map>

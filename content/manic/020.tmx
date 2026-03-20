@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="8" nextobjectid="22">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="019.tmx" />
+  <property name="Name" value="The Final Barrier" />
+  <property name="Right" type="file" value="" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <tileset firstgid="18433" source="../../tilesets/tiles_mm_exit.tsx" />
+ <tileset firstgid="1246" source="../../tilesets/meta/meta_markers.tsx" />
+ <tileset firstgid="20481" source="../../tilesets/tiles_collapsible.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,
+241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,
+273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,
+305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,
+337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,
+369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,0,0,388,0,0,0,0,0,0,0,0,0,389,
+390,391,392,393,394,395,396,397,398,399,400,401,402,403,404,405,406,407,408,0,0,409,0,0,0,0,0,0,0,0,0,410,
+411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,0,0,430,0,0,0,0,0,0,0,0,0,431,
+27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4145,4145,27,
+27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,
+27,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,10329,0,0,0,20481,0,0,0,0,27,
+27,0,0,0,0,0,0,0,0,6151,0,0,6151,0,0,0,0,6151,0,0,0,6151,0,0,0,0,0,0,4145,0,0,27,
+27,4145,4145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,
+27,0,0,0,0,4145,4145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,
+27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,
+27,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,27
+</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+  <object id="17" gid="12397" x="240" y="56" width="8" height="8" />
+  <object id="18" gid="12397" x="184" y="48" width="8" height="8" />
+  <object id="19" gid="12397" x="152" y="96" width="8" height="8" />
+  <object id="20" gid="12397" x="112" y="96" width="8" height="8" />
+  <object id="21" gid="12397" x="64" y="96" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="5" name="Flower Truck" type="Guardian" gid="14418" x="56" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffefff60" />
+   </properties>
+  </object>
+  <object id="8" name="Eye 2" type="Guardian" gid="14428" x="192" y="56" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="6" name="Routes">
+  <object id="6" type="Route" x="56" y="112">
+   <properties>
+    <property name="Direction" type="int" value="1" />
+    <property name="Guardian" type="object" value="5" />
+    <property name="Speed" type="int" value="1" />
+    <property name="Traversal" type="int" value="0" />
+   </properties>
+   <polyline points="0,0 136,0" />
+  </object>
+  <object id="9" type="Route" x="200" y="40">
+   <properties>
+    <property name="Direction" type="int" value="1" />
+    <property name="Guardian" type="object" value="8" />
+    <property name="Speed" type="int" value="1" />
+    <property name="Traversal" type="int" value="0" />
+   </properties>
+   <polyline points="0,0 0,80" />
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="Spawn">
+  <object id="10" gid="18452" x="152" y="56" width="16" height="16" />
+  <object id="11" template="templates/spawn_player.tx" x="208" y="120">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="16384" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>

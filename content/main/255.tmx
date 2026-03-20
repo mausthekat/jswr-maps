@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="7">
+ <properties>
+  <property name="ChainRoomGroup" type="int" value="6" />
+  <property name="Chunk" type="int" value="18" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="179.tmx" />
+  <property name="Name" value="Space Invaders" />
+  <property name="RaceLabel" value="Ultimate SHMUP" />
+  <property name="Right" type="file" value="254.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">4107,4122,4122,4107,4122,4122,0,0,108,108,0,0,0,0,0,0,0,0,0,6154,6154,6154,6154,6154,0,0,0,0,0,0,0,0,4122,83,4122,4122,4122,0,0,108,108,108,108,0,0,0,0,0,0,0,6154,0,0,6154,0,0,6154,0,0,0,0,0,0,0,4107,83,4122,4122,0,0,108,108,108,108,108,108,0,0,0,0,0,0,6154,6154,6154,6154,6154,6154,6154,0,0,0,0,0,0,0,102,83,4122,0,0,0,0,13,13,13,13,0,0,0,0,0,0,0,6154,6154,6154,6154,6154,6154,6154,0,0,0,0,0,0,0,102,83,0,0,0,0,0,13,13,0,13,0,0,0,0,0,0,0,0,6154,0,0,0,6154,0,0,0,0,0,0,0,0,102,83,0,0,0,0,0,13,13,13,13,0,0,0,0,0,0,0,6154,0,0,0,0,0,6154,0,0,0,0,0,0,0,102,83,0,0,0,0,0,13,13,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,102,83,4107,4107,0,0,0,13,13,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,102,83,4102,4122,4113,0,0,4160,4160,0,4160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4101,4101,4102,4122,4122,8222,8222,4160,4160,4160,4160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4106,4106,4102,4122,4113,8222,8222,13,13,0,13,4136,4136,4136,4136,4136,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,6148,6148,6148,104,104,104,104,104,104,104,104,104,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,16,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+  <object id="1" gid="12353" x="88" y="80" width="8" height="8" />
+  <object id="2" gid="12337" x="96" y="80" width="8" height="8" />
+  <object id="3" gid="12341" x="104" y="80" width="8" height="8" />
+  <object id="4" gid="12337" x="112" y="80" width="8" height="8" />
+  <object id="5" gid="12353" x="120" y="80" width="8" height="8" />
+  <object id="6" gid="12361" x="168" y="72" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="4" name="Enemies" />
+</map>
