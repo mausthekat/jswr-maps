@@ -1,0 +1,1058 @@
+[
+  {
+    "row": 0,
+    "col": 19,
+    "original_decoration_index": 12,
+    "original_gid": 8205,
+    "penrose_index": 0,
+    "penrose_gid": 16385
+  },
+  {
+    "row": 0,
+    "col": 20,
+    "original_decoration_index": 13,
+    "original_gid": 8206,
+    "penrose_index": 1,
+    "penrose_gid": 16386
+  },
+  {
+    "row": 0,
+    "col": 21,
+    "original_decoration_index": 14,
+    "original_gid": 8207,
+    "penrose_index": 2,
+    "penrose_gid": 16387
+  },
+  {
+    "row": 0,
+    "col": 22,
+    "original_decoration_index": 15,
+    "original_gid": 8208,
+    "penrose_index": 3,
+    "penrose_gid": 16388
+  },
+  {
+    "row": 1,
+    "col": 17,
+    "original_decoration_index": 12,
+    "original_gid": 8205,
+    "penrose_index": 0,
+    "penrose_gid": 16385
+  },
+  {
+    "row": 1,
+    "col": 18,
+    "original_decoration_index": 13,
+    "original_gid": 8206,
+    "penrose_index": 4,
+    "penrose_gid": 16389
+  },
+  {
+    "row": 1,
+    "col": 19,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 5,
+    "penrose_gid": 16390
+  },
+  {
+    "row": 1,
+    "col": 20,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 6,
+    "penrose_gid": 16391
+  },
+  {
+    "row": 1,
+    "col": 21,
+    "original_decoration_index": 6,
+    "original_gid": 8199,
+    "penrose_index": 7,
+    "penrose_gid": 16392
+  },
+  {
+    "row": 1,
+    "col": 22,
+    "original_decoration_index": 7,
+    "original_gid": 8200,
+    "penrose_index": 8,
+    "penrose_gid": 16393
+  },
+  {
+    "row": 2,
+    "col": 15,
+    "original_decoration_index": 12,
+    "original_gid": 8205,
+    "penrose_index": 0,
+    "penrose_gid": 16385
+  },
+  {
+    "row": 2,
+    "col": 16,
+    "original_decoration_index": 13,
+    "original_gid": 8206,
+    "penrose_index": 9,
+    "penrose_gid": 16394
+  },
+  {
+    "row": 2,
+    "col": 17,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 5,
+    "penrose_gid": 16390
+  },
+  {
+    "row": 2,
+    "col": 18,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 10,
+    "penrose_gid": 16395
+  },
+  {
+    "row": 2,
+    "col": 19,
+    "original_decoration_index": 6,
+    "original_gid": 8199,
+    "penrose_index": 11,
+    "penrose_gid": 16396
+  },
+  {
+    "row": 2,
+    "col": 20,
+    "original_decoration_index": 7,
+    "original_gid": 8200,
+    "penrose_index": 12,
+    "penrose_gid": 16397
+  },
+  {
+    "row": 2,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 13,
+    "penrose_gid": 16398
+  },
+  {
+    "row": 2,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 3,
+    "col": 13,
+    "original_decoration_index": 12,
+    "original_gid": 8205,
+    "penrose_index": 0,
+    "penrose_gid": 16385
+  },
+  {
+    "row": 3,
+    "col": 14,
+    "original_decoration_index": 13,
+    "original_gid": 8206,
+    "penrose_index": 9,
+    "penrose_gid": 16394
+  },
+  {
+    "row": 3,
+    "col": 15,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 5,
+    "penrose_gid": 16390
+  },
+  {
+    "row": 3,
+    "col": 16,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 15,
+    "penrose_gid": 16400
+  },
+  {
+    "row": 3,
+    "col": 17,
+    "original_decoration_index": 6,
+    "original_gid": 8199,
+    "penrose_index": 11,
+    "penrose_gid": 16396
+  },
+  {
+    "row": 3,
+    "col": 18,
+    "original_decoration_index": 7,
+    "original_gid": 8200,
+    "penrose_index": 16,
+    "penrose_gid": 16401
+  },
+  {
+    "row": 3,
+    "col": 19,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 17,
+    "penrose_gid": 16402
+  },
+  {
+    "row": 3,
+    "col": 20,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 18,
+    "penrose_gid": 16403
+  },
+  {
+    "row": 3,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 19,
+    "penrose_gid": 16404
+  },
+  {
+    "row": 3,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 4,
+    "col": 11,
+    "original_decoration_index": 12,
+    "original_gid": 8205,
+    "penrose_index": 0,
+    "penrose_gid": 16385
+  },
+  {
+    "row": 4,
+    "col": 12,
+    "original_decoration_index": 13,
+    "original_gid": 8206,
+    "penrose_index": 9,
+    "penrose_gid": 16394
+  },
+  {
+    "row": 4,
+    "col": 13,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 5,
+    "penrose_gid": 16390
+  },
+  {
+    "row": 4,
+    "col": 14,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 15,
+    "penrose_gid": 16400
+  },
+  {
+    "row": 4,
+    "col": 15,
+    "original_decoration_index": 6,
+    "original_gid": 8199,
+    "penrose_index": 11,
+    "penrose_gid": 16396
+  },
+  {
+    "row": 4,
+    "col": 16,
+    "original_decoration_index": 7,
+    "original_gid": 8200,
+    "penrose_index": 16,
+    "penrose_gid": 16401
+  },
+  {
+    "row": 4,
+    "col": 17,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 17,
+    "penrose_gid": 16402
+  },
+  {
+    "row": 4,
+    "col": 18,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 18,
+    "penrose_gid": 16403
+  },
+  {
+    "row": 4,
+    "col": 19,
+    "original_decoration_index": 0,
+    "original_gid": 8193,
+    "penrose_index": 20,
+    "penrose_gid": 16405
+  },
+  {
+    "row": 4,
+    "col": 20,
+    "original_decoration_index": 1,
+    "original_gid": 8194,
+    "penrose_index": 21,
+    "penrose_gid": 16406
+  },
+  {
+    "row": 4,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 22,
+    "penrose_gid": 16407
+  },
+  {
+    "row": 4,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 5,
+    "col": 9,
+    "original_decoration_index": 12,
+    "original_gid": 8205,
+    "penrose_index": 0,
+    "penrose_gid": 16385
+  },
+  {
+    "row": 5,
+    "col": 10,
+    "original_decoration_index": 13,
+    "original_gid": 8206,
+    "penrose_index": 9,
+    "penrose_gid": 16394
+  },
+  {
+    "row": 5,
+    "col": 11,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 5,
+    "penrose_gid": 16390
+  },
+  {
+    "row": 5,
+    "col": 12,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 15,
+    "penrose_gid": 16400
+  },
+  {
+    "row": 5,
+    "col": 13,
+    "original_decoration_index": 6,
+    "original_gid": 8199,
+    "penrose_index": 23,
+    "penrose_gid": 16408
+  },
+  {
+    "row": 5,
+    "col": 14,
+    "original_decoration_index": 7,
+    "original_gid": 8200,
+    "penrose_index": 24,
+    "penrose_gid": 16409
+  },
+  {
+    "row": 5,
+    "col": 15,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 17,
+    "penrose_gid": 16402
+  },
+  {
+    "row": 5,
+    "col": 16,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 18,
+    "penrose_gid": 16403
+  },
+  {
+    "row": 5,
+    "col": 17,
+    "original_decoration_index": 10,
+    "original_gid": 8203,
+    "penrose_index": 25,
+    "penrose_gid": 16410
+  },
+  {
+    "row": 5,
+    "col": 18,
+    "original_decoration_index": 11,
+    "original_gid": 8204,
+    "penrose_index": 26,
+    "penrose_gid": 16411
+  },
+  {
+    "row": 5,
+    "col": 19,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 27,
+    "penrose_gid": 16412
+  },
+  {
+    "row": 5,
+    "col": 20,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 28,
+    "penrose_gid": 16413
+  },
+  {
+    "row": 5,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 29,
+    "penrose_gid": 16414
+  },
+  {
+    "row": 5,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 6,
+    "col": 9,
+    "original_decoration_index": 4,
+    "original_gid": 8197,
+    "penrose_index": 30,
+    "penrose_gid": 16415
+  },
+  {
+    "row": 6,
+    "col": 10,
+    "original_decoration_index": 5,
+    "original_gid": 8198,
+    "penrose_index": 31,
+    "penrose_gid": 16416
+  },
+  {
+    "row": 6,
+    "col": 11,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 32,
+    "penrose_gid": 16417
+  },
+  {
+    "row": 6,
+    "col": 12,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 33,
+    "penrose_gid": 16418
+  },
+  {
+    "row": 6,
+    "col": 13,
+    "original_decoration_index": 2,
+    "original_gid": 8195,
+    "penrose_index": 34,
+    "penrose_gid": 16419
+  },
+  {
+    "row": 6,
+    "col": 14,
+    "original_decoration_index": 3,
+    "original_gid": 8196,
+    "penrose_index": 35,
+    "penrose_gid": 16420
+  },
+  {
+    "row": 6,
+    "col": 15,
+    "original_decoration_index": 10,
+    "original_gid": 8203,
+    "penrose_index": 36,
+    "penrose_gid": 16421
+  },
+  {
+    "row": 6,
+    "col": 16,
+    "original_decoration_index": 11,
+    "original_gid": 8204,
+    "penrose_index": 37,
+    "penrose_gid": 16422
+  },
+  {
+    "row": 6,
+    "col": 19,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 38,
+    "penrose_gid": 16423
+  },
+  {
+    "row": 6,
+    "col": 20,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 39,
+    "penrose_gid": 16424
+  },
+  {
+    "row": 6,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 40,
+    "penrose_gid": 16425
+  },
+  {
+    "row": 6,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 7,
+    "col": 9,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 38,
+    "penrose_gid": 16423
+  },
+  {
+    "row": 7,
+    "col": 10,
+    "original_decoration_index": 33,
+    "original_gid": 8226,
+    "penrose_index": 41,
+    "penrose_gid": 16426
+  },
+  {
+    "row": 7,
+    "col": 11,
+    "original_decoration_index": 4,
+    "original_gid": 8197,
+    "penrose_index": 42,
+    "penrose_gid": 16427
+  },
+  {
+    "row": 7,
+    "col": 12,
+    "original_decoration_index": 5,
+    "original_gid": 8198,
+    "penrose_index": 43,
+    "penrose_gid": 16428
+  },
+  {
+    "row": 7,
+    "col": 13,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 44,
+    "penrose_gid": 16429
+  },
+  {
+    "row": 7,
+    "col": 14,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 45,
+    "penrose_gid": 16430
+  },
+  {
+    "row": 7,
+    "col": 15,
+    "original_decoration_index": 14,
+    "original_gid": 8207,
+    "penrose_index": 46,
+    "penrose_gid": 16431
+  },
+  {
+    "row": 7,
+    "col": 16,
+    "original_decoration_index": 15,
+    "original_gid": 8208,
+    "penrose_index": 47,
+    "penrose_gid": 16432
+  },
+  {
+    "row": 7,
+    "col": 19,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 38,
+    "penrose_gid": 16423
+  },
+  {
+    "row": 7,
+    "col": 20,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 39,
+    "penrose_gid": 16424
+  },
+  {
+    "row": 7,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 48,
+    "penrose_gid": 16433
+  },
+  {
+    "row": 7,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 8,
+    "col": 9,
+    "original_decoration_index": 8,
+    "original_gid": 8201,
+    "penrose_index": 49,
+    "penrose_gid": 16434
+  },
+  {
+    "row": 8,
+    "col": 10,
+    "original_decoration_index": 9,
+    "original_gid": 8202,
+    "penrose_index": 50,
+    "penrose_gid": 16435
+  },
+  {
+    "row": 8,
+    "col": 11,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 51,
+    "penrose_gid": 16436
+  },
+  {
+    "row": 8,
+    "col": 12,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 41,
+    "penrose_gid": 16426
+  },
+  {
+    "row": 8,
+    "col": 13,
+    "original_decoration_index": 4,
+    "original_gid": 8197,
+    "penrose_index": 52,
+    "penrose_gid": 16437
+  },
+  {
+    "row": 8,
+    "col": 14,
+    "original_decoration_index": 5,
+    "original_gid": 8198,
+    "penrose_index": 53,
+    "penrose_gid": 16438
+  },
+  {
+    "row": 8,
+    "col": 15,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 54,
+    "penrose_gid": 16439
+  },
+  {
+    "row": 8,
+    "col": 16,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 55,
+    "penrose_gid": 16440
+  },
+  {
+    "row": 8,
+    "col": 17,
+    "original_decoration_index": 14,
+    "original_gid": 8207,
+    "penrose_index": 56,
+    "penrose_gid": 16441
+  },
+  {
+    "row": 8,
+    "col": 18,
+    "original_decoration_index": 15,
+    "original_gid": 8208,
+    "penrose_index": 57,
+    "penrose_gid": 16442
+  },
+  {
+    "row": 8,
+    "col": 19,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 38,
+    "penrose_gid": 16423
+  },
+  {
+    "row": 8,
+    "col": 20,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 39,
+    "penrose_gid": 16424
+  },
+  {
+    "row": 8,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 48,
+    "penrose_gid": 16433
+  },
+  {
+    "row": 8,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 9,
+    "col": 11,
+    "original_decoration_index": 8,
+    "original_gid": 8201,
+    "penrose_index": 58,
+    "penrose_gid": 16443
+  },
+  {
+    "row": 9,
+    "col": 12,
+    "original_decoration_index": 9,
+    "original_gid": 8202,
+    "penrose_index": 50,
+    "penrose_gid": 16435
+  },
+  {
+    "row": 9,
+    "col": 13,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 51,
+    "penrose_gid": 16436
+  },
+  {
+    "row": 9,
+    "col": 14,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 59,
+    "penrose_gid": 16444
+  },
+  {
+    "row": 9,
+    "col": 15,
+    "original_decoration_index": 4,
+    "original_gid": 8197,
+    "penrose_index": 60,
+    "penrose_gid": 16445
+  },
+  {
+    "row": 9,
+    "col": 16,
+    "original_decoration_index": 5,
+    "original_gid": 8198,
+    "penrose_index": 61,
+    "penrose_gid": 16446
+  },
+  {
+    "row": 9,
+    "col": 17,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 62,
+    "penrose_gid": 16447
+  },
+  {
+    "row": 9,
+    "col": 18,
+    "original_decoration_index": 27,
+    "original_gid": 8220,
+    "penrose_index": 63,
+    "penrose_gid": 16448
+  },
+  {
+    "row": 9,
+    "col": 19,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 38,
+    "penrose_gid": 16423
+  },
+  {
+    "row": 9,
+    "col": 20,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 39,
+    "penrose_gid": 16424
+  },
+  {
+    "row": 9,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 48,
+    "penrose_gid": 16433
+  },
+  {
+    "row": 9,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 10,
+    "col": 13,
+    "original_decoration_index": 8,
+    "original_gid": 8201,
+    "penrose_index": 58,
+    "penrose_gid": 16443
+  },
+  {
+    "row": 10,
+    "col": 14,
+    "original_decoration_index": 9,
+    "original_gid": 8202,
+    "penrose_index": 50,
+    "penrose_gid": 16435
+  },
+  {
+    "row": 10,
+    "col": 15,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 51,
+    "penrose_gid": 16436
+  },
+  {
+    "row": 10,
+    "col": 16,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 64,
+    "penrose_gid": 16449
+  },
+  {
+    "row": 10,
+    "col": 17,
+    "original_decoration_index": 4,
+    "original_gid": 8197,
+    "penrose_index": 65,
+    "penrose_gid": 16450
+  },
+  {
+    "row": 10,
+    "col": 18,
+    "original_decoration_index": 5,
+    "original_gid": 8198,
+    "penrose_index": 66,
+    "penrose_gid": 16451
+  },
+  {
+    "row": 10,
+    "col": 19,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 38,
+    "penrose_gid": 16423
+  },
+  {
+    "row": 10,
+    "col": 20,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 39,
+    "penrose_gid": 16424
+  },
+  {
+    "row": 10,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 48,
+    "penrose_gid": 16433
+  },
+  {
+    "row": 10,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 11,
+    "col": 15,
+    "original_decoration_index": 8,
+    "original_gid": 8201,
+    "penrose_index": 58,
+    "penrose_gid": 16443
+  },
+  {
+    "row": 11,
+    "col": 16,
+    "original_decoration_index": 9,
+    "original_gid": 8202,
+    "penrose_index": 50,
+    "penrose_gid": 16435
+  },
+  {
+    "row": 11,
+    "col": 17,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 51,
+    "penrose_gid": 16436
+  },
+  {
+    "row": 11,
+    "col": 18,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 67,
+    "penrose_gid": 16452
+  },
+  {
+    "row": 11,
+    "col": 19,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 68,
+    "penrose_gid": 16453
+  },
+  {
+    "row": 11,
+    "col": 20,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 69,
+    "penrose_gid": 16454
+  },
+  {
+    "row": 11,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 70,
+    "penrose_gid": 16455
+  },
+  {
+    "row": 11,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 12,
+    "col": 17,
+    "original_decoration_index": 8,
+    "original_gid": 8201,
+    "penrose_index": 58,
+    "penrose_gid": 16443
+  },
+  {
+    "row": 12,
+    "col": 18,
+    "original_decoration_index": 9,
+    "original_gid": 8202,
+    "penrose_index": 50,
+    "penrose_gid": 16435
+  },
+  {
+    "row": 12,
+    "col": 19,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 51,
+    "penrose_gid": 16436
+  },
+  {
+    "row": 12,
+    "col": 20,
+    "original_decoration_index": 59,
+    "original_gid": 8252,
+    "penrose_index": 39,
+    "penrose_gid": 16424
+  },
+  {
+    "row": 12,
+    "col": 21,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 71,
+    "penrose_gid": 16456
+  },
+  {
+    "row": 12,
+    "col": 22,
+    "original_decoration_index": 58,
+    "original_gid": 8251,
+    "penrose_index": 14,
+    "penrose_gid": 16399
+  },
+  {
+    "row": 13,
+    "col": 19,
+    "original_decoration_index": 8,
+    "original_gid": 8201,
+    "penrose_index": 58,
+    "penrose_gid": 16443
+  },
+  {
+    "row": 13,
+    "col": 20,
+    "original_decoration_index": 9,
+    "original_gid": 8202,
+    "penrose_index": 72,
+    "penrose_gid": 16457
+  },
+  {
+    "row": 13,
+    "col": 21,
+    "original_decoration_index": 10,
+    "original_gid": 8203,
+    "penrose_index": 73,
+    "penrose_gid": 16458
+  },
+  {
+    "row": 13,
+    "col": 22,
+    "original_decoration_index": 11,
+    "original_gid": 8204,
+    "penrose_index": 74,
+    "penrose_gid": 16459
+  }
+]

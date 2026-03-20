@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="10">
+ <properties>
+  <property name="ChainRoomGroup" type="int" value="1" />
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="230.tmx" />
+  <property name="Left" type="file" value="226.tmx" />
+  <property name="Name" value="Rear Thruster" />
+  <property name="Right" type="file" value="228.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="1" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,90,85,92,85,92,85,92,85,87,88,88,88,89,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,92,85,92,85,92,85,92,85,87,4112,52,17,4,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,92,85,92,85,92,85,92,85,87,4112,52,17,4,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,91,88,88,88,88,88,88,88,88,87,4112,52,17,4,0,0,
+88,88,88,88,88,88,88,88,2068,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,4112,52,17,4,0,0,
+0,0,0,0,0,0,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,4112,52,17,4,0,0,
+0,0,0,0,0,0,0,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,4112,52,17,4,0,0,
+0,0,0,0,0,0,0,0,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,0,0,0,87,4112,52,17,4,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,0,0,87,4112,52,17,4,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,2068,0,0,0,0,0,0,0,0,0,0,8204,87,4112,52,17,4,0,0,
+88,88,88,88,88,88,88,89,0,0,0,0,93,88,88,89,0,0,0,0,0,93,88,88,88,87,4112,52,17,4,0,0,
+92,85,92,85,92,85,92,87,0,0,0,0,87,92,92,87,89,0,0,0,0,87,8218,8214,8219,87,4112,52,17,4,0,0,
+92,85,92,85,92,85,92,87,0,0,0,0,87,92,92,87,87,4103,4103,4103,93,88,88,88,88,87,4112,52,17,4,0,0,
+92,85,92,85,92,85,92,87,0,0,0,0,87,92,92,87,87,88,88,88,90,92,85,92,85,87,4112,52,17,4,0,0,
+92,85,92,85,92,85,92,87,0,0,0,0,87,92,92,87,87,92,85,92,85,92,85,92,93,90,4112,52,17,4,0,0,
+88,88,88,88,88,88,88,87,0,0,0,0,87,88,88,87,87,92,85,92,85,92,85,92,87,88,88,88,88,90,0,0
+</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+  <object id="1" gid="12305" x="136" y="96" width="8" height="8" />
+  <object id="2" gid="12305" x="144" y="96" width="8" height="8" />
+  <object id="3" gid="12357" x="152" y="96" width="8" height="8" />
+  <object id="4" gid="12317" x="160" y="96" width="8" height="8" />
+  <object id="5" gid="12357" x="160" y="88" width="8" height="8" />
+  <object id="6" gid="12357" x="168" y="80" width="8" height="8" />
+  <object id="7" gid="12289" x="176" y="80" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="8" name="Pheenix" type="Guardian" gid="14374" x="72" y="128" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffe710" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="6" name="Routes">
+  <object id="9" type="Route" x="80" y="56">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="8" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 0,72" />
+  </object>
+ </objectgroup>
+</map>

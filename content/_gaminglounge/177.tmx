@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="6" nextobjectid="2">
+ <properties>
+  <property name="Down" value="" />
+  <property name="Left" value="" />
+  <property name="Name" value="The Launch Bay" />
+  <property name="Right" value="" />
+  <property name="RoomPurpose" type="int" propertytype="RoomPurpose" value="3" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" value="" />
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="1" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <tileset firstgid="16385" source="../../tilesets/tiles_penrose.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16385,16386,16387,16388,0,0,0,0,0,0,0,0,18,
+18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16385,16389,16390,16391,16392,16393,0,0,0,0,0,0,0,0,18,
+18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16385,16394,16390,16395,16396,16397,16398,16399,0,0,0,0,0,0,0,0,18,
+18,0,0,0,0,0,0,0,0,0,0,0,0,16385,16394,16390,16400,16396,16401,16402,16403,16404,16399,0,0,0,0,0,0,0,0,18,
+18,0,0,0,0,0,0,0,0,0,0,16385,16394,16390,16400,16396,16401,16402,16403,16405,16406,16407,16399,0,0,0,0,0,0,0,0,18,
+18,0,0,0,0,0,0,0,0,16385,16394,16390,16400,16408,16409,16402,16403,16410,16411,16412,16413,16414,16399,0,0,0,0,0,0,0,0,18,
+18,4105,4105,4105,4105,0,0,0,0,16415,16416,16417,16418,16419,16420,16421,16422,0,0,16423,16424,16425,16399,0,0,0,0,4105,4105,4105,4105,18,
+18,4123,0,0,0,0,0,0,0,16423,16426,16427,16428,16429,16430,16431,16432,0,0,16423,16424,16433,16399,0,0,0,0,0,0,0,4123,18,
+18,4123,0,0,0,0,0,0,0,16434,16435,16436,16426,16437,16438,16439,16440,16441,16442,16423,16424,16433,16399,0,0,0,0,0,0,0,4123,18,
+18,4123,0,0,0,0,0,0,0,0,0,16443,16435,16436,16444,16445,16446,16447,16448,16423,16424,16433,16399,0,0,0,0,0,0,0,4123,18,
+18,4123,0,0,0,0,0,0,0,0,0,0,0,16443,16435,16436,16449,16450,16451,16423,16424,16433,16399,0,0,0,0,0,0,0,4123,18,
+18,4123,0,0,0,0,0,0,0,0,0,0,0,0,0,16443,16435,16436,16452,16453,16454,16455,16399,0,0,0,0,0,0,0,4123,18,
+18,4123,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16443,16435,16436,16424,16456,16399,0,0,0,0,0,0,0,4123,18,
+18,4123,0,0,0,0,0,0,0,0,0,0,0,2067,4105,4105,4105,4105,0,16443,16457,16458,16459,0,0,0,0,0,0,0,4123,18,
+18,4123,0,0,0,0,0,0,0,0,0,0,2067,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4123,18,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13
+</data>
+ </layer>
+ <objectgroup id="2" name="Collectables" />
+ <objectgroup id="3" name="Enemies" />
+ <objectgroup id="5" name="Special">
+  <object id="1" template="templates/spawn_player.tx" x="120" y="96">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="512" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>

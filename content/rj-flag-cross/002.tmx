@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="1">
+ <properties>
+  <property name="Chunk" type="int" value="0"/>
+  <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value="001.tmx"/>
+  <property name="Name" value="Seven Pink Twats"/>
+  <property name="Right" type="file" value="003.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value=""/>
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx"/>
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx"/>
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx"/>
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx"/>
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx"/>
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx"/>
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx"/>
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,66,66,66,66,66,66,66,66,66,66,2066,2065,2066,2065,2066,2065,2066,2065,2066,2065,2066,2065,2066,2065,2066,2065,2066,2065,2066,2065,2066,2065,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4105,4105,4105,4105,13,13,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,115,115,83,13,4105,4105,4105,4105,4105,4105,4105,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,0,4105,4105,4105,0,0,0,83,115,115,83,115,0,0,0,0,0,0,0,0,0,0,0,0,0,6151,0,0,0,0,0,0,0,0,0,0,0,0,0,83,115,83,83,114,0,0,0,0,0,0,0,0,0,4105,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,4105,4105,4105,0,6151,115,83,83,114,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,83,83,114,0,0,0,0,0,4105,4105,4105,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,4105,4105,4105,0,0,0,0,83,115,115,114,0,0,0,0,0,0,0,0,0,0,0,0,0,6151,0,0,6151,0,0,0,0,0,0,0,0,0,0,0,83,115,115,115,0,0,0,0,0,0,0,0,4105,4105,4105,4105,4105,4105,4105,4105,4105,0,0,0,0,0,0,4105,4105,4105,0,6151,83,83,115,114,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,115,83,115,115,0,0,0,4105,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,0,0,0,0,4105,4105,4105,0,0,0,83,115,83,83,114,2104,0,0,0,0,0,0,0,0,6151,0,0,0,2083,4098,4098,2084,0,0,0,6151,0,0,0,0,0,2103,114,114,115,83,114,115,115,114,114,115,114,114,114,114,115,114,115,115,115,114,114,114,114,115,114,114,115,115,115,115,114,115,114,114,114,115</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+ </objectgroup>
+</map>

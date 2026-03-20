@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <tileset firstgid="16385" source="../tilesets/meta/meta_markers.tsx"/>
+ <object name="FlagNeutral" type="SpawnPoint" gid="16386" width="16" height="16">
+  <properties>
+   <property name="Kind" type="int" propertytype="SpawnKind" value="1"/>
+   <property name="Team" type="int" propertytype="Team" value="0"/>
+   <property name="GameModes" type="int" propertytype="GameModes" value="256"/>
+  </properties>
+ </object>
+</template>

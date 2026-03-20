@@ -1,0 +1,25 @@
+{
+    "maps": [
+        {
+            "fileName": "001.tmx",
+            "x": 0,
+            "y": 384
+        },
+        {
+            "fileName": "002.tmx",
+            "x": 0,
+            "y": 256
+        },
+        {
+            "fileName": "003.tmx",
+            "x": 0,
+            "y": 128
+        },
+        {
+            "fileName": "004.tmx",
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "type": "world"
+}

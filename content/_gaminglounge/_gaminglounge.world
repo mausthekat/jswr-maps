@@ -1,0 +1,48 @@
+{
+    "maps": [
+        {
+            "fileName": "178.tmx",
+            "height": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "fileName": "179.tmx",
+            "height": 128,
+            "width": 256,
+            "x": 0,
+            "y": 256
+        },
+        {
+            "fileName": "180.tmx",
+            "height": 128,
+            "width": 256,
+            "x": -304,
+            "y": 0
+        },
+        {
+            "fileName": "177.tmx",
+            "height": 128,
+            "width": 256,
+            "x": 296,
+            "y": 256
+        },
+        {
+            "fileName": "181.tmx",
+            "height": 128,
+            "width": 256,
+            "x": 288,
+            "y": 0
+        },
+        {
+            "fileName": "182.tmx",
+            "height": 128,
+            "width": 256,
+            "x": -304,
+            "y": 256
+        }
+    ],
+    "onlyShowAdjacentMaps": false,
+    "type": "world"
+}

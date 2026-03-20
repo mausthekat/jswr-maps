@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="15">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="004.tmx" />
+  <property name="Left" type="file" value="002.tmx" />
+  <property name="Name" value="abcdabcdabcdabcdabcdabcdacbdacbz" />
+  <property name="Right" type="file" value="003.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="001.tmx" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,69,0,0,0,0,0,0,0,0,0,0,91,91,91,91,91,91,91,91,91,91,91,91,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4105,4105,10241,10241,10241,10241,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4105,4105,4105,10249,10249,10249,10249,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,156,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,156,0,0,0,0,0,0,4105,4105,4105,4105,10249,10249,10249,10249,10249,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,156,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,13,13,13,13,13,13,13,13,13,13,13,13,0,0,0,0,0,4105,4105,4105,4105,4105,10249,10249,10249,10249,10249,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4105,4105,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4105,4105,4105,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6151,6151,6151,6151,6151,6151,6151,6151,6151,6151,6151,6151,6151,6151,6151,6151</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+  <object id="1" gid="12309" x="96" y="80" width="8" height="8" />
+  <object id="2" gid="12313" x="120" y="80" width="8" height="8" />
+  <object id="3" gid="12313" x="128" y="80" width="8" height="8" />
+  <object id="4" gid="12313" x="136" y="80" width="8" height="8" />
+  <object id="5" gid="12313" x="144" y="80" width="8" height="8" />
+  <object id="6" gid="12293" x="152" y="112" width="8" height="8" />
+  <object id="7" gid="12293" x="160" y="112" width="8" height="8" />
+  <object id="8" gid="12357" x="192" y="112" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="9" type="Guardian" gid="752" x="16" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffff" />
+   </properties>
+  </object>
+  <object id="10" name="Barrel" type="Guardian" gid="14349" x="16" y="104" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffff" />
+   </properties>
+  </object>
+  <object id="12" name="Egg 1" type="Guardian" gid="14338" x="56" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffff" />
+   </properties>
+  </object>
+  <object id="13" name="Egg 2" type="Guardian" gid="14338" x="104" y="128" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffff" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="11" type="Route" x="16" y="96">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="10" />
+    <property name="Speed" type="int" propertytype="Speed" value="7" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 224,0" />
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="Spawn">
+  <object id="14" template="templates/spawn_player.tx" x="64" y="80" />
+ </objectgroup>
+</map>

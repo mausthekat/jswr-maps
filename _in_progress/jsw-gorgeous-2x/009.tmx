@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="100">
+ <properties>
+  <property name="Name" value="Inside the MegaTrunk" />
+  <property name="Border" type="int" value="4" />
+  <property name="Left" type="file" value="010.tmx" />
+  <property name="Right" type="file" value="008.tmx" />
+  <property name="Up" type="file" value="013.tmx" />
+  <property name="Down" type="file" value="004.tmx" />
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx" />
+ <tileset firstgid="2049" source="tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="tiles_platform.tsx" />
+ <tileset firstgid="6145" source="tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="tiles_conveyor.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+8235,8194,8235,8234,8235,8235,8234,8235,8234,8234,16,8240,8241,8242,8242,8242,8243,8241,16,8259,8260,8261,8234,8235,8235,8234,8235,8234,8234,8234,8235,8235,
+8194,8205,8194,8235,8209,8194,8235,8235,8262,8260,31,8240,8241,8242,8242,8242,8243,8241,16,8234,8235,8194,8235,8208,8194,8235,8194,8235,8234,8235,8194,8234,
+8194,8194,8194,8194,8194,8194,8194,8194,8235,8234,16,8240,8241,8242,8242,8242,8243,8241,16,8235,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8235,8234,
+8194,8194,8194,8194,8194,8194,8212,8194,8194,8235,16,8240,8241,8242,8242,4101,4112,8241,8244,8194,8194,8206,8194,8194,8194,8194,8194,8205,8194,8194,8194,8235,
+8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,18,4103,8241,8242,8242,8244,8244,8241,8242,8194,8194,8236,8206,8194,8194,8194,8194,8194,8194,8194,8194,8194,
+8194,8194,8212,8194,8194,8194,8194,8194,8194,8194,8241,8244,8241,8242,8242,8242,8243,4101,14,14,14,14,14,14,15,2055,8194,8194,8194,8194,8194,8194,
+8194,8194,8194,8236,8194,8194,8194,8194,8194,8194,8245,8240,8241,8242,4104,4103,8243,8244,16,8234,8234,8235,8234,8237,8235,8235,2055,8235,8194,8194,8194,8194,
+14,14,14,14,14,14,14,14,14,14,32,8240,8241,8242,8244,8244,8243,8241,16,8234,8235,8234,8194,8235,8234,8235,8235,2055,8194,8194,8194,8208,
+8234,6152,8234,8235,6152,8234,8237,6152,8234,8234,18,4103,8241,8242,8242,8242,8243,8241,16,8235,8235,8235,8194,8194,8235,8194,8235,8235,8235,8194,8194,8194,
+8235,6152,8235,8234,6152,8235,8234,6152,8235,8234,16,8244,8241,8242,8242,8242,4101,4102,15,8235,8194,8194,8205,8194,8194,8194,8194,8235,8194,8194,8194,8194,
+8234,6152,8234,8194,6152,8234,8235,6152,8234,8235,16,8240,8241,8242,8242,8242,8244,8244,16,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
+8235,6152,8234,8235,6152,8194,8235,6152,8235,8234,16,8240,8241,8242,4104,4103,8243,8241,8244,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
+8194,6152,8235,8234,6152,8234,8194,6152,8234,8234,16,8240,8241,8242,8244,8244,8243,8241,8242,8194,8236,8194,8194,8194,8194,8194,8194,8194,8194,8236,8194,8194,
+8234,6152,8194,8235,6152,8235,8212,6152,8235,8234,18,4103,8241,8242,8242,8242,8243,8241,17,14,14,14,14,14,14,14,14,14,14,14,14,14,
+8235,6152,8194,8194,6152,8234,8194,6152,8234,8235,16,8244,8241,8242,8242,8242,8243,8241,16,8234,8234,8234,8235,8194,8237,8235,8234,8234,8234,8235,8235,8234,
+8194,6152,8194,8194,6152,8194,8235,6152,8235,8234,16,8240,8241,8242,8242,8242,4101,4102,15,8235,8234,8235,8194,8194,8194,8194,8235,8234,8235,8194,8194,8235
+</data>
+ </layer>
+ <objectgroup id="2" name="Collectables" />
+ <objectgroup id="3" name="Enemies">
+  <object id="1" type="Guardian" x="32" y="192" width="32" height="32">
+   <properties>
+    <property name="Color" type="color" value="#ff00ff" />
+   </properties>
+  </object>
+  <object id="2" type="Route" x="32" y="128" width="32" height="96">
+   <properties>
+    <property name="Guardian" type="object" value="1" />
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+   </properties>
+  </object>
+  <object id="3" type="Guardian" x="80" y="192" width="32" height="32">
+   <properties>
+    <property name="Color" type="color" value="#ff00ff" />
+   </properties>
+  </object>
+  <object id="4" type="Route" x="80" y="128" width="32" height="96">
+   <properties>
+    <property name="Guardian" type="object" value="3" />
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+   </properties>
+  </object>
+  <object id="5" type="Guardian" x="128" y="192" width="32" height="32">
+   <properties>
+    <property name="Color" type="color" value="#ff00ff" />
+   </properties>
+  </object>
+  <object id="6" type="Route" x="128" y="128" width="32" height="96">
+   <properties>
+    <property name="Guardian" type="object" value="5" />
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+   </properties>
+  </object>
+  <object id="7" type="Guardian" x="96" y="112" width="32" height="32">
+   <properties>
+    <property name="Color" type="color" value="#00ffff" />
+   </properties>
+  </object>
+  <object id="8" type="Route" x="0" y="80" width="160" height="32">
+   <properties>
+    <property name="Guardian" type="object" value="7" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="9" type="Guardian" x="192" y="96" width="32" height="32">
+   <properties>
+    <property name="Color" type="color" value="#ff0000" />
+   </properties>
+  </object>
+  <object id="10" type="Route" x="192" y="0" width="32" height="208">
+   <properties>
+    <property name="Guardian" type="object" value="9" />
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+   </properties>
+  </object>
+  <object id="11" type="Guardian" x="432" y="208" width="32" height="32">
+   <properties>
+    <property name="Color" type="color" value="#00cd00" />
+   </properties>
+  </object>
+  <object id="12" type="Route" x="256" y="176" width="208" height="32">
+   <properties>
+    <property name="Guardian" type="object" value="11" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+  <object id="13" type="Guardian" x="304" y="80" width="32" height="32">
+   <properties>
+    <property name="Color" type="color" value="#ffff00" />
+   </properties>
+  </object>
+  <object id="14" type="Route" x="272" y="48" width="208" height="32">
+   <properties>
+    <property name="Guardian" type="object" value="13" />
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="16">
+ <properties>
+  <property name="Chunk" type="int" value="1" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="211.tmx" />
+  <property name="Name" value="Lances Bumming Parlour" />
+  <property name="Right" type="file" value="213.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,65,1,1,65,1,65,1,1,65,65,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,65,65,65,1,65,65,65,1,65,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,65,1,65,1,1,1,65,65,1,1,1,1,1,1,1,1,1,1,4172,4172,1,1,1,1,1,1,1,4172,4172,1,1,1,65,1,65,1,1,1,65,65,1,1,1,1,1,1,1,1,1,4172,1,1,1,1,1,1,1,1,1,1,1,4172,1,65,1,1,1,65,1,1,65,65,1,1,10401,10401,10401,10401,10401,10401,4172,1,1,1,1,1,1,1,1,1,1,1,1,1,4172,1,65,1,65,1,1,1,65,65,1,1,1,1,1,1,1,1,4172,1,1,1,1,1,1,1,1,1,1,1,1,1,4172,1,1,65,1,1,1,1,65,65,10409,10409,10409,10409,10409,10409,1,1,4172,1,1,1,1,1,1,1,1,1,1,1,1,1,4172,1,1,1,1,1,1,1,65,65,1,1,1,1,1,1,1,1,4172,1,1,1,1,1,1,4172,1,1,1,1,1,1,4172,2050,1,1,1,1,1,1,65,65,1,1,10401,10401,10401,10401,10401,10401,10401,4172,1,1,1,1,4172,1,4172,1,1,1,1,4172,1,1,2050,1,1,1,1,1,65,65,1,1,1,1,1,1,1,1,1,1,4172,4172,4172,4172,1,1,1,4172,4172,4172,4172,1,1,1,1,2050,1,1,1,1,65,1,10409,10409,10409,10409,10409,10409,10409,10409,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2050,1,1,1,65,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2050,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2050,1,1,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+  <object id="1" gid="12369" x="8" y="56" width="8" height="8" />
+  <object id="2" gid="12369" x="8" y="88" width="8" height="8" />
+  <object id="3" gid="12369" x="16" y="56" width="8" height="8" />
+  <object id="4" gid="12369" x="16" y="88" width="8" height="8" />
+  <object id="5" gid="12369" x="56" y="72" width="8" height="8" />
+  <object id="6" gid="12369" x="64" y="72" width="8" height="8" />
+  <object id="7" gid="12369" x="72" y="48" width="8" height="8" />
+  <object id="8" gid="12369" x="128" y="72" width="8" height="8" />
+  <object id="9" gid="12369" x="184" y="48" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="10" name="Hunchback 1" type="Guardian" gid="2147498020" x="24" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#fff802" />
+   </properties>
+  </object>
+  
+  <object id="12" name="Waiter" type="Guardian" gid="14371" x="88" y="88" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffff00" />
+   </properties>
+  </object>
+  <object id="13" name="Duck Priest" type="Guardian" gid="14353" x="104" y="88" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#0f39ff" />
+   </properties>
+  </object>
+  <object id="14" name="Butler" type="Guardian" gid="14369" x="144" y="88" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#90ff0f" />
+   </properties>
+  </object>
+  <object id="15" name="Hunchback 2" type="Guardian" gid="14372" x="160" y="88" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff1406" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="11" type="Route" x="24" y="112">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="3"/>
+    <property name="Guardian" type="object" value="10"/>
+    <property name="Speed" type="int" propertytype="Speed" value="5"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 200,0"/>
+  </object>
+ </objectgroup>
+</map>

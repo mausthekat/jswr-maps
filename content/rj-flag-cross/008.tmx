@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="3">
+ <properties>
+  <property name="Chunk" type="int" value="0"/>
+  <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value="007.tmx"/>
+  <property name="Name" value="The Halfway Point"/>
+  <property name="Right" type="file" value="009.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value=""/>
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx"/>
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx"/>
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx"/>
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx"/>
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx"/>
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx"/>
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx"/>
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">114,115,13,115,13,114,13,114,114,83,2105,13,83,13,83,114,13,2105,115,115,13,2105,2065,2105,2065,2105,2065,2105,2065,2105,2065,2105,115,114,83,115,83,115,13,114,114,115,83,115,13,83,114,2065,115,2065,13,2065,2105,2065,115,2065,2105,2065,2105,2065,2105,2065,2105,2065,115,114,13,13,114,115,114,83,115,2065,115,2105,114,13,13,13,88,88,89,13,2065,2105,2065,2105,83,2105,2065,2105,2065,2105,2065,2105,83,114,115,114,83,13,114,115,114,114,13,114,13,13,0,0,0,0,87,2065,115,2065,2105,2065,2105,2065,2105,2065,2105,2065,2105,2065,115,114,83,115,114,114,83,114,13,83,2065,115,2065,13,0,0,0,0,87,83,2065,2105,83,2105,2065,2105,2065,2105,2065,2105,2065,2105,114,83,115,114,114,115,114,83,114,114,114,2065,13,13,0,0,0,0,87,13,2105,83,2105,2065,2105,2065,2105,2065,2105,2065,2105,2065,13,13,13,13,13,13,13,13,13,13,13,13,13,13,0,0,0,0,91,88,88,88,88,88,88,88,88,88,88,88,88,88,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,13,13,13,13,13,13,13,13,13,13,13,13,13,4157,4157,4157,4157,93,88,88,88,88,88,88,88,88,88,88,88,88,88,114,13,114,114,115,13,13,13,83,13,115,114,13,13,4113,4113,4113,4113,87,115,2065,13,13,2105,13,2105,2065,2105,2065,2105,2065,2105,114,115,115,114,114,114,115,114,114,114,2065,115,13,13,13,13,88,88,90,13,2105,2065,115,2065,2105,2065,2105,2065,2105,2065,2105,2065,115,115,114,115,114,114,13,114,13,115,83,2105,2087,2068,0,0,0,0,2067,2088,115,2105,2065,13,2065,2105,2065,2105,2065,2105,2065,2105,114,115,115,114,83,114,83,114,114,13,2105,2077,0,0,102,102,64,64,0,0,2078,2065,2105,2065,2105,2065,2105,2065,2105,2065,2105,2065,115,13,114,114,115,13,83,114,114,83,2077,0,0,0,102,102,64,64,0,0,0,2078,83,2105,2065,2105,2065,2105,2065,2105,2065,2105,114,114,13,13,114,114,114,13,114,2087,0,0,0,2067,0,0,0,0,2068,0,0,0,2088,2065,2105,2065,2105,2065,2105,2065,2105,2065</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Sun Face" type="Guardian" gid="14360" x="120" y="48" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffff"/>
+   </properties>
+  </object>
+  
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="2" type="Route" x="128" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,48"/>
+  </object>
+ </objectgroup>
+</map>

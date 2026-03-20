@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="8" nextobjectid="4">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="" />
+  <property name="Flags" propertytype="RoomFlags" value="" />
+  <property name="Left" type="file" value="" />
+  <property name="Name" value="Central Control Unit" />
+  <property name="Right" type="file" value="002.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Rope Offset" type="int" value="0" />
+  <property name="Up" type="file" value="" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+93,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,89,
+87,2073,0,2085,2060,0,0,2085,2060,0,0,2085,2060,0,0,2085,2060,0,0,8222,0,0,8222,0,0,0,8222,0,0,8222,2074,87,
+87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8222,0,0,8222,0,0,0,8222,0,0,8222,0,87,
+87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8222,0,0,8222,0,0,8214,8215,0,8218,8219,0,87,
+87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8222,0,8220,8221,2073,8220,8221,8221,2074,8220,8221,0,87,
+87,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8218,8219,2073,8216,8217,8237,8218,8215,8219,8237,8216,8217,2074,87,
+91,88,88,88,88,88,88,88,88,88,88,89,0,0,93,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,90,
+4115,4115,4115,4112,4115,4115,4112,4115,4112,4112,4115,87,0,0,87,4115,4112,4112,4115,4112,4115,4115,4115,4115,4112,4115,4115,4112,4115,4115,4115,4115,
+4115,4112,110,110,4115,4112,4115,110,110,4115,4112,87,0,0,87,4115,4115,4115,4112,4115,4115,4112,4112,4115,4112,4115,4112,4115,4115,4115,4112,4115,
+4112,110,4115,4115,110,4115,110,4115,4115,110,4115,87,0,0,91,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,
+4115,110,4112,4112,4115,4115,110,4112,4115,110,4115,87,0,0,0,0,8231,8231,0,0,0,8231,0,0,8231,0,0,0,8231,8231,0,0,
+4112,110,4115,110,110,4115,110,4115,4112,110,4115,87,0,0,0,0,8231,8231,0,0,0,8231,0,0,8231,0,0,0,8231,8231,0,0,
+4115,110,4112,4115,110,4115,110,4115,4115,110,4112,87,0,0,0,0,8231,8231,0,0,0,8231,0,0,8231,0,0,0,8231,8231,0,0,
+4115,110,4115,4112,110,4115,110,4115,4115,110,4115,87,0,0,0,0,8231,8231,0,0,0,8231,0,0,8231,0,0,0,8231,8231,0,0,
+4112,4115,110,110,4115,4112,4115,110,110,4112,4115,87,0,0,0,0,8231,8231,0,6151,0,8231,0,0,8231,0,6151,0,8231,8231,0,0,
+4112,4115,4115,4115,4115,4115,4115,4112,4115,4115,4115,91,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88
+</data>
+ </layer>
+ <objectgroup id="5" name="Collectables" />
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Lift" type="Guardian" gid="14407" x="96" y="128" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Flags" propertytype="GuardianFlags" value="" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="Spawn">
+  <object id="2" template="templates/spawn_player.tx" x="16" y="48">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="256" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="7" name="Routes" />
+</map>

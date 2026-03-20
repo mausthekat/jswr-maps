@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="8" nextobjectid="4">
+ <properties>
+  <property name="Chunk" type="int" value="0"/>
+  <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value="014.tmx"/>
+  <property name="Name" value="R Tape loading error, 0:1"/>
+  <property name="Right" type="file" value=""/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value=""/>
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx"/>
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx"/>
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx"/>
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx"/>
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx"/>
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx"/>
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx"/>
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">4106,4106,4106,4097,4106,4097,4097,4106,4106,4106,4097,19,4097,4106,4106,7,16,4106,51,6,32,94,43,66,126,131,5,35,2,41,104,29,4106,4097,4097,4106,4106,4106,4106,4106,4097,4106,4106,4106,106,4106,4097,105,4106,4097,100,4,125,47,40,83,32,135,13,62,22,25,133,46,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,88,89,117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,103,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,112,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,127,88,88,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,93,89,0,0,0,0,0,0,0,0,0,87,44,4097,4106,91,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,93,90,91,89,0,0,0,0,0,0,0,0,87,128,4106,4097,4106,91,89,0,0,0,0,0,0,0,0,0,0,0,0,93,90,117,120,91,89,0,0,0,0,0,0,0,87,116,4106,4106,4106,4106,91,89,0,0,0,0,0,0,0,0,0,0,93,90,58,48,117,109,91,89,0,0,0,0,0,0,87,68,4097,4106,4106,4097,4106,91,89,0,0,0,0,0,0,0,0,93,90,128,40,86,50,71,45,91,89,0,0,0,0,0,87,78,4106,4106,4097,47,4106,94,91,89,0,0,0,0,0,0,93,90,118,136,57,17,29,101,21,6,91,89,0,0,0,0,87,60,4106,4097,4106,4106,4097,4106,4097,91,89,0,0,0,0,93,90,97,44,7,135,22,62,96,94,32,111,91,89,0,0,0,87,137,4097,4106,4097,4106,42,4097,4106,120,91,89,0,0,93,90,122,138,28,12,59,68,58,90,18,36,113,52,91,89,0,0,87,30,4106,4106,4106,4106,4106,45,4097,4097,4106,91,88,88,90,2,113,116,74,125,62,96,98,123,110,16,72,114,9,91,88,88,90,12,4106,4097,4097,4106,4097,4106,4106,4097,52,4106,4097,71,10,4,47,60,78,2,99,120,5,13,51,134,34,74,139,21,59,104,26,57</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Chef" type="Guardian" gid="14352" x="80" y="56" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#20f7ff"/>
+   </properties>
+  </object>
+  
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="2" type="Route" x="88" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="3"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,88"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="Spawn">
+  <object id="3" template="templates/spawn_flag_neutral.tx" x="224" y="112">
+   <properties>
+    <property name="GameModes" propertytype="GameModes" type="int" value="256"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

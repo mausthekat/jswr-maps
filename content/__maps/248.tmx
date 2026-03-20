@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="5">
+ <properties>
+  <property name="Chunk" type="int" value="1" />
+  <property name="Down" type="file" value="249.tmx" />
+  <property name="Left" type="file" value="" />
+  <property name="Name" value="You Were Warned" />
+  <property name="Right" type="file" value="" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="247.tmx" />
+ </properties>
+  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,1,1,1,1,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,1,2069,1,1,2070,1,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,1,6153,1,1,1,1,6153,1,1,1,6148,12,135,1,1,1,11,12,6148,1,1,1,1,1,1,1,1,1,1,6148,6148,1,137,137,137,137,137,137,137,137,1,6148,6148,12,135,1,1,1,11,12,6148,6148,1,1,1,1,6148,6148,1,1,1,6148,6148,1,2069,1,1,1,1,1,1,2070,6148,6148,6148,12,135,1,1,1,11,12,6148,6148,6148,1,1,6148,6148,6148,6148,6148,1,6148,6148,6148,16,6148,16,16,6148,6148,6148,16,16,16,6148,12,135,6166,6146,6167,11,12,6148,16,16,6148,6148,16,16,16,16,16,6148,16</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Beetle" type="Guardian" gid="14364" x="40" y="96" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#fff104" />
+   </properties>
+  </object>
+  <object id="2" name="Toilet" type="Guardian" gid="14390" x="128" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#06ffe6" />
+   </properties>
+  </object>
+  
+  <object id="4" name="Dragon" type="Guardian" gid="14378" x="184" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#0fff04" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="3" type="Route" x="120" y="112">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="2"/>
+    <property name="Speed" type="int" propertytype="Speed" value="3"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 24,0"/>
+  </object>
+ </objectgroup>
+</map>

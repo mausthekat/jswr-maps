@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="30">
+ <properties>
+  <property name="ChainRoomGroup" type="int" value="4" />
+  <property name="Chunk" type="int" value="14" />
+  <property name="Down" type="file" value="" />
+  <property name="Flags" propertytype="RoomFlags" value="MIRROR_TRIGGER" />
+  <property name="Left" type="file" value="192.tmx" />
+  <property name="Name" value="The Crossing" />
+  <property name="Right" type="file" value="193.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Rope Offset" type="int" value="0" />
+  <property name="Up" type="file" value="" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+88,88,88,89,87,87,93,88,88,89,87,87,87,86,87,87,87,87,86,87,87,87,93,88,88,89,87,87,93,88,88,88,
+64,64,64,91,88,88,90,54,54,91,88,88,90,86,91,88,88,90,86,91,88,88,90,54,54,91,88,88,90,64,64,64,
+88,88,88,88,88,105,93,90,91,89,64,64,87,86,87,99,99,87,86,87,64,64,93,90,91,89,105,88,88,88,88,88,
+88,88,88,88,88,88,54,64,64,54,88,89,54,86,54,99,99,54,86,54,93,88,54,64,64,54,88,88,88,88,88,88,
+75,75,75,75,75,75,75,75,75,75,75,54,88,88,88,99,99,88,88,88,54,75,75,75,75,75,75,75,75,75,75,75,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,28,28,0,0,0,0,0,0,8228,8228,8228,8228,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,28,28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,8218,13,13,13,13,13,13,13,13,13,13,13,13,13,13,8219,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,8220,13,0,0,0,0,0,8228,8228,0,0,0,0,0,13,8221,0,0,0,0,0,0,0,0,
+18,18,18,18,18,18,18,18,18,13,0,0,0,0,0,8228,0,0,0,0,0,0,13,18,18,18,18,18,18,18,18,18,
+8205,1,0,0,0,0,8205,0,0,8212,13,13,13,13,13,13,13,13,13,13,13,13,8207,0,0,8205,0,0,0,0,1,8205,
+8205,1,0,0,0,0,8205,0,0,0,8205,0,0,8205,0,8205,8205,0,8205,0,0,8205,0,0,0,8205,0,0,0,0,1,8205,
+8205,1,0,0,0,0,8205,0,0,0,8205,0,0,8205,0,8205,8205,0,8205,0,0,8205,0,0,0,8205,0,0,0,0,1,8205,
+8205,1,0,0,0,0,8205,0,0,2103,13,13,13,13,13,13,13,13,13,13,13,13,2104,0,0,8205,0,0,0,0,1,8205,
+23,23,23,23,23,23,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,23,23,23,23,23,23,
+95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95
+</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+  <object id="28" gid="12317" x="120" y="104" width="8" height="8" />
+  <object id="29" gid="12317" x="128" y="104" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="8" name="Slinky 1" type="Guardian" gid="2147498040" x="0" y="56" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff30ff30" />
+   </properties>
+  </object>
+  <object id="13" name="Slinky 2" type="Guardian" gid="2147498040" x="240" y="56" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff30ff30" />
+   </properties>
+  </object>
+  <object id="14" name="Computer I 1" type="Guardian" gid="14380" x="0" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+  <object id="15" name="Computer I 2" type="Guardian" gid="14380" x="32" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+  <object id="16" name="Computer I 3" type="Guardian" gid="2147498028" x="240" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+  <object id="17" name="Computer I 4" type="Guardian" gid="2147498028" x="208" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+  <object id="18" name="Pulser Panel 1" type="Guardian" gid="14382" x="112" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00a4ff" />
+   </properties>
+  </object>
+  <object id="19" name="Pulser Panel 2" type="Guardian" gid="2147498030" x="128" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00a4ff" />
+   </properties>
+  </object>
+  <object id="20" name="Triangle 1" type="Guardian" gid="14383" x="80" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00a4ff" />
+   </properties>
+  </object>
+  <object id="21" name="Triangle 2" type="Guardian" gid="2147498031" x="160" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00a4ff" />
+   </properties>
+  </object>
+  <object id="22" name="Pulser Panel 3" type="Guardian" gid="14382" x="96" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00a4ff" />
+   </properties>
+  </object>
+  <object id="23" name="Pulser Panel 4" type="Guardian" gid="2147498030" x="144" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00a4ff" />
+   </properties>
+  </object>
+  <object id="24" name="Computer II 1" type="Guardian" gid="14389" x="224" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+  <object id="25" name="Computer II 2" type="Guardian" gid="14389" x="192" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+  <object id="26" name="Computer II 3" type="Guardian" gid="2147498037" x="16" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+  <object id="27" name="Computer II 4" type="Guardian" gid="2147498037" x="48" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="6" name="Routes">
+  <object id="9" type="Route" x="0" y="48">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="3" />
+    <property name="Guardian" type="object" value="8" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 128,0" />
+  </object>
+  <object id="12" type="Route" x="128" y="48">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Guardian" type="object" value="13" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+   </properties>
+   <polyline points="0,0 128,0" />
+  </object>
+ </objectgroup>
+</map>

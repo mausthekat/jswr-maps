@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#0402c4" nextlayerid="6" nextobjectid="2">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="023.tmx" />
+  <property name="Name" value="Argh Not Again." />
+  <property name="Right" type="file" value="025.tmx" />
+  <property name="Rope" type="bool" value="true" />
+  <property name="Up" type="file" value="" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+10,10,10,10,10,10,10,10,10,10,10,6154,6154,6151,6151,6151,6151,6151,6151,6154,6154,10,10,10,10,10,10,10,10,10,10,10,
+0,0,8225,8225,0,0,0,0,0,0,0,0,6154,6154,6151,6151,6151,6151,6154,6154,0,0,0,0,0,0,0,0,8225,8225,0,0,
+0,0,8225,8225,0,0,0,0,0,0,0,0,0,6154,6154,6154,6154,6154,6154,0,0,0,0,0,0,0,0,0,8225,8225,0,0,
+0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,
+0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,
+0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,
+0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,
+0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,
+0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,
+10,10,10,10,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,10,10,10,10,
+10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,0,10,10,10,
+10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,0,10,10,10,
+10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,0,10,10,10,
+10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,0,10,10,10,
+10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,8225,8225,0,0,0,0,0,0,0,0,0,0,0,0,10,10,10,
+10,10,10,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,6147,10,10,10
+</data>
+ </layer>
+ <objectgroup id="5" name="Collectables" />
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Arrow II" type="Arrow" gid="14409" x="240" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffff1016" />
+    <property name="FlightDirection" type="int" propertytype="FlightDirection" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="3" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>

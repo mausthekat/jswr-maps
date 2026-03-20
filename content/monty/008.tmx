@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="6">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="007.tmx" />
+  <property name="Name" value="The House" />
+  <property name="Right" type="file" value="" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,0,0,0,0,0,0,0,0,0,0,76,76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,76,76,76,76,76,76,76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,76,76,76,76,76,76,76,76,76,76,76,76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4150,4150,4150,4150,4150,4150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4150,4150,4150,4150,4150,4136,0,0,0,0,0,0,0,0,0,0,0,0,6145,6145,6145,6145,6145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4136,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4136,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4136,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6145,6145,6145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4105,4105,4105,4105,4105,4105,0,0,0,0,0,0,0,0,0,0,0,6145,74,74,74,74,74,74,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,74,6151,6151,6151,6151,6151,0,0,0,74,74,74,74,74,74,74,74,74,74,74,0,0,0,0,0,0,6146,0,0,0,0,0,74,74,6151,6151,6151,6151,0,0,0,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,6151,6151,6151,6151</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="1" name="Satellite" type="Guardian" gid="14397" x="48" y="24" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#60ff6c" />
+   </properties>
+  </object>
+  
+  <object id="3" name="Warehouse Beast" type="Guardian" gid="14343" x="104" y="64" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#3935ff" />
+   </properties>
+  </object>
+  
+  <object id="5" name="Skull" type="Guardian" gid="14387" x="104" y="24" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffff3f" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="Routes" color="#ff00ffff">
+  <object id="2" type="Route" x="56" y="8">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,104"/>
+  </object>
+  <object id="4" type="Route" x="104" y="56">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="3"/>
+    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 104,0"/>
+  </object>
+ </objectgroup>
+</map>

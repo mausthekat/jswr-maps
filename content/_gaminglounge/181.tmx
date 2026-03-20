@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="5">
+ <properties>
+  <property name="Down" value="" />
+  <property name="Flags" propertytype="RoomFlags" value="" />
+  <property name="Left" value="181.tmx" />
+  <property name="Name" value="The Podium" />
+  <property name="Right" value="181.tmx" />
+  <property name="RoomPurpose" type="int" propertytype="RoomPurpose" value="4" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Rope Offset" type="int" value="0" />
+  <property name="Up" value="" />
+ </properties>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <tileset firstgid="936" source="../../tilesets/meta/meta_markers.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,145,145,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,145,148,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,145,145,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,0,0,0,145,145,145,146,146,146,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,147,147,147,145,145,145,146,149,146,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,147,150,147,145,145,145,146,146,146,0,0,0,0,0,0,0,0,0,0,0,76,
+76,0,0,0,0,0,0,0,0,0,0,147,147,147,145,145,145,146,146,146,0,0,0,0,0,0,0,0,0,0,0,76,
+0,0,0,0,0,0,0,0,2049,4130,4130,4130,4130,4130,4130,4130,4130,4130,4130,4130,4130,4130,2050,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,2049,0,0,0,4150,0,0,0,0,0,0,0,4150,0,0,0,2050,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,2049,0,0,0,0,4150,0,0,0,0,0,0,0,4150,0,0,0,0,2050,0,0,0,0,0,0,0,
+96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96
+</data>
+ </layer>
+ <objectgroup id="2" name="Collectables" />
+ <objectgroup id="3" name="Enemies" />
+ <objectgroup color="#00ffff" id="4" name="Routes" />
+ <objectgroup id="5" name="Spawn" />
+ <objectgroup id="6" name="Special">
+  <object id="1" template="templates/spawn_player.tx" x="120" y="32">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="512" />
+    <property name="Position" type="int" value="1" />
+   </properties>
+  </object>
+  <object id="2" template="templates/spawn_player.tx" x="96" y="64">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="512" />
+    <property name="Position" type="int" value="3" />
+   </properties>
+  </object>
+  <object id="3" template="templates/spawn_player.tx" x="144" y="56">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="512" />
+    <property name="Position" type="int" value="2" />
+   </properties>
+  </object>
+  <object id="4" template="templates/spawn_player.tx" x="120" y="120">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="512" />
+    <property name="Position" type="int" value="0" />
+    <property name="VarianceX" type="int" value="1" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>

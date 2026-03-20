@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="6" nextobjectid="6">
+ <properties>
+  <property name="Chunk" type="int" value="0" />
+  <property name="Down" type="file" value="082.tmx" />
+  <property name="Left" type="file" value="072.tmx" />
+  <property name="Name" value="Willy's Lookout" />
+  <property name="Right" type="file" value="074.tmx" />
+  <property name="Rope" type="bool" value="false" />
+  <property name="Up" type="file" value="" />
+ </properties>
+  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
+ <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
+ <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
+ <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
+ <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
+ <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+<layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,4117,0,0,0,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,10337,75,0,0,0,0,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,4117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,75,75,75,2070,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,2070,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,0,2070,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,0,0,2070,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,2070,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,4117,0,0,0,0,0,4117,0,0,0,0,0,4117,0,0,0,0,0,4117,0,0,0,0</data>
+ </layer>
+ <objectgroup id="5" name="Collectables">
+  <object id="1" gid="12333" x="8" y="80" width="8" height="8" />
+  <object id="2" gid="12333" x="16" y="80" width="8" height="8" />
+  <object id="3" gid="12333" x="16" y="72" width="8" height="8" />
+  <object id="4" gid="12333" x="24" y="80" width="8" height="8" />
+ </objectgroup>
+ <objectgroup id="4" name="Enemies">
+  <object id="5" name="Arrow II" type="Arrow" gid="14409" x="240" y="48" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffff" />
+    <property name="FlightDirection" type="int" propertytype="FlightDirection" value="0" />
+    <property name="Speed" type="int" propertytype="Speed" value="4" />
+   </properties>
+  </object>
+ </objectgroup>
+</map>
