@@ -179,6 +179,7 @@ are configured in **Project > Project Properties**:
 | `ValidGameModes` | GameModes (flags) | Which game modes this map supports. See [Game Mode Configuration](#15-game-mode-configuration). |
 | `FallDamageMode` | FallDamageMode | `Lenient` (0, default) or `Strict` (1). |
 | `SoftLifts` | bool | Enable soft lift mechanics. Default: false. |
+| `InfiniteLives` | bool | Dying does not cost a life. Default: false. |
 | `ManicFinalRoom` | int | Room ID for the final room in Manic-style maps. Default: 0 (unused). |
 | `IncludeMapPreview` | bool | Generate a preview image in the pack file. Default: false. |
 
