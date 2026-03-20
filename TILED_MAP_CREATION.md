@@ -39,7 +39,7 @@ For the extension reference and conversion script details, see [tmx/README.md](R
 ## 1. Prerequisites
 
 - **Tiled Map Editor** 1.10+ (1.11+ recommended) — [mapeditor.org](https://www.mapeditor.org/)
-- **uv** — for running build/conversion scripts (manages Python automatically)
+- **uv** ([astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/)) — for running build/conversion scripts (manages Python automatically)
 - The map editing repository from GitHub
 
 ### Getting the Map Repository
@@ -48,7 +48,7 @@ For the extension reference and conversion script details, see [tmx/README.md](R
 
 ```bash
 git clone https://github.com/mausthekat/jswr-maps.git
-cd tmx
+cd jswr-maps
 ```
 
 **Option B: Download as ZIP (no git required)**
