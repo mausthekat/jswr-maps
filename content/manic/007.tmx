@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="8" nextobjectid="22">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="9" nextobjectid="32">
  <properties>
   <property name="Chunk" type="int" value="0" />
   <property name="Down" type="file" value="" />
@@ -97,6 +97,43 @@
   <object id="16" template="templates/spawn_player.tx" x="16" y="120">
    <properties>
     <property name="GameModes" type="int" propertytype="GameModes" value="16384" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="Special">
+  <object id="23" gid="4134" x="208" y="72" width="8" height="8">
+   <properties>
+    <property name="Multiplayer" type="bool" value="true" />
+   </properties>
+  </object>
+  <object id="25" gid="4134" x="160" y="64" width="8" height="8">
+   <properties>
+    <property name="Multiplayer" type="bool" value="true" />
+   </properties>
+  </object>
+  <object id="26" gid="4134" x="168" y="72" width="8" height="8">
+   <properties>
+    <property name="Multiplayer" type="bool" value="true" />
+   </properties>
+  </object>
+  <object id="27" gid="4134" x="144" y="56" width="8" height="8">
+   <properties>
+    <property name="Multiplayer" type="bool" value="true" />
+   </properties>
+  </object>
+  <object id="28" gid="4134" x="152" y="96" width="8" height="8">
+   <properties>
+    <property name="Multiplayer" type="bool" value="true" />
+   </properties>
+  </object>
+  <object id="29" gid="4134" x="240" y="104" width="8" height="8">
+   <properties>
+    <property name="Multiplayer" type="bool" value="true" />
+   </properties>
+  </object>
+  <object id="31" gid="4134" x="200" y="72" width="8" height="8">
+   <properties>
+    <property name="Multiplayer" type="bool" value="true" />
    </properties>
   </object>
  </objectgroup>

@@ -2,3 +2,10 @@
 __pycache__/
 *.pyc
 *.pyo
+/.venv/
+
+content/*/.extensions/
+content/*/templates/
+_in_progress/*/.extensions/
+_in_progress/*/templates/
+*.tiled-session
