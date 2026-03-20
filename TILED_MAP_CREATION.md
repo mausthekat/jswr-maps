@@ -123,8 +123,47 @@ Options:
 
 When ready to publish, move the directory from `_in_progress/` to `content/`.
 
-> **Note:** The `dat_to_tmx.py --new` flag is deprecated and should not be used. Its property
-> definitions are incomplete. Always use `tmx_project.py create`.
+> **Note:** The `dat_to_tmx.py --new` flag is deprecated and should not be used. Always use
+> `tmx_project.py create` for new maps.
+
+### Importing Legacy .dat Maps
+
+If you have maps from the original JSW:O editor in `.dat` format, use `dat_to_tmx.py` to
+convert them to TMX:
+
+```bash
+# macOS / Linux
+uv run scripts/dat_to_tmx.py <dat-folder> <output-folder> --map
+
+# Windows
+uv run scripts\dat_to_tmx.py <dat-folder> <output-folder> --map
+```
+
+For example, to convert a map called `my-map` and output to `_in_progress/`:
+
+```bash
+# macOS / Linux
+uv run scripts/dat_to_tmx.py /path/to/my-map _in_progress/my-map --map
+
+# Windows
+uv run scripts\dat_to_tmx.py C:\path\to\my-map _in_progress\my-map --map
+```
+
+The input folder should contain the legacy `.dat` files:
+- `*.dat` — room tile data (e.g., `1.dat`, `2.dat`)
+- `*_enemy.dat` or `*_ENEMY.dat` — guardian/enemy data
+- `*_pickups.dat` — collectible positions
+- `<mapname>_setup.dat` — spawn positions (optional)
+
+The converter creates a complete Tiled project in the output folder, including:
+- Individual `.tmx` room files with all layers (Tiles, Collectables, Enemies, Routes, Spawn)
+- A `.world` file with room positions derived from exit connections
+- A `.tiled-project` file with all property type definitions
+- Templates and the Tiled extension
+
+> **Tip:** After conversion, open the `.tiled-project` file in Tiled and set the `MapName`
+> and `ValidGameModes` in Project > Project Properties — these are needed for the map to
+> build correctly.
 
 ---
 
