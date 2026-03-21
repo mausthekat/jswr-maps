@@ -1,157 +1,74 @@
-<?xml version="1.0" ?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="100">
- 
- 
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="106">
  <properties>
-  
-  
-  <property name="Name" value="A bit of tree"/>
-  
-  
   <property name="Border" type="int" value="5"/>
-  
-  
-  <property name="Left" type="file" value="036.tmx"/>
-  
-  
-  <property name="Right" type="file" value="034.tmx"/>
-  
-  
-  <property name="Up" type="file" value="041.tmx"/>
-  
-  
   <property name="Down" type="file" value="030.tmx"/>
-  
- 
+  <property name="Left" type="file" value="036.tmx"/>
+  <property name="Name" value="A bit of tree"/>
+  <property name="Right" type="file" value="034.tmx"/>
+  <property name="Up" type="file" value="041.tmx"/>
  </properties>
- 
- 
  <tileset firstgid="1" source="tiles_solid.tsx"/>
- <tileset firstgid="2049" source="tiles_stairs.tsx"/>
- <tileset firstgid="4097" source="tiles_platform.tsx"/>
- <tileset firstgid="6145" source="tiles_hazard.tsx"/>
- <tileset firstgid="8193" source="tiles_decoration.tsx"/>
- <tileset firstgid="10241" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="145" source="tiles_stairs.tsx"/>
+ <tileset firstgid="209" source="tiles_platform.tsx"/>
+ <tileset firstgid="321" source="tiles_hazard.tsx"/>
+ <tileset firstgid="401" source="tiles_decoration.tsx"/>
+ <tileset firstgid="657" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="721" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="869" source="../../tilesets/guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
-  
-  
   <data encoding="csv">
-8355,8354,8355,8354,8354,8354,8355,8355,8354,8235,8234,8234,83,16,8234,8235,8234,8235,8355,8355,8355,8355,8355,8355,8355,8354,8355,8355,8355,8354,8355,6168,
-8354,8355,8354,8354,8355,8355,8355,8355,8355,8354,8235,8235,83,84,8235,8354,8235,8354,8355,8354,8356,8355,8355,8355,8355,8354,8355,8354,8355,8354,8354,6168,
-8355,8354,8354,8354,8354,8355,8356,8355,8355,8354,8354,8235,83,16,8234,8235,8354,8355,8354,8355,8355,8355,8354,8355,8355,8355,8355,8355,8355,8355,8354,6168,
-8354,8354,8354,8355,8355,8355,8354,8355,8355,8358,8235,8234,16,84,8235,8354,8355,8355,8355,8355,8358,8355,8355,8355,8355,8355,8354,8355,8355,8354,8354,6168,
-8354,8355,8355,8355,8355,8354,8355,8355,8235,4143,8234,8234,83,84,8354,8354,8355,8355,8354,8235,4100,8263,8354,8355,8355,8355,8355,8355,8355,8355,8354,6168,
-8355,8355,8355,8355,8355,8354,8358,8355,8354,8354,8354,8235,83,16,8235,8354,8355,8355,8355,8354,8234,8354,8355,8358,8354,8355,8355,8355,8355,8354,8354,6168,
-8355,8355,8356,8354,8235,4143,4100,8234,8289,8358,8235,8234,83,84,8234,8354,8355,8355,8355,8354,8235,8354,8293,4143,4100,8263,8355,8355,8354,8355,8354,6168,
-8355,8354,8355,8354,8354,8235,8234,8354,8235,4100,8234,8234,83,84,8235,8354,8355,8355,8355,8355,8354,8293,8291,8234,8235,8354,8355,8356,8355,8355,8354,6168,
-8355,8355,8354,8355,8355,8354,8235,8354,8354,8354,8235,8235,83,84,8354,8354,8355,8355,8355,8355,8355,2070,8265,8235,8358,8355,8355,8355,8355,8354,8354,6168,
-8358,8358,8358,8355,8358,8355,8354,8355,8235,4143,4100,8289,83,84,8354,8355,8236,8355,8355,8355,2070,8263,8354,8354,4100,8265,8355,8355,8355,8355,8354,6168,
-4100,4143,4100,4143,4100,4143,8289,8355,8354,8235,8234,8268,83,17,4102,4102,4112,8354,8355,8355,8354,8354,8355,8354,8235,8354,8355,8354,8354,8354,8354,6168,
-8354,8235,8234,8235,8235,8234,8268,8289,8355,8354,8235,8354,83,84,8234,8237,8268,8289,8355,8355,8355,8355,8355,8355,8358,8354,8354,4100,8367,8289,8354,6168,
-8355,8354,8354,8354,8354,8235,8354,8268,8368,8367,8289,8354,83,84,8354,8354,8293,8291,8358,8358,8355,8355,8355,8354,4100,8263,8354,8234,8354,8268,8367,6168,
-8355,8355,8355,8355,8355,8354,8354,8354,8354,8354,8268,8368,83,16,8354,8354,8268,8368,4100,4143,8263,8356,8355,8354,8234,8354,8354,8235,8354,8354,8235,6168,
-8355,8355,8355,8355,8355,8355,8354,8355,8355,8355,8354,8358,83,84,8358,8354,8354,8354,8234,8354,8354,8355,8355,8355,8235,8354,8355,8354,8354,8355,8354,6168,
-8355,8355,8355,8355,8355,8355,8355,8355,8355,8355,8355,4104,32,84,4112,8354,8354,8355,8235,8354,8355,8355,8355,8355,8354,8354,8355,8355,8355,8355,8355,6168
+563,562,563,562,562,562,563,563,562,443,442,442,83,16,442,443,442,443,563,563,563,563,563,563,563,562,563,563,563,562,563,344,
+562,563,562,562,563,563,563,563,563,562,443,443,83,84,443,562,443,562,563,562,564,563,563,563,563,562,563,562,563,562,562,344,
+563,562,562,562,562,563,564,563,563,562,562,443,83,16,442,443,562,563,562,563,563,563,562,563,563,563,563,563,563,563,562,344,
+562,562,562,563,563,563,562,563,563,566,443,442,16,84,443,562,563,563,563,563,566,563,563,563,563,563,562,563,563,562,562,344,
+562,563,563,563,563,562,563,563,443,255,442,442,83,84,562,562,563,563,562,443,212,471,562,563,563,563,563,563,563,563,562,344,
+563,563,563,563,563,562,566,563,562,562,562,443,83,16,443,562,563,563,563,562,442,562,563,566,562,563,563,563,563,562,562,344,
+563,563,564,562,443,255,212,442,497,566,443,442,83,84,442,562,563,563,563,562,443,562,501,255,212,471,563,563,562,563,562,344,
+563,562,563,562,562,443,442,562,443,212,442,442,83,84,443,562,563,563,563,563,562,501,499,442,443,562,563,564,563,563,562,344,
+563,563,562,563,563,562,443,562,562,562,443,443,83,84,562,562,563,563,563,563,563,166,473,443,566,563,563,563,563,562,562,344,
+566,566,566,563,566,563,562,563,443,255,212,497,83,84,562,563,444,563,563,563,166,471,562,562,212,473,563,563,563,563,562,344,
+212,255,212,255,212,255,497,563,562,443,442,476,83,17,214,214,224,562,563,563,562,562,563,562,443,562,563,562,562,562,562,344,
+562,443,442,443,443,442,476,497,563,562,443,562,83,84,442,445,476,497,563,563,563,563,563,563,566,562,562,212,575,497,562,344,
+563,562,562,562,562,443,562,476,576,575,497,562,83,84,562,562,501,499,566,566,563,563,563,562,212,471,562,442,562,476,575,344,
+563,563,563,563,563,562,562,562,562,562,476,576,83,16,562,562,476,576,212,255,471,564,563,562,442,562,562,443,562,562,443,344,
+563,563,563,563,563,563,562,563,563,563,562,566,83,84,566,562,562,562,442,562,562,563,563,563,443,562,563,562,562,563,562,344,
+563,563,563,563,563,563,563,563,563,563,563,216,32,84,224,562,562,563,443,562,563,563,563,563,562,562,563,563,563,563,563,344
 </data>
-  
- 
  </layer>
- 
- 
  <objectgroup id="2" name="Collectables"/>
- 
- 
  <objectgroup id="3" name="Enemies">
-  
-  
-  <object id="1" type="Guardian" x="16" y="32" width="16" height="16">
-   
-   
+  <object id="104" name="Chip" type="Guardian" gid="872" x="56" y="64" width="16" height="16">
    <properties>
-    
-    
-    <property name="Color" type="color" value="#cdcd00"/>
-    
-   
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
-   
-  
   </object>
-  
-  
-  <object id="2" type="Route" x="0" y="16" width="80" height="16">
-   
-   
+  <object id="105" name="Bird" type="Guardian" gid="900" x="16" y="64" width="16" height="16">
    <properties>
-    
-    
-    <property name="Guardian" type="object" value="1"/>
-    
-    
-    <property name="Direction" type="int" propertytype="Direction" value="2"/>
-    
-    
-    <property name="Speed" type="int" propertytype="Speed" value="1"/>
-    
-   
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
-   
-  
   </object>
-  
-  
-  <object id="3" type="Guardian" x="56" y="64" width="16" height="16">
-   
-   
-   <properties>
-    
-    
-    <property name="Color" type="color" value="#ff00ff"/>
-    
-   
-   </properties>
-   
-  
-  </object>
-  
-  
-  <object id="4" type="Route" x="56" y="40" width="16" height="40">
-   
-   
-   <properties>
-    
-    
-    <property name="Guardian" type="object" value="3"/>
-    
-    
-    <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    
-    
-    <property name="Speed" type="int" propertytype="Speed" value="2"/>
-    
-   
-   </properties>
-   
-  
-  </object>
-  
-  
-  <object id="5" type="Arrow" x="248" y="146" width="16" height="8">
-   
-   
-   <properties>
-    
-    
-    <property name="Direction" value="left"/>
-    
-   
-   </properties>
-   
-  
-  </object>
-  
- 
  </objectgroup>
- 
-
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="101" type="Route" x="0" y="56">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="2"/>
+    <property name="Guardian" type="object" value="105"/>
+    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 160,0"/>
+  </object>
+  <object id="103" type="Route" x="64" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="104"/>
+    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,80"/>
+  </object>
+ </objectgroup>
 </map>
