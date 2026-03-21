@@ -66,17 +66,17 @@
   
   <object id="100" name="Bird" type="Guardian" gid="14368" x="64" y="96" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff0000" />
    </properties>
   </object>
   <object id="102" name="Bird" type="Guardian" gid="14368" x="160" y="96" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd700d7" />
    </properties>
   </object>
   <object id="104" name="UFO" type="Guardian" gid="14365" x="96" y="40" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00ff00" />
    </properties>
   </object>
   </objectgroup>

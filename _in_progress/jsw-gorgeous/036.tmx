@@ -78,12 +78,12 @@
   
   <object id="100" name="Spiral" type="Guardian" gid="14357" x="160" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d7d7" />
    </properties>
   </object>
   <object id="102" name="Sun Face" type="Guardian" gid="14360" x="72" y="88" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff0000" />
    </properties>
   </object>
   </objectgroup>

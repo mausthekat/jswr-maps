@@ -72,22 +72,22 @@
   
   <object id="100" name="Monkey" type="Guardian" gid="14398" x="240" y="96" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff00ff" />
    </properties>
   </object>
   <object id="102" name="Sun Face" type="Guardian" gid="14360" x="56" y="88" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff0000" />
    </properties>
   </object>
   <object id="104" name="Pliars" type="Guardian" gid="14342" x="152" y="56" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   <object id="106" name="Two Balls" type="Guardian" gid="14350" x="112" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d7d7" />
    </properties>
   </object>
   </objectgroup>

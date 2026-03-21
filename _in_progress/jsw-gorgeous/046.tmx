@@ -66,22 +66,22 @@
   
   <object id="100" name="Scroll" type="Guardian" gid="14341" x="40" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   <object id="102" name="Dish Robot" type="Guardian" gid="14395" x="160" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d700" />
    </properties>
   </object>
   <object id="104" name="Sun Face" type="Guardian" gid="14360" x="128" y="40" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d7d7" />
    </properties>
   </object>
   <object id="106" name="Sun Face" type="Guardian" gid="14360" x="176" y="112" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   </objectgroup>

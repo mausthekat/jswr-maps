@@ -81,7 +81,7 @@
   
   <object id="100" name="Pirouetting Bunny" type="Guardian" gid="14367" x="176" y="120" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d7d7" />
    </properties>
   </object>
   </objectgroup>

@@ -43,22 +43,34 @@
  <objectgroup id="3" name="Enemies">
   <object id="104" name="Bird" type="Guardian" gid="900" x="40" y="48" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Color" type="color" value="#ff00d700"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
   <object id="106" name="Esmeralda" type="Guardian" gid="878" x="192" y="24" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Color" type="color" value="#ffd7d7d7"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="108" gid="936" x="96" y="80" width="16" height="16"/>
-  <object id="109" gid="936" x="32" y="64" width="16" height="16"/>
+  <object id="108" name="Spear Hunter 1" type="Guardian" gid="936" x="96" y="80" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="109" name="Spear Hunter 2" type="Guardian" gid="936" x="32" y="64" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#00ffff" id="4" name="Routes">
   <object id="101" type="Route" x="40" y="56">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="Guardian" type="object" value="100"/>
+    <property name="Guardian" type="object" value="109"/>
     <property name="Speed" type="int" propertytype="Speed" value="1"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
@@ -67,7 +79,7 @@
   <object id="103" type="Route" x="104" y="48">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="Guardian" type="object" value="102"/>
+    <property name="Guardian" type="object" value="108"/>
     <property name="Speed" type="int" propertytype="Speed" value="1"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>

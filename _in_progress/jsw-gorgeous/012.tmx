@@ -66,22 +66,22 @@
   
   <object id="100" name="Chandelier" type="Guardian" gid="14405" x="80" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   <object id="102" name="Flying Pig" type="Guardian" gid="14355" x="152" y="40" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff0000" />
    </properties>
   </object>
   <object id="104" name="Bird" type="Guardian" gid="14368" x="152" y="96" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   <object id="106" name="Chandelier" type="Guardian" gid="14405" x="0" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   </objectgroup>

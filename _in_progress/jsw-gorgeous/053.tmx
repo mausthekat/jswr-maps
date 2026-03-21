@@ -66,12 +66,12 @@
   
   <object id="100" name="Razor Blade" type="Guardian" gid="14358" x="88" y="48" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d7d7" />
    </properties>
   </object>
   <object id="102" name="Jelly" type="Guardian" gid="14400" x="112" y="40" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff0000" />
    </properties>
   </object>
   </objectgroup>
