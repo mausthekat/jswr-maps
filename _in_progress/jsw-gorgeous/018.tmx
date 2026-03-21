@@ -72,22 +72,22 @@
   
   <object id="100" name="Guard" type="Guardian" gid="14385" x="40" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d700" />
    </properties>
   </object>
   <object id="102" name="Guard" type="Guardian" gid="14385" x="88" y="96" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff0000" />
    </properties>
   </object>
   <object id="104" name="Guard" type="Guardian" gid="14385" x="152" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   <object id="106" name="Guard" type="Guardian" gid="14385" x="200" y="48" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d7d7" />
    </properties>
   </object>
   </objectgroup>

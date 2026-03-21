@@ -81,7 +81,7 @@
   
   <object id="100" name="Bird" type="Guardian" gid="14368" x="64" y="48" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d700" />
    </properties>
   </object>
   </objectgroup>

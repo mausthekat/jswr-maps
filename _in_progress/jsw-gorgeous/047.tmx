@@ -87,22 +87,22 @@
   
   <object id="100" name="Saw" type="Guardian" gid="14337" x="128" y="120" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd700d7" />
    </properties>
   </object>
   <object id="102" name="Duck Priest" type="Guardian" gid="14353" x="200" y="40" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd700d7" />
    </properties>
   </object>
   <object id="104" name="Duck Priest" type="Guardian" gid="14353" x="72" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   <object id="106" name="Duck Priest" type="Guardian" gid="14353" x="152" y="88" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d700" />
    </properties>
   </object>
   </objectgroup>

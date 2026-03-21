@@ -66,7 +66,7 @@
   
   <object id="100" name="Flying Pig" type="Guardian" gid="14355" x="64" y="40" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff0000" />
    </properties>
   </object>
   </objectgroup>

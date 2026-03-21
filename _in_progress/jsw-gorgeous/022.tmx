@@ -66,22 +66,22 @@
   
   <object id="100" name="Chef" type="Guardian" gid="14352" x="24" y="48" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff00ff" />
    </properties>
   </object>
   <object id="102" name="Chef" type="Guardian" gid="14352" x="72" y="112" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   <object id="104" name="Chef" type="Guardian" gid="14352" x="120" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ff00d700" />
    </properties>
   </object>
   <object id="106" name="Chef" type="Guardian" gid="14352" x="160" y="48" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff" />
+    <property name="Color" type="color" value="#ffff00ff" />
    </properties>
   </object>
   </objectgroup>
