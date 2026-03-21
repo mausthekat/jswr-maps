@@ -63,7 +63,7 @@
   <object id="106" type="Route" x="216" y="8">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="Guardian" type="object" value="105"/>
+    <property name="Guardian" type="object" value="111"/>
     <property name="Speed" type="int" propertytype="Speed" value="1"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
@@ -72,7 +72,7 @@
   <object id="108" type="Route" x="56" y="24">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="Guardian" type="object" value="107"/>
+    <property name="Guardian" type="object" value="113"/>
     <property name="Speed" type="int" propertytype="Speed" value="1"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
@@ -81,7 +81,7 @@
   <object id="110" type="Route" x="144" y="24">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="Guardian" type="object" value="109"/>
+    <property name="Guardian" type="object" value="112"/>
     <property name="Speed" type="int" propertytype="Speed" value="1"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>

@@ -66,7 +66,7 @@
   <object id="103" type="Route" x="0" y="56">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="2"/>
-    <property name="Guardian" type="object" value="0"/>
+    <property name="Guardian" type="object" value="104"/>
     <property name="Speed" type="int" propertytype="Speed" value="1"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
