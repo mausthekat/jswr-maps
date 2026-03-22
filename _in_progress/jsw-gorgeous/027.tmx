@@ -36,9 +36,7 @@
 4121,4114,4114,4121,4121,4114,4114,4114,4122,4114,4114,4114,4114,4121,4121,4121,4114,4121,4121,4121,4114,4122,8310,8202,23,24,25,23,24,68,23,24
 </data>
  </layer>
- <objectgroup id="2" name="Collectables">
-  <object id="1" gid="12289" x="208" y="32" width="8" height="8" />
- </objectgroup>
+ <objectgroup id="2" name="Collectables" />
  <objectgroup id="3" name="Enemies">
   <object id="102" name="Duck Priest" type="Guardian" gid="14353" x="200" y="112" width="16" height="16">
    <properties>

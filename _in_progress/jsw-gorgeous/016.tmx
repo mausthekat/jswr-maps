@@ -95,14 +95,14 @@
     <property name="Color" type="color" value="#ff00d700" />
    </properties>
   </object>
-  <object id="110" name="Arrow I" type="Arrow" gid="14408" x="240" y="64" width="16" height="16">
+  <object id="110" name="Arrow I" type="Arrow" gid="14408" x="240" y="56" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="0" />
     <property name="Speed" type="int" propertytype="Speed" value="4" />
    </properties>
   </object>
-  <object id="111" name="Arrow I" type="Arrow" gid="2147498056" x="0" y="56" width="16" height="16">
+  <object id="111" name="Arrow I" type="Arrow" gid="2147498056" x="0" y="48" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="1" />

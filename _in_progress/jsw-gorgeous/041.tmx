@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="110">
  <properties>
   <property name="Border" type="int" value="2" />
@@ -50,14 +50,14 @@
     <property name="Flags" propertytype="GuardianFlags" value="" />
    </properties>
   </object>
- <object id="109" name="Arrow I" type="Arrow" gid="2147498056" x="0" y="112" width="16" height="16">
+  <object id="109" name="Arrow I" type="Arrow" gid="2147498056" x="0" y="104" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="1" />
     <property name="Speed" type="int" propertytype="Speed" value="4" />
    </properties>
   </object>
-  </objectgroup>
+ </objectgroup>
  <objectgroup color="#00ffff" id="4" name="Routes">
   <object id="101" type="Route" x="0" y="80">
    <properties>
