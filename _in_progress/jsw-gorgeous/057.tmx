@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="105">
  <properties>
   <property name="Border" type="int" value="5" />
@@ -61,16 +61,16 @@
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 80,0" />
+   <polyline points="0,0 96,0" />
   </object>
-  <object id="103" type="Route" x="176" y="72">
+  <object id="103" type="Route" x="176" y="64">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="104" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,40" />
+   <polyline points="0,0 0,56" />
   </object>
  </objectgroup>
 </map>

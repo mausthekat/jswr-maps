@@ -453,4 +453,11 @@
    <property name="TileType" propertytype="TileType" value="platform"/>
   </properties>
  </tile>
+ <tile id="90">
+  <animation>
+   <frame tileid="90" duration="100"/>
+   <frame tileid="91" duration="100"/>
+   <frame tileid="92" duration="100"/>
+  </animation>
+ </tile>
 </tileset>

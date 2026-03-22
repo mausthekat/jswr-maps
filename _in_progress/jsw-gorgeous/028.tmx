@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="100">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="101">
  
  
  <properties>
@@ -82,6 +82,13 @@
  <objectgroup id="3" name="Enemies">
   
   
+  <object id="100" name="Arrow I" type="Arrow" gid="2147498056" x="0" y="56" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff" />
+    <property name="FlightDirection" type="int" propertytype="FlightDirection" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="4" />
+   </properties>
+  </object>
   </objectgroup>
  
 

@@ -89,16 +89,16 @@
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 136,0" />
+   <polyline points="0,0 152,0" />
   </object>
-  <object id="103" type="Route" x="152" y="8">
+  <object id="103" type="Route" x="152" y="0">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="102" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,64" />
+   <polyline points="0,0 0,80" />
   </object>
   <object id="105" type="Route" x="168" y="72">
    <properties>
@@ -107,7 +107,7 @@
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 72,0" />
+   <polyline points="0,0 88,0" />
   </object>
   </objectgroup>
  </map>

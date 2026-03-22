@@ -1258,12 +1258,15 @@ function fixOrphanedRoutesInMap(map) {
         }
     }
 
-    // Find which guardians are already assigned to routes
+    // Build set of valid guardian IDs in the map
+    const validGuardianIds = new Set(allGuardians.map(g => g.id));
+
+    // Find which guardians are already assigned to (non-orphaned) routes
     const assignedGuardianIds = new Set();
     for (const route of allRoutes) {
-        const guardianRef = route.property("Guardian");
-        if (guardianRef !== null && guardianRef !== undefined) {
-            if (typeof guardianRef === "object" && guardianRef.id && guardianRef.id !== 0) {
+        if (!isRouteOrphaned(route, validGuardianIds)) {
+            const guardianRef = route.property("Guardian");
+            if (typeof guardianRef === "object" && guardianRef.id) {
                 assignedGuardianIds.add(guardianRef.id);
             } else if (typeof guardianRef === "number" && guardianRef !== 0) {
                 assignedGuardianIds.add(guardianRef);
@@ -1271,15 +1274,8 @@ function fixOrphanedRoutesInMap(map) {
         }
     }
 
-    // Find orphaned routes
-    const orphanedRoutes = allRoutes.filter(route => {
-        const guardianRef = route.property("Guardian");
-        if (guardianRef === null || guardianRef === undefined) return true;
-        if (typeof guardianRef === "object") {
-            return !guardianRef.id || guardianRef.id === 0;
-        }
-        return guardianRef === 0;
-    });
+    // Find orphaned routes (blank ref, zero ref, or dangling ref to non-existent object)
+    const orphanedRoutes = allRoutes.filter(route => isRouteOrphaned(route, validGuardianIds));
 
     // Find unassigned guardians
     const unassignedGuardians = allGuardians.filter(g => !assignedGuardianIds.has(g.id));
@@ -1350,18 +1346,24 @@ function fixOrphanedRoutes() {
 
         const roomLabel = String(roomId).padStart(3, '0') + (roomData.roomName ? ": " + roomData.roomName : "");
 
-        // Find which guardians are assigned to routes
+        // Build set of valid guardian IDs in this room
+        const validGuardianIds = new Set(roomData.guardians.map(g => g.id));
+
+        // Find which guardians are assigned to valid (non-orphaned) routes
         const assignedGuardianIds = new Set();
         for (const route of roomData.routes) {
-            if (route.guardianId && route.guardianId !== "") {
+            if (route.guardianId && route.guardianId !== "" && route.guardianId !== "0"
+                && validGuardianIds.has(route.guardianId)) {
                 assignedGuardianIds.add(route.guardianId);
             }
         }
 
-        // Find orphaned routes (routes with empty or "0" guardianId)
-        const orphanedRoutes = roomData.routes.filter(r => !r.guardianId || r.guardianId === "" || r.guardianId === "0");
+        // Find orphaned routes (empty/zero guardianId, or references non-existent guardian)
+        const orphanedRoutes = roomData.routes.filter(r =>
+            !r.guardianId || r.guardianId === "" || r.guardianId === "0"
+            || !validGuardianIds.has(r.guardianId));
 
-        // Find unassigned guardians (guardians not referenced by any route)
+        // Find unassigned guardians (guardians not referenced by any valid route)
         const unassignedGuardians = roomData.guardians.filter(g => !assignedGuardianIds.has(g.id));
 
         // Try to auto-fix unambiguous cases
@@ -1643,6 +1645,28 @@ function isRouteObject(obj) {
     // but not directly accessible via obj.type
     if (obj.name === "Route") return true;
     return false;
+}
+
+/**
+ * Check if a route's Guardian reference points to a valid object in the map.
+ * Returns true if the route is orphaned (no ref, zero ref, or dangling ref).
+ * @param {MapObject} route - The route object
+ * @param {Set<number>} validGuardianIds - Set of guardian object IDs that exist in the map
+ * @returns {boolean}
+ */
+function isRouteOrphaned(route, validGuardianIds) {
+    const guardianRef = route.property("Guardian");
+    if (guardianRef === null || guardianRef === undefined) return true;
+    if (typeof guardianRef === "object") {
+        if (!guardianRef.id || guardianRef.id === 0) return true;
+        // Check the referenced object actually exists
+        return !validGuardianIds.has(guardianRef.id);
+    }
+    if (typeof guardianRef === "number") {
+        if (guardianRef === 0) return true;
+        return !validGuardianIds.has(guardianRef);
+    }
+    return true;
 }
 
 /**
@@ -2119,12 +2143,15 @@ function fixSelectedGuardianProperties() {
             }
         }
 
-        // Find which guardians are already assigned
+        // Build set of valid guardian IDs
+        const validGuardianIds = new Set(allGuardians.map(g => g.id));
+
+        // Find which guardians are already assigned to non-orphaned routes
         const assignedGuardianIds = new Set();
         for (const route of allRoutes) {
-            const guardianRef = route.property("Guardian");
-            if (guardianRef !== null && guardianRef !== undefined) {
-                if (typeof guardianRef === "object" && guardianRef.id && guardianRef.id !== 0) {
+            if (!isRouteOrphaned(route, validGuardianIds)) {
+                const guardianRef = route.property("Guardian");
+                if (typeof guardianRef === "object" && guardianRef.id) {
                     assignedGuardianIds.add(guardianRef.id);
                 } else if (typeof guardianRef === "number" && guardianRef !== 0) {
                     assignedGuardianIds.add(guardianRef);
@@ -2137,12 +2164,7 @@ function fixSelectedGuardianProperties() {
 
         // Try to fix orphaned selected routes
         for (const route of selectedRoutes) {
-            const guardianRef = route.property("Guardian");
-            const isOrphaned = guardianRef === null || guardianRef === undefined ||
-                (typeof guardianRef === "object" && (!guardianRef.id || guardianRef.id === 0)) ||
-                (typeof guardianRef === "number" && guardianRef === 0);
-
-            if (!isOrphaned) continue;
+            if (!isRouteOrphaned(route, validGuardianIds)) continue;
 
             // Calculate bounds from polyline
             const points = route.polygon || [];
