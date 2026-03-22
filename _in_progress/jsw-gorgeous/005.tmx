@@ -84,7 +84,7 @@
     <property name="Color" type="color" value="#ff00ffff" />
    </properties>
   </object>
-  <object id="108" name="Coin" type="Guardian" gid="14366" x="120" y="120" width="16" height="16">
+  <object id="108" name="Egg" type="Guardian" gid="14338" x="120" y="120" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d7d7" />
    </properties>
