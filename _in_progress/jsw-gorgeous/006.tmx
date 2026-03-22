@@ -87,41 +87,41 @@
   </objectgroup>
  
 
-<objectgroup color="#00ffff" id="4" name="Routes"><object id="101" type="Route" x="120" y="48">
+<objectgroup color="#00ffff" id="4" name="Routes"><object id="101" type="Route" x="120" y="40">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="100" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,64" />
+   <polyline points="0,0 0,80" />
   </object>
-  <object id="103" type="Route" x="96" y="48">
+  <object id="103" type="Route" x="96" y="40">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="102" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,64" />
+   <polyline points="0,0 0,80" />
   </object>
-  <object id="105" type="Route" x="192" y="48">
+  <object id="105" type="Route" x="192" y="40">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="104" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,64" />
+   <polyline points="0,0 0,80" />
   </object>
-  <object id="107" type="Route" x="144" y="56">
+  <object id="107" type="Route" x="144" y="48">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="106" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,48" />
+   <polyline points="0,0 0,64" />
   </object>
   </objectgroup>
  </map>

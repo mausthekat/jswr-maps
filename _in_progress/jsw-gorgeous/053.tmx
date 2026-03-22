@@ -77,23 +77,23 @@
   </objectgroup>
  
 
-<objectgroup color="#00ffff" id="4" name="Routes"><object id="101" type="Route" x="96" y="8">
+<objectgroup color="#00ffff" id="4" name="Routes"><object id="101" type="Route" x="96" y="0">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="100" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,64" />
+   <polyline points="0,0 0,80" />
   </object>
-  <object id="103" type="Route" x="120" y="8">
+  <object id="103" type="Route" x="120" y="0">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="102" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,80" />
+   <polyline points="0,0 0,96" />
   </object>
   </objectgroup>
  </map>
