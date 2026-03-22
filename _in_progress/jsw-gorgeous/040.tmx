@@ -47,7 +47,7 @@
     <property name="Flags" propertytype="GuardianFlags" value="" />
    </properties>
   </object>
-  <object id="102" name="Eye 2" type="Guardian" gid="2147498054" x="48" y="80" width="16" height="16">
+  <object id="102" name="Eye 2" type="Guardian" gid="2147498054" x="48" y="84" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffd7d700" />
     <property name="Flags" propertytype="GuardianFlags" value="" />
@@ -59,7 +59,7 @@
     <property name="Flags" propertytype="GuardianFlags" value="" />
    </properties>
   </object>
-  <object id="106" name="Eye 4" type="Guardian" gid="2147498054" x="80" y="88" width="16" height="16">
+  <object id="106" name="Eye 4" type="Guardian" gid="2147498054" x="80" y="92" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d700" />
     <property name="Flags" propertytype="GuardianFlags" value="" />
@@ -71,7 +71,7 @@
     <property name="Flags" propertytype="GuardianFlags" value="" />
    </properties>
   </object>
-  <object id="110" name="Pac-Man" type="Guardian" gid="2147498010" x="112" y="96" width="16" height="16">
+  <object id="110" name="Pac-Man" type="Guardian" gid="2147498010" x="112" y="100" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d7d7" />
     <property name="Flags" propertytype="GuardianFlags" value="" />

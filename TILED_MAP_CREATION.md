@@ -180,6 +180,7 @@ are configured in **Project > Project Properties**:
 | `FallDamageMode` | FallDamageMode | `Lenient` (0, default) or `Strict` (1). |
 | `SoftLifts` | bool | Enable soft lift mechanics. Default: false. |
 | `InfiniteLives` | bool | Dying does not cost a life. Default: false. |
+| `OriginalArrows` | bool | Use original ZX Spectrum arrow behavior (per-arrow counter, 256-tick cycle). Default: false. |
 | `ManicFinalRoom` | int | Room ID for the final room in Manic-style maps. Default: 0 (unused). |
 | `IncludeMapPreview` | bool | Generate a preview image in the pack file. Default: false. |
 
