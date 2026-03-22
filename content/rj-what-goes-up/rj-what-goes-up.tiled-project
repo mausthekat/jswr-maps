@@ -51,6 +51,11 @@
             "name": "ManicFinalRoom",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "OriginalArrows",
+            "type": "bool",
+            "value": false
         }
     ],
     "propertyTypes": [

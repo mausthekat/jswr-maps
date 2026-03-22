@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -8,12 +9,8 @@
     ],
     "properties": [
         {
-            "name": "MapName",
-            "type": "string",
-            "value": ""
-        },
-        {
             "name": "Author",
+            "propertytype": "",
             "type": "string",
             "value": ""
         },
@@ -24,28 +21,44 @@
             "value": 1
         },
         {
-            "name": "ValidGameModes",
-            "propertytype": "GameModes",
-            "type": "int",
-            "value": 0
-        },
-        {
             "name": "IncludeMapPreview",
-            "type": "bool",
-            "value": false
-        },
-        {
-            "name": "SoftLifts",
+            "propertytype": "",
             "type": "bool",
             "value": false
         },
         {
             "name": "InfiniteLives",
+            "propertytype": "",
             "type": "bool",
             "value": false
         },
         {
             "name": "ManicFinalRoom",
+            "propertytype": "",
+            "type": "int",
+            "value": 0
+        },
+        {
+            "name": "MapName",
+            "propertytype": "",
+            "type": "string",
+            "value": ""
+        },
+        {
+            "name": "OriginalArrows",
+            "propertytype": "",
+            "type": "bool",
+            "value": true
+        },
+        {
+            "name": "SoftLifts",
+            "propertytype": "",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "ValidGameModes",
+            "propertytype": "GameModes",
             "type": "int",
             "value": 0
         }
@@ -65,15 +78,47 @@
             "valuesAsFlags": false
         },
         {
+            "id": 15,
+            "name": "FallDamageMode",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Lenient",
+                "Strict"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 3,
             "name": "FlightDirection",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 13,
+            "name": "GameModes",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "COLLECT_X_ITEMS",
+                "TIMED_GAMES",
+                "RACE_TO_GAMES",
+                "DISCOVERY_GAMES",
+                "GOLDEN_WILLY",
+                "WILLY_TAG",
+                "BRITISH_BULLDOG",
+                "WILLY_TEAMS",
+                "RESERVED",
+                "CAPTURE_THE_FLAG",
+                "LOBBY",
+                "COLLECT_ALL"
+            ],
+            "valuesAsFlags": true
         },
         {
             "id": 6,
@@ -95,6 +140,22 @@
                 "MIRROR_TRIGGER"
             ],
             "valuesAsFlags": true
+        },
+        {
+            "id": 14,
+            "name": "RoomPurpose",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Gameplay",
+                "Lobby",
+                "Team Select",
+                "Launchpad",
+                "Victory Room",
+                "Briefing",
+                "Team Select 4"
+            ],
+            "valuesAsFlags": false
         },
         {
             "id": 9,
@@ -173,19 +234,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 7,
-            "name": "Traversal",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Ping-Pong",
-                "One-Way Reset",
-                "One-Way Stop",
-                "Loop"
-            ],
-            "valuesAsFlags": false
-        },
-        {
             "id": 11,
             "name": "TileType",
             "storageType": "string",
@@ -202,6 +250,19 @@
             "valuesAsFlags": false
         },
         {
+            "id": 7,
+            "name": "Traversal",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Ping-Pong",
+                "One-Way Reset",
+                "One-Way Stop",
+                "Loop"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 12,
             "name": "WillySuit",
             "storageType": "int",
@@ -209,54 +270,6 @@
             "values": [
                 "Normal",
                 "SpaceSuit"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 13,
-            "name": "GameModes",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "COLLECT_X_ITEMS",
-                "TIMED_GAMES",
-                "RACE_TO_GAMES",
-                "DISCOVERY_GAMES",
-                "GOLDEN_WILLY",
-                "WILLY_TAG",
-                "BRITISH_BULLDOG",
-                "WILLY_TEAMS",
-                "RESERVED",
-                "CAPTURE_THE_FLAG",
-                "LOBBY",
-                "COLLECT_ALL"
-            ],
-            "valuesAsFlags": true
-        },
-        {
-            "id": 14,
-            "name": "RoomPurpose",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Gameplay",
-                "Lobby",
-                "Team Select",
-                "Launchpad",
-                "Victory Room",
-                "Briefing",
-                "Team Select 4"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 15,
-            "name": "FallDamageMode",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Lenient",
-                "Strict"
             ],
             "valuesAsFlags": false
         }
