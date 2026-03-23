@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="8" nextobjectid="27">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="8" nextobjectid="31">
  <properties>
   <property name="Chunk" type="int" value="0" />
   <property name="Down" type="file" value="" />
@@ -63,9 +63,19 @@
     <property name="Color" type="color" value="#ffefff2f" />
    </properties>
   </object>
-  <object id="13" name="Slot Tank" type="Guardian" gid="14413" x="168" y="120" width="16" height="16">
+  <object id="13" name="Slot Tank 1" type="Guardian" gid="14413" x="120" y="40" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffff0a20" />
+   </properties>
+  </object>
+  <object id="27" name="Slot Tank 2" type="Guardian" gid="14413" x="112" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffff30e0" />
+   </properties>
+  </object>
+  <object id="29" name="Slot Tank 3" type="Guardian" gid="14413" x="120" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff40ff20" />
    </properties>
   </object>
   <object id="15" name="Telephone 4" type="Guardian" gid="14431" x="208" y="16" width="16" height="16">
@@ -102,14 +112,32 @@
    </properties>
    <polyline points="0,0 0,64" />
   </object>
-  <object id="14" type="Route" x="40" y="112">
+  <object id="14" type="Route" x="120" y="32">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="13" />
+    <property name="Speed" type="int" value="1" />
+    <property name="Traversal" type="int" value="0" />
+   </properties>
+   <polyline points="0,0 88,0" />
+  </object>
+  <object id="28" type="Route" x="112" y="64">
+   <properties>
+    <property name="Direction" type="int" value="1" />
+    <property name="Guardian" type="object" value="27" />
     <property name="Speed" type="int" value="2" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 144,0" />
+   <polyline points="0,0 48,0" />
+  </object>
+  <object id="30" type="Route" x="40" y="112">
+   <properties>
+    <property name="Direction" type="int" value="1" />
+    <property name="Guardian" type="object" value="29" />
+    <property name="Speed" type="int" value="1" />
+    <property name="Traversal" type="int" value="0" />
+   </properties>
+   <polyline points="0,0 128,0" />
   </object>
   <object id="16" type="Route" x="216" y="0">
    <properties>
