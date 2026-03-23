@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="9" nextobjectid="40">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="9" nextobjectid="41">
  <properties>
   <property name="Chunk" type="int" value="0" />
   <property name="Down" type="file" value="" />
@@ -47,6 +47,7 @@
   <object id="19" gid="12397" x="192" y="8" width="8" height="8" />
   <object id="20" gid="12397" x="240" y="56" width="8" height="8" />
   <object id="21" gid="12397" x="160" y="64" width="8" height="8" />
+  <object id="40" gid="12397" x="48" y="8" width="8" height="8" />
  </objectgroup>
  <objectgroup id="4" name="Enemies">
   <object id="5" name="Emu 1" type="Guardian" gid="14412" x="120" y="40" width="16" height="16">

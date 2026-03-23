@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="19">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="20">
  <properties>
   <property name="Chunk" type="int" value="0" />
   <property name="Down" type="file" value="" />
@@ -44,6 +44,7 @@
   <object id="12" gid="12397" x="232" y="8" width="8" height="8" />
   <object id="13" gid="12397" x="144" y="16" width="8" height="8" />
   <object id="14" gid="12397" x="72" y="8" width="8" height="8" />
+  <object id="19" gid="12397" x="192" y="40" width="8" height="8" />
  </objectgroup>
  <objectgroup id="4" name="Enemies">
   <object id="5" name="Clockwork Robot" type="Guardian" gid="14386" x="120" y="72" width="16" height="16">
