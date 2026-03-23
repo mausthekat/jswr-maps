@@ -2298,17 +2298,23 @@ const TEAM_NAMES = { 0: "Neutral", 1: "Red", 2: "Blue", 3: "It", 4: "Green", 5: 
 // Kind names by value
 const SPAWN_KIND_NAMES = { 0: "Player Start", 1: "Flag" };
 
-// GameMode bit values (matches game_settings.py GameMode IntFlag)
+// GameMode + MapFlags bit values (matches game_settings.py GameMode/MapFlags IntFlag)
 const GAME_MODE_BITS = {
-    0x01: "COLLECT",
-    0x02: "TIMED",
-    0x04: "RACE",
-    0x08: "DISCOVERY",
-    0x10: "WILLY",
-    0x20: "TAG",
-    0x40: "BULLDOG",
-    0x80: "SINGLE",
-    0x8000: "TEAMS"
+    0x0001: "COLLECT",
+    0x0002: "TIMED",
+    0x0004: "RACE",
+    0x0008: "DISCOVERY",
+    0x0010: "GOLDEN",
+    0x0020: "TAG",
+    0x0040: "BULLDOG",
+    0x0080: "TEAMS",
+    0x0100: "CTF",
+    0x0200: "LOBBY",
+    0x0400: "F2C",
+    0x0800: "COLLECT_ALL",
+    0x1000: "CHAIN",
+    0x2000: "IT",
+    0x4000: "MM_START"
 };
 
 /**

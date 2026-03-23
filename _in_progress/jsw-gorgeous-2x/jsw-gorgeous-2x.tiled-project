@@ -53,6 +53,17 @@
             "name": "OriginalArrows",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "SinglePlayerModes",
+            "propertytype": "SPModes",
+            "type": "int",
+            "value": 0
+        },
+        {
+            "name": "SPVictoryRoom",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -264,6 +275,17 @@
                 "Strict"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 16,
+            "name": "SPModes",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SP_CLASSIC",
+                "SP_MANIC_MINER"
+            ],
+            "valuesAsFlags": true
         }
     ]
 }

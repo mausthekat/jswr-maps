@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -42,13 +41,25 @@
             "name": "MapName",
             "propertytype": "",
             "type": "string",
-            "value": ""
+            "value": "JSW Gorgeous"
         },
         {
             "name": "OriginalArrows",
             "propertytype": "",
             "type": "bool",
             "value": true
+        },
+        {
+            "name": "SPVictoryRoom",
+            "propertytype": "",
+            "type": "int",
+            "value": 0
+        },
+        {
+            "name": "SinglePlayerModes",
+            "propertytype": "SPModes",
+            "type": "int",
+            "value": 1
         },
         {
             "name": "SoftLifts",
@@ -60,7 +71,7 @@
             "name": "ValidGameModes",
             "propertytype": "GameModes",
             "type": "int",
-            "value": 0
+            "value": 2049
         }
     ],
     "propertyTypes": [
@@ -217,6 +228,17 @@
                 "8 (Very Slow)"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 16,
+            "name": "SPModes",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SP_CLASSIC",
+                "SP_MANIC_MINER"
+            ],
+            "valuesAsFlags": true
         },
         {
             "id": 8,
