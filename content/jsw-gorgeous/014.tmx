@@ -65,7 +65,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="106" />
-    <property name="Speed" type="int" propertytype="Speed" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="5" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
    <polyline points="0,0 0,120" />
