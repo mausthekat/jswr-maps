@@ -29,13 +29,13 @@
 46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,46,
 46,4145,0,0,0,0,4145,0,0,0,0,46,0,0,46,0,0,0,0,0,0,0,4145,4145,4145,0,0,0,0,0,0,46,
 46,0,0,0,0,0,0,0,0,0,0,46,0,0,46,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,46,
-46,0,0,0,4145,0,0,0,0,0,0,46,0,0,46,46,46,0,0,0,0,0,0,0,0,4145,4145,4145,4145,4145,4145,46,
-46,0,0,0,0,0,0,0,0,0,0,46,0,0,46,46,46,46,0,0,0,0,0,0,0,0,0,0,0,0,0,46,
-46,20481,20481,10305,10305,10305,10305,10305,10305,10305,10305,46,0,0,46,46,46,46,46,10313,10313,10313,10313,10313,10313,10313,10313,0,0,0,0,46,
+46,0,0,0,4145,0,0,0,0,0,0,6165,0,0,46,46,46,0,0,0,0,0,0,0,0,4145,4145,4145,4145,4145,4145,46,
+46,0,0,0,0,0,0,0,0,0,0,6165,0,0,46,46,46,46,0,0,0,0,0,0,0,0,0,0,0,0,0,46,
+46,20481,20481,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,10305,0,0,0,0,46,
 46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,46,
-46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4145,0,0,0,0,46,
+46,0,0,0,0,0,0,0,0,0,46,46,4145,4145,0,0,0,0,0,0,0,0,0,0,0,0,4145,0,0,0,0,46,
 46,4145,4145,4145,4145,4145,4145,4145,4145,4145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,46,
-46,0,0,0,0,0,0,0,0,0,0,4145,4145,0,0,0,0,0,0,0,4145,0,0,0,0,0,4145,0,0,0,0,46,
+46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4145,0,0,0,0,0,4145,0,0,0,0,46,
 46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6163,6163,6163,0,0,0,0,0,46,
 46,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,4145,46
 </data>
@@ -46,7 +46,7 @@
   <object id="18" gid="12433" x="240" y="24" width="8" height="8" />
   <object id="19" gid="12433" x="8" y="8" width="8" height="8" />
  </objectgroup>
- <objectgroup id="4" name="Enemies" visible="0">
+ <objectgroup id="4" name="Enemies">
   <object id="5" name="Flag Bug 1" type="Guardian" gid="14425" x="72" y="120" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff1d10ff" />
@@ -69,41 +69,41 @@
   </object>
  </objectgroup>
  <objectgroup color="#00ffff" id="6" name="Routes">
-  <object id="6" type="Route" x="8" y="112">
+  <object id="6" type="Route" x="16" y="112">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="5" />
     <property name="Speed" type="int" value="1" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 152,0" />
+   <polyline points="0,0 144,0" />
   </object>
-  <object id="9" type="Route" x="8" y="88">
+  <object id="9" type="Route" x="16" y="88">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="8" />
     <property name="Speed" type="int" value="1" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 64,0" />
+   <polyline points="0,0 56,0" />
   </object>
-  <object id="11" type="Route" x="144" y="64">
+  <object id="11" type="Route" x="152" y="64">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="10" />
     <property name="Speed" type="int" value="1" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 56,0" />
+   <polyline points="0,0 48,0" />
   </object>
-  <object id="21" type="Route" x="200" y="48">
+  <object id="21" type="Route" x="208" y="48">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="20" />
-    <property name="Speed" type="int" value="2" />
+    <property name="Speed" type="int" value="8" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 48,0" />
+   <polyline points="0,0 40,0" />
   </object>
  </objectgroup>
  <objectgroup id="7" name="Spawn">

@@ -26,12 +26,12 @@
 39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8239,8239,39,
 39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8239,8239,39,
 39,0,0,0,0,0,0,0,10353,10353,10353,10353,10353,10353,10353,10353,10353,10353,10353,10353,10353,10353,10353,10353,4187,4187,4187,4187,4187,4196,4196,39,
-39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4196,4196,39,
-39,4187,4187,4187,4187,4187,0,0,6151,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4196,4196,39,
-39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4187,4187,0,0,0,4196,4196,39,
-39,0,0,0,0,0,0,20545,0,0,0,0,4187,4187,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4196,4196,39,
-39,0,0,4187,4187,0,0,0,0,0,0,0,0,0,0,0,0,0,4187,4187,0,0,0,0,0,0,0,0,0,4196,4196,39,
-39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4187,4187,0,0,4196,4196,39,
+39,0,0,0,0,0,0,0,6151,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6151,4196,4196,39,
+39,4187,4187,4187,4187,4187,0,0,6151,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6151,4196,4196,39,
+39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4187,4187,0,0,6151,4196,4196,39,
+39,0,0,0,0,0,0,20545,0,0,0,0,4187,4187,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6151,4196,4196,39,
+39,0,0,4187,4187,0,0,0,0,0,0,0,0,0,0,0,0,0,4187,4187,0,0,0,0,0,0,0,0,6151,4196,4196,39,
+39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4187,4187,0,6151,4196,4196,39,
 39,4187,4187,0,0,0,0,0,0,0,0,0,4187,4187,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6151,4196,4196,39,
 39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4187,4187,0,0,0,0,0,0,0,0,0,4196,4196,39,
 39,0,0,0,0,4187,4187,4187,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4187,4187,0,0,0,0,4196,4196,39,
@@ -46,22 +46,22 @@
   <object id="22" gid="12429" x="208" y="120" width="8" height="8" />
  </objectgroup>
  <objectgroup id="4" name="Enemies">
-  <object id="5" name="Press Stamp 1" type="Guardian" gid="14427" x="72" y="48" width="16" height="16">
+  <object id="5" name="Press Stamp 1" type="Guardian" gid="14427" x="72" y="56" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff3fff9f" />
    </properties>
   </object>
-  <object id="7" name="Press Stamp 2" type="Guardian" gid="14427" x="120" y="104" width="16" height="16">
+  <object id="7" name="Press Stamp 2" type="Guardian" gid="14427" x="120" y="80" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffff1440" />
    </properties>
   </object>
-  <object id="9" name="Press Stamp 3" type="Guardian" gid="14427" x="168" y="72" width="16" height="16">
+  <object id="9" name="Press Stamp 3" type="Guardian" gid="14427" x="168" y="96" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff3ffff0" />
    </properties>
   </object>
-  <object id="11" name="Bouncing Check" type="Guardian" gid="14426" x="216" y="120" width="16" height="16">
+  <object id="11" name="Bouncing Check" type="Guardian" gid="14426" x="136" y="120" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff30edff" />
    </properties>
@@ -75,34 +75,34 @@
     <property name="Speed" type="int" value="1" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 0,72" />
+   <polyline points="0,0 0,80" />
   </object>
   <object id="8" type="Route" x="128" y="32">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="7" />
-    <property name="Speed" type="int" value="1" />
+    <property name="Speed" type="int" value="8" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 0,72" />
+   <polyline points="0,0 0,80" />
   </object>
   <object id="10" type="Route" x="176" y="32">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="9" />
-    <property name="Speed" type="int" value="1" />
+    <property name="Speed" type="int" value="2" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 0,72" />
+   <polyline points="0,0 0,80" />
   </object>
-  <object id="12" type="Route" x="8" y="112">
+  <object id="12" type="Route" x="136" y="112">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="11" />
     <property name="Speed" type="int" value="1" />
     <property name="Traversal" type="int" value="0" />
    </properties>
-   <polyline points="0,0 224,0" />
+   <polyline points="0,0 32,0" />
   </object>
  </objectgroup>
  <objectgroup id="7" name="Spawn">

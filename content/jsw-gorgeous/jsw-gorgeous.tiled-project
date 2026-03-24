@@ -105,8 +105,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -148,7 +148,10 @@
             "storageType": "string",
             "type": "enum",
             "values": [
-                "MIRROR_TRIGGER"
+                "MIRROR_TRIGGER",
+                "DARK_ROOM",
+                "UNDERWATER",
+                "LOW_GRAVITY"
             ],
             "valuesAsFlags": true
         },
