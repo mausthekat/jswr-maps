@@ -1,40 +1,22 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="106">
- 
- 
  <properties>
-  
-  
-  <property name="Name" value="The Bridge" />
-  
-  
   <property name="Border" type="int" value="4" />
-  
-  
-  <property name="Left" type="file" value="003.tmx" />
-  
-  
-  <property name="Right" type="file" value="001.tmx" />
-  
-  
-  <property name="Up" type="file" value="001.tmx" />
-  
-  
   <property name="Down" type="file" value="001.tmx" />
-  
- 
+  <property name="Left" type="file" value="003.tmx" />
+  <property name="Name" value="The Bridge" />
+  <property name="Right" type="file" value="001.tmx" />
+  <property name="Up" type="file" value="001.tmx" />
  </properties>
- 
- 
  <tileset firstgid="1" source="tiles_solid.tsx" />
  <tileset firstgid="2049" source="tiles_stairs.tsx" />
  <tileset firstgid="4097" source="tiles_platform.tsx" />
  <tileset firstgid="6145" source="tiles_hazard.tsx" />
  <tileset firstgid="8193" source="tiles_decoration.tsx" />
  <tileset firstgid="10241" source="tiles_conveyor.tsx" />
- <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" /><tileset firstgid="14337" source="../../tilesets/guardians.tsx" /><layer id="1" name="Tiles" width="32" height="16">
-  
-  
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
 8194,8194,8209,8194,8194,8194,8194,8194,8194,8194,8194,8205,8206,8194,8206,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8206,8194,8194,
@@ -51,19 +33,11 @@
 8194,8194,8194,8194,8194,8194,8194,8194,8194,2050,10,11,8194,8194,8194,8194,8194,12,13,10,8231,8194,8194,8194,8206,8194,8194,8194,8194,8194,8194,8194,
 8194,8194,8194,8194,8212,8194,8194,8194,2050,13,10,11,8233,8233,8233,8233,8233,12,10,10,13,8231,8194,8194,8194,8194,8194,8194,8194,8194,8212,8194,
 8194,8194,8194,8231,8194,8194,8231,2050,10,10,13,11,6149,6149,6149,6149,6149,12,13,10,10,10,8231,8231,8194,8194,8194,8194,8231,8194,8231,8194,
-4098,4099,4099,4098,4098,4099,4099,4099,13,10,10,11,10244,10244,10244,10244,10244,12,10,10,13,10,4099,4099,4098,4099,4098,4098,4098,4099,4098,4099
+4098,4099,4099,4098,4098,4099,4099,4099,13,10,10,11,10276,10276,10276,10276,10276,12,10,10,13,10,4099,4099,4098,4099,4098,4098,4098,4099,4098,4099
 </data>
-  
- 
  </layer>
- 
- 
  <objectgroup id="2" name="Collectables" />
- 
- 
  <objectgroup id="3" name="Enemies">
-  
-  
   <object id="100" name="Bird" type="Guardian" gid="14368" x="64" y="96" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffff0000" />
@@ -79,10 +53,9 @@
     <property name="Color" type="color" value="#ff00ff00" />
    </properties>
   </object>
-  </objectgroup>
- 
-
-<objectgroup color="#00ffff" id="4" name="Routes"><object id="101" type="Route" x="0" y="88">
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="101" type="Route" x="0" y="88">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="2" />
     <property name="Guardian" type="object" value="100" />
@@ -109,5 +82,5 @@
    </properties>
    <polyline points="0,0 0,112" />
   </object>
-  </objectgroup>
- </map>
+ </objectgroup>
+</map>

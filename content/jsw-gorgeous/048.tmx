@@ -33,7 +33,7 @@
 72,73,73,74,6,7,122,8197,8221,8225,8195,8225,8195,8222,8222,8222,8222,8225,8195,8222,4164,8224,8222,8222,8222,123,6,6,9,6,6,9,
 72,74,73,9,6,7,123,8197,8220,8221,8222,8230,8222,8222,8222,8222,8222,8222,8222,8222,8225,8195,8222,8222,4164,122,9,6,6,9,6,6,
 72,77,74,77,74,7,122,8197,8221,8222,8222,8222,8222,8222,8222,8230,8222,8222,8222,8222,8222,8222,8222,8230,8225,123,6,6,9,6,6,6,
-72,73,77,73,9,7,124,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,10256,124,6,6,6,6,6,9
+72,73,77,73,9,7,124,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,10288,124,6,6,6,6,6,9
 </data>
  </layer>
  <objectgroup id="2" name="Collectables">
@@ -42,47 +42,47 @@
  <objectgroup id="3" name="Enemies">
   <object id="100" name="Saw" type="Guardian" gid="14337" x="128" y="120" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffd700d7"/>
+    <property name="Color" type="color" value="#ffd700d7" />
    </properties>
   </object>
   <object id="102" name="Coin" type="Guardian" gid="14366" x="72" y="88" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffd7d700"/>
+    <property name="Color" type="color" value="#ffd7d700" />
    </properties>
   </object>
   <object id="104" name="Pliars" type="Guardian" gid="14342" x="160" y="64" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff00d700"/>
+    <property name="Color" type="color" value="#ff00d700" />
    </properties>
   </object>
  </objectgroup>
  <objectgroup color="#00ffff" id="4" name="Routes">
   <object id="101" type="Route" x="56" y="112">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="2"/>
-    <property name="Guardian" type="object" value="100"/>
-    <property name="Speed" type="int" propertytype="Speed" value="1"/>
-    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Guardian" type="object" value="100" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 136,0"/>
+   <polyline points="0,0 136,0" />
   </object>
   <object id="103" type="Route" x="56" y="80">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="2"/>
-    <property name="Guardian" type="object" value="102"/>
-    <property name="Speed" type="int" propertytype="Speed" value="1"/>
-    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Guardian" type="object" value="102" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 120,0"/>
+   <polyline points="0,0 120,0" />
   </object>
   <object id="105" type="Route" x="56" y="56">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="2"/>
-    <property name="Guardian" type="object" value="104"/>
-    <property name="Speed" type="int" propertytype="Speed" value="1"/>
-    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+    <property name="Direction" type="int" propertytype="Direction" value="2" />
+    <property name="Guardian" type="object" value="104" />
+    <property name="Speed" type="int" propertytype="Speed" value="1" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 96,0"/>
+   <polyline points="0,0 96,0" />
   </object>
  </objectgroup>
 </map>
