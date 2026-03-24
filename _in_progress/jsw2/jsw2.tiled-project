@@ -134,7 +134,7 @@
             "valuesAsFlags": true
         },
         {
-            "id": 7,
+            "id": 9,
             "name": "SpawnKind",
             "storageType": "int",
             "type": "enum",
@@ -148,7 +148,7 @@
         {
             "color": "#ffa0a0a4",
             "drawFill": true,
-            "id": 8,
+            "id": 10,
             "members": [
                 {
                     "name": "Kind",
@@ -159,6 +159,12 @@
                 {
                     "name": "Team",
                     "propertyType": "Team",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "GameModes",
+                    "propertyType": "GameModes",
                     "type": "int",
                     "value": 0
                 }
@@ -177,7 +183,7 @@
             ]
         },
         {
-            "id": 9,
+            "id": 8,
             "name": "Team",
             "storageType": "int",
             "type": "enum",
@@ -192,7 +198,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 10,
+            "id": 7,
             "name": "Traversal",
             "storageType": "int",
             "type": "enum",
@@ -205,7 +211,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 11,
+            "id": 12,
             "name": "WillySuit",
             "storageType": "int",
             "type": "enum",
@@ -216,7 +222,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 12,
+            "id": 11,
             "name": "TileType",
             "storageType": "string",
             "type": "enum",
@@ -245,10 +251,13 @@
                 "WILLY_TAG",
                 "BRITISH_BULLDOG",
                 "WILLY_TEAMS",
-                "RESERVED",
                 "CAPTURE_THE_FLAG",
                 "LOBBY",
-                "COLLECT_ALL"
+                "FIRST_TO_COLLECT",
+                "COLLECT_ALL",
+                "CHAIN_GAMES",
+                "IT_TAG",
+                "MM_START"
             ],
             "valuesAsFlags": true
         },

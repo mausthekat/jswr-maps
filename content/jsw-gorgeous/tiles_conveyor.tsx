@@ -6,6 +6,7 @@
  <image source="tiles_conveyor.png" width="128" height="32"/>
  <tile id="0">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
@@ -17,7 +18,8 @@
  </tile>
  <tile id="1">
   <properties>
-   <property name="TileType" propertytype="TileType" value="solid"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
    <frame tileid="1" duration="100"/>
@@ -28,7 +30,8 @@
  </tile>
  <tile id="2">
   <properties>
-   <property name="TileType" propertytype="TileType" value="solid"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="TileType" propertytype="TileType" value="decoration"/>
   </properties>
   <animation>
    <frame tileid="2" duration="100"/>
@@ -39,7 +42,8 @@
  </tile>
  <tile id="3">
   <properties>
-   <property name="TileType" propertytype="TileType" value="solid"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
    <frame tileid="3" duration="100"/>
@@ -48,7 +52,8 @@
  </tile>
  <tile id="4">
   <properties>
-   <property name="TileType" propertytype="TileType" value="solid"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
    <frame tileid="4" duration="100"/>
@@ -59,6 +64,7 @@
  </tile>
  <tile id="5">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
@@ -70,6 +76,7 @@
  </tile>
  <tile id="6">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
@@ -81,11 +88,13 @@
  </tile>
  <tile id="7">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="8">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
@@ -96,31 +105,37 @@
  </tile>
  <tile id="9">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="10">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="11">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="12">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="13">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="14">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
@@ -132,18 +147,20 @@
  </tile>
  <tile id="15">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
-   <frame tileid="14" duration="100"/>
-   <frame tileid="51" duration="100"/>
-   <frame tileid="52" duration="100"/>
-   <frame tileid="53" duration="100"/>
+   <frame tileid="15" duration="100"/>
+   <frame tileid="54" duration="100"/>
+   <frame tileid="55" duration="100"/>
+   <frame tileid="56" duration="100"/>
   </animation>
  </tile>
  <tile id="16">
   <properties>
-   <property name="TileType" propertytype="TileType" value="solid"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="37">

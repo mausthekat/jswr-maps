@@ -143,6 +143,12 @@
                     "propertyType": "Team",
                     "type": "int",
                     "value": 0
+                },
+                {
+                    "name": "GameModes",
+                    "propertyType": "GameModes",
+                    "type": "int",
+                    "value": 0
                 }
             ],
             "name": "SpawnPoint",
@@ -245,10 +251,13 @@
                 "WILLY_TAG",
                 "BRITISH_BULLDOG",
                 "WILLY_TEAMS",
-                "RESERVED",
                 "CAPTURE_THE_FLAG",
                 "LOBBY",
-                "COLLECT_ALL"
+                "FIRST_TO_COLLECT",
+                "COLLECT_ALL",
+                "CHAIN_GAMES",
+                "IT_TAG",
+                "MM_START"
             ],
             "valuesAsFlags": true
         },
