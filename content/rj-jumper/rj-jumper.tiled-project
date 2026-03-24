@@ -110,7 +110,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 4,
+            "id": 6,
             "name": "GuardianFlags",
             "storageType": "string",
             "type": "enum",
@@ -134,7 +134,7 @@
             "valuesAsFlags": true
         },
         {
-            "id": 6,
+            "id": 9,
             "name": "SpawnKind",
             "storageType": "int",
             "type": "enum",
@@ -148,7 +148,7 @@
         {
             "color": "#ffa0a0a4",
             "drawFill": true,
-            "id": 7,
+            "id": 10,
             "members": [
                 {
                     "name": "Kind",
@@ -159,6 +159,12 @@
                 {
                     "name": "Team",
                     "propertyType": "Team",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "GameModes",
+                    "propertyType": "GameModes",
                     "type": "int",
                     "value": 0
                 }
@@ -192,7 +198,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 9,
+            "id": 7,
             "name": "Traversal",
             "storageType": "int",
             "type": "enum",
@@ -205,7 +211,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 10,
+            "id": 12,
             "name": "WillySuit",
             "storageType": "int",
             "type": "enum",
@@ -232,7 +238,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 12,
+            "id": 13,
             "name": "GameModes",
             "storageType": "int",
             "type": "enum",
@@ -256,7 +262,7 @@
             "valuesAsFlags": true
         },
         {
-            "id": 13,
+            "id": 14,
             "name": "RoomPurpose",
             "storageType": "int",
             "type": "enum",
@@ -272,7 +278,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 14,
+            "id": 15,
             "name": "FallDamageMode",
             "storageType": "int",
             "type": "enum",
@@ -283,7 +289,7 @@
             "valuesAsFlags": false
         },
         {
-            "id": 15,
+            "id": 16,
             "name": "SPModes",
             "storageType": "int",
             "type": "enum",
