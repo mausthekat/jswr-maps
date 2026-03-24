@@ -268,4 +268,10 @@
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
+ <tile id="44">
+  <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="TileType" propertytype="TileType" value="stairs"/>
+  </properties>
+ </tile>
 </tileset>

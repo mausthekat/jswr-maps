@@ -1,40 +1,22 @@
-<?xml version='1.0' encoding='utf-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="109">
- 
- 
+<?xml version='1.0' encoding='UTF-8'?>
+<map version="1.10" tiledversion="1.12.0" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="109">
  <properties>
-  
-  
-  <property name="Name" value="Up on the Battlements" />
-  
-  
   <property name="Border" type="int" value="1" />
-  
-  
-  <property name="Left" type="file" value="019.tmx" />
-  
-  
-  <property name="Right" type="file" value="017.tmx" />
-  
-  
-  <property name="Up" type="file" value="001.tmx" />
-  
-  
   <property name="Down" type="file" value="001.tmx" />
-  
- 
+  <property name="Left" type="file" value="019.tmx" />
+  <property name="Name" value="Up on the Battlements" />
+  <property name="Right" type="file" value="017.tmx" />
+  <property name="Up" type="file" value="001.tmx" />
  </properties>
- 
- 
  <tileset firstgid="1" source="tiles_solid.tsx" />
  <tileset firstgid="2049" source="tiles_stairs.tsx" />
  <tileset firstgid="4097" source="tiles_platform.tsx" />
  <tileset firstgid="6145" source="tiles_hazard.tsx" />
  <tileset firstgid="8193" source="tiles_decoration.tsx" />
  <tileset firstgid="10241" source="tiles_conveyor.tsx" />
- <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" /><tileset firstgid="14337" source="../../tilesets/guardians.tsx" /><layer id="1" name="Tiles" width="32" height="16">
-  
-  
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
 8212,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8209,8206,8194,8194,8194,8194,8194,8206,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
@@ -45,7 +27,7 @@
 8194,8206,8194,8194,8194,8194,8194,8206,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
 8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8235,8194,8194,8206,8194,8194,
 8194,8231,8194,8194,8194,8194,8194,8194,8231,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8231,8194,8194,8194,8268,8289,8231,8231,8231,8194,
-34,34,34,35,4119,8194,8194,35,34,35,4119,8194,8194,10246,10246,10246,10246,10246,4119,8194,8194,35,34,35,4119,8194,8194,35,34,34,34,34,
+34,34,34,35,2058,8194,8194,35,34,35,2058,8194,8194,10246,10246,10246,10246,10246,2058,8194,8194,35,34,35,2058,8194,8194,35,34,34,34,34,
 40,10,38,10,6161,8212,8194,38,10,10,6161,8194,8194,13,10,10,10,38,6161,8194,8194,10,10,13,6161,8194,8194,40,39,10,13,10,
 42,10,13,10,6161,8194,8194,10,13,38,6161,8194,8194,10,50,50,50,10,6161,8194,8194,13,38,10,6161,8194,8293,42,41,41,41,13,
 42,39,10,10,6161,8194,8235,13,10,10,6161,8194,8194,10,51,51,51,10,6161,8194,8212,10,13,10,6161,8194,8268,42,41,44,43,10,
@@ -53,23 +35,11 @@
 42,10,10,38,6161,8210,8210,10,10,10,6161,8210,8210,10,34,34,34,10,6161,8210,8210,10,10,38,6161,8210,8210,42,41,44,43,10,
 42,13,10,13,47,3,3,10,13,10,47,3,3,38,13,10,10,38,47,3,3,38,10,13,47,3,3,42,41,49,43,13
 </data>
-  
- 
  </layer>
- 
- 
  <objectgroup id="2" name="Collectables">
-  
-  
-  <object id="1" x="248" y="40" width="8" height="8" gid="12289" />
-  
- 
+  <object id="1" gid="12289" x="248" y="40" width="8" height="8" />
  </objectgroup>
- 
- 
  <objectgroup id="3" name="Enemies">
-  
-  
   <object id="100" name="Guard" type="Guardian" gid="14385" x="40" y="80" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d700" />
@@ -97,10 +67,9 @@
     <property name="Speed" type="int" propertytype="Speed" value="4" />
    </properties>
   </object>
-  </objectgroup>
- 
-
-<objectgroup color="#00ffff" id="4" name="Routes"><object id="101" type="Route" x="48" y="40">
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="101" type="Route" x="48" y="40">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1" />
     <property name="Guardian" type="object" value="100" />
@@ -136,5 +105,5 @@
    </properties>
    <polyline points="0,0 0,80" />
   </object>
-  </objectgroup>
- </map>
+ </objectgroup>
+</map>
