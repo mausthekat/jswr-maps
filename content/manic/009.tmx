@@ -43,39 +43,39 @@
   <object id="29" gid="12397" x="128" y="16" width="8" height="8" />
  </objectgroup>
  <objectgroup id="4" name="Enemies">
-  <object id="3" name="Amoeba 1" type="Guardian" gid="14433" x="40" y="72" width="16" height="16">
+  <object id="3" name="Amoeba 1" type="Guardian" gid="14433" x="40" y="24" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffff33e0" />
    </properties>
   </object>
-  <object id="5" name="Amoeba 2" type="Guardian" gid="14433" x="80" y="16" width="16" height="16">
+  <object id="5" name="Amoeba 2" type="Guardian" gid="14433" x="80" y="24" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff3fff3f" />
    </properties>
   </object>
-  <object id="7" name="Pole Cart 1" type="Guardian" gid="14423" x="96" y="96" width="16" height="16">
+  <object id="7" name="Pole Cart 1" type="Guardian" gid="14423" x="120" y="96" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff4e20ff" />
    </properties>
   </object>
-  <object id="9" name="Pole Cart 2" type="Guardian" gid="14423" x="144" y="40" width="16" height="16">
+  <object id="9" name="Pole Cart 2" type="Guardian" gid="14423" x="96" y="40" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff2fff10" />
    </properties>
   </object>
-  <object id="11" name="Amoeba 3" type="Guardian" gid="14433" x="160" y="72" width="16" height="16">
+  <object id="11" name="Amoeba 3" type="Guardian" gid="14433" x="160" y="24" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff40d7ff" />
    </properties>
   </object>
-  <object id="13" name="Amoeba 4" type="Guardian" gid="14433" x="200" y="96" width="16" height="16">
+  <object id="13" name="Amoeba 4" type="Guardian" gid="14433" x="200" y="24" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffef25" />
    </properties>
   </object>
  </objectgroup>
  <objectgroup color="#00ffff" id="6" name="Routes">
-  <object id="4" type="Route" x="48" y="0">
+  <object id="4" type="Route" x="48" y="8">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="3" />
@@ -84,11 +84,11 @@
    </properties>
    <polyline points="0,0 0,104" />
   </object>
-  <object id="6" type="Route" x="88" y="0">
+  <object id="6" type="Route" x="88" y="8">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="5" />
-    <property name="Speed" type="int" value="1" />
+    <property name="Speed" type="int" value="2" />
     <property name="Traversal" type="int" value="0" />
    </properties>
    <polyline points="0,0 0,104" />
@@ -106,12 +106,12 @@
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="9" />
-    <property name="Speed" type="int" value="1" />
+    <property name="Speed" type="int" value="2" />
     <property name="Traversal" type="int" value="0" />
    </properties>
    <polyline points="0,0 64,0" />
   </object>
-  <object id="12" type="Route" x="168" y="0">
+  <object id="12" type="Route" x="168" y="8">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="11" />
@@ -120,11 +120,11 @@
    </properties>
    <polyline points="0,0 0,104" />
   </object>
-  <object id="14" type="Route" x="208" y="0">
+  <object id="14" type="Route" x="208" y="8">
    <properties>
     <property name="Direction" type="int" value="1" />
     <property name="Guardian" type="object" value="13" />
-    <property name="Speed" type="int" value="1" />
+    <property name="Speed" type="int" value="2" />
     <property name="Traversal" type="int" value="0" />
    </properties>
    <polyline points="0,0 0,104" />

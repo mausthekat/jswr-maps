@@ -76,7 +76,7 @@
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 120,0" />
+   <polyline points="0,0 104,0" />
   </object>
  </objectgroup>
  <objectgroup id="7" name="Spawn">
