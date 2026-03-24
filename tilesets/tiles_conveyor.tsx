@@ -3,6 +3,7 @@
  <image source="tiles_conveyor.png" width="128" height="88"/>
  <tile id="0">
   <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
   <animation>
