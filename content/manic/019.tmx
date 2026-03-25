@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#0402c4" nextlayerid="8" nextobjectid="24">
  <properties>
   <property name="Chunk" type="int" value="0" />
@@ -18,7 +18,7 @@
  <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
  <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
  <tileset firstgid="18433" source="../../tilesets/tiles_mm_exit.tsx" />
- <tileset firstgid="1278" source="../../tilesets/meta/meta_markers.tsx" />
+ <tileset firstgid="1614" source="../../tilesets/meta/meta_markers.tsx" />
  <tileset firstgid="20481" source="../../tilesets/tiles_collapsible.tsx" />
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
@@ -34,7 +34,7 @@
 2,4179,4179,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8223,0,0,0,0,0,0,0,2,
 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4179,4179,0,0,8223,0,0,0,0,0,0,0,2,
 2,4179,4179,4179,4179,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8223,4179,4179,4179,4179,4179,4179,4179,2,
-2,0,0,0,0,0,0,10369,10369,10369,10369,0,0,0,4179,4179,4179,4179,4179,0,0,0,0,8223,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,10657,10657,10657,10657,0,0,0,4179,4179,4179,4179,4179,0,0,0,0,8223,0,0,0,0,0,0,0,2,
 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8223,0,0,0,0,0,0,0,2,
 2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8223,0,0,0,0,0,0,0,2,
 2,2,2,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,4179,2,4179,4179,4179,4179,4179,4179,4179,2
