@@ -86,8 +86,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -241,7 +241,9 @@
             "type": "enum",
             "values": [
                 "Normal",
-                "SpaceSuit"
+                "SpaceSuit",
+                "DivingSuit",
+                "FlyingPig"
             ],
             "valuesAsFlags": false
         },

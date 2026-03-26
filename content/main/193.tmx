@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="30">
  <properties>
   <property name="ChainRoomGroup" type="int" value="4" />
@@ -45,12 +45,12 @@
   <object id="29" gid="12317" x="128" y="104" width="8" height="8" />
  </objectgroup>
  <objectgroup id="4" name="Enemies">
-  <object id="8" name="Slinky 1" type="Guardian" gid="2147498040" x="0" y="56" width="16" height="16">
+  <object id="8" name="Slinky 1" type="Guardian" gid="14392" x="0" y="56" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff30ff30" />
    </properties>
   </object>
-  <object id="13" name="Slinky 2" type="Guardian" gid="2147498040" x="240" y="56" width="16" height="16">
+  <object id="13" name="Slinky 2" type="Guardian" gid="14392" x="240" y="56" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff30ff30" />
    </properties>

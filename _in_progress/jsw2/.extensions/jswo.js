@@ -463,6 +463,7 @@ function createRoom(folder, mapName, roomId, roomName, exits, hasRope) {
     newMap.setProperty("Rope", hasRope);
     newMap.setProperty("Rope Offset", 0);
     newMap.setProperty("Up", exits.up === "(none)" ? "" : exits.up + ".tmx");
+    newMap.setProperty("WillySuit", tiled.propertyValue("WillySuit", "Normal"));
 
     // Tilesets are in tmx/tilesets/ (sibling to content/_in_progress folders)
     const contentFolder = FileInfo.path(folder);  // e.g., tmx/content or tmx/_in_progress
@@ -1879,6 +1880,13 @@ function fixRoomProperties() {
             report.push("Added " + dir + ": (none)");
             totalFixed++;
         }
+    }
+
+    // WillySuit (WillySuit enum type)
+    if (map.property("WillySuit") === undefined) {
+        map.setProperty("WillySuit", tiled.propertyValue("WillySuit", "Normal"));
+        report.push("Added WillySuit: Normal");
+        totalFixed++;
     }
 
     // Show dialog with report

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="9">
  <properties>
   <property name="ChainRoomGroup" type="int" value="5" />
@@ -47,7 +47,7 @@
     <property name="Color" type="color" value="#ff008fbd" />
    </properties>
   </object>
-  <object id="4" name="Bird" type="Guardian" gid="2147498016" x="88" y="96" width="16" height="16">
+  <object id="4" name="Bird" type="Guardian" gid="14368" x="88" y="96" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff21ff4f" />
    </properties>

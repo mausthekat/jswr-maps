@@ -287,7 +287,9 @@
             "type": "enum",
             "values": [
                 "Normal",
-                "SpaceSuit"
+                "SpaceSuit",
+                "DivingSuit",
+                "FlyingPig"
             ],
             "valuesAsFlags": false
         },
