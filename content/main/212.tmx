@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="16">
  <properties>
   <property name="ChainRoomGroup" type="int" value="4" />
@@ -34,7 +34,7 @@
   <object id="9" gid="12369" x="184" y="48" width="8" height="8" />
  </objectgroup>
  <objectgroup id="4" name="Enemies">
-  <object id="10" name="Hunchback 1" type="Guardian" gid="2147498020" x="24" y="120" width="16" height="16">
+  <object id="10" name="Hunchback 1" type="Guardian" gid="14372" x="24" y="120" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#fff802" />
    </properties>
@@ -64,12 +64,12 @@
  <objectgroup id="6" name="Routes" color="#ff00ffff">
   <object id="11" type="Route" x="24" y="112">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="3"/>
-    <property name="Guardian" type="object" value="10"/>
-    <property name="Speed" type="int" propertytype="Speed" value="5"/>
-    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+    <property name="Direction" type="int" propertytype="Direction" value="3" />
+    <property name="Guardian" type="object" value="10" />
+    <property name="Speed" type="int" propertytype="Speed" value="5" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 200,0"/>
+   <polyline points="0,0 200,0" />
   </object>
  </objectgroup>
 </map>

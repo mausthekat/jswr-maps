@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="7">
  <properties>
   <property name="Chunk" type="int" value="0" />
@@ -39,7 +39,7 @@
  </layer>
  <objectgroup id="5" name="Collectables" />
  <objectgroup id="4" name="Enemies">
-  <object id="1" name="Bird 1" type="Guardian" gid="2147498016" x="40" y="96" width="16" height="16">
+  <object id="1" name="Bird 1" type="Guardian" gid="14368" x="40" y="96" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff4ff7ff" />
    </properties>

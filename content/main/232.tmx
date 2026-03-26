@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="11">
  <properties>
   <property name="Chunk" type="int" value="0" />
@@ -31,7 +31,7 @@
    </properties>
   </object>
   
-  <object id="5" name="Bird" type="Guardian" gid="2147498016" x="104" y="72" width="16" height="16">
+  <object id="5" name="Bird" type="Guardian" gid="14368" x="104" y="72" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#06ffff" />
    </properties>
@@ -53,39 +53,39 @@
  <objectgroup id="6" name="Routes" color="#ff00ffff">
   <object id="4" type="Route" x="48" y="24">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="Guardian" type="object" value="3"/>
-    <property name="Speed" type="int" propertytype="Speed" value="3"/>
-    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="3" />
+    <property name="Speed" type="int" propertytype="Speed" value="3" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,80"/>
+   <polyline points="0,0 0,80" />
   </object>
   <object id="6" type="Route" x="104" y="64">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="3"/>
-    <property name="Guardian" type="object" value="5"/>
-    <property name="Speed" type="int" propertytype="Speed" value="2"/>
-    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+    <property name="Direction" type="int" propertytype="Direction" value="3" />
+    <property name="Guardian" type="object" value="5" />
+    <property name="Speed" type="int" propertytype="Speed" value="2" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 88,0"/>
+   <polyline points="0,0 88,0" />
   </object>
   <object id="8" type="Route" x="72" y="96">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="Guardian" type="object" value="7"/>
-    <property name="Speed" type="int" propertytype="Speed" value="4"/>
-    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="7" />
+    <property name="Speed" type="int" propertytype="Speed" value="4" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 120,0"/>
+   <polyline points="0,0 120,0" />
   </object>
   <object id="10" type="Route" x="216" y="24">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="Guardian" type="object" value="9"/>
-    <property name="Speed" type="int" propertytype="Speed" value="3"/>
-    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Guardian" type="object" value="9" />
+    <property name="Speed" type="int" propertytype="Speed" value="3" />
+    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,80"/>
+   <polyline points="0,0 0,80" />
   </object>
  </objectgroup>
 </map>

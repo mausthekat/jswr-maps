@@ -1,40 +1,22 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="102">
- 
- 
  <properties>
-  
-  
-  <property name="Name" value="Emergency Generator" />
-  
-  
   <property name="Border" type="int" value="2" />
-  
-  
+  <property name="Down" type="file" value="" />
   <property name="Left" type="file" value="039.tmx" />
-  
-  
+  <property name="Name" value="Emergency Generator" />
   <property name="Right" type="file" value="037.tmx" />
-  
-  
-  <property name="Up" type="file" value="015.tmx" />
-  
-  
-  <property name="Down" type="file" value="032.tmx" />
-  
- 
+  <property name="Up" type="file" value="" />
  </properties>
- 
- 
  <tileset firstgid="1" source="tiles_solid.tsx" />
  <tileset firstgid="2049" source="tiles_stairs.tsx" />
  <tileset firstgid="4097" source="tiles_platform.tsx" />
  <tileset firstgid="6145" source="tiles_hazard.tsx" />
  <tileset firstgid="8193" source="tiles_decoration.tsx" />
  <tileset firstgid="10241" source="tiles_conveyor.tsx" />
- <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" /><tileset firstgid="14337" source="../../tilesets/guardians.tsx" /><layer id="1" name="Tiles" width="32" height="16">
-  
-  
+ <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
+ <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 8296,8296,8296,8296,8296,8297,8197,8197,8197,8197,8197,8197,8197,8197,8197,8197,8197,8197,8197,8299,8296,8296,8296,8296,8296,8297,8197,8197,8197,8197,10,13,
 8303,8303,8303,8303,8302,8220,8220,8220,8220,8220,8220,8220,8220,8220,8220,8220,8220,8220,8220,8220,8301,8303,8303,8303,8302,8220,8220,8220,8220,8220,38,10,
@@ -53,26 +35,17 @@
 8303,8302,8220,8220,92,94,92,92,95,94,96,95,93,94,96,96,96,96,95,93,94,96,95,94,92,92,95,93,8296,8303,8302,6168,
 75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75
 </data>
-  
- 
  </layer>
- 
- 
  <objectgroup id="2" name="Collectables" />
- 
- 
  <objectgroup id="3" name="Enemies">
-  
-  
   <object id="100" name="Flying Pig" type="Guardian" gid="14355" x="64" y="40" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffff0000" />
    </properties>
   </object>
-  </objectgroup>
- 
-
-<objectgroup color="#00ffff" id="4" name="Routes"><object id="101" type="Route" x="40" y="32">
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="101" type="Route" x="40" y="32">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="2" />
     <property name="Guardian" type="object" value="100" />
@@ -81,5 +54,5 @@
    </properties>
    <polyline points="0,0 216,0" />
   </object>
-  </objectgroup>
- </map>
+ </objectgroup>
+</map>
