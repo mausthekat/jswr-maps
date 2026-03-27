@@ -35,6 +35,8 @@ jswr-maps/
 │   ├── tiles_decoration.tsx # Decoration (no collision)
 │   ├── tiles_conveyor.tsx # Conveyor belts (animated)
 │   ├── tiles_collapsible.tsx # Collapsible platforms (animated)
+│   ├── tiles_penrose.tsx # Penrose visual tiles (manually added)
+│   ├── tiles_mm_exit.tsx # Manic Miner exit doors
 │   ├── collectibles.tsx  # Collectible items
 │   ├── guardians.tsx     # Guardian sprites
 │   └── meta/             # Metadata and tile mappings

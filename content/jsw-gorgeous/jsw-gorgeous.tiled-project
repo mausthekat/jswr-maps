@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -23,7 +24,7 @@
             "name": "IncludeMapPreview",
             "propertytype": "",
             "type": "bool",
-            "value": false
+            "value": true
         },
         {
             "name": "InfiniteLives",
@@ -105,8 +106,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -192,6 +193,12 @@
             "id": 10,
             "members": [
                 {
+                    "name": "GameModes",
+                    "propertyType": "GameModes",
+                    "type": "int",
+                    "value": 0
+                },
+                {
                     "name": "Kind",
                     "propertyType": "SpawnKind",
                     "type": "int",
@@ -200,12 +207,6 @@
                 {
                     "name": "Team",
                     "propertyType": "Team",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "GameModes",
-                    "propertyType": "GameModes",
                     "type": "int",
                     "value": 0
                 }
