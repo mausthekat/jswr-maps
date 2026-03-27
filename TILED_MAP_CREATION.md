@@ -981,6 +981,36 @@ When a player loads a pack that contains a JSWC tiles entry, the game registers 
 tileset style and switches to it automatically. See `docs/formats/JSWC_TILESET_COLLECTION_FORMAT.md`
 for the full binary format specification.
 
+### High-Resolution Tilesets (`_2x` Variants)
+
+You can provide high-resolution (16x16 pixel) tile variants alongside base (8x8) tiles. The
+packing scripts automatically detect and bundle them.
+
+Place `_2x` PNG files next to the base files:
+
+```
+tiles_solid.png       (8x8 tiles — base)
+tiles_solid_2x.png    (16x16 tiles — high-res variant)
+tiles_stairs.png
+tiles_stairs_2x.png
+... (same for platform, hazard, decoration, conveyor)
+```
+
+The `_2x` PNGs must use the same 16-column tilesheet layout as the base, with tile counts
+equal to or greater than the base. Run the pack command as usual — it detects `_2x` files
+and creates a second JSWC collection:
+
+```
+my-map.jsw (JSWP)
+├── rooms (room data)
+├── tiles (JSWC — 8x8 base tiles)
+└── tiles_2x (JSWC — 16x16 hi-res tiles, only if _2x files found)
+```
+
+At runtime, players cycle between base and hi-res styles with F9. The hi-res style appears
+as `"{TilesetName} (2x)"` (e.g. "Gorgeous (2x)"). If some tileset types lack a `_2x`
+variant, those types fall back to the base resolution when the 2x style is active.
+
 ### Example: The JSW Gorgeous Pipeline
 
 The "Gorgeous" tileset demonstrates the full custom tileset workflow. It starts from a
