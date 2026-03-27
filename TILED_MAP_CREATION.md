@@ -497,6 +497,7 @@ Spawn points define where players appear. They are placed on the **Spawn** layer
 | `spawn_flag_green.tx` | Flag | Green | WILLY_TEAMS+CTF | Green team flag |
 | `spawn_flag_orange.tx` | Flag | Orange | WILLY_TEAMS+CTF | Orange team flag |
 | `spawn_exit.tx` | Exit | — | — | Manic Miner exit gate |
+| `spawn_ball.tx` | Ball Spawn | Neutral | WILLY_BALL | Ball starting position for Willy Ball mode |
 
 ### Spawn Properties
 
@@ -517,7 +518,7 @@ a flags enum). Tick the modes this spawn should be active for:
 
 COLLECT_X_ITEMS, TIMED_GAMES, RACE_TO_GAMES, DISCOVERY_GAMES, GOLDEN_WILLY, WILLY_TAG,
 BRITISH_BULLDOG, WILLY_TEAMS, CAPTURE_THE_FLAG, LOBBY, FIRST_TO_COLLECT, COLLECT_ALL,
-CHAIN_GAMES, IT_TAG, MM_START
+CHAIN_GAMES, IT_TAG, MM_START, WILLY_BALL
 
 > **Important:** Every non-EXIT spawn **must** have at least one GameMode ticked.
 > The converter will error if GameModes is left empty for player starts and flags.
@@ -667,6 +668,7 @@ supports. This is a flags enum — multiple modes can be selected.
 | CHAIN_GAMES | Chain game rooms | Neutral spawn OR team spawns |
 | IT_TAG | It-Tag variant | Neutral spawn (always) |
 | MM_START | Manic Miner start | Neutral spawn |
+| WILLY_BALL | Team ball-carrying game | BALL_SPAWN + CTF team flags + WILLY_TEAMS spawns (see below) |
 
 ### Spawn Coverage Rules
 
@@ -686,6 +688,16 @@ supports. This is a flags enum — multiple modes can be selected.
 
 **Solo CTF** (CAPTURE_THE_FLAG without WILLY_TEAMS):
 - Needs a CTF-tagged neutral spawn AND a CTF-tagged neutral flag
+
+### Willy Ball Rules
+
+**WILLY_BALL** requires all three of:
+
+1. **A `BALL_SPAWN` point** — place using the `spawn_ball.tx` template. This is the ball's reset position (where it appears at match start and after a goal). Only one BALL_SPAWN per map is expected. Its `GameModes` must include `WILLY_BALL`.
+2. **CTF-style team flags** — Red and Blue (minimum) flag spawns tagged with both `CAPTURE_THE_FLAG` and `WILLY_TEAMS` in their `GameModes`. These define the goal zones — the ball carrier scores by reaching the opposing team's flag position.
+3. **WILLY_TEAMS player spawns** — Red and Blue (minimum) player spawns tagged with `WILLY_TEAMS`. Green and Orange are optional but require Red and Blue to be present.
+
+`ValidGameModes` for a Willy Ball map must include at minimum: `WILLY_BALL | WILLY_TEAMS | CAPTURE_THE_FLAG`.
 
 ---
 
@@ -853,6 +865,9 @@ build to fail; warnings are reported but don't block.
 - Neutral flag exists but no neutral spawn
 - Solo CTF without CTF-tagged neutral spawn or flag
 - Team CTF without matching CTF-tagged team spawn+flag pairs
+- WILLY_BALL without a BALL_SPAWN point (SpawnKind=3) in the map
+- WILLY_BALL without WILLY_TEAMS in `ValidGameModes`
+- WILLY_BALL without matching CTF-tagged team flag pairs (Red + Blue minimum)
 - Non-Gameplay room without LOBBY-only `ValidGameModes`
 - Duplicate non-Gameplay `RoomPurpose` values
 

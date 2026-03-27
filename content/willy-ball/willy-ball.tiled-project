@@ -8,14 +8,10 @@
     ],
     "properties": [
         {
-            "name": "MapName",
-            "type": "string",
-            "value": "RJ's The Ropery"
-        },
-        {
             "name": "Author",
+            "propertytype": "",
             "type": "string",
-            "value": "RichJ"
+            "value": ""
         },
         {
             "name": "FallDamageMode",
@@ -25,28 +21,39 @@
         },
         {
             "name": "IncludeMapPreview",
-            "type": "bool",
-            "value": true
-        },
-        {
-            "name": "SoftLifts",
+            "propertytype": "",
             "type": "bool",
             "value": true
         },
         {
             "name": "InfiniteLives",
+            "propertytype": "",
             "type": "bool",
             "value": false
         },
         {
             "name": "ManicFinalRoom",
+            "propertytype": "",
             "type": "int",
             "value": 0
         },
         {
+            "name": "MapName",
+            "propertytype": "",
+            "type": "string",
+            "value": "Simple Pitch"
+        },
+        {
             "name": "OriginalArrows",
+            "propertytype": "",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "SPVictoryRoom",
+            "propertytype": "",
+            "type": "int",
+            "value": 0
         },
         {
             "name": "SinglePlayerModes",
@@ -55,9 +62,10 @@
             "value": 0
         },
         {
-            "name": "SPVictoryRoom",
-            "type": "int",
-            "value": 0
+            "name": "SoftLifts",
+            "propertytype": "",
+            "type": "bool",
+            "value": false
         }
     ],
     "propertyTypes": [
@@ -75,20 +83,13 @@
             "valuesAsFlags": false
         },
         {
-            "id": 2,
-            "name": "Speed",
+            "id": 15,
+            "name": "FallDamageMode",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "0",
-                "1 (Normal)",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7 (Very Fast)",
-                "8 (Very Slow)"
+                "Lenient",
+                "Strict"
             ],
             "valuesAsFlags": false
         },
@@ -100,137 +101,6 @@
             "values": [
                 "Right\u2192Left",
                 "Left\u2192Right"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 6,
-            "name": "GuardianFlags",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "HARMLESS",
-                "ALWAYS_DEADLY"
-            ],
-            "valuesAsFlags": true
-        },
-        {
-            "id": 5,
-            "name": "RoomFlags",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "MIRROR_TRIGGER",
-                "DARK_ROOM",
-                "UNDERWATER",
-                "LOW_GRAVITY"
-            ],
-            "valuesAsFlags": true
-        },
-        {
-            "id": 9,
-            "name": "SpawnKind",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Player Start",
-                "Flag",
-                "Exit",
-                "Ball Spawn"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "color": "#ffa0a0a4",
-            "drawFill": true,
-            "id": 10,
-            "members": [
-                {
-                    "name": "Kind",
-                    "propertyType": "SpawnKind",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "Team",
-                    "propertyType": "Team",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "GameModes",
-                    "propertyType": "GameModes",
-                    "type": "int",
-                    "value": 0
-                }
-            ],
-            "name": "SpawnPoint",
-            "type": "class",
-            "useAs": [
-                "map",
-                "layer",
-                "object",
-                "tile",
-                "tileset",
-                "wangcolor",
-                "wangset",
-                "project"
-            ]
-        },
-        {
-            "id": 8,
-            "name": "Team",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "No Team",
-                "Red",
-                "Blue",
-                "It",
-                "Green",
-                "Orange"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 7,
-            "name": "Traversal",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Ping-Pong",
-                "One-Way Reset",
-                "One-Way Stop",
-                "Loop"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 12,
-            "name": "WillySuit",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Normal",
-                "SpaceSuit",
-                "DivingSuit",
-                "FlyingPig"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 11,
-            "name": "TileType",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "solid",
-                "stairs",
-                "platform",
-                "hazard",
-                "decoration",
-                "conveyor",
-                "collapsible"
             ],
             "valuesAsFlags": false
         },
@@ -260,6 +130,30 @@
             "valuesAsFlags": true
         },
         {
+            "id": 6,
+            "name": "GuardianFlags",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "HARMLESS",
+                "ALWAYS_DEADLY"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "id": 5,
+            "name": "RoomFlags",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "MIRROR_TRIGGER",
+                "DARK_ROOM",
+                "UNDERWATER",
+                "LOW_GRAVITY"
+            ],
+            "valuesAsFlags": true
+        },
+        {
             "id": 14,
             "name": "RoomPurpose",
             "storageType": "int",
@@ -276,13 +170,70 @@
             "valuesAsFlags": false
         },
         {
-            "id": 15,
-            "name": "FallDamageMode",
+            "id": 9,
+            "name": "SpawnKind",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Lenient",
-                "Strict"
+                "Player Start",
+                "Flag",
+                "Exit",
+                "Ball Spawn"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 10,
+            "members": [
+                {
+                    "name": "GameModes",
+                    "propertyType": "GameModes",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Kind",
+                    "propertyType": "SpawnKind",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Team",
+                    "propertyType": "Team",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "SpawnPoint",
+            "type": "class",
+            "useAs": [
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset",
+                "project"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Speed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "0",
+                "1 (Normal)",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7 (Very Fast)",
+                "8 (Very Slow)"
             ],
             "valuesAsFlags": false
         },
@@ -296,6 +247,63 @@
                 "SP_MANIC_MINER"
             ],
             "valuesAsFlags": true
+        },
+        {
+            "id": 8,
+            "name": "Team",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "No Team",
+                "Red",
+                "Blue",
+                "It",
+                "Green",
+                "Orange"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 11,
+            "name": "TileType",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "solid",
+                "stairs",
+                "platform",
+                "hazard",
+                "decoration",
+                "conveyor",
+                "collapsible"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 7,
+            "name": "Traversal",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Ping-Pong",
+                "One-Way Reset",
+                "One-Way Stop",
+                "Loop"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 12,
+            "name": "WillySuit",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Normal",
+                "SpaceSuit",
+                "DivingSuit",
+                "FlyingPig"
+            ],
+            "valuesAsFlags": false
         }
     ]
 }

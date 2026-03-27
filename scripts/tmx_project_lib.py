@@ -167,26 +167,36 @@ def copy_extensions(src_dir: Path, dst_dir: Path, dry_run: bool = False) -> list
     return changes
 
 
-def merge_properties(existing: list, archetype: list) -> tuple[list, list]:
+def merge_properties(existing: list, archetype: list) -> tuple[list, list, list]:
     """
     Merge archetype project properties into existing list.
 
-    Adds missing properties with their default values. Never modifies
-    existing property values — only adds properties that don't exist yet.
+    Adds missing properties with their default values. Removes properties
+    that exist in the project but not in the archetype. Never modifies
+    existing property values.
 
     Returns:
-        Tuple of (merged list, list of change descriptions)
+        Tuple of (merged list, list of added property names, list of removed property names)
     """
     existing_by_name = {p["name"] for p in existing}
-    changes = []
+    archetype_by_name = {p["name"] for p in archetype}
+    added = []
+    removed = []
 
+    # Add missing properties from archetype
     for arch_prop in archetype:
         name = arch_prop["name"]
         if name not in existing_by_name:
             existing.append(arch_prop.copy())
-            changes.append(name)
+            added.append(name)
 
-    return existing, changes
+    # Remove properties not in archetype
+    to_remove = [p for p in existing if p["name"] not in archetype_by_name]
+    for prop in to_remove:
+        existing.remove(prop)
+        removed.append(prop["name"])
+
+    return existing, added, removed
 
 
 def merge_property_types(existing: list, archetype: list) -> tuple[list, list, list]:
@@ -617,12 +627,17 @@ def update_project(project_path: Path, dry_run: bool = False) -> tuple[bool, lis
                 changes.extend(prop_changes)
                 dirty = True
 
-        # Merge project-level properties (add missing with defaults)
+        # Merge project-level properties (add missing, remove obsolete)
         archetype_props = archetype_data.get("properties", [])
-        merged_props, added_props = merge_properties(existing_props, archetype_props)
+        merged_props, added_props, removed_props = merge_properties(existing_props, archetype_props)
 
         if added_props:
             changes.append(f"Properties added: {', '.join(added_props)}")
+            project_data["properties"] = merged_props
+            dirty = True
+
+        if removed_props:
+            changes.append(f"Properties removed: {', '.join(removed_props)}")
             project_data["properties"] = merged_props
             dirty = True
 

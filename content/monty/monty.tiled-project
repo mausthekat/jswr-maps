@@ -18,12 +18,6 @@
             "value": "Ovine+MauS"
         },
         {
-            "name": "ValidGameModes",
-            "propertytype": "GameModes",
-            "type": "int",
-            "value": 1024
-        },
-        {
             "name": "FallDamageMode",
             "propertytype": "FallDamageMode",
             "type": "int",
@@ -141,7 +135,8 @@
             "values": [
                 "Player Start",
                 "Flag",
-                "Exit"
+                "Exit",
+                "Ball Spawn"
             ],
             "valuesAsFlags": false
         },
@@ -259,7 +254,8 @@
                 "COLLECT_ALL",
                 "CHAIN_GAMES",
                 "IT_TAG",
-                "MM_START"
+                "MM_START",
+                "WILLY_BALL"
             ],
             "valuesAsFlags": true
         },

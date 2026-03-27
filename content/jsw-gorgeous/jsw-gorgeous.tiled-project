@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -67,12 +66,6 @@
             "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "ValidGameModes",
-            "propertytype": "GameModes",
-            "type": "int",
-            "value": 2049
         }
     ],
     "propertyTypes": [
@@ -106,8 +99,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -131,7 +124,8 @@
                 "COLLECT_ALL",
                 "CHAIN_GAMES",
                 "IT_TAG",
-                "MM_START"
+                "MM_START",
+                "WILLY_BALL"
             ],
             "valuesAsFlags": true
         },
@@ -183,7 +177,8 @@
             "values": [
                 "Player Start",
                 "Flag",
-                "Exit"
+                "Exit",
+                "Ball Spawn"
             ],
             "valuesAsFlags": false
         },

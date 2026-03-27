@@ -2304,7 +2304,7 @@ function connectSelectionSignal() {
 // Team names by value (matches constants.py TEAM_* values)
 const TEAM_NAMES = { 0: "Neutral", 1: "Red", 2: "Blue", 3: "It", 4: "Green", 5: "Orange" };
 // Kind names by value
-const SPAWN_KIND_NAMES = { 0: "Player Start", 1: "Flag" };
+const SPAWN_KIND_NAMES = { 0: "Player Start", 1: "Flag", 2: "Exit", 3: "Ball Spawn" };
 
 // GameMode + MapFlags bit values (matches game_settings.py GameMode/MapFlags IntFlag)
 const GAME_MODE_BITS = {
@@ -2322,7 +2322,8 @@ const GAME_MODE_BITS = {
     0x0800: "COLLECT_ALL",
     0x1000: "CHAIN",
     0x2000: "IT",
-    0x4000: "MM_START"
+    0x4000: "MM_START",
+    0x8000: "WILLY_BALL"
 };
 
 /**
@@ -2397,6 +2398,7 @@ function parseSpawnPoints(tmxPath) {
                 else if (templateName.includes("player_green")) { kind = 0; team = 4; }
                 else if (templateName.includes("player_orange")) { kind = 0; team = 5; }
                 else if (templateName.includes("spawn_player")) { kind = 0; team = 0; }
+                else if (templateName.includes("spawn_ball")) { kind = 3; team = 0; }
             }
 
             // Check for per-object property overrides
@@ -2650,6 +2652,425 @@ function validateSpawnPoints() {
     dialog.show();
 }
 
+// =============================================================================
+// Game Mode Report
+// =============================================================================
+
+// RoomPurpose values (matches jswr_format.py RoomPurpose enum)
+const ROOM_PURPOSE_NAMES = {
+    0: "Gameplay", 1: "Lobby", 2: "Team Select", 3: "Launchpad",
+    4: "Victory Room", 5: "Briefing", 6: "Team Select 4"
+};
+
+// Full GameMode names for the report (matches game_settings.py)
+const GAME_MODE_FULL_NAMES = {
+    0x0001: "COLLECT_X_ITEMS",
+    0x0002: "TIMED_GAMES",
+    0x0004: "RACE_TO_GAMES",
+    0x0008: "DISCOVERY_GAMES",
+    0x0010: "GOLDEN_WILLY",
+    0x0020: "WILLY_TAG",
+    0x0040: "BRITISH_BULLDOG",
+    0x0080: "WILLY_TEAMS",
+    0x0100: "CAPTURE_THE_FLAG",
+    0x0200: "LOBBY",
+    0x0400: "FIRST_TO_COLLECT",
+    0x0800: "COLLECT_ALL",
+    0x1000: "CHAIN_GAMES",
+    0x2000: "IT_TAG",
+    0x4000: "MM_START",
+    0x8000: "WILLY_BALL"
+};
+
+// All gameplay mode bits (excludes LOBBY and MM_START infrastructure flags)
+const ALL_GAMEPLAY_MODES = 0x0001 | 0x0002 | 0x0004 | 0x0008 | 0x0010 | 0x0020 |
+    0x0040 | 0x0080 | 0x0100 | 0x0400 | 0x0800 | 0x1000 | 0x2000 | 0x8000;
+
+/**
+ * Parse RoomPurpose from a TMX file using text parsing
+ * @param {string} tmxPath - Path to the TMX file
+ * @returns {number} - RoomPurpose value (0=Gameplay if not found)
+ */
+function parseRoomPurpose(tmxPath) {
+    try {
+        const file = new TextFile(tmxPath, TextFile.ReadOnly);
+        const content = file.readAll();
+        file.close();
+
+        const match = content.match(/<property\s+name="RoomPurpose"[^>]*value="(\d+)"/);
+        if (match) {
+            return parseInt(match[1]);
+        }
+    } catch (e) {
+        // Ignore read errors
+    }
+    return 0; // Default: Gameplay
+}
+
+/**
+ * Format a bitmask as "NAME1 | NAME2" using full mode names
+ */
+function formatFullGameModes(modes) {
+    if (modes === 0) return "(none)";
+    const names = [];
+    for (const bit in GAME_MODE_FULL_NAMES) {
+        if (modes & parseInt(bit)) {
+            names.push(GAME_MODE_FULL_NAMES[bit]);
+        }
+    }
+    return names.length > 0 ? names.join(" | ") : "(none)";
+}
+
+/**
+ * Generate Game Mode Report for the current map project
+ */
+function showGameModeReport() {
+    let folder = getMapFolder();
+
+    // If no map is open, try to find a loaded world
+    if (!folder) {
+        const worlds = tiled.worlds;
+        if (worlds.length === 0) {
+            tiled.alert("Please open a world file (.world) or map first.");
+            return;
+        }
+        folder = getFolderFromWorld(worlds[0]);
+    }
+
+    if (!folder) {
+        tiled.alert("Could not determine map folder.");
+        return;
+    }
+
+    const mapName = getMapName(folder);
+    const existingIds = getExistingRoomIds(folder);
+    const roomInfo = getRoomInfo(folder, existingIds);
+
+    if (existingIds.length === 0) {
+        tiled.alert("No rooms found.");
+        return;
+    }
+
+    // Collect all spawns and room purposes
+    const allSpawns = [];  // {kind, team, gameModes, x, y, roomId, roomName}
+    const roomPurposes = {};  // roomId -> purpose value
+
+    for (const roomId of existingIds) {
+        const tmxPath = folder + "/" + String(roomId).padStart(3, '0') + ".tmx";
+        const spawns = parseSpawnPoints(tmxPath);
+        const purpose = parseRoomPurpose(tmxPath);
+        const info = roomInfo[roomId];
+        const roomLabel = info ? info.label : String(roomId).padStart(3, '0');
+
+        roomPurposes[roomId] = purpose;
+
+        for (const spawn of spawns) {
+            allSpawns.push({
+                kind: spawn.kind,
+                team: spawn.team,
+                gameModes: spawn.gameModes,
+                x: spawn.x,
+                y: spawn.y,
+                roomId: roomId,
+                roomLabel: roomLabel
+            });
+        }
+    }
+
+    // --- Compute ValidGameModes ---
+
+    // Union of game_modes from all spawns
+    var spawnModesUnion = 0;
+    for (const s of allSpawns) {
+        spawnModesUnion |= s.gameModes;
+    }
+
+    // Computed game modes = gameplay bits from spawn union
+    var computedModes = spawnModesUnion & ALL_GAMEPLAY_MODES;
+
+    // Add LOBBY flag if any room has non-GAMEPLAY RoomPurpose
+    var hasNonGameplay = false;
+    for (const rid in roomPurposes) {
+        if (roomPurposes[rid] !== 0) {
+            hasNonGameplay = true;
+            break;
+        }
+    }
+    if (hasNonGameplay) {
+        computedModes |= 0x0200; // LOBBY
+    }
+
+    // Add MM_START if any spawn has it
+    if (spawnModesUnion & 0x4000) {
+        computedModes |= 0x4000; // MM_START
+    }
+
+    // --- Build report ---
+    const report = [];
+    report.push("=== Game Mode Report for " + mapName + " ===");
+    report.push("");
+    report.push("Computed ValidGameModes: 0x" + computedModes.toString(16).toUpperCase().padStart(4, '0') +
+        " (" + formatFullGameModes(computedModes) + ")");
+    report.push("");
+
+    // --- Mode Breakdown ---
+    report.push("--- Mode Breakdown ---");
+
+    // Group spawns by contributing mode
+    var anyModeShown = false;
+    for (const bitStr in GAME_MODE_FULL_NAMES) {
+        const bit = parseInt(bitStr);
+        if (!(computedModes & bit)) continue;
+
+        const modeName = GAME_MODE_FULL_NAMES[bit];
+
+        // Skip LOBBY and MM_START in spawn breakdown (they're inferred)
+        if (bit === 0x0200) {
+            report.push(modeName + " (0x" + bit.toString(16).toUpperCase().padStart(4, '0') + "):");
+            report.push("  (inferred from non-GAMEPLAY RoomPurpose rooms)");
+            // List the rooms
+            for (const rid in roomPurposes) {
+                if (roomPurposes[rid] !== 0) {
+                    const info = roomInfo[rid];
+                    const label = info ? info.label : String(rid).padStart(3, '0');
+                    const purposeName = ROOM_PURPOSE_NAMES[roomPurposes[rid]] || ("Purpose " + roomPurposes[rid]);
+                    report.push("  Room " + label + ": " + purposeName);
+                }
+            }
+            report.push("");
+            anyModeShown = true;
+            continue;
+        }
+
+        if (bit === 0x4000) {
+            report.push(modeName + " (0x" + bit.toString(16).toUpperCase().padStart(4, '0') + "):");
+            report.push("  (inferred from spawns with MM_START in game_modes)");
+            report.push("");
+            anyModeShown = true;
+            continue;
+        }
+
+        // WILLY_TEAMS: check if implied by team-coloured spawns
+        if (bit === 0x0080) {
+            const hasTeamSpawns = allSpawns.some(function(s) {
+                return s.kind === 0 && s.team !== 0 && (s.gameModes & 0x0080);
+            });
+            report.push(modeName + " (0x" + bit.toString(16).toUpperCase().padStart(4, '0') + "):");
+            if (hasTeamSpawns) {
+                report.push("  (implied by team-coloured PLAYER_START spawns)");
+            }
+            // List contributing team spawns
+            for (const s of allSpawns) {
+                if ((s.gameModes & bit) && s.kind === 0 && s.team !== 0) {
+                    const teamName = TEAM_NAMES[s.team] || ("Team " + s.team);
+                    report.push("  Room " + s.roomLabel + ": PLAYER_START [" + teamName + "] at (" +
+                        Math.round(s.x) + "," + Math.round(s.y) + ")");
+                }
+            }
+            report.push("");
+            anyModeShown = true;
+            continue;
+        }
+
+        // Regular gameplay modes
+        const contributors = [];
+        for (const s of allSpawns) {
+            if (s.gameModes & bit) {
+                const kindName = SPAWN_KIND_NAMES[s.kind] || ("Kind " + s.kind);
+                const teamName = TEAM_NAMES[s.team] || ("Team " + s.team);
+                contributors.push("  Room " + s.roomLabel + ": " + kindName + " [" + teamName + "] at (" +
+                    Math.round(s.x) + "," + Math.round(s.y) + ")");
+            }
+        }
+
+        if (contributors.length > 0) {
+            report.push(modeName + " (0x" + bit.toString(16).toUpperCase().padStart(4, '0') + "):");
+            for (const line of contributors) {
+                report.push(line);
+            }
+            report.push("");
+            anyModeShown = true;
+        }
+    }
+
+    if (!anyModeShown) {
+        report.push("(no gameplay modes detected)");
+        report.push("");
+    }
+
+    // --- Structural Warnings ---
+    const warnings = [];
+    const spawns = allSpawns;
+    const playerStarts = spawns.filter(function(s) { return s.kind === 0; });
+    const flags = spawns.filter(function(s) { return s.kind === 1; });
+
+    // Rule: game_modes=0 on non-EXIT spawns
+    for (const s of spawns) {
+        if (s.gameModes === 0 && s.kind !== 2) {
+            const kindName = SPAWN_KIND_NAMES[s.kind] || ("Kind " + s.kind);
+            warnings.push("Room " + s.roomLabel + ": " + kindName + " at (" +
+                Math.round(s.x) + "," + Math.round(s.y) + ") has game_modes=0 (must be explicit)");
+        }
+    }
+
+    // Rule: Neutral spawn must not have WILLY_TEAMS
+    for (const s of spawns) {
+        if (s.team === 0 && s.kind === 0 && (s.gameModes & 0x0080)) {
+            warnings.push("Room " + s.roomLabel + ": Neutral spawn at (" +
+                Math.round(s.x) + "," + Math.round(s.y) + ") has WILLY_TEAMS in game_modes");
+        }
+    }
+
+    // Team symmetry
+    const hasRedStart = playerStarts.some(function(s) { return s.team === 1; });
+    const hasBlueStart = playerStarts.some(function(s) { return s.team === 2; });
+    const hasGreenStart = playerStarts.some(function(s) { return s.team === 4; });
+    const hasOrangeStart = playerStarts.some(function(s) { return s.team === 5; });
+    const hasNeutralStart = playerStarts.some(function(s) { return s.team === 0; });
+    const hasRedFlag = flags.some(function(s) { return s.team === 1; });
+    const hasBlueFlag = flags.some(function(s) { return s.team === 2; });
+
+    if (hasRedStart && !hasBlueStart) warnings.push("Red team spawns exist but no Blue team spawns");
+    if (hasBlueStart && !hasRedStart) warnings.push("Blue team spawns exist but no Red team spawns");
+    if (hasGreenStart && !hasOrangeStart) warnings.push("Green team spawns exist but no Orange team spawns");
+    if (hasOrangeStart && !hasGreenStart) warnings.push("Orange team spawns exist but no Green team spawns");
+
+    // CTF validation
+    if (computedModes & 0x0100) {
+        if (computedModes & 0x0080) {
+            // Team CTF
+            var ctfTeamFlags = 0;
+            var ctfTeamSpawns = 0;
+            for (const s of spawns) {
+                if (s.kind === 1 && (s.gameModes & 0x0100) && s.team !== 0) {
+                    ctfTeamFlags |= (1 << s.team);
+                }
+                if (s.kind === 0 && (s.gameModes & 0x0100) && s.team !== 0) {
+                    ctfTeamSpawns |= (1 << s.team);
+                }
+            }
+            var paired = ctfTeamFlags & ctfTeamSpawns;
+            var teamCount = 0;
+            for (var b = 0; b < 8; b++) { if (paired & (1 << b)) teamCount++; }
+            if (teamCount < 2) {
+                warnings.push("CTF | TEAMS: only " + teamCount + " team(s) have paired CTF-tagged spawn AND flag (need >=2)");
+            }
+        } else {
+            // Solo CTF
+            var hasNeutralCtfSpawn = spawns.some(function(s) { return s.kind === 0 && s.team === 0 && (s.gameModes & 0x0100); });
+            var hasNeutralCtfFlag = spawns.some(function(s) { return s.kind === 1 && s.team === 0 && (s.gameModes & 0x0100); });
+            if (!hasNeutralCtfSpawn) warnings.push("Solo CTF: no CTF-tagged neutral spawn");
+            if (!hasNeutralCtfFlag) warnings.push("Solo CTF: no CTF-tagged neutral flag");
+        }
+
+        // Per-team CTF pairing
+        var teams = [1, 2, 4, 5];
+        for (var ti = 0; ti < teams.length; ti++) {
+            var t = teams[ti];
+            var tName = TEAM_NAMES[t];
+            var hasCtfFlag = spawns.some(function(s) { return s.kind === 1 && s.team === t && (s.gameModes & 0x0100); });
+            var hasCtfSpawn = spawns.some(function(s) { return s.kind === 0 && s.team === t && (s.gameModes & 0x0100); });
+            if (hasCtfFlag && !hasCtfSpawn) warnings.push("CTF-tagged " + tName + " flag but no CTF-tagged " + tName + " spawn");
+            if (hasCtfSpawn && !hasCtfFlag) warnings.push("CTF-tagged " + tName + " spawn but no CTF-tagged " + tName + " flag");
+        }
+    }
+
+    // WILLY_BALL validation
+    if (computedModes & 0x8000) {
+        if (!(computedModes & 0x0080)) {
+            warnings.push("WILLY_BALL present but WILLY_TEAMS missing (WILLY_BALL is always team-based)");
+        }
+        var hasBallSpawn = spawns.some(function(s) { return s.kind === 3; });
+        if (!hasBallSpawn) {
+            warnings.push("WILLY_BALL enabled but no BALL_SPAWN found");
+        }
+        var wbFlags = 0, wbSpawns = 0;
+        for (const s of spawns) {
+            if (s.gameModes & 0x8000) {
+                if (s.kind === 1 && s.team !== 0) wbFlags |= (1 << s.team);
+                if (s.kind === 0 && s.team !== 0) wbSpawns |= (1 << s.team);
+            }
+        }
+        var wbPaired = wbFlags & wbSpawns;
+        var wbCount = 0;
+        for (var wb = 0; wb < 8; wb++) { if (wbPaired & (1 << wb)) wbCount++; }
+        if (wbCount < 2) {
+            warnings.push("WILLY_BALL: need >=2 teams with WILLY_BALL-tagged spawn AND flag (found " + wbCount + ")");
+        }
+    }
+
+    // Duplicate non-GAMEPLAY purposes
+    var purposeSeen = {};
+    for (const rid in roomPurposes) {
+        var rp = roomPurposes[rid];
+        if (rp !== 0) {
+            if (purposeSeen[rp] !== undefined) {
+                var pName = ROOM_PURPOSE_NAMES[rp] || ("Purpose " + rp);
+                warnings.push("Duplicate " + pName + ": rooms " + purposeSeen[rp] + " and " + rid);
+            } else {
+                purposeSeen[rp] = rid;
+            }
+        }
+    }
+
+    // Add warnings section
+    report.push("--- Warnings ---");
+    if (warnings.length === 0) {
+        report.push("(none)");
+    } else {
+        for (const w of warnings) {
+            report.push("WARNING: " + w);
+        }
+    }
+    report.push("");
+
+    // Show dialog
+    const dialog = new Dialog("Game Mode Report: " + mapName);
+    dialog.minimumWidth = 700;
+    dialog.newRowMode = Dialog.ManualRows;
+
+    dialog.addHeading("Computed ValidGameModes: 0x" +
+        computedModes.toString(16).toUpperCase().padStart(4, '0'));
+    dialog.addNewRow();
+    dialog.addHeading(formatFullGameModes(computedModes));
+
+    if (warnings.length > 0) {
+        dialog.addNewRow();
+        dialog.addHeading(warnings.length + " warning(s) found");
+    }
+
+    dialog.addNewRow();
+    dialog.addSeparator();
+
+    dialog.addNewRow();
+    const reportText = dialog.addTextEdit("");
+    reportText.plainText = report.join("\n");
+    reportText.readOnly = true;
+
+    dialog.addNewRow();
+    const saveButton = dialog.addButton("Save Report");
+    const closeButton = dialog.addButton("Close");
+
+    saveButton.clicked.connect(function() {
+        const reportPath = folder + "/game_mode_report.txt";
+        try {
+            const outFile = new TextFile(reportPath, TextFile.WriteOnly);
+            outFile.write(report.join("\n"));
+            outFile.close();
+            tiled.log("Report saved to: " + reportPath);
+            tiled.alert("Report saved to:\n" + reportPath);
+        } catch (e) {
+            tiled.alert("Failed to save report: " + e);
+        }
+    });
+
+    closeButton.clicked.connect(function() {
+        dialog.accept();
+    });
+
+    dialog.show();
+}
+
 // Register the New Room action
 const newRoomAction = tiled.registerAction("JSWRNewRoom", showNewRoomDialog);
 newRoomAction.text = "New JSW:R Room...";
@@ -2658,6 +3079,10 @@ newRoomAction.shortcut = "Ctrl+Shift+N";
 // Register the Validate Spawn Points action
 const validateSpawnsAction = tiled.registerAction("JSWRValidateSpawns", validateSpawnPoints);
 validateSpawnsAction.text = "[WORLD] Validate Spawn Points...";
+
+// Register the Game Mode Report action
+const gameModeReportAction = tiled.registerAction("JSWRGameModeReport", showGameModeReport);
+gameModeReportAction.text = "[WORLD] Game Mode Report...";
 
 // Register the Fix Orphaned Routes action
 const fixRoutesAction = tiled.registerAction("JSWRFixRoutes", fixOrphanedRoutes);
@@ -2744,6 +3169,7 @@ tiled.extendMenu("Map", [
     { action: "JSWRNewRoom", before: "MapProperties" },
     { separator: true, before: "MapProperties" },
     { action: "JSWRValidateSpawns", before: "MapProperties" },
+    { action: "JSWRGameModeReport", before: "MapProperties" },
     { action: "JSWRFixRoutes", before: "MapProperties" },
     { action: "JSWRFixSelected", before: "MapProperties" },
     { separator: true, before: "MapProperties" },
