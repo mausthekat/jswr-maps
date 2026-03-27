@@ -20,6 +20,8 @@ import argparse
 import sys
 from pathlib import Path
 
+import json
+
 from tmx_project_lib import (
     get_template_dir,
     get_tmx_dir,
@@ -28,6 +30,18 @@ from tmx_project_lib import (
     update_project,
     find_all_projects,
 )
+
+def _make_empty_room_tmx(template_dir: Path, name: str = "Room 1") -> str:
+    """Create an empty room TMX from the archetype template.
+
+    Reads archetype.tmx from the template directory and substitutes the
+    room name. The archetype contains the canonical tilesets, properties,
+    and layer structure.
+    """
+    archetype = template_dir / "archetype.tmx"
+    content = archetype.read_text()
+    content = content.replace('value="Room 1"', f'value="{name}"')
+    return content
 
 
 def cmd_create(args) -> int:
@@ -67,6 +81,7 @@ def cmd_create(args) -> int:
         print(f"  {target_dir}/")
         for src, dst in files_to_copy:
             print(f"    {dst}")
+        print("    001.tmx  (empty room)")
 
         # Show templates
         src_templates = template_dir / "templates"
@@ -91,16 +106,33 @@ def cmd_create(args) -> int:
     # Create target directory
     target_dir.mkdir(parents=True)
 
-    # Copy and rename files with placeholder substitution
+    # Copy and rename files with placeholder substitution.
+    # The world file gets an initial room entry instead of an empty maps array.
+    initial_world = json.dumps({
+        "maps": [
+            {"fileName": "001.tmx", "x": 0, "y": 0}
+        ],
+        "type": "world"
+    }, indent=4) + "\n"
+
     for src_name, dst_name in files_to_copy:
         src_path = template_dir / src_name
         dst_path = target_dir / dst_name
 
         if src_path.exists():
-            content = src_path.read_text()
-            content = content.replace("{PROJECT_NAME}", name)
-            dst_path.write_text(content)
+            if src_name.endswith(".world"):
+                # Use our initial world with room 001 placed at origin
+                dst_path.write_text(initial_world)
+            else:
+                content = src_path.read_text()
+                content = content.replace("{PROJECT_NAME}", name)
+                dst_path.write_text(content)
             print(f"  Created: {dst_name}")
+
+    # Create empty room 001.tmx from archetype
+    room_path = target_dir / "001.tmx"
+    room_path.write_text(_make_empty_room_tmx(template_dir, "Room 1"))
+    print("  Created: 001.tmx")
 
     # Copy templates (with path adjustment)
     src_templates = template_dir / "templates"

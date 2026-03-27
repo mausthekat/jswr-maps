@@ -44,8 +44,8 @@
         },
         {
             "fileName": "007.tmx",
-            "height": 0,
-            "width": 0,
+            "height": 128,
+            "width": 256,
             "x": 256,
             "y": 0
         },
@@ -58,8 +58,8 @@
         },
         {
             "fileName": "009.tmx",
-            "height": 0,
-            "width": 0,
+            "height": 128,
+            "width": 256,
             "x": 512,
             "y": 128
         }

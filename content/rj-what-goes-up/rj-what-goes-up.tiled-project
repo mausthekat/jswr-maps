@@ -32,12 +32,6 @@
             "value": "RJ's What Goes Up"
         },
         {
-            "name": "ValidGameModes",
-            "propertytype": "GameModes",
-            "type": "int",
-            "value": 384
-        },
-        {
             "name": "SoftLifts",
             "type": "bool",
             "value": true
@@ -125,7 +119,8 @@
                 "COLLECT_ALL",
                 "CHAIN_GAMES",
                 "IT_TAG",
-                "MM_START"
+                "MM_START",
+                "WILLY_BALL"
             ],
             "valuesAsFlags": true
         },
@@ -177,7 +172,8 @@
             "values": [
                 "Player Start",
                 "Flag",
-                "Exit"
+                "Exit",
+                "Ball Spawn"
             ],
             "valuesAsFlags": false
         },

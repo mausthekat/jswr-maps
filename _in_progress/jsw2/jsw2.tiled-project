@@ -24,12 +24,6 @@
             "value": 1
         },
         {
-            "name": "ValidGameModes",
-            "propertytype": "GameModes",
-            "type": "int",
-            "value": 0
-        },
-        {
             "name": "IncludeMapPreview",
             "type": "bool",
             "value": true
@@ -141,7 +135,8 @@
             "values": [
                 "Player Start",
                 "Flag",
-                "Exit"
+                "Exit",
+                "Ball Spawn"
             ],
             "valuesAsFlags": false
         },
@@ -259,7 +254,8 @@
                 "COLLECT_ALL",
                 "CHAIN_GAMES",
                 "IT_TAG",
-                "MM_START"
+                "MM_START",
+                "WILLY_BALL"
             ],
             "valuesAsFlags": true
         },
