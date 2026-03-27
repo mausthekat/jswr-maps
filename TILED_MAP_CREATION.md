@@ -182,7 +182,9 @@ are configured in **Project > Project Properties**:
 | `InfiniteLives` | bool | Dying does not cost a life. Default: false. |
 | `OriginalArrows` | bool | Use original ZX Spectrum arrow behavior (per-arrow counter, 256-tick cycle). Default: false. |
 | `ManicFinalRoom` | int | Room ID for the final room in Manic-style maps. Default: 0 (unused). |
-| `IncludeMapPreview` | bool | Generate a preview image in the pack file. Default: false. |
+| `IncludeMapPreview` | bool | Generate a preview image in the pack file. Default: true. |
+| `SinglePlayerModes` | SPModes (flags) | Single-player modes this map supports: `SP_CLASSIC`, `SP_MANIC_MINER`. Default: none. |
+| `SPVictoryRoom` | int | Room ID for the single-player victory room. Default: 0 (unused). |
 
 ---
 
@@ -241,8 +243,8 @@ Set via Map > Map Properties in Tiled:
 | `Right` | file | Exit room filename. |
 | `Rope` | bool | Whether the room contains a rope. Default: false. |
 | `Rope Offset` | int | Signed tile offset to adjust rope horizontal position (0 = center of room). Default: 0. |
-| `Flags` | RoomFlags | Room flags. Currently supports: `MIRROR_TRIGGER`. |
-| `WillySuit` | WillySuit | `Normal` (0) or `SpaceSuit` (1). Default: Normal. |
+| `Flags` | RoomFlags | Room flags: `MIRROR_TRIGGER`, `DARK_ROOM`, `UNDERWATER`, `LOW_GRAVITY`. |
+| `WillySuit` | WillySuit | `Normal` (0), `SpaceSuit` (1), `DivingSuit` (2), or `FlyingPig` (3). Default: Normal. |
 | `RoomPurpose` | RoomPurpose | Room function. Default: `Gameplay` (0). See [Infrastructure Rooms](#16-infrastructure-rooms). |
 | `RaceLabel` | string | Target label for race game modes. |
 | `ChainRoomGroup` | int | Chain game group number (1–9, 0 = not in a chain group). |
@@ -281,6 +283,7 @@ behavior:
 |---------|-------------|
 | **Collapsible** | Crumble/collapse tiles that break when stepped on, then reset. Animated (8-frame, 125ms). Included in new rooms by default. See `manic/` for examples. |
 | **Penrose** | Special visual tiles. Must be added manually via Map > Add External Tileset (browse to `tmx/tilesets/tiles_penrose.tsx`). |
+| **MM Exit** | Manic Miner exit door tiles. Must be added manually via Map > Add External Tileset (browse to `tmx/tilesets/tiles_mm_exit.tsx`). See [MM Exit Spawns](#mm-exit-spawns). |
 
 ### Stair Direction
 
@@ -990,13 +993,13 @@ hand-drawn 16x16 pixel tiles — double the game's native 8x8 resolution.
 
 #### Pipeline Overview
 
-The Gorgeous tileset lives in `tmx/_in_progress/` across three related projects:
+The Gorgeous tileset lives across three related projects:
 
-| Project | Resolution | Purpose |
-|---------|-----------|---------|
-| `jsw-gorgeous/` | 8x8 | Primary editing project — hand-categorized tiles |
-| `jsw-gorgeous-2x/` | 16x16 | Hi-res variant — auto-generated from tile matching |
-| `jsw-gorgeous-scaled/` | 8x8 | Scaled-down variant — direct copy of categorized tiles |
+| Project | Location | Resolution | Purpose |
+|---------|----------|-----------|---------|
+| `jsw-gorgeous/` | `content/` | 8x8 | Primary editing project — hand-categorized tiles |
+| `jsw-gorgeous-2x/` | `_in_progress/` | 16x16 | Hi-res variant — auto-generated from tile matching |
+| `jsw-gorgeous-scaled/` | `_in_progress/` | 8x8 | Scaled-down variant — direct copy of categorized tiles |
 
 Each room has its own per-room tileset (e.g., `001.tsx` + `001_tiles.png`) because the
 original Spectrum game assigned unique tile graphics per room. The shared category tilesets
