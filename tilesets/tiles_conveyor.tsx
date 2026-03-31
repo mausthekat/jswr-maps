@@ -102,6 +102,16 @@
    <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
+  <animation>
+   <frame tileid="48" duration="100"/>
+   <frame tileid="49" duration="100"/>
+   <frame tileid="50" duration="100"/>
+   <frame tileid="51" duration="100"/>
+   <frame tileid="52" duration="100"/>
+   <frame tileid="53" duration="100"/>
+   <frame tileid="54" duration="100"/>
+   <frame tileid="55" duration="100"/>
+  </animation>
  </tile>
  <tile id="56">
   <properties>
