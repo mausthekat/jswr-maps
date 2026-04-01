@@ -1,0 +1,5 @@
+{
+    "": {"name": "Gorgeous", "color_clash": false},
+    "2x": {"name": "Gorgeous (2x)", "color_clash": false},
+    "jsw1": {"name": "JSW1", "color_clash": true}
+}

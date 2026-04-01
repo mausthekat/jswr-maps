@@ -66,6 +66,11 @@
             "propertytype": "",
             "type": "bool",
             "value": true
+        },
+        {
+            "name": "DefaultTileset",
+            "type": "string",
+            "value": ""
         }
     ],
     "propertyTypes": [

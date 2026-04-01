@@ -66,6 +66,11 @@
             "propertytype": "",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "DefaultTileset",
+            "type": "string",
+            "value": "Gorgeous (2x)"
         }
     ],
     "propertyTypes": [
