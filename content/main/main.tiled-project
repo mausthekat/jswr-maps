@@ -61,6 +61,11 @@
             "name": "SPVictoryRoom",
             "type": "int",
             "value": 32
+        },
+        {
+            "name": "DefaultTileset",
+            "type": "string",
+            "value": ""
         }
     ],
     "propertyTypes": [
