@@ -44,8 +44,8 @@
         },
         {
             "fileName": "007.tmx",
-            "height": 0,
-            "width": 0,
+            "height": 128,
+            "width": 256,
             "x": 3328,
             "y": 1536
         },
@@ -65,15 +65,15 @@
         },
         {
             "fileName": "010.tmx",
-            "height": 0,
-            "width": 0,
+            "height": 128,
+            "width": 256,
             "x": 3584,
             "y": 1280
         },
         {
             "fileName": "011.tmx",
-            "height": 0,
-            "width": 0,
+            "height": 128,
+            "width": 256,
             "x": 3328,
             "y": 1280
         },
@@ -156,8 +156,8 @@
         },
         {
             "fileName": "021.tmx",
-            "height": 0,
-            "width": 0,
+            "height": 128,
+            "width": 256,
             "x": 2304,
             "y": 1280
         },
@@ -177,8 +177,8 @@
         },
         {
             "fileName": "024.tmx",
-            "height": 0,
-            "width": 0,
+            "height": 128,
+            "width": 256,
             "x": 1536,
             "y": 1280
         },
