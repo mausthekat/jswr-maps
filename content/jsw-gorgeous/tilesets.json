@@ -1,5 +1,6 @@
 {
-    "": {"name": "Gorgeous", "color_clash": false},
-    "2x": {"name": "Gorgeous (2x)", "color_clash": false},
-    "jsw1": {"name": "JSW1", "color_clash": true}
+    "": {"name": "Gorgeous (8px)", "color_clash": false},
+    "2x": {"name": "Gorgeous (16px)", "color_clash": false},
+    "jsw1": {"name": "JSW1 Old School", "color_clash": true},
+    "jsw1-e": {"name": "JSW1 Noble", "color_clash": false}
 }
