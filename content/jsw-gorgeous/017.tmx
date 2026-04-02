@@ -68,14 +68,8 @@
  
  
  <objectgroup id="2" name="Collectables">
-  
-  
-  <object id="1" x="248" y="40" width="8" height="8" gid="12289" />
-  
- 
+  <object id="1" gid="12365" x="248" y="40" width="8" height="8" />
  </objectgroup>
- 
- 
  <objectgroup id="3" name="Enemies">
   
   
