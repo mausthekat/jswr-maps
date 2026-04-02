@@ -40,7 +40,7 @@
 </data>
  </layer>
  <objectgroup id="2" name="Collectables">
-  <object id="1" gid="12289" x="184" y="80" width="8" height="8" />
+  <object id="1" gid="12509" x="184" y="80" width="8" height="8" />
  </objectgroup>
  <objectgroup id="3" name="Enemies">
   <object id="102" name="Jelly" type="Guardian" gid="14400" x="112" y="40" width="16" height="16">
