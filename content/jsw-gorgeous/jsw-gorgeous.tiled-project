@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -12,6 +13,12 @@
             "propertytype": "",
             "type": "string",
             "value": ""
+        },
+        {
+            "name": "DefaultTileset",
+            "propertytype": "",
+            "type": "string",
+            "value": "2x"
         },
         {
             "name": "FallDamageMode",
@@ -66,11 +73,6 @@
             "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "DefaultTileset",
-            "type": "string",
-            "value": "Gorgeous (2x)"
         }
     ],
     "propertyTypes": [
@@ -104,8 +106,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
