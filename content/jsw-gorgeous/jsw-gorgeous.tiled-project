@@ -76,7 +76,8 @@
         {
             "name": "FinalCelebration",
             "type": "string",
-            "value": ""
+            "value": "JetSetWilly",
+            "propertytype": "FinalCelebration"
         }
     ],
     "propertyTypes": [
