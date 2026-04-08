@@ -71,6 +71,11 @@
             "name": "DefaultTileset",
             "type": "string",
             "value": ""
+        },
+        {
+            "name": "FinalCelebration",
+            "type": "string",
+            "value": ""
         }
     ],
     "propertyTypes": [
@@ -307,6 +312,33 @@
                 "SpaceSuit",
                 "DivingSuit",
                 "FlyingPig"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 17,
+            "name": "FinalAction",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Teleport",
+                "Show",
+                "Hide",
+                "PlayReplay",
+                "RemovePlayer",
+                "ReplaceGuardian"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "FinalCelebration",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "None",
+                "ManicMiner",
+                "JetSetWilly"
             ],
             "valuesAsFlags": false
         }

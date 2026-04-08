@@ -24,6 +24,12 @@
             "value": 0
         },
         {
+            "name": "FinalCelebration",
+            "propertytype": "FinalCelebration",
+            "type": "string",
+            "value": "None"
+        },
+        {
             "name": "IncludeMapPreview",
             "type": "bool",
             "value": true
@@ -301,6 +307,33 @@
                 "SP_MANIC_MINER"
             ],
             "valuesAsFlags": true
+        },
+        {
+            "id": 17,
+            "name": "FinalAction",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Teleport",
+                "Show",
+                "Hide",
+                "PlayReplay",
+                "RemovePlayer",
+                "ReplaceGuardian"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "FinalCelebration",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "None",
+                "ManicMiner",
+                "JetSetWilly"
+            ],
+            "valuesAsFlags": false
         }
     ]
 }
