@@ -104,37 +104,51 @@
  <objectgroup id="8" name="Special">
   <object id="23" gid="4134" x="208" y="72" width="8" height="8">
    <properties>
-    <property name="Multiplayer" type="bool" value="true" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ShowTile"/>
+    <property name="SessionType" propertytype="SessionType" value="2"/>
    </properties>
   </object>
   <object id="25" gid="4134" x="160" y="64" width="8" height="8">
    <properties>
-    <property name="Multiplayer" type="bool" value="true" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ShowTile"/>
+    <property name="SessionType" propertytype="SessionType" value="2"/>
    </properties>
   </object>
   <object id="26" gid="4134" x="168" y="72" width="8" height="8">
    <properties>
-    <property name="Multiplayer" type="bool" value="true" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ShowTile"/>
+    <property name="SessionType" propertytype="SessionType" value="2"/>
    </properties>
   </object>
   <object id="27" gid="4134" x="144" y="56" width="8" height="8">
    <properties>
-    <property name="Multiplayer" type="bool" value="true" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ShowTile"/>
+    <property name="SessionType" propertytype="SessionType" value="2"/>
    </properties>
   </object>
   <object id="28" gid="4134" x="152" y="96" width="8" height="8">
    <properties>
-    <property name="Multiplayer" type="bool" value="true" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ShowTile"/>
+    <property name="SessionType" propertytype="SessionType" value="2"/>
    </properties>
   </object>
   <object id="29" gid="4134" x="240" y="104" width="8" height="8">
    <properties>
-    <property name="Multiplayer" type="bool" value="true" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ShowTile"/>
+    <property name="SessionType" propertytype="SessionType" value="2"/>
    </properties>
   </object>
   <object id="31" gid="4134" x="200" y="72" width="8" height="8">
    <properties>
-    <property name="Multiplayer" type="bool" value="true" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ShowTile"/>
+    <property name="SessionType" propertytype="SessionType" value="2"/>
    </properties>
   </object>
  </objectgroup>

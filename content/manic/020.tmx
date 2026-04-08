@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="9" nextobjectid="25">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="9" nextobjectid="30">
  <properties>
   <property name="Chunk" type="int" value="0" />
   <property name="Down" type="file" value="" />
@@ -89,19 +89,52 @@
   </object>
  </objectgroup>
  <objectgroup id="8" name="Special">
-  <object id="23" template="templates/spawn_player.tx" x="160" y="32">
+  <object id="23" x="0" y="16" width="16" height="16">
    <properties>
-    <property name="Action" propertytype="FinalAction" value="Teleport" />
-    <property name="Delay" type="int" value="10" />
-    <property name="Final" type="bool" value="true" />
-    <property name="Sequence" type="int" value="0" />
+    <property name="TriggerType" propertytype="TriggerType" value="RoomAllCollected"/>
+    <property name="ActionType" propertytype="ActionType" value="Complete"/>
+    <property name="TriggerID" value="items_done"/>
    </properties>
   </object>
-  <object id="24" gid="1871" x="152" y="56" width="16" height="16">
+  <object id="24" x="152" y="56" width="16" height="16">
    <properties>
-    <property name="Action" propertytype="FinalAction" value="Show" />
-    <property name="Final" type="bool" value="true" />
-    <property name="Sequence" type="int" value="0" />
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="DependsOnCompletion" value="items_done"/>
+    <property name="ActionType" propertytype="ActionType" value="TeleportPlayerTo"/>
+    <property name="Target" type="object" value="25"/>
+    <property name="TriggerID" value="celebration"/>
+   </properties>
+  </object>
+  <object id="25" template="templates/spawn_player.tx" x="160" y="32"/>
+  <object id="26" gid="1871" x="152" y="56" width="16" height="16">
+   <properties>
+    <property name="DependsOnCompletion" value="celebration"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ShowEntity"/>
+    <property name="TriggerID" value="swordfish"/>
+   </properties>
+  </object>
+  <object id="27" x="152" y="56" width="16" height="16">
+   <properties>
+    <property name="DependsOnCompletion" value="celebration"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="HideEntity"/>
+   </properties>
+  </object>
+  <object id="28" x="0" y="0" width="8" height="8">
+   <properties>
+    <property name="DependsOnCompletion" value="celebration"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="Delay"/>
+    <property name="Threshold" type="int" value="10"/>
+    <property name="TriggerID" value="wait"/>
+   </properties>
+  </object>
+  <object id="29" x="0" y="0" width="8" height="8">
+   <properties>
+    <property name="DependsOnCompletion" value="wait"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="EndGame"/>
    </properties>
   </object>
  </objectgroup>
