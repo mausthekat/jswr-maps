@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_solid" tilewidth="8" tileheight="8" tilecount="144" columns="16">
+<tileset version="1.10" tiledversion="1.12.1" name="tiles_solid" tilewidth="8" tileheight="8" tilecount="160" columns="16">
  <properties>
   <property name="TilesetName" value="Gorgeous"/>
  </properties>
- <image source="tiles_solid.png" width="128" height="72"/>
+ <image source="tiles_solid.png" width="128" height="80"/>
  <tile id="0">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
@@ -53,6 +53,10 @@
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="9" duration="500"/>
+   <frame tileid="132" duration="500"/>
+  </animation>
  </tile>
  <tile id="10">
   <properties>
@@ -68,6 +72,10 @@
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="12" duration="500"/>
+   <frame tileid="133" duration="500"/>
+  </animation>
  </tile>
  <tile id="13">
   <properties>
@@ -178,6 +186,10 @@
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="34" duration="500"/>
+   <frame tileid="134" duration="500"/>
+  </animation>
  </tile>
  <tile id="35">
   <properties>
@@ -193,6 +205,10 @@
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="37" duration="500"/>
+   <frame tileid="135" duration="500"/>
+  </animation>
  </tile>
  <tile id="38">
   <properties>
@@ -538,56 +554,100 @@
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="104" duration="500"/>
+   <frame tileid="136" duration="500"/>
+  </animation>
  </tile>
  <tile id="105">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="105" duration="500"/>
+   <frame tileid="137" duration="500"/>
+  </animation>
  </tile>
  <tile id="106">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="106" duration="500"/>
+   <frame tileid="138" duration="500"/>
+  </animation>
  </tile>
  <tile id="107">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="107" duration="500"/>
+   <frame tileid="139" duration="500"/>
+  </animation>
  </tile>
  <tile id="108">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="108" duration="500"/>
+   <frame tileid="140" duration="500"/>
+  </animation>
  </tile>
  <tile id="109">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="109" duration="500"/>
+   <frame tileid="141" duration="500"/>
+  </animation>
  </tile>
  <tile id="110">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="110" duration="500"/>
+   <frame tileid="142" duration="500"/>
+  </animation>
  </tile>
  <tile id="111">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="111" duration="500"/>
+   <frame tileid="143" duration="500"/>
+  </animation>
  </tile>
  <tile id="112">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="112" duration="500"/>
+   <frame tileid="144" duration="500"/>
+  </animation>
  </tile>
  <tile id="113">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="113" duration="500"/>
+   <frame tileid="145" duration="500"/>
+  </animation>
  </tile>
  <tile id="114">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
+  <animation>
+   <frame tileid="114" duration="500"/>
+   <frame tileid="146" duration="500"/>
+  </animation>
  </tile>
  <tile id="115">
   <properties>

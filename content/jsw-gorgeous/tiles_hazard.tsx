@@ -170,8 +170,8 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="27" duration="200"/>
-   <frame tileid="66" duration="200"/>
+   <frame tileid="27" duration="500"/>
+   <frame tileid="66" duration="500"/>
   </animation>
  </tile>
  <tile id="28">
@@ -179,8 +179,8 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="28" duration="200"/>
-   <frame tileid="67" duration="200"/>
+   <frame tileid="28" duration="500"/>
+   <frame tileid="67" duration="500"/>
   </animation>
  </tile>
  <tile id="29">
@@ -188,8 +188,8 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="29" duration="200"/>
-   <frame tileid="68" duration="200"/>
+   <frame tileid="29" duration="500"/>
+   <frame tileid="68" duration="500"/>
   </animation>
  </tile>
  <tile id="30">
@@ -197,8 +197,8 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="30" duration="200"/>
-   <frame tileid="69" duration="200"/>
+   <frame tileid="30" duration="500"/>
+   <frame tileid="69" duration="500"/>
   </animation>
  </tile>
  <tile id="31">
@@ -206,8 +206,8 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="31" duration="200"/>
-   <frame tileid="70" duration="200"/>
+   <frame tileid="31" duration="500"/>
+   <frame tileid="70" duration="500"/>
   </animation>
  </tile>
  <tile id="32">
@@ -215,8 +215,8 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="32" duration="200"/>
-   <frame tileid="71" duration="200"/>
+   <frame tileid="32" duration="500"/>
+   <frame tileid="71" duration="500"/>
   </animation>
  </tile>
  <tile id="33">
@@ -224,10 +224,10 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="33" duration="100"/>
-   <frame tileid="59" duration="100"/>
-   <frame tileid="60" duration="100"/>
-   <frame tileid="61" duration="100"/>
+   <frame tileid="33" duration="250"/>
+   <frame tileid="59" duration="250"/>
+   <frame tileid="60" duration="250"/>
+   <frame tileid="61" duration="250"/>
   </animation>
  </tile>
  <tile id="34">
@@ -235,10 +235,10 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="34" duration="100"/>
-   <frame tileid="49" duration="100"/>
-   <frame tileid="50" duration="100"/>
-   <frame tileid="51" duration="100"/>
+   <frame tileid="34" duration="250"/>
+   <frame tileid="49" duration="250"/>
+   <frame tileid="50" duration="250"/>
+   <frame tileid="51" duration="250"/>
   </animation>
  </tile>
  <tile id="35">
@@ -246,8 +246,8 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="35" duration="200"/>
-   <frame tileid="72" duration="200"/>
+   <frame tileid="35" duration="500"/>
+   <frame tileid="72" duration="500"/>
   </animation>
  </tile>
  <tile id="36">
@@ -255,8 +255,8 @@
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>
   <animation>
-   <frame tileid="36" duration="200"/>
-   <frame tileid="73" duration="200"/>
+   <frame tileid="36" duration="500"/>
+   <frame tileid="73" duration="500"/>
   </animation>
  </tile>
  <tile id="37">

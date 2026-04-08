@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_decoration" tilewidth="8" tileheight="8" tilecount="256" columns="16">
+<tileset version="1.10" tiledversion="1.12.1" name="tiles_decoration" tilewidth="8" tileheight="8" tilecount="256" columns="16">
  <properties>
   <property name="TilesetName" value="Gorgeous"/>
  </properties>
@@ -994,8 +994,8 @@
    <property name="TileType" propertytype="TileType" value="decoration"/>
   </properties>
   <animation>
-   <frame tileid="189" duration="100"/>
-   <frame tileid="234" duration="100"/>
+   <frame tileid="189" duration="250"/>
+   <frame tileid="234" duration="250"/>
   </animation>
  </tile>
  <tile id="190">
