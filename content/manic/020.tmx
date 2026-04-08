@@ -94,12 +94,14 @@
     <property name="Action" propertytype="FinalAction" value="Teleport" />
     <property name="Delay" type="int" value="10" />
     <property name="Final" type="bool" value="true" />
+    <property name="Sequence" type="int" value="0" />
    </properties>
   </object>
   <object id="24" gid="1871" x="152" y="56" width="16" height="16">
    <properties>
     <property name="Action" propertytype="FinalAction" value="Show" />
     <property name="Final" type="bool" value="true" />
+    <property name="Sequence" type="int" value="0" />
    </properties>
   </object>
  </objectgroup>
