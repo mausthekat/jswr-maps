@@ -71,7 +71,7 @@
    <polyline points="0,0 0,64" />
   </object>
  </objectgroup>
- <objectgroup id="7" name="Special">
+ <objectgroup id="7" name="Spawn">
   <object id="5" template="templates/spawn_player.tx" x="56" y="120">
    <properties>
     <property name="GameModes" type="int" propertytype="GameModes" value="512" />

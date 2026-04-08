@@ -66,6 +66,11 @@
             "name": "DefaultTileset",
             "type": "string",
             "value": ""
+        },
+        {
+            "name": "FinalCelebration",
+            "type": "string",
+            "value": ""
         }
     ],
     "propertyTypes": [
@@ -304,6 +309,33 @@
                 "SP_MANIC_MINER"
             ],
             "valuesAsFlags": true
+        },
+        {
+            "id": 17,
+            "name": "FinalAction",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Teleport",
+                "Show",
+                "Hide",
+                "PlayReplay",
+                "RemovePlayer",
+                "ReplaceGuardian"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "FinalCelebration",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "None",
+                "ManicMiner",
+                "JetSetWilly"
+            ],
+            "valuesAsFlags": false
         }
     ]
 }

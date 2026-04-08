@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -73,6 +72,11 @@
             "propertytype": "",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "FinalCelebration",
+            "type": "string",
+            "value": ""
         }
     ],
     "propertyTypes": [
@@ -106,8 +110,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -309,6 +313,33 @@
                 "SpaceSuit",
                 "DivingSuit",
                 "FlyingPig"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 17,
+            "name": "FinalAction",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Teleport",
+                "Show",
+                "Hide",
+                "PlayReplay",
+                "RemovePlayer",
+                "ReplaceGuardian"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "FinalCelebration",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "None",
+                "ManicMiner",
+                "JetSetWilly"
             ],
             "valuesAsFlags": false
         }

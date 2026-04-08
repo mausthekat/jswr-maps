@@ -43,8 +43,7 @@
  <objectgroup id="2" name="Collectables" />
  <objectgroup id="3" name="Enemies" />
  <objectgroup color="#00ffff" id="4" name="Routes" />
- <objectgroup id="5" name="Spawn" />
- <objectgroup id="6" name="Special">
+ <objectgroup id="6" name="Spawn">
   <object id="1" template="templates/spawn_player.tx" x="120" y="32">
    <properties>
     <property name="GameModes" type="int" propertytype="GameModes" value="512" />
