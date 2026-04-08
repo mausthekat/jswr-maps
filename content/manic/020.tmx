@@ -112,6 +112,7 @@
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
     <property name="ActionType" propertytype="ActionType" value="ShowEntity"/>
     <property name="TriggerID" value="swordfish"/>
+    <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
    </properties>
   </object>
   <object id="27" x="152" y="56" width="16" height="16">
@@ -119,6 +120,7 @@
     <property name="DependsOnCompletion" value="celebration"/>
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
     <property name="ActionType" propertytype="ActionType" value="HideEntity"/>
+    <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
    </properties>
   </object>
   <object id="28" x="0" y="0" width="8" height="8">

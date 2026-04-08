@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_platform" tilewidth="8" tileheight="8" tilecount="112" columns="16">
+<tileset version="1.10" tiledversion="1.12.1" name="tiles_platform" tilewidth="8" tileheight="8" tilecount="112" columns="16">
  <properties>
   <property name="TilesetName" value="Gorgeous"/>
  </properties>
@@ -58,11 +58,19 @@
   <properties>
    <property name="TileType" propertytype="TileType" value="platform"/>
   </properties>
+  <animation>
+   <frame tileid="10" duration="500"/>
+   <frame tileid="94" duration="500"/>
+  </animation>
  </tile>
  <tile id="11">
   <properties>
    <property name="TileType" propertytype="TileType" value="platform"/>
   </properties>
+  <animation>
+   <frame tileid="11" duration="500"/>
+   <frame tileid="95" duration="500"/>
+  </animation>
  </tile>
  <tile id="12">
   <properties>
