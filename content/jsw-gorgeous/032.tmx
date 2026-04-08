@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="8" nextobjectid="110">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="8" nextobjectid="112">
  <properties>
   <property name="Border" type="int" value="2" />
   <property name="Down" type="file" value="" />
@@ -72,20 +72,36 @@
   </object>
  </objectgroup>
  <objectgroup id="7" name="Special">
-  <object id="108" gid="14402" x="224" y="120" width="16" height="16">
+  <object id="109" x="224" y="120" width="16" height="16">
    <properties>
-    <property name="Action" propertytype="FinalAction" value="ReplaceGuardian" />
-    <property name="Delay" type="int" value="10" />
-    <property name="Final" type="bool" value="true" />
-    <property name="Sequence" type="int" value="3" />
-    <property name="Target" type="object" value="104" />
+    <property name="DependsOnCompletion" value="replay"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="RemovePlayer"/>
    </properties>
   </object>
-  <object id="109" x="224" y="104" width="16" height="16">
+  <object id="108" gid="14402" x="224" y="120" width="16" height="16">
    <properties>
-    <property name="Action" propertytype="FinalAction" value="RemovePlayer" />
-    <property name="Final" type="bool" value="true" />
-    <property name="Sequence" type="int" value="3" />
+    <property name="DependsOnCompletion" value="replay"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="ReplaceGuardian"/>
+    <property name="Target" type="object" value="104"/>
+    <property name="TriggerID" value="replaced"/>
+   </properties>
+  </object>
+  <object id="110" x="0" y="0" width="8" height="8">
+   <properties>
+    <property name="DependsOnCompletion" value="replaced"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="Delay"/>
+    <property name="Threshold" type="int" value="10"/>
+    <property name="TriggerID" value="wait"/>
+   </properties>
+  </object>
+  <object id="111" x="0" y="0" width="8" height="8">
+   <properties>
+    <property name="DependsOnCompletion" value="wait"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+    <property name="ActionType" propertytype="ActionType" value="EndGame"/>
    </properties>
   </object>
  </objectgroup>

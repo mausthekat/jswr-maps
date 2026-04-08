@@ -66,11 +66,6 @@
             "name": "DefaultTileset",
             "type": "string",
             "value": ""
-        },
-        {
-            "name": "FinalCelebration",
-            "type": "string",
-            "value": ""
         }
     ],
     "propertyTypes": [
@@ -336,6 +331,59 @@
                 "JetSetWilly"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 17,
+            "name": "TriggerType",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "ScoreThreshold",
+                "ScorePctThreshold",
+                "RoomAllCollected",
+                "ItemCollectedInRoom",
+                "CollisionWith",
+                "RoomEntered",
+                "GameStart",
+                "Never"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "ActionType",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 19,
+            "name": "SessionType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SinglePlayer",
+                "Multiplayer"
+            ],
+            "valuesAsFlags": true
         }
     ]
 }

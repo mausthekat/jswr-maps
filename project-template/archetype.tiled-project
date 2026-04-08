@@ -24,12 +24,6 @@
             "value": 0
         },
         {
-            "name": "FinalCelebration",
-            "propertytype": "FinalCelebration",
-            "type": "string",
-            "value": "None"
-        },
-        {
             "name": "IncludeMapPreview",
             "type": "bool",
             "value": true
@@ -310,30 +304,56 @@
         },
         {
             "id": 17,
-            "name": "FinalAction",
+            "name": "TriggerType",
             "storageType": "string",
             "type": "enum",
             "values": [
-                "Teleport",
-                "Show",
-                "Hide",
-                "PlayReplay",
-                "RemovePlayer",
-                "ReplaceGuardian"
+                "ScoreThreshold",
+                "ScorePctThreshold",
+                "RoomAllCollected",
+                "ItemCollectedInRoom",
+                "CollisionWith",
+                "RoomEntered",
+                "GameStart",
+                "Never"
             ],
             "valuesAsFlags": false
         },
         {
             "id": 18,
-            "name": "FinalCelebration",
+            "name": "ActionType",
             "storageType": "string",
             "type": "enum",
             "values": [
-                "None",
-                "ManicMiner",
-                "JetSetWilly"
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 19,
+            "name": "SessionType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SinglePlayer",
+                "Multiplayer"
+            ],
+            "valuesAsFlags": true
         }
     ]
 }
