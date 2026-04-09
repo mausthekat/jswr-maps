@@ -50,7 +50,7 @@
    <properties>
     <property name="Action" propertytype="Action" value="HideGuardian" />
     <property name="Name" value="score_gate" />
-    <property name="SessionType" type="int" value="1" />
+    <property name="SessionType" type="int" propertytype="SessionType" value="1" />
     <property name="Target" type="object" value="100" />
     <property name="Threshold" type="int" value="82" />
     <property name="TriggerType" propertytype="TriggerType" value="ScoreThreshold" />
@@ -61,7 +61,7 @@
     <property name="Action" propertytype="Action" value="DoReplay" />
     <property name="DependsOnCompletion" value="score_gate" />
     <property name="Name" value="replay" />
-    <property name="SessionType" type="int" value="1" />
+    <property name="SessionType" type="int" propertytype="SessionType" value="1" />
     <property name="Target" value="rec69bf-4e2e.jsr" />
     <property name="TriggerType" propertytype="TriggerType" value="CollisionWith" />
    </properties>
