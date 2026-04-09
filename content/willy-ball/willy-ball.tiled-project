@@ -412,6 +412,31 @@
                 "PerPlayer"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "Action",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay"
+            ],
+            "valuesAsFlags": false
         }
     ]
 }

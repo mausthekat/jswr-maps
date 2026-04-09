@@ -76,7 +76,7 @@
    <properties>
     <property name="DependsOnCompletion" value="replay"/>
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
-    <property name="ActionType" propertytype="ActionType" value="RemovePlayer"/>
+    <property name="Action" propertytype="Action" value="RemovePlayer"/>
     <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
@@ -84,9 +84,9 @@
    <properties>
     <property name="DependsOnCompletion" value="replay"/>
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
-    <property name="ActionType" propertytype="ActionType" value="ReplaceGuardian"/>
+    <property name="Action" propertytype="Action" value="ReplaceGuardian"/>
     <property name="Target" type="object" value="104"/>
-    <property name="TriggerID" value="replaced"/>
+    <property name="Name" value="replaced"/>
     <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
@@ -94,9 +94,9 @@
    <properties>
     <property name="DependsOnCompletion" value="replaced"/>
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
-    <property name="ActionType" propertytype="ActionType" value="Delay"/>
+    <property name="Action" propertytype="Action" value="Delay"/>
     <property name="Threshold" type="int" value="10"/>
-    <property name="TriggerID" value="wait"/>
+    <property name="Name" value="wait"/>
     <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
@@ -104,7 +104,7 @@
    <properties>
     <property name="DependsOnCompletion" value="wait"/>
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
-    <property name="ActionType" propertytype="ActionType" value="EndGame"/>
+    <property name="Action" propertytype="Action" value="EndGame"/>
     <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
