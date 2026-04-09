@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="9" nextobjectid="56">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="9" nextobjectid="62">
  <properties>
   <property name="Chunk" type="int" value="1" />
   <property name="Down" type="file" value="" />
@@ -43,6 +43,13 @@
  <objectgroup id="5" name="Collectables" />
  <objectgroup id="4" name="Enemies" />
  <objectgroup color="#00ffff" id="6" name="Routes" />
+ <objectgroup id="8" name="Spawn">
+  <object id="43" template="templates/spawn_player.tx" x="120" y="112">
+   <properties>
+    <property name="GameModes" type="int" propertytype="GameModes" value="512" />
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup id="7" name="Special">
   <object id="13" gid="13" x="192" y="32" width="8" height="8">
    <properties>
@@ -248,11 +255,24 @@
     <property name="RequiredTeam" type="int" propertytype="Team" value="1" />
    </properties>
   </object>
- </objectgroup>
- <objectgroup id="8" name="Spawn">
-  <object id="43" template="templates/spawn_player.tx" x="120" y="112">
+  <object id="58" name="OrangeZone" x="192" y="8" width="64" height="48">
    <properties>
-    <property name="GameModes" type="int" propertytype="GameModes" value="512" />
+    <property name="TeamZone" type="int" propertytype="Team" value="5" />
+   </properties>
+  </object>
+  <object id="59" name="BlueZone" x="192" y="64" width="64" height="48">
+   <properties>
+    <property name="TeamZone" type="int" propertytype="Team" value="2" />
+   </properties>
+  </object>
+  <object id="60" name="GreenZone" x="0" y="8" width="64" height="48">
+   <properties>
+    <property name="TeamZone" type="int" propertytype="Team" value="4" />
+   </properties>
+  </object>
+  <object id="61" name="RedZone" x="0" y="64" width="64" height="48">
+   <properties>
+    <property name="TeamZone" type="int" propertytype="Team" value="1" />
    </properties>
   </object>
  </objectgroup>
