@@ -322,7 +322,7 @@
         },
         {
             "id": 18,
-            "name": "ActionType",
+            "name": "Action",
             "storageType": "string",
             "type": "enum",
             "values": [

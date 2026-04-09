@@ -25,7 +25,7 @@
   </properties>
  </tile>
  <tile id="4">
-  <properties>
+ <properties>
    <property name="TileType" propertytype="TileType" value="decoration"/>
   </properties>
  </tile>
