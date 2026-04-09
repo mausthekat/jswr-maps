@@ -27,6 +27,7 @@ from tmx_project_lib import (
     get_tmx_dir,
     copy_templates,
     copy_extensions,
+    bundle_extensions,
     update_project,
     find_all_projects,
 )
@@ -49,6 +50,8 @@ def cmd_create(args) -> int:
     name = args.name
     dry_run = args.dry_run
     template_dir = get_template_dir()
+    if not dry_run:
+        bundle_extensions(template_dir)
     tmx_dir = get_tmx_dir()
 
     # Validate project name
@@ -157,6 +160,8 @@ def cmd_create(args) -> int:
 def cmd_update(args) -> int:
     """Update specific project(s)."""
     dry_run = args.dry_run
+    if not dry_run:
+        bundle_extensions(get_template_dir())
     success = True
 
     for path_str in args.paths:
@@ -188,6 +193,11 @@ def cmd_update(args) -> int:
 def cmd_refresh(args) -> int:
     """Update ALL projects (content + _in_progress)."""
     dry_run = args.dry_run
+
+    # Bundle extensions-src/*.js into .extensions/jswr.js before deploying
+    if not dry_run:
+        bundle_extensions(get_template_dir())
+
     projects = find_all_projects()
 
     if not projects:

@@ -118,11 +118,67 @@ def copy_templates(src_dir: Path, dst_dir: Path, dry_run: bool = False) -> list[
     return changes
 
 
+def bundle_extensions(template_dir: Path) -> None:
+    """
+    Bundle extensions-src/*.js into a single .extensions/jswr.js.
+
+    Concatenates all .js files from extensions-src/ in alphabetical order
+    (so jswr-common.js is first), prepends a header, and writes the result
+    to .extensions/jswr.js.  Any other files in .extensions/ are removed.
+
+    Tiled does not support cross-file scope sharing in extensions, so all
+    source files must be concatenated into a single file.
+    """
+    src_dir = template_dir / "extensions-src"
+    dst_dir = template_dir / ".extensions"
+
+    if not src_dir.exists():
+        return
+
+    # Collect and sort source files alphabetically
+    src_files = sorted(src_dir.glob("*.js"))
+    if not src_files:
+        return
+
+    # Concatenate with section markers
+    parts = [
+        "/// <reference types=\"@mapeditor/tiled-api\" />\n",
+        "\n",
+        "// =======================================================================\n",
+        "// JSW:R Tiled Extension (bundled from extensions-src/*.js)\n",
+        "// DO NOT EDIT — edit the source files in extensions-src/ instead,\n",
+        "// then run: python tmx/scripts/tmx_project.py refresh\n",
+        "// =======================================================================\n",
+    ]
+
+    for src_file in src_files:
+        content = src_file.read_text(encoding="utf-8")
+        # Strip TypeScript reference directives (only needed once at top)
+        content = content.replace('/// <reference types="@mapeditor/tiled-api" />\n', '')
+        parts.append(f"\n// --- {src_file.name} ---\n")
+        parts.append(content)
+        if not content.endswith("\n"):
+            parts.append("\n")
+
+    bundled = "".join(parts)
+
+    # Write bundled output
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    dst_file = dst_dir / "jswr.js"
+    dst_file.write_text(bundled, encoding="utf-8")
+
+    # Remove any stale files in .extensions/ that aren't the bundle
+    for f in dst_dir.iterdir():
+        if f.is_file() and f.name != "jswr.js":
+            f.unlink()
+
+
 def copy_extensions(src_dir: Path, dst_dir: Path, dry_run: bool = False) -> list[str]:
     """
     Copy extension files from src_dir to dst_dir with diff comparison.
 
-    Only changed files are written.
+    Only changed files are written.  Stale files in the destination that
+    don't exist in the source are removed.
 
     Args:
         src_dir: Source extensions directory (e.g. project-template/.extensions/)
@@ -150,9 +206,11 @@ def copy_extensions(src_dir: Path, dst_dir: Path, dry_run: bool = False) -> list
         return changes
 
     # Compare and update existing files
+    src_files = set()
     for src_file in src_dir.rglob("*"):
         if src_file.is_file():
             rel = src_file.relative_to(src_dir)
+            src_files.add(rel.name)
             dst_file = dst_dir / rel
 
             src_content = src_file.read_bytes()
@@ -163,6 +221,13 @@ def copy_extensions(src_dir: Path, dst_dir: Path, dry_run: bool = False) -> list
                 if not dry_run:
                     dst_file.parent.mkdir(parents=True, exist_ok=True)
                     dst_file.write_bytes(src_content)
+
+    # Remove stale files in destination that aren't in source
+    for dst_file in dst_dir.iterdir():
+        if dst_file.is_file() and dst_file.name not in src_files:
+            changes.append(f"Extension removed (stale): {dst_file.name}")
+            if not dry_run:
+                dst_file.unlink()
 
     return changes
 
