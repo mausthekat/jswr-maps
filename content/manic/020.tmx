@@ -91,7 +91,7 @@
  <objectgroup id="8" name="Special">
   <object id="23" x="0" y="16" width="16" height="16">
    <properties>
-    <property name="TriggerType" propertytype="TriggerType" value="RoomAllCollected"/>
+    <property name="TriggerType" propertytype="TriggerType" value="ExternalEvent"/>
     <property name="ActionType" propertytype="ActionType" value="Complete"/>
     <property name="TriggerID" value="items_done"/>
    </properties>

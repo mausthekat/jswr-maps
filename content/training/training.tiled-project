@@ -345,7 +345,8 @@
                 "CollisionWith",
                 "RoomEntered",
                 "GameStart",
-                "Never"
+                "Never",
+                "ExternalEvent"
             ],
             "valuesAsFlags": false
         },
