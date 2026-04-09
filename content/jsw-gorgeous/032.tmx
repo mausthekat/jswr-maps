@@ -77,6 +77,7 @@
     <property name="DependsOnCompletion" value="replay"/>
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
     <property name="ActionType" propertytype="ActionType" value="RemovePlayer"/>
+    <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
   <object id="108" gid="14402" x="224" y="120" width="16" height="16">
@@ -86,6 +87,7 @@
     <property name="ActionType" propertytype="ActionType" value="ReplaceGuardian"/>
     <property name="Target" type="object" value="104"/>
     <property name="TriggerID" value="replaced"/>
+    <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
   <object id="110" x="0" y="0" width="8" height="8">
@@ -95,6 +97,7 @@
     <property name="ActionType" propertytype="ActionType" value="Delay"/>
     <property name="Threshold" type="int" value="10"/>
     <property name="TriggerID" value="wait"/>
+    <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
   <object id="111" x="0" y="0" width="8" height="8">
@@ -102,6 +105,7 @@
     <property name="DependsOnCompletion" value="wait"/>
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
     <property name="ActionType" propertytype="ActionType" value="EndGame"/>
+    <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>

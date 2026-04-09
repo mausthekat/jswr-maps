@@ -312,21 +312,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 17,
-            "name": "FinalAction",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Teleport",
-                "Show",
-                "Hide",
-                "PlayReplay",
-                "RemovePlayer",
-                "ReplaceGuardian"
-            ],
-            "valuesAsFlags": false
-        },
-        {
             "id": 18,
             "name": "FinalCelebration",
             "storageType": "string",

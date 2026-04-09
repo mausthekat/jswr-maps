@@ -48,19 +48,22 @@
  <objectgroup id="4" name="Special">
   <object id="102" x="112" y="88" width="16" height="16">
    <properties>
-    <property name="Action" propertytype="FinalAction" value="Hide" />
-    <property name="Final" type="bool" value="true" />
-    <property name="Sequence" type="int" value="0" />
-    <property name="Target" type="object" value="100" />
-    <property name="Threshold" type="int" value="82" />
+    <property name="TriggerType" propertytype="TriggerType" value="ScoreThreshold"/>
+    <property name="ActionType" propertytype="ActionType" value="HideGuardian"/>
+    <property name="Target" type="object" value="100"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="TriggerID" value="score_gate"/>
+    <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
   <object id="103" x="16" y="88" width="32" height="8">
    <properties>
-    <property name="Action" propertytype="FinalAction" value="PlayReplay" />
-    <property name="Final" type="bool" value="true" />
-    <property name="Sequence" type="int" value="1" />
-    <property name="Target" value="rec69bf-4e2e.jsr" />
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="ActionType" propertytype="ActionType" value="DoReplay"/>
+    <property name="DependsOnCompletion" value="score_gate"/>
+    <property name="Target" value="rec69bf-4e2e.jsr"/>
+    <property name="TriggerID" value="replay"/>
+    <property name="SessionType" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>
