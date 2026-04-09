@@ -67,7 +67,7 @@
  <objectgroup id="4" name="Spawn">
   <object id="100" template="templates/spawn_player.tx" x="16" y="120">
    <properties>
-    <property name="GameModes" type="int" propertytype="GameModes" value="2049" />
+    <property name="GameModes" type="int" propertytype="GameModes" value="2067" />
    </properties>
   </object>
  </objectgroup>
