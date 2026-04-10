@@ -32,12 +32,6 @@
             "value": true
         },
         {
-            "name": "InfiniteLives",
-            "propertytype": "",
-            "type": "bool",
-            "value": false
-        },
-        {
             "name": "ManicFinalRoom",
             "propertytype": "",
             "type": "int",
@@ -70,6 +64,16 @@
         {
             "name": "SoftLifts",
             "propertytype": "",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLivesSP",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLivesMP",
             "type": "bool",
             "value": false
         }

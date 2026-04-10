@@ -43,7 +43,7 @@ jswr-maps/
 ├── project-template/     # Archetype for new map projects
 │   ├── archetype.tiled-project
 │   ├── templates/        # Spawn and route object templates
-│   └── .extensions/      # Tiled extension (jswo.js)
+│   └── .extensions/      # Tiled extension (jswr.js)
 └── scripts/              # Map editing tools
     ├── tmx_project.py    # Create/manage map projects
     ├── dat_to_tmx.py     # Convert legacy .dat files to TMX

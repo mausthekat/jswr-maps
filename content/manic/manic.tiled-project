@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -12,6 +13,12 @@
             "propertytype": "",
             "type": "string",
             "value": "Ovine+MauS"
+        },
+        {
+            "name": "DefaultTileset",
+            "propertytype": "",
+            "type": "string",
+            "value": ""
         },
         {
             "name": "FallDamageMode",
@@ -26,10 +33,16 @@
             "value": true
         },
         {
-            "name": "InfiniteLives",
+            "name": "InfiniteLivesMP",
             "propertytype": "",
             "type": "bool",
             "value": true
+        },
+        {
+            "name": "InfiniteLivesSP",
+            "propertytype": "",
+            "type": "bool",
+            "value": false
         },
         {
             "name": "ManicFinalRoom",
@@ -44,15 +57,16 @@
             "value": "Manic Willy"
         },
         {
-            "name": "SoftLifts",
+            "name": "OriginalArrows",
             "propertytype": "",
             "type": "bool",
             "value": false
         },
         {
-            "name": "OriginalArrows",
-            "type": "bool",
-            "value": false
+            "name": "SPVictoryRoom",
+            "propertytype": "",
+            "type": "int",
+            "value": 0
         },
         {
             "name": "SinglePlayerModes",
@@ -61,17 +75,63 @@
             "value": 2
         },
         {
-            "name": "SPVictoryRoom",
-            "type": "int",
-            "value": 0
-        },
-        {
-            "name": "DefaultTileset",
-            "type": "string",
-            "value": ""
+            "name": "SoftLifts",
+            "propertytype": "",
+            "type": "bool",
+            "value": false
         }
     ],
     "propertyTypes": [
+        {
+            "id": 18,
+            "name": "Action",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "ActionType",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay"
+            ],
+            "valuesAsFlags": false
+        },
         {
             "id": 1,
             "name": "Direction",
@@ -97,13 +157,40 @@
             "valuesAsFlags": false
         },
         {
+            "id": 17,
+            "name": "FinalAction",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Teleport",
+                "Show",
+                "Hide",
+                "PlayReplay",
+                "RemovePlayer",
+                "ReplaceGuardian"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "FinalCelebration",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "None",
+                "ManicMiner",
+                "JetSetWilly"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 3,
             "name": "FlightDirection",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -173,6 +260,17 @@
             "valuesAsFlags": false
         },
         {
+            "id": 19,
+            "name": "SessionType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SinglePlayer",
+                "Multiplayer"
+            ],
+            "valuesAsFlags": true
+        },
+        {
             "id": 9,
             "name": "SpawnKind",
             "storageType": "int",
@@ -191,6 +289,12 @@
             "id": 10,
             "members": [
                 {
+                    "name": "GameModes",
+                    "propertyType": "GameModes",
+                    "type": "int",
+                    "value": 0
+                },
+                {
                     "name": "Kind",
                     "propertyType": "SpawnKind",
                     "type": "int",
@@ -199,12 +303,6 @@
                 {
                     "name": "Team",
                     "propertyType": "Team",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "GameModes",
-                    "propertyType": "GameModes",
                     "type": "int",
                     "value": 0
                 }
@@ -239,6 +337,17 @@
                 "8 (Very Slow)"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 16,
+            "name": "SPModes",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SP_CLASSIC",
+                "SP_MANIC_MINER"
+            ],
+            "valuesAsFlags": true
         },
         {
             "id": 8,
@@ -285,53 +394,13 @@
             "valuesAsFlags": false
         },
         {
-            "id": 12,
-            "name": "WillySuit",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Normal",
-                "SpaceSuit",
-                "DivingSuit",
-                "FlyingPig"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 16,
-            "name": "SPModes",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "SP_CLASSIC",
-                "SP_MANIC_MINER"
-            ],
-            "valuesAsFlags": true
-        },
-        {
-            "id": 17,
-            "name": "FinalAction",
+            "id": 21,
+            "name": "TriggerMode",
             "storageType": "string",
             "type": "enum",
             "values": [
-                "Teleport",
-                "Show",
-                "Hide",
-                "PlayReplay",
-                "RemovePlayer",
-                "ReplaceGuardian"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 18,
-            "name": "FinalCelebration",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "None",
-                "ManicMiner",
-                "JetSetWilly"
+                "Unique",
+                "PerPlayer"
             ],
             "valuesAsFlags": false
         },
@@ -354,42 +423,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 18,
-            "name": "ActionType",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Complete",
-                "HideGuardian",
-                "ShowGuardian",
-                "ShowTile",
-                "HideTile",
-                "TeleportPlayerTo",
-                "RemovePlayer",
-                "DisablePlayerInput",
-                "EnablePlayerInput",
-                "ReplaceGuardian",
-                "ShowEntity",
-                "HideEntity",
-                "EndGame",
-                "PlaySound",
-                "Delay",
-                "DoReplay"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 19,
-            "name": "SessionType",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "SinglePlayer",
-                "Multiplayer"
-            ],
-            "valuesAsFlags": true
-        },
-        {
             "id": 20,
             "name": "Visibility",
             "storageType": "string",
@@ -401,38 +434,15 @@
             "valuesAsFlags": false
         },
         {
-            "id": 21,
-            "name": "TriggerMode",
-            "storageType": "string",
+            "id": 12,
+            "name": "WillySuit",
+            "storageType": "int",
             "type": "enum",
             "values": [
-                "Unique",
-                "PerPlayer"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 18,
-            "name": "Action",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Complete",
-                "HideGuardian",
-                "ShowGuardian",
-                "ShowTile",
-                "HideTile",
-                "TeleportPlayerTo",
-                "RemovePlayer",
-                "DisablePlayerInput",
-                "EnablePlayerInput",
-                "ReplaceGuardian",
-                "ShowEntity",
-                "HideEntity",
-                "EndGame",
-                "PlaySound",
-                "Delay",
-                "DoReplay"
+                "Normal",
+                "SpaceSuit",
+                "DivingSuit",
+                "FlyingPig"
             ],
             "valuesAsFlags": false
         }

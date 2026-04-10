@@ -34,7 +34,12 @@
             "value": false
         },
         {
-            "name": "InfiniteLives",
+            "name": "InfiniteLivesSP",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLivesMP",
             "type": "bool",
             "value": false
         },
