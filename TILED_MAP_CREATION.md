@@ -113,7 +113,7 @@ This creates a directory under `_in_progress/<map-name>/` containing:
 │   ├── spawn_exit.tx
 │   └── route.tx
 └── .extensions/
-    └── jswo.js                  # JSW:R Tiled extension
+    └── jswr.js                  # JSW:R Tiled extension
 ```
 
 Options:
@@ -506,10 +506,12 @@ Template defaults can be overridden per-instance:
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `Kind` | SpawnKind | `Player Start`, `Flag`, or `Exit`. |
+| `Kind` | SpawnKind | `Player Start`, `Flag`, `Exit`, or `Ball Spawn`. |
 | `Team` | Team | `No Team`, `Red`, `Blue`, `Green`, `Orange`. |
 | `GameModes` | GameModes (flags) | Which game modes this spawn is active for. Tiled shows these as checkboxes — tick the modes you want. **Must be non-zero** (except for Exit spawns). |
-| `VarianceX` | int | Horizontal random spawn offset in pixels. Default: 0. |
+| `Position` | int | Ordered spawn position (0 = default/unordered, 1+ = ordered e.g. podium). Default: 0. |
+| `VarianceX` | int | Horizontal spread per player in tiles. Default: 0. |
+| `VarianceY` | int | Vertical spread per player in tiles. Default: 0. |
 
 ### GameModes
 
@@ -670,6 +672,11 @@ supports. This is a flags enum — multiple modes can be selected.
 | MM_START | Manic Miner start | Neutral spawn |
 | WILLY_BALL | Team ball-carrying game | BALL_SPAWN + CTF team flags + WILLY_TEAMS spawns (see below) |
 
+> **Note:** `LOBBY` and `MM_START` are infrastructure/map flags, not gameplay modes that
+> players select. `LOBBY` marks rooms belonging to the gaming lounge infrastructure (see
+> [Infrastructure Rooms](#16-infrastructure-rooms)). `MM_START` marks the starting room for
+> Manic Miner-style single-player progression.
+
 ### Spawn Coverage Rules
 
 - **Modes requiring neutral spawns:** RACE_TO_GAMES, DISCOVERY_GAMES, WILLY_TAG,
@@ -740,16 +747,18 @@ Open the `_gaminglounge` project in Tiled to see the standard infrastructure lay
 
 ### Converting TMX to Game Format
 
-Convert individual room files **and** the pack file:
+Convert individual room files **and** the pack file. These scripts live in the **game
+repository** under `build_scripts/tmx/`, not in the maps repository. Run them from the
+game project root:
 
 ```bash
 # macOS / Linux
-uv run scripts/tmx_to_jsw.py content/<map-name>
-uv run scripts/tmx_to_jsw.py content/<map-name> --pack
+uv run build_scripts/tmx/tmx_to_jsw.py tmx/content/<map-name>
+uv run build_scripts/tmx/tmx_to_jsw.py tmx/content/<map-name> --pack
 
 # Windows
-uv run scripts\tmx_to_jsw.py content\<map-name>
-uv run scripts\tmx_to_jsw.py content\<map-name> --pack
+uv run build_scripts\tmx\tmx_to_jsw.py tmx\content\<map-name>
+uv run build_scripts\tmx\tmx_to_jsw.py tmx\content\<map-name> --pack
 ```
 
 > **Important:** Always run **both** commands. The game loads individual files from the folder
@@ -760,10 +769,10 @@ uv run scripts\tmx_to_jsw.py content\<map-name> --pack
 
 ```bash
 # macOS / Linux
-uv run scripts/regenerate_all_packs.py
+uv run build_scripts/tmx/regenerate_all_packs.py
 
 # Windows
-uv run scripts\regenerate_all_packs.py
+uv run build_scripts\tmx\regenerate_all_packs.py
 ```
 
 This refreshes all project templates from the archetype, converts all maps in `content/`,
@@ -805,7 +814,7 @@ open jswr.app --args --map <map-name>
 
 ## 18. Extension Tools
 
-The JSW:R Tiled extension (`.extensions/jswo.js`) provides validation and fix tools accessible from
+The JSW:R Tiled extension (`.extensions/jswr.js`) provides validation and fix tools accessible from
 Tiled's **Map** menu.
 
 ### [WORLD] Validate Spawn Points
@@ -848,7 +857,7 @@ Same as above but only processes selected objects. Useful for fixing newly added
 
 ## 19. Validation Rules
 
-The converter (`tmx_to_jsw.py --pack`) enforces these rules at pack time. Errors cause the
+The converter (`build_scripts/tmx/tmx_to_jsw.py --pack`) enforces these rules at pack time. Errors cause the
 build to fail; warnings are reported but don't block.
 
 ### Errors (Build Fails)

@@ -34,11 +34,6 @@
             "value": false
         },
         {
-            "name": "InfiniteLives",
-            "type": "bool",
-            "value": false
-        },
-        {
             "name": "ManicFinalRoom",
             "type": "int",
             "value": 0
@@ -63,6 +58,16 @@
             "name": "DefaultTileset",
             "type": "string",
             "value": ""
+        },
+        {
+            "name": "InfiniteLivesSP",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLivesMP",
+            "type": "bool",
+            "value": false
         }
     ],
     "propertyTypes": [
