@@ -14,12 +14,14 @@ OUTPUT_ROOT="$PROJECT_ROOT/analysis/reachability_debug"
 
 SIMS=250
 MAP_SCALE=2
+SHORTEST=""
 
 # Parse args
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --sims) SIMS="$2"; shift 2 ;;
         --map-scale) MAP_SCALE="$2"; shift 2 ;;
+        --shortest-paths) SHORTEST="--shortest-paths"; shift ;;
         *) echo "Unknown arg: $1"; exit 1 ;;
     esac
 done
@@ -39,7 +41,7 @@ for map in "$TMX_CONTENT"/*/; do
     printf "%-24s" "$name:"
     result=$("$BFS_BUILDER" "$map" \
         --debug-all --debug-sims "$SIMS" --debug-format png \
-        --map --map-scale "$MAP_SCALE" \
+        --map --map-scale "$MAP_SCALE" $SHORTEST \
         --output "$outdir" 2>&1 | grep -o '[0-9.]*s total')
     echo "$result"
 done
