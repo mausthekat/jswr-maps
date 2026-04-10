@@ -1,44 +1,43 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="6" nextobjectid="1">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="6" nextobjectid="1">
  <properties>
-  <property name="ChainRoomGroup" type="int" value="8" />
-  <property name="Chunk" type="int" value="2" />
-  <property name="Down" type="file" value="007.tmx" />
-  <property name="Left" type="file" value="" />
-  <property name="Name" value="Life On Mars?" />
-  <property name="Right" type="file" value="" />
-  <property name="Rope" type="bool" value="false" />
-  <property name="Up" type="file" value="229.tmx" />
-  <property name="WillySuit" type="int" propertytype="WillySuit" value="1" />
+  <property name="Chunk" type="int" value="2"/>
+  <property name="Down" type="file" value="007.tmx"/>
+  <property name="Left" type="file" value=""/>
+  <property name="Name" value="Life On Mars?"/>
+  <property name="Right" type="file" value=""/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value="229.tmx"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="1"/>
  </properties>
- <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
- <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
- <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
- <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
- <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
- <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
- <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
- <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx"/>
+ <tileset firstgid="433" source="../../tilesets/tiles_stairs.tsx"/>
+ <tileset firstgid="497" source="../../tilesets/tiles_platform.tsx"/>
+ <tileset firstgid="641" source="../../tilesets/tiles_hazard.tsx"/>
+ <tileset firstgid="705" source="../../tilesets/tiles_decoration.tsx"/>
+ <tileset firstgid="833" source="../../tilesets/tiles_conveyor.tsx"/>
+ <tileset firstgid="1345" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="1577" source="../../tilesets/guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6158,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,654,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,6146,0,0,6146,0,0,6146,0,0,6146,0,0,6146,0,0,6146,0,0,6146,0,0,6146,0,0,0,0,
+0,0,0,0,0,0,642,0,0,642,0,0,642,0,0,642,0,0,642,0,0,642,0,0,642,0,0,642,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,6151,0,0,6151,0,0,6151,0,0,6151,0,0,6151,0,0,6151,0,0,6151,0,0,6151,0,0,0,0,
+0,0,0,0,0,0,647,0,0,647,0,0,647,0,0,647,0,0,647,0,0,647,0,0,647,0,0,647,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,6154,0,0,6154,0,0,6154,0,0,6154,0,0,6154,0,0,4112,0,0,6154,0,0,6154,0,0,0,0,
+0,0,0,0,0,0,650,0,0,650,0,0,650,0,0,650,0,0,650,0,0,512,0,0,650,0,0,650,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-6158,0,0,0,0,0,0,2053,4,2054,0,0,0,0,0,0,2053,4,2054,0,0,123,0,0,2053,4,2054,0,0,0,0,6158,
-6158,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,4,4,4,0,0,0,0,0,4,4,4,0,0,0,0,6158,
-4115,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,0,0,0,0,0,0,0,0,0,4115,
-4115,4112,0,0,0,0,0,0,0,4112,0,0,0,0,0,0,0,0,0,0,98,6153,98,0,0,0,0,0,0,0,0,4112,
-4107,4165,0,0,0,44,4165,4165,4165,4165,0,0,0,0,0,0,0,0,0,0,0,0,0,4165,6156,44,4165,4165,0,0,0,4165,
-4165,4165,0,0,0,4165,4165,4165,4165,4165,4115,4115,6158,6158,4115,4115,4115,4115,4115,6158,4115,4115,6158,4165,4165,4165,4165,4165,0,0,0,4165
+654,0,0,0,0,0,0,437,4,438,0,0,0,0,0,0,437,4,438,0,0,123,0,0,437,4,438,0,0,0,0,654,
+654,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,4,4,4,0,0,0,0,0,4,4,4,0,0,0,0,654,
+515,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,0,0,0,0,0,0,0,0,0,515,
+515,512,0,0,0,0,0,0,0,512,0,0,0,0,0,0,0,0,0,0,98,649,98,0,0,0,0,0,0,0,0,512,
+507,565,0,0,0,44,565,565,565,565,0,0,0,0,0,0,0,0,0,0,0,0,0,565,652,44,565,565,0,0,0,565,
+565,565,0,0,0,565,565,565,565,565,515,515,654,654,515,515,515,515,515,654,515,515,654,565,565,565,565,565,0,0,0,565
 </data>
  </layer>
- <objectgroup id="5" name="Collectables" />
- <objectgroup id="4" name="Enemies" />
+ <objectgroup id="5" name="Collectables"/>
+ <objectgroup id="4" name="Enemies"/>
 </map>
