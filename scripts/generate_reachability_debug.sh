@@ -12,7 +12,7 @@ BFS_BUILDER="$PROJECT_ROOT/tools/bfs_builder/target/release/bfs_builder"
 TMX_CONTENT="$PROJECT_ROOT/tmx/content"
 OUTPUT_ROOT="$PROJECT_ROOT/analysis/reachability_debug"
 
-SIMS=250
+SIMS=1000
 MAP_SCALE=2
 SHORTEST=""
 
