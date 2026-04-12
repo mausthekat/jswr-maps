@@ -71,6 +71,12 @@
             "name": "InfiniteLivesMP",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "JumpType",
+            "propertytype": "JumpType",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -435,6 +441,18 @@
                 "PlaySound",
                 "Delay",
                 "DoReplay"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 22,
+            "name": "JumpType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW:R",
+                "JSW2",
+                "JSW1"
             ],
             "valuesAsFlags": false
         }

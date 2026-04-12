@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -79,6 +78,12 @@
             "propertytype": "",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "JumpType",
+            "propertytype": "JumpType",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -189,8 +194,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -443,6 +448,18 @@
                 "SpaceSuit",
                 "DivingSuit",
                 "FlyingPig"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 22,
+            "name": "JumpType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW:R",
+                "JSW2",
+                "JSW1"
             ],
             "valuesAsFlags": false
         }
