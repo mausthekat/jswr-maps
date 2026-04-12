@@ -49,6 +49,12 @@
             "value": false
         },
         {
+            "name": "JumpType",
+            "propertytype": "JumpType",
+            "type": "int",
+            "value": 0
+        },
+        {
             "name": "ManicFinalRoom",
             "type": "int",
             "value": 0
@@ -306,6 +312,18 @@
                 "SP_MANIC_MINER"
             ],
             "valuesAsFlags": true
+        },
+        {
+            "id": 22,
+            "name": "JumpType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW:R",
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
         },
         {
             "id": 17,

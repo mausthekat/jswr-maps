@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -30,6 +31,24 @@
             "propertytype": "",
             "type": "bool",
             "value": true
+        },
+        {
+            "name": "InfiniteLivesMP",
+            "propertytype": "",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLivesSP",
+            "propertytype": "",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "JumpType",
+            "propertytype": "JumpType",
+            "type": "int",
+            "value": 0
         },
         {
             "name": "ManicFinalRoom",
@@ -66,19 +85,59 @@
             "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "InfiniteLivesSP",
-            "type": "bool",
-            "value": false
-        },
-        {
-            "name": "InfiniteLivesMP",
-            "type": "bool",
-            "value": false
         }
     ],
     "propertyTypes": [
+        {
+            "id": 18,
+            "name": "Action",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "ActionType",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay"
+            ],
+            "valuesAsFlags": false
+        },
         {
             "id": 1,
             "name": "Direction",
@@ -104,13 +163,25 @@
             "valuesAsFlags": false
         },
         {
+            "id": 18,
+            "name": "FinalCelebration",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "None",
+                "ManicMiner",
+                "JetSetWilly"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 3,
             "name": "FlightDirection",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -151,6 +222,18 @@
             "valuesAsFlags": true
         },
         {
+            "id": 22,
+            "name": "JumpType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW:R",
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 5,
             "name": "RoomFlags",
             "storageType": "string",
@@ -178,6 +261,17 @@
                 "Team Select 4"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 19,
+            "name": "SessionType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SinglePlayer",
+                "Multiplayer"
+            ],
+            "valuesAsFlags": true
         },
         {
             "id": 9,
@@ -303,27 +397,13 @@
             "valuesAsFlags": false
         },
         {
-            "id": 12,
-            "name": "WillySuit",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Normal",
-                "SpaceSuit",
-                "DivingSuit",
-                "FlyingPig"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 18,
-            "name": "FinalCelebration",
+            "id": 21,
+            "name": "TriggerMode",
             "storageType": "string",
             "type": "enum",
             "values": [
-                "None",
-                "ManicMiner",
-                "JetSetWilly"
+                "Unique",
+                "PerPlayer"
             ],
             "valuesAsFlags": false
         },
@@ -346,42 +426,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 18,
-            "name": "ActionType",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Complete",
-                "HideGuardian",
-                "ShowGuardian",
-                "ShowTile",
-                "HideTile",
-                "TeleportPlayerTo",
-                "RemovePlayer",
-                "DisablePlayerInput",
-                "EnablePlayerInput",
-                "ReplaceGuardian",
-                "ShowEntity",
-                "HideEntity",
-                "EndGame",
-                "PlaySound",
-                "Delay",
-                "DoReplay"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 19,
-            "name": "SessionType",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "SinglePlayer",
-                "Multiplayer"
-            ],
-            "valuesAsFlags": true
-        },
-        {
             "id": 20,
             "name": "Visibility",
             "storageType": "string",
@@ -393,38 +437,15 @@
             "valuesAsFlags": false
         },
         {
-            "id": 21,
-            "name": "TriggerMode",
-            "storageType": "string",
+            "id": 12,
+            "name": "WillySuit",
+            "storageType": "int",
             "type": "enum",
             "values": [
-                "Unique",
-                "PerPlayer"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 18,
-            "name": "Action",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Complete",
-                "HideGuardian",
-                "ShowGuardian",
-                "ShowTile",
-                "HideTile",
-                "TeleportPlayerTo",
-                "RemovePlayer",
-                "DisablePlayerInput",
-                "EnablePlayerInput",
-                "ReplaceGuardian",
-                "ShowEntity",
-                "HideEntity",
-                "EndGame",
-                "PlaySound",
-                "Delay",
-                "DoReplay"
+                "Normal",
+                "SpaceSuit",
+                "DivingSuit",
+                "FlyingPig"
             ],
             "valuesAsFlags": false
         }
