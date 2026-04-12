@@ -11,13 +11,13 @@
   <property name="Border" type="int" value="2" />
   
   
-  <property name="Left" type="file" value="001.tmx" />
+  <property name="Left" type="file" value="" />
   
   
   <property name="Right" type="file" value="019.tmx" />
   
   
-  <property name="Up" type="file" value="001.tmx" />
+  <property name="Up" type="file" value="" />
   
   
   <property name="Down" type="file" value="041.tmx" />

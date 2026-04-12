@@ -11,7 +11,7 @@
   <property name="Down" type="file" value="051.tmx" />
   
   
-  <property name="Left" type="file" value="001.tmx" />
+  <property name="Left" type="file" value="" />
   
   
   <property name="Name" value="West Bedroom" />

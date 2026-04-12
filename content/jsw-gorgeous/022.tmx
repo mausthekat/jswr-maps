@@ -20,7 +20,7 @@
   <property name="Up" type="file" value="029.tmx" />
   
   
-  <property name="Down" type="file" value="001.tmx" />
+  <property name="Down" type="file" value="" />
   
  
  </properties>

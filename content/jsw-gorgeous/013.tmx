@@ -14,10 +14,10 @@
   <property name="Left" type="file" value="014.tmx" />
   
   
-  <property name="Right" type="file" value="001.tmx" />
+  <property name="Right" type="file" value="" />
   
   
-  <property name="Up" type="file" value="001.tmx" />
+  <property name="Up" type="file" value="" />
   
   
   <property name="Down" type="file" value="009.tmx" />

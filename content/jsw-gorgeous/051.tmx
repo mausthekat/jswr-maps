@@ -3,7 +3,7 @@
  <properties>
   <property name="Border" type="int" value="1" />
   <property name="Down" type="file" value="048.tmx" />
-  <property name="Left" type="file" value="001.tmx" />
+  <property name="Left" type="file" value="" />
   <property name="Name" value="Back Door" />
   <property name="Right" type="file" value="050.tmx" />
   <property name="Up" type="file" value="053.tmx" />

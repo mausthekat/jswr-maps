@@ -8,7 +8,7 @@
   <property name="Border" type="int" value="4" />
   
   
-  <property name="Down" type="file" value="001.tmx" />
+  <property name="Down" type="file" value="" />
   
   
   <property name="Left" type="file" value="059.tmx" />
@@ -20,7 +20,7 @@
   <property name="Right" type="file" value="011.tmx" />
   
   
-  <property name="Up" type="file" value="001.tmx" />
+  <property name="Up" type="file" value="" />
   
  
  </properties>

@@ -5,8 +5,8 @@
   <property name="Down" type="file" value="003.tmx" />
   <property name="Left" type="file" value="009.tmx" />
   <property name="Name" value="Cuckoo's Nest" />
-  <property name="Right" type="file" value="001.tmx" />
-  <property name="Up" type="file" value="001.tmx" />
+  <property name="Right" type="file" value="" />
+  <property name="Up" type="file" value="" />
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx" />
  <tileset firstgid="2049" source="tiles_stairs.tsx" />
