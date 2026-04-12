@@ -6,7 +6,7 @@
   <property name="Left" type="file" value="012.tmx" />
   <property name="Name" value="The Front Door" />
   <property name="Right" type="file" value="010.tmx" />
-  <property name="Up" type="file" value="001.tmx" />
+  <property name="Up" type="file" value="" />
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx" />
  <tileset firstgid="2049" source="tiles_stairs.tsx" />

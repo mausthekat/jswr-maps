@@ -2,7 +2,7 @@
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="109">
  <properties>
   <property name="Border" type="int" value="1" />
-  <property name="Down" type="file" value="001.tmx" />
+  <property name="Down" type="file" value="" />
   <property name="Left" type="file" value="044.tmx" />
   <property name="Name" value="Tree Root" />
   <property name="Right" type="file" value="048.tmx" />

@@ -6,7 +6,7 @@
   <property name="Flags" propertytype="RoomFlags" value="" />
   <property name="Left" type="file" value="032.tmx" />
   <property name="Name" value="Halfway up the East Wall" />
-  <property name="Right" type="file" value="001.tmx" />
+  <property name="Right" type="file" value="" />
   <property name="Rope" type="bool" value="false" />
   <property name="Rope Offset" type="int" value="0" />
   <property name="Up" type="file" value="037.tmx" />

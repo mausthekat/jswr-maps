@@ -5,7 +5,7 @@
   <property name="Down" type="file" value="031.tmx" />
   <property name="Left" type="file" value="038.tmx" />
   <property name="Name" value="Priests' Hole" />
-  <property name="Right" type="file" value="001.tmx" />
+  <property name="Right" type="file" value="" />
   <property name="Up" type="file" value="043.tmx" />
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx" />

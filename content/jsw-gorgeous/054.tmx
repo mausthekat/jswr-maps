@@ -17,7 +17,7 @@
   <property name="Right" type="file" value="036.tmx" />
   
   
-  <property name="Up" type="file" value="001.tmx" />
+  <property name="Up" type="file" value="" />
   
   
   <property name="Down" type="file" value="052.tmx" />
