@@ -1,43 +1,58 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="6">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="7">
  <properties>
-  <property name="Chunk" type="int" value="0" />
-  <property name="Down" type="file" value="" />
-  <property name="Left" type="file" value="061.tmx" />
-  <property name="Name" value="Dr Jones Will Never Believe This" />
-  <property name="Right" type="file" value="062.tmx" />
-  <property name="Rope" type="bool" value="false" />
-  <property name="Up" type="file" value="" />
+  <property name="Chunk" type="int" value="0"/>
+  <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value="061.tmx"/>
+  <property name="Name" value="Dr Jones Will Never Believe This"/>
+  <property name="Right" type="file" value="062.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value=""/>
  </properties>
-  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
- <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
- <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
- <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
- <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
- <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
- <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
- <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
-<layer id="1" name="Tiles" width="32" height="16">
-  <data encoding="csv">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4133,48,48,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,48,48,48,48,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4134,4134,4134,4134,4134,4134,4134,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4133,48,48,48,48,0,4134,4134,4134,4134,0,4134,4134,4134,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4133,48,48,48,48,48,48,48,0,0,4134,48,48,48,48,2088,0,0,0,0,0,0,0,0,0,0,0,0,0,4133,0,0,0,4134,4134,4134,4134,0,0,48,4134,0,0,48,48,48,0,0,2088,0,0,0,0,0,0,0,0,0,0,4134,4134,4134,0,0,0,4134,4134,4134,4134,0,0,48,0,0,4134,48,48,0,0,0,0,2088,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,48,4134,4134,0,0,48,4134,0,0,48,48,0,0,0,0,0,2088,0,0,0,0,0,0,0,0,0,0,4134,0,0,0,48,48,4134,4134,0,0,48,0,0,4134,48,0,0,0,4134,0,0,0,2088,0,0,0,0,0,0,0,0,0,0,0,0,4134,0,48,4134,4134,0,0,48,4134,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4134,0,0,48,4134,4134,0,0,0,0,0,4134,48,0,0,0,0,4134,0,0,0,0,0,0,0,4134,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,4134,48,0,0,0,0,0,0,0,4134,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,48,4134,4134,0,0,0,0,4134,48,4134,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12</data>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx"/>
+ <tileset firstgid="433" source="../../tilesets/tiles_stairs.tsx"/>
+ <tileset firstgid="497" source="../../tilesets/tiles_platform.tsx"/>
+ <tileset firstgid="641" source="../../tilesets/tiles_hazard.tsx"/>
+ <tileset firstgid="705" source="../../tilesets/tiles_decoration.tsx"/>
+ <tileset firstgid="833" source="../../tilesets/tiles_conveyor.tsx"/>
+ <tileset firstgid="1345" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="1577" source="../../tilesets/guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,533,48,48,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,48,48,48,48,48,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,534,534,534,534,534,534,534,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,533,48,48,48,48,0,534,534,534,534,0,534,534,534,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,533,48,48,48,48,48,48,48,0,0,534,48,48,48,48,472,0,0,0,0,0,0,0,0,0,0,0,
+0,0,533,0,0,0,534,534,534,534,0,0,48,534,0,0,48,48,48,0,0,472,0,0,0,0,0,0,0,0,0,0,
+534,534,534,0,0,0,534,534,534,534,0,0,48,0,0,534,48,48,0,0,0,0,472,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,48,48,534,534,0,0,48,534,0,0,48,48,0,0,0,0,0,472,0,0,0,0,0,0,0,0,
+0,0,534,0,0,0,48,48,534,534,0,0,48,0,0,534,48,0,0,0,534,0,0,0,472,0,0,0,0,0,0,0,
+0,0,0,0,0,534,0,48,534,534,0,0,48,534,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,534,0,0,48,534,534,0,0,0,0,0,534,48,0,0,0,0,534,0,0,0,0,0,0,0,534,0,0,
+0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,534,48,0,0,0,0,0,0,0,534,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,48,48,534,534,0,0,0,0,534,48,534,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12
+</data>
  </layer>
  <objectgroup id="5" name="Collectables">
-  <object id="1" gid="12369" x="152" y="64" width="8" height="8" />
+  <object id="6" gid="1545" x="152" y="64" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="4" name="Enemies">
-  <object id="2" name="Monkey" type="Guardian" gid="14398" x="80" y="80" width="16" height="16">
+  <object id="2" name="Monkey" type="Guardian" gid="1638" x="80" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff40ff39" />
+    <property name="Color" type="color" value="#ff40ff39"/>
    </properties>
   </object>
-  
-  <object id="4" name="Sun Face" type="Guardian" gid="14360" x="144" y="112" width="16" height="16">
+  <object id="4" name="Sun Face" type="Guardian" gid="1600" x="144" y="112" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff70f3ff" />
+    <property name="Color" type="color" value="#ff70f3ff"/>
    </properties>
   </object>
-  
  </objectgroup>
- <objectgroup id="6" name="Routes" color="#ff00ffff">
+ <objectgroup color="#00ffff" id="6" name="Routes">
   <object id="3" type="Route" x="88" y="56">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="0"/>
