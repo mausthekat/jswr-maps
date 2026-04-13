@@ -6,6 +6,7 @@
   <property name="Left" type="file" value="" />
   <property name="Name" value="Back Door" />
   <property name="Right" type="file" value="050.tmx" />
+  <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="053.tmx" />
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx" />

@@ -5,7 +5,7 @@ Map editing tools and content for **Jet Set Willy: Redux** using the
 
 ## Getting Started
 
-See [TILED_MAP_CREATION.md](TILED_MAP_CREATION.md) for the full guide — covers setup,
+See [TILED_MAP_CREATION.md](docs/TILED_MAP_CREATION.md) for the full guide — covers setup,
 creating maps, placing guardians, routes, spawns, game modes, and building.
 
 ## Quick Setup

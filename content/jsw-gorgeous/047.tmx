@@ -6,6 +6,7 @@
   <property name="Left" type="file" value="048.tmx"/>
   <property name="Name" value="The Wine Cellar"/>
   <property name="Right" type="file" value="058.tmx"/>
+  <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="050.tmx"/>
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx"/>

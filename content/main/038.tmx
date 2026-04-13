@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#0402c4" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="3">
  <properties>
-  <property name="Chunk" type="int" value="0" />
   <property name="Down" type="file" value="" />
   <property name="Left" type="file" value="062.tmx" />
   <property name="Name" value="Emergency Generator" />

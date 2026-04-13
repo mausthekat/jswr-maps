@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="5">
  <properties>
-  <property name="Down" value="" />
+  <property name="Down" type="file" value="" />
   <property name="Flags" propertytype="RoomFlags" value="" />
-  <property name="Left" value="181.tmx" />
+  <property name="Left" type="file" value="181.tmx" />
   <property name="Name" value="The Podium" />
-  <property name="Right" value="181.tmx" />
+  <property name="Right" type="file" value="181.tmx" />
   <property name="RoomPurpose" type="int" propertytype="RoomPurpose" value="4" />
   <property name="Rope" type="bool" value="false" />
   <property name="Rope Offset" type="int" value="0" />
-  <property name="Up" value="" />
+  <property name="Up" type="file" value="" />
  </properties>
  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
  <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />

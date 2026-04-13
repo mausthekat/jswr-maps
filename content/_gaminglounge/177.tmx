@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="6" nextobjectid="2">
  <properties>
-  <property name="Down" value="" />
-  <property name="Left" value="" />
+  <property name="Down" type="file" value="" />
+  <property name="Left" type="file" value="" />
   <property name="Name" value="The Launch Bay" />
-  <property name="Right" value="" />
+  <property name="Right" type="file" value="" />
   <property name="RoomPurpose" type="int" propertytype="RoomPurpose" value="3" />
   <property name="Rope" type="bool" value="false" />
-  <property name="Up" value="" />
+  <property name="Up" type="file" value="" />
   <property name="WillySuit" type="int" propertytype="WillySuit" value="1" />
  </properties>
  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />

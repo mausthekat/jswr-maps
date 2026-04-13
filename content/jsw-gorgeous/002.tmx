@@ -6,6 +6,7 @@
   <property name="Left" type="file" value="003.tmx" />
   <property name="Name" value="The Bridge" />
   <property name="Right" type="file" value="001.tmx" />
+  <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="" />
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx" />

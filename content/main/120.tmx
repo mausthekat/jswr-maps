@@ -1,8 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="7">
  <properties>
-  <property name="ChainRoomGroup" type="int" value="1" />
-  <property name="Chunk" type="int" value="0" />
   <property name="Down" type="file" value="" />
   <property name="Left" type="file" value="128.tmx" />
   <property name="Name" value="X-45 Rocket" />
