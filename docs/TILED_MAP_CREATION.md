@@ -3,7 +3,7 @@
 A start-to-finish guide for creating custom maps for Jet Set Willy: Redux using the
 [Tiled Map Editor](https://www.mapeditor.org/).
 
-For the extension reference and conversion script details, see [tmx/README.md](README.md).
+For the extension reference and conversion script details, see [tmx/README.md](../README.md).
 
 > **Getting started:** Open the `training` map project in Tiled (`tmx/content/training/`)
 > as a reference while reading this guide. It's a small 13-room map that demonstrates the
@@ -232,7 +232,12 @@ Optional layers:
 
 ## 5. Room Properties
 
-Set via Map > Map Properties in Tiled:
+Set via Map > Map Properties in Tiled. Per-room properties come in two groups:
+
+### Standard properties
+
+Always present on every room. The `[ROOM] Check/Fix Room Properties` extension
+command (Section 18) initializes any that are missing.
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -245,10 +250,22 @@ Set via Map > Map Properties in Tiled:
 | `Rope Offset` | int | Signed tile offset to adjust rope horizontal position (0 = center of room). Default: 0. |
 | `Flags` | RoomFlags | Room flags: `MIRROR_TRIGGER`, `DARK_ROOM`, `UNDERWATER`, `LOW_GRAVITY`. |
 | `WillySuit` | WillySuit | `Normal` (0), `SpaceSuit` (1), `DivingSuit` (2), or `FlyingPig` (3). Default: Normal. |
-| `RoomPurpose` | RoomPurpose | Room function. Default: `Gameplay` (0). See [Infrastructure Rooms](#16-infrastructure-rooms). |
-| `RaceLabel` | string | Target label for race game modes. |
-| `ChainRoomGroup` | int | Chain game group number (1–9, 0 = not in a chain group). |
-| `Chunk` | int | Chunk ID for loading grouping. Default: 0. |
+| `RoomPurpose` | RoomPurpose | Infrastructure-room role. Default: `Gameplay` (0). Non-Gameplay values (`Lobby`, `Team Select`, `Launchpad`, `Victory Room`, `Briefing`, `Team Select 4`) force the containing map pack into lobby-only mode. See [Infrastructure Rooms](#16-infrastructure-rooms). |
+
+### Opt-in properties
+
+Added to a room **only when that room actually uses the feature**. They are
+deliberately not in the archetype or the Fix Room Properties initializer to
+keep the common case lean — adding them to every room would mean ~600 lines
+of noise for features used in a handful of rooms. Add them manually via
+Map > Map Properties > Add Property.
+
+| Property | Type | Where used | Description |
+|----------|------|------------|-------------|
+| `Border` | int | `jsw-gorgeous` | ZX `$FE` border palette index (0–7): 0=black, 1=blue, 2=red, 3=magenta, 4=green, 5=cyan, 6=yellow, 7=white. Applied on room entry when the player has Options > Border Color enabled. Stored in JSWR header byte 16. Absent or 0 = black (default). |
+| `RaceLabel` | string | `main` | Target label for `RACE_TO_GAMES`. Rooms sharing the same label form a race group. |
+
+> `CHAIN_GAMES` chain groups are **no longer authored via a per-room property**. They are auto-generated at pack build time from BFS distance data using farthest-first clustering (`tmx_to_jsw.py:_generate_chain_groups_from_bfs`) and stored in the pack's `chain_groups` custom data block. See [MAP_FLAGS.md](MAP_FLAGS.md) and [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md).
 
 **Background color** is set via Map > Map Properties > Background Color. This is converted to
 the game's 9-bit color format (3 bits per channel).
@@ -838,7 +855,12 @@ Scans all rooms for:
 
 Checks the current room for missing standard properties and adds defaults:
 - `Name` (empty string), `Rope` (false), `Rope Offset` (0), `Flags` (empty)
-- Exit properties (`Up`/`Down`/`Left`/`Right`)
+- Exit properties `Up`/`Down`/`Left`/`Right` (typed `file`, empty string default).
+  Legacy rooms with untyped string exits are auto-promoted to `file` type.
+- `WillySuit` (Normal)
+- `RoomPurpose` (Gameplay) — exposes the enum in the sidebar so it's
+  discoverable; the pack-time converter also regex-scans the raw TMX when
+  the property is absent.
 
 ### [ROOM] Check/Fix Guardian/Guardian Route Properties
 

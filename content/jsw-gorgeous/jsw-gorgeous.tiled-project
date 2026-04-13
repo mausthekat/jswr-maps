@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -114,31 +113,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 18,
-            "name": "ActionType",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Complete",
-                "HideGuardian",
-                "ShowGuardian",
-                "ShowTile",
-                "HideTile",
-                "TeleportPlayerTo",
-                "RemovePlayer",
-                "DisablePlayerInput",
-                "EnablePlayerInput",
-                "ReplaceGuardian",
-                "ShowEntity",
-                "HideEntity",
-                "EndGame",
-                "PlaySound",
-                "Delay",
-                "DoReplay"
-            ],
-            "valuesAsFlags": false
-        },
-        {
             "id": 1,
             "name": "Direction",
             "storageType": "int",
@@ -163,25 +137,13 @@
             "valuesAsFlags": false
         },
         {
-            "id": 18,
-            "name": "FinalCelebration",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "None",
-                "ManicMiner",
-                "JetSetWilly"
-            ],
-            "valuesAsFlags": false
-        },
-        {
             "id": 3,
             "name": "FlightDirection",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },

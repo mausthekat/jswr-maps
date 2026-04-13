@@ -3,12 +3,12 @@
  <properties>
   <property name="Down" type="file" value="091.tmx" />
   <property name="Flags" propertytype="RoomFlags" value="" />
-  <property name="Left" value="" />
+  <property name="Left" type="file" value="" />
   <property name="Name" value="'Neath The Throne" />
-  <property name="Right" value="" />
+  <property name="Right" type="file" value="" />
   <property name="Rope" type="bool" value="false" />
   <property name="Rope Offset" type="int" value="0" />
-  <property name="Up" value="" />
+  <property name="Up" type="file" value="" />
  </properties>
  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
  <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />

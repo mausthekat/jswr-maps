@@ -3,9 +3,10 @@
  <properties>
   <property name="Border" type="int" value="2"/>
   <property name="Down" type="file" value="007.tmx"/>
-  <property name="Left" type="file" value="007.tmx"/>
+  <property name="Left" type="file" value=""/>
   <property name="Name" value="Entrance to Hades"/>
-  <property name="Right" type="file" value="007.tmx"/>
+  <property name="Right" type="file" value=""/>
+  <property name="Rope" type="bool" value="false"/>
   <property name="Up" type="file" value="007.tmx"/>
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx"/>

@@ -17,6 +17,7 @@
   <property name="Right" type="file" value="036.tmx" />
   
   
+  <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="" />
   
   

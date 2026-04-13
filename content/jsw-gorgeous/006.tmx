@@ -6,6 +6,7 @@
   <property name="Left" type="file" value="058.tmx" />
   <property name="Name" value="The Security Guard" />
   <property name="Right" type="file" value="005.tmx" />
+  <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="011.tmx" />
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx" />

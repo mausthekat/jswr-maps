@@ -6,6 +6,7 @@
   <property name="Left" type="file" value="010.tmx" />
   <property name="Name" value="Inside the MegaTrunk" />
   <property name="Right" type="file" value="008.tmx" />
+  <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="013.tmx" />
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx" />

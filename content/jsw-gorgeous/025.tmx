@@ -6,6 +6,7 @@
   <property name="Left" type="file" value="026.tmx" />
   <property name="Name" value="East Wall Base" />
   <property name="Right" type="file" value="" />
+  <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="031.tmx" />
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx" />

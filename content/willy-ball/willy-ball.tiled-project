@@ -322,33 +322,6 @@
         },
         {
             "id": 17,
-            "name": "FinalAction",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Teleport",
-                "Show",
-                "Hide",
-                "PlayReplay",
-                "RemovePlayer",
-                "ReplaceGuardian"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 18,
-            "name": "FinalCelebration",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "None",
-                "ManicMiner",
-                "JetSetWilly"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 17,
             "name": "TriggerType",
             "storageType": "string",
             "type": "enum",
@@ -362,31 +335,6 @@
                 "GameStart",
                 "Never",
                 "ExternalEvent"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 18,
-            "name": "ActionType",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Complete",
-                "HideGuardian",
-                "ShowGuardian",
-                "ShowTile",
-                "HideTile",
-                "TeleportPlayerTo",
-                "RemovePlayer",
-                "DisablePlayerInput",
-                "EnablePlayerInput",
-                "ReplaceGuardian",
-                "ShowEntity",
-                "HideEntity",
-                "EndGame",
-                "PlaySound",
-                "Delay",
-                "DoReplay"
             ],
             "valuesAsFlags": false
         },

@@ -160,6 +160,7 @@ def cmd_create(args) -> int:
 def cmd_update(args) -> int:
     """Update specific project(s)."""
     dry_run = args.dry_run
+    prune = args.prune
     if not dry_run:
         bundle_extensions(get_template_dir())
     success = True
@@ -172,7 +173,7 @@ def cmd_update(args) -> int:
         print(f"  Location: {path}")
         print()
 
-        ok, changes = update_project(path, dry_run)
+        ok, changes = update_project(path, dry_run, prune=prune)
         if not ok:
             for msg in changes:
                 print(msg)
@@ -193,6 +194,7 @@ def cmd_update(args) -> int:
 def cmd_refresh(args) -> int:
     """Update ALL projects (content + _in_progress)."""
     dry_run = args.dry_run
+    prune = args.prune
 
     # Bundle extensions-src/*.js into .extensions/jswr.js before deploying
     if not dry_run:
@@ -213,7 +215,7 @@ def cmd_refresh(args) -> int:
         project_name = project_path.name
         print(f"{'[DRY RUN] ' if dry_run else ''}Updating: {project_name}")
 
-        ok, changes = update_project(project_path, dry_run)
+        ok, changes = update_project(project_path, dry_run, prune=prune)
         if not ok:
             for msg in changes:
                 print(f"  {msg}")
@@ -265,12 +267,20 @@ Examples:
                           help="Project path(s). Shell wildcards expand to multiple paths.")
     p_update.add_argument("--dry-run", action="store_true",
                           help="Show what would be done without making changes")
+    p_update.add_argument("--prune", action="store_true",
+                          help="Remove propertyTypes not in the archetype. "
+                               "Without this flag, stale types are reported "
+                               "as WARNINGs but left in place.")
     p_update.set_defaults(func=cmd_update)
 
     # refresh
     p_refresh = subparsers.add_parser("refresh", help="Update ALL projects")
     p_refresh.add_argument("--dry-run", action="store_true",
                            help="Show what would be done without making changes")
+    p_refresh.add_argument("--prune", action="store_true",
+                           help="Remove propertyTypes not in the archetype. "
+                                "Without this flag, stale types are reported "
+                                "as WARNINGs but left in place.")
     p_refresh.set_defaults(func=cmd_refresh)
 
     args = parser.parse_args()

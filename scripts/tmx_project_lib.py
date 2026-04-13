@@ -264,14 +264,25 @@ def merge_properties(existing: list, archetype: list) -> tuple[list, list, list]
     return existing, added, removed
 
 
-def merge_property_types(existing: list, archetype: list) -> tuple[list, list, list]:
+def merge_property_types(existing: list, archetype: list,
+                         prune: bool = False) -> tuple[list, list, list]:
     """
-    Harmonize property types to match archetype exactly.
+    Harmonize property types to match archetype.
 
     The archetype is fully authoritative for:
     - Property type IDs
     - Enum values and ordering
     - Class members (adds missing, doesn't remove extras)
+
+    Stale property types (present in the project but absent from the
+    archetype) are handled according to `prune`:
+    - `prune=False` (default): a ``WARNING:`` change entry is emitted for
+      each stale type, and the type is kept in place. Normal refresh runs
+      use this mode so project-specific extensions aren't silently
+      deleted, and historical renames surface loudly in the changes list.
+    - `prune=True`: stale types are removed and each removal is recorded
+      as a change entry. Intended for cleanup passes after confirming the
+      stale names really are obsolete (e.g. post-rename debt).
 
     Returns:
         Tuple of (merged_types, change_descriptions, tmx_remaps)
@@ -282,10 +293,23 @@ def merge_property_types(existing: list, archetype: list) -> tuple[list, list, l
     changes = []
     tmx_remaps = []
 
-    for existing_type in existing:
+    # Detect stale types up-front so we can either warn or prune them.
+    stale_names = [t["name"] for t in existing if t["name"] not in archetype_by_name]
+    if stale_names and not prune:
+        for name in stale_names:
+            changes.append(
+                f"WARNING: {name!r} is not in archetype — consider running "
+                f"with --prune to remove"
+            )
+    if stale_names and prune:
+        existing[:] = [t for t in existing if t["name"] in archetype_by_name]
+        for name in stale_names:
+            changes.append(f"Pruned stale property type: {name}")
+
+    for existing_type in list(existing):
         name = existing_type["name"]
         if name not in archetype_by_name:
-            continue  # Keep project-specific types as-is
+            continue  # Warning already emitted above; leave the type in place.
 
         arch_type = archetype_by_name[name]
 
@@ -608,7 +632,8 @@ def find_all_projects() -> list[Path]:
     return sorted(projects)
 
 
-def update_project(project_path: Path, dry_run: bool = False) -> tuple[bool, list[str]]:
+def update_project(project_path: Path, dry_run: bool = False,
+                   prune: bool = False) -> tuple[bool, list[str]]:
     """
     Update an existing project with latest archetype files.
 
@@ -617,6 +642,9 @@ def update_project(project_path: Path, dry_run: bool = False) -> tuple[bool, lis
     Args:
         project_path: Path to the project directory
         dry_run: If True, only show what would be done
+        prune: If True, remove propertyTypes that aren't in the archetype.
+            Normal runs emit a WARNING for each stale type but leave it
+            in place; pass prune=True for cleanup passes.
 
     Returns:
         Tuple of (success, list of change descriptions)
@@ -657,7 +685,7 @@ def update_project(project_path: Path, dry_run: bool = False) -> tuple[bool, lis
         archetype_types = archetype_data.get("propertyTypes", [])
 
         merged_types, type_changes, tmx_remaps = merge_property_types(
-            existing_types, archetype_types
+            existing_types, archetype_types, prune=prune
         )
 
         if type_changes:
