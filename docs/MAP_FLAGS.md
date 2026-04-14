@@ -162,7 +162,7 @@ Stored in JSWP header byte 15 (uint8). This byte was previously reserved (always
 
 The standard JSW single-player experience: collect every item in the map.
 
-- If `sp_victory_room` is set (V5 custom data, uint16 LE room ID): player must collect all items **and** reach that room. Example: collect all 256 items in Mansion Redux, then reach The Bathroom.
+- If `sp_victory_room` is set (V5 custom data, uint16 LE room ID): player must collect all items **and** reach that room. Example: collect all 82 items in JSW Gorgeous, then reach The Master Bedroom.
 - If `sp_victory_room = 0` (default): victory triggers immediately when the last item is collected.
 
 Victory detection runs locally in the game loop via `SPClassicStrategy` — no server involved.
@@ -237,26 +237,26 @@ After modifying the archetype (`tmx/project-template/archetype.tiled-project`), 
 
 ```
 archetype.tiled-project           tmx_to_jsw.py              JSWP pack header
-┌──────────────────────┐    ┌──────────────────────┐    ┌──────────────────┐
+┌───────────────────────┐    ┌──────────────────────┐    ┌──────────────────┐
 │ ValidGameModes: 0x11FF│───▶│ _read_project_valid_ │───▶│ Bytes 8-9: 0x11FF│
 │ SinglePlayerModes: 1  │───▶│ _read_project_single_│───▶│ Byte 15: 0x01    │
 │ SPVictoryRoom: 48     │───▶│ _read_project_sp_vic_│───▶│ V5 custom data   │
 │ DefaultTileset: "X"   │───▶│ _read_project_defaul_│───▶│ V5 custom data   │
-└──────────────────────┘    └──────────────────────┘    └──────────────────┘
+└───────────────────────┘    └──────────────────────┘    └──────────────────┘
 ```
 
 ### Game Startup (JSWP → Runtime)
 
 ```
 JSWP pack header          JSWPackReader             MapRegistry (MapInfo)
-┌──────────────────┐    ┌──────────────────┐    ┌──────────────────────────┐
-│ Bytes 8-9: 0x11FF│───▶│ .valid_game_modes│───▶│ valid_game_modes = 0x11FF│
-│ Byte 15: 0x01    │───▶│ .single_player_  │───▶│ single_player_modes = 1  │
-│ V5: sp_victory_  │───▶│  modes           │───▶│ sp_victory_room = 48     │
+┌──────────────────┐    ┌───────────────────┐    ┌──────────────────────────┐
+│ Bytes 8-9: 0x11FF│───▶│ .valid_game_modes │───▶│ valid_game_modes = 0x11FF│
+│ Byte 15: 0x01    │───▶│ .single_player_   │───▶│ single_player_modes = 1  │
+│ V5: sp_victory_  │───▶│  modes            │───▶│ sp_victory_room = 48     │
 │     room = 48    │    │ .get_custom_data()│    │ default_tileset = "X"    │
-│ V5: default_     │───▶│                  │───▶│                          │
-│     tileset = "X"│    │                  │    │                          │
-└──────────────────┘    └──────────────────┘    └──────────────────────────┘
+│ V5: default_     │───▶│                   │───▶│                          │
+│     tileset = "X"│    │                   │    │                          │
+└──────────────────┘    └───────────────────┘    └──────────────────────────┘
 ```
 
 ### Menu Queries
@@ -319,15 +319,3 @@ Infrastructure pack — not a playable map:
 ValidGameModes:    0x0200  (LOBBY only)
 SinglePlayerModes: 0x00    (no SP)
 ```
-
----
-
-## Historical Notes
-
-### Removed: SINGLE_PLAYER Alias
-
-Previous versions of the codebase defined `GameMode.SINGLE_PLAYER = 0x01` as a runtime alias for `COLLECT_X_ITEMS`. This was fragile (same bit value, different semantic intent) and prevented distinguishing SP from MP mode declarations. It has been removed. Code that previously used `GameMode.SINGLE_PLAYER` now uses `GameMode.COLLECT_X_ITEMS` directly, and true single-player mode is controlled by `SinglePlayerMode` instead.
-
-### MM_START Migration
-
-`MM_START` was previously a member of `GameMode`. It has been moved to `MapFlags` since it is an infrastructure marker (spawn-level Manic Miner entry point), not a gameplay mode. The bit value (0x4000) and storage location are unchanged — only the Python enum it belongs to has changed. Code references changed from `GameMode.MM_START` to `MapFlags.MM_START`.
