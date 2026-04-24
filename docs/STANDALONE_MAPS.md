@@ -95,7 +95,7 @@ This produces four pack entries — `tiles` (base 8px), `tiles_2x`, `tiles_jsw1`
 
 ### Default Tileset Selection
 
-The `DefaultTileset` property in `.tiled-project` controls which variant the game activates when the map loads. **You can set it to either the manifest *suffix* or the variant's display *name*** — `tmx_to_jsw.py:3420` resolves a suffix to its name via the manifest before writing the pack.
+The `DefaultTileset` property in `.tiled-project` controls which variant the game activates when the map loads. **You can set it to either the manifest *suffix* or the variant's display *name*** — `tmx_to_jsw.py` (in the `--pack` flow, around the `_read_project_default_tileset()` call) resolves a suffix to its name via the manifest before writing the pack.
 
 ```
 .tiled-project:                        →  resolved display name stored in pack

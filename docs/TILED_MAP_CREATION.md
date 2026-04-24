@@ -110,7 +110,7 @@ This creates a directory under `_in_progress/<map-name>/` containing:
 │   ├── spawn_flag_blue.tx
 │   ├── spawn_flag_green.tx
 │   ├── spawn_flag_orange.tx
-│   ├── spawn_exit.tx
+│   ├── spawn_ball.tx
 │   └── route.tx
 └── .extensions/
     └── jswr.js                  # JSW:R Tiled extension
@@ -179,12 +179,14 @@ are configured in **Project > Project Properties**:
 | `ValidGameModes` | GameModes (flags) | Which game modes this map supports. See [Game Mode Configuration](#15-game-mode-configuration). |
 | `FallDamageMode` | FallDamageMode | `Lenient` (0, default) or `Strict` (1). |
 | `SoftLifts` | bool | Enable soft lift mechanics. Default: false. |
-| `InfiniteLives` | bool | Dying does not cost a life. Default: false. |
-| `OriginalArrows` | bool | Use original ZX Spectrum arrow behavior (per-arrow counter, 256-tick cycle). Default: false. |
+| `OriginalArrows` | bool | Use original ZX Spectrum arrow behavior (per-arrow counter, 256-tick cycle). SP only — ignored in multiplayer. Default: false. |
 | `ManicFinalRoom` | int | Room ID for the final room in Manic-style maps. Default: 0 (unused). |
 | `IncludeMapPreview` | bool | Generate a preview image in the pack file. Default: true. |
+| `InfiniteLivesSP` | bool | Dying does not cost a life in single-player. Default: false. |
+| `InfiniteLivesMP` | bool | Dying does not cost a life in multiplayer. Default: false. |
 | `SinglePlayerModes` | SPModes (flags) | Single-player modes this map supports: `SP_CLASSIC`, `SP_MANIC_MINER`. Default: none. |
 | `SPVictoryRoom` | int | Room ID for the single-player victory room. Default: 0 (unused). |
+| `DefaultTileset` | string | Tileset variant to activate on load for standalone map packs. Default: empty (use first loaded). |
 
 ---
 
@@ -513,7 +515,6 @@ Spawn points define where players appear. They are placed on the **Spawn** layer
 | `spawn_flag_blue.tx` | Flag | Blue | WILLY_TEAMS+CTF | Blue team flag |
 | `spawn_flag_green.tx` | Flag | Green | WILLY_TEAMS+CTF | Green team flag |
 | `spawn_flag_orange.tx` | Flag | Orange | WILLY_TEAMS+CTF | Orange team flag |
-| `spawn_exit.tx` | Exit | — | — | Manic Miner exit gate |
 | `spawn_ball.tx` | Ball Spawn | Neutral | WILLY_BALL | Ball starting position for Willy Ball mode |
 
 ### Spawn Properties
@@ -547,8 +548,10 @@ CHAIN_GAMES, IT_TAG, MM_START, WILLY_BALL
 
 ### MM Exit Spawns
 
-For Manic Miner exit gates, use the `spawn_exit.tx` template. The last tile in the MM Exit
-tileset has the `Final` flag set, which triggers the victory condition when reached.
+Manic Miner exit gates are placed as tile objects using the MM Exit tileset — not as spawn
+templates. The last tile in the MM Exit tileset has the `Final` flag set, which triggers the
+victory condition when reached. See [Specialty Tilesets](#specialty-tilesets) for how to add
+the MM Exit tileset to a room.
 
 ---
 
@@ -697,7 +700,7 @@ supports. This is a flags enum — multiple modes can be selected.
 ### Spawn Coverage Rules
 
 - **Modes requiring neutral spawns:** RACE_TO_GAMES, DISCOVERY_GAMES, WILLY_TAG,
-  BRITISH_BULLDOG — these *always* need a neutral (teamless) player spawn.
+  BRITISH_BULLDOG, IT_TAG, CHAIN_GAMES — these *always* need a neutral (teamless) player spawn.
 - **Team-capable modes:** COLLECT_X_ITEMS, TIMED_GAMES, CAPTURE_THE_FLAG, GOLDEN_WILLY,
   COLLECT_ALL, FIRST_TO_COLLECT — these need *either* a neutral spawn *or* team spawns
   (Red + Blue minimum).
@@ -1027,97 +1030,13 @@ When a player loads a pack that contains a JSWC tiles entry, the game registers 
 tileset style and switches to it automatically. See `docs/formats/JSWC_TILESET_COLLECTION_FORMAT.md`
 for the full binary format specification.
 
-### High-Resolution Tilesets (`_2x` Variants)
+### Tileset Variants (Multi-Resolution Support)
 
-You can provide high-resolution (16x16 pixel) tile variants alongside base (8x8) tiles. The
-packing scripts automatically detect and bundle them.
-
-Place `_2x` PNG files next to the base files:
-
-```
-tiles_solid.png       (8x8 tiles — base)
-tiles_solid_2x.png    (16x16 tiles — high-res variant)
-tiles_stairs.png
-tiles_stairs_2x.png
-... (same for platform, hazard, decoration, conveyor)
-```
-
-The `_2x` PNGs must use the same 16-column tilesheet layout as the base, with tile counts
-equal to or greater than the base. Run the pack command as usual — it detects `_2x` files
-and creates a second JSWC collection:
-
-```
-my-map.jsw (JSWP)
-├── rooms (room data)
-├── tiles (JSWC — 8x8 base tiles)
-└── tiles_2x (JSWC — 16x16 hi-res tiles, only if _2x files found)
-```
-
-At runtime, players cycle between base and hi-res styles with F9. The hi-res style appears
-as `"{TilesetName} (2x)"` (e.g. "Gorgeous (2x)"). If some tileset types lack a `_2x`
-variant, those types fall back to the base resolution when the 2x style is active.
-
-### Example: The JSW Gorgeous Pipeline
-
-The "Gorgeous" tileset demonstrates the full custom tileset workflow. It starts from a
-hand-drawn hi-res source and produces three variants at different resolutions.
-
-#### Source Material
-
-The pipeline begins with a hi-res reference image (`gorgeous-tiles.png`) containing
-hand-drawn 16x16 pixel tiles — double the game's native 8x8 resolution.
-
-#### Pipeline Overview
-
-The Gorgeous tileset lives across three related projects:
-
-| Project | Location | Resolution | Purpose |
-|---------|----------|-----------|---------|
-| `jsw-gorgeous/` | `content/` | 8x8 | Primary editing project — hand-categorized tiles |
-| `jsw-gorgeous-2x/` | `_in_progress/` | 16x16 | Hi-res variant — auto-generated from tile matching |
-| `jsw-gorgeous-scaled/` | `_in_progress/` | 8x8 | Scaled-down variant — direct copy of categorized tiles |
-
-Each room has its own per-room tileset (e.g., `001.tsx` + `001_tiles.png`) because the
-original Spectrum game assigned unique tile graphics per room. The shared category tilesets
-(`tiles_solid.tsx`, `tiles_stairs.tsx`, etc.) hold the superset of all unique tiles across
-all rooms.
-
-#### Pipeline Steps
-
-1. **Tile Matching** (`tmx/scripts/match_hires_tiles.py`) — matches each 8x8 tile in the
-   category tilesets against the 16x16 source image by comparing downscaled versions.
-   Produces a `tile_mapping.json` recording which source tile maps to which category tile.
-
-2. **Build Hi-Res Tilesets** (`tmx/scripts/build_hires_tilesets.py`) — uses the mapping to
-   assemble 16x16 category tilesets from the source image. Creates the `jsw-gorgeous-2x`
-   project tilesets.
-
-3. **Generate 2x Room Tilesets** (`tmx/scripts/generate_gorgeous_2x.py`) — for each room,
-   replaces 8x8 tiles in the per-room tileset with their mapped 16x16 counterparts.
-
-4. **Propagate TMX Edits** (`tmx/scripts/propagate_gorgeous_2x.py`) — copies `.tmx` room
-   files from `jsw-gorgeous/` to `jsw-gorgeous-2x/`, scaling map tile dimensions and object
-   coordinates by 2x while preserving tile data.
-
-5. **Propagate Scaled Edits** (`tmx/scripts/propagate_scaled_edits.py`) — syncs changes
-   from the 2x project back to the scaled (8x8) variant when the hi-res tiles are
-   hand-edited.
-
-#### TSX Properties
-
-The Gorgeous tilesets include metadata in their `.tsx` files:
-
-```xml
-<tileset name="tiles_solid" tilewidth="8" tileheight="8" ...>
- <properties>
-  <property name="TilesetName" value="Gorgeous"/>
- </properties>
- ...
-</tileset>
-```
-
-This `TilesetName` property is what the runtime reads to display "Gorgeous" in the style
-menu rather than the raw directory name.
+Custom tilesets can ship multiple variants (e.g., a base 8x8 set and a 16x16 hi-res set)
+that players cycle through with F9. The current workflow uses a `tilesets.json` manifest
+in the map's project root to declare each variant's display name, color clash support,
+and per-room overrides. See [STANDALONE_MAPS.md](STANDALONE_MAPS.md) for the manifest
+format and the full standalone-map packaging pipeline.
 
 ### Creating a New Custom Tileset
 

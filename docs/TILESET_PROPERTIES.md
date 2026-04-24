@@ -21,14 +21,14 @@ These properties are defined in the `<properties>` element at the root of a TSX 
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="tiles_solid" tilewidth="8" tileheight="8" tilecount="208" columns="16">
   <properties>
-    <property name="supports_color_clash" type="bool" value="true"/>
-    <property name="tileset_name" value="original"/>
+    <property name="SupportsColorClash" type="bool" value="true"/>
+    <property name="TilesetName" value="original"/>
   </properties>
   <image source="tiles_solid.png" width="128" height="104"/>
 </tileset>
 ```
 
-### `supports_color_clash` (Boolean)
+### `SupportsColorClash` (Boolean)
 
 Indicates whether the tileset supports the ZX Spectrum color clash shader effect.
 
@@ -38,16 +38,16 @@ Indicates whether the tileset supports the ZX Spectrum color clash shader effect
 | `false` | No color clash variant (default) |
 
 **Example:**
-- Tileset "original" with `supports_color_clash=true` creates styles: "original", "original_zx"
-- Tileset "enhanced" with `supports_color_clash=false` creates only: "enhanced"
+- Tileset "original" with `SupportsColorClash=true` creates styles: "original", "original_zx"
+- Tileset "enhanced" with `SupportsColorClash=false` creates only: "enhanced"
 
-### `tileset_name` (String)
+### `TilesetName` (String)
 
 Groups related tileset files under a common name for the graphics style menu.
 
 If not specified, defaults to the asset folder name (e.g., "enhanced", "original").
 
-**Use case:** Multiple TSX files (tiles_solid.tsx, tiles_stairs.tsx, etc.) in the same style folder should use the same `tileset_name` so they appear as one option in the menu.
+**Use case:** Multiple TSX files (tiles_solid.tsx, tiles_stairs.tsx, etc.) in the same style folder should use the same `TilesetName` so they appear as one option in the menu.
 
 > **Note:** For standalone map packs, these TSX properties are superseded by the
 > `tilesets.json` manifest file when present. The manifest allows per-variant
@@ -62,13 +62,13 @@ Individual tiles can have properties that override their default categorization.
 ```xml
 <tile id="5">
   <properties>
-    <property name="tile_type" value="decoration"/>
+    <property name="TileType" value="decoration"/>
     <property name="Direction" type="int" value="2"/>
   </properties>
 </tile>
 ```
 
-### `tile_type` (String)
+### `TileType` (String)
 
 Overrides the tile's category, which is normally determined by which tileset file it belongs to.
 
@@ -83,7 +83,7 @@ Overrides the tile's category, which is normally determined by which tileset fil
 | `background` | TILESET_DECORATION | Alias for decoration |
 | `conveyor` | TILESET_CONVEYOR | Moving platforms |
 
-**Use case:** A stairs tileset may contain decorative stair-like tiles that shouldn't function as stairs. Setting `tile_type="decoration"` on those tiles excludes them from stair behavior.
+**Use case:** A stairs tileset may contain decorative stair-like tiles that shouldn't function as stairs. Setting `TileType="decoration"` on those tiles excludes them from stair behavior.
 
 ### `Direction` (Integer) - Stairs Only
 
@@ -120,7 +120,7 @@ When a map pack includes its own tiles (in a `tiles` sub-pack), those tilesets *
 
 When the pack is unloaded (switching to a map without custom tiles), the built-in tilesets are restored.
 
-**Example:** A "gorgeous" map pack with `supports_color_clash=true` would show menu options: "GORGEOUS", "GORGEOUS (ZX)"
+**Example:** A "gorgeous" map pack with `SupportsColorClash=true` would show menu options: "GORGEOUS", "GORGEOUS (ZX)"
 
 ### Sprite Fallback for Custom Packs
 
@@ -176,9 +176,9 @@ Properties are read at two points:
 
 ### Fallback Behavior
 
-- If `tileset_name` is not set, the folder name is used
-- If `supports_color_clash` is not set, defaults to `false`
-- If `tile_type` is not set on a tile, the tileset file determines the type
+- If `TilesetName` is not set, the folder name is used
+- If `SupportsColorClash` is not set, defaults to `false`
+- If `TileType` is not set on a tile, the tileset file determines the type
 - If `Direction` is not set on stairs, column parity determines direction
 
 ### Cache Considerations
