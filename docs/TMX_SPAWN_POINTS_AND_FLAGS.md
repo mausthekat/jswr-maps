@@ -8,7 +8,7 @@ Spawn points are placed in Tiled as objects on the "Spawn" object layer, using t
 
 | Property | Type | Description |
 |----------|------|-------------|
-| **Kind** | `SpawnKind` enum | `Player Start` (0) or `Flag` (1) |
+| **Kind** | `SpawnKind` enum | `Player Start` (0), `Flag` (1), `Exit` (2, MM exits), or `Ball Spawn` (3, Willy Ball) |
 | **Team** | `Team` enum | `No Team` (0), `Red` (1), `Blue` (2), `Green` (4), `Orange` (5) |
 | **GameModes** | `GameModes` flags | Bitmask restricting which modes use this spawn (0 = all modes) |
 
@@ -62,7 +62,7 @@ This allows a single map to have different spawn positions for different modes. 
 
 ## How Spawn Resolution Works
 
-At runtime, spawn positions are resolved in `game.py` (`_extract_spawn_positions_from_rooms`) and `headless/server.py`:
+At runtime, spawn positions are resolved in `src/map_loading_service.py` (`_extract_spawn_positions_from_rooms`) and `src/server/host_state.py`:
 
 1. Iterate all rooms and their spawn data
 2. For each spawn, check `game_modes` filter:
@@ -148,8 +148,8 @@ The build tool (`build_scripts/tmx/tmx_to_jsw.py`, function `_compute_and_valida
 |---|------|-------------|
 | 1 | Team spawns must be paired | If any Red or Blue team spawn exists, both must be present |
 | 1b | Extended team spawns need base | Green/Orange spawns require Red+Blue to also exist |
-| 2a | Non-team-capable modes need neutral spawn | WILLY_TAG, BRITISH_BULLDOG, RACE_TO_GAMES, DISCOVERY_GAMES always require a neutral player spawn |
-| 2b | Team-capable modes need neutral or team spawn | COLLECT_X_ITEMS, TIMED_GAMES, CAPTURE_THE_FLAG, GOLDEN_WILLY, COLLECT_ALL can use either neutral spawn or team spawns |
+| 2a | Non-team-capable modes need neutral spawn | WILLY_TAG, BRITISH_BULLDOG, RACE_TO_GAMES, DISCOVERY_GAMES, IT_TAG, CHAIN_GAMES always require a neutral player spawn |
+| 2b | Team-capable modes need neutral or team spawn | COLLECT_X_ITEMS, TIMED_GAMES, CAPTURE_THE_FLAG, GOLDEN_WILLY, COLLECT_ALL, FIRST_TO_COLLECT can use either neutral spawn or team spawns |
 | 3 | Team flags must be paired | If any Red or Blue flag exists, both must be present |
 | 4 | Team flags require team spawns | Red/Blue flags require Red+Blue team spawns |
 | 5 | Neutral flag requires neutral spawn | A neutral flag requires a neutral player spawn |

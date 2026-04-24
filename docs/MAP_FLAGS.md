@@ -97,7 +97,6 @@ Some modes require V5 custom data in the JSWP pack beyond just setting the flag 
 |------|-------------|
 | `RACE_TO_GAMES` | `race_targets` custom data (target room list with labels) |
 | `CHAIN_GAMES` | `chain_groups` custom data (auto-generated from BFS distances at build time, minimum 2 groups) |
-| `DISCOVERY_GAMES` | Map must have 60+ rooms |
 
 See [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md) for custom data key formats.
 
