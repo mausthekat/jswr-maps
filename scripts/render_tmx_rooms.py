@@ -46,10 +46,41 @@ def parse_tsx(tsx_path: Path) -> tuple[str, int, int]:
     return source, tilecount, columns
 
 
-def load_tilesets(tmx_path: Path) -> dict:
+def _resolve_variant_image(base_image_path: Path, suffix: str,
+                           tmx_dir: Path) -> Path:
+    """Return a sibling tileset PNG named with `_<suffix>` if it exists.
+
+    Custom maps can ship multiple tile resolutions side by side in the
+    map folder (`tiles_solid.png` + `tiles_solid_2x.png` etc.). When a
+    suffix is requested, prefer the variant either next to the original
+    image (TSX folder) or directly in the TMX folder; fall back to the
+    base path when no variant is on disk.
+    """
+    if not suffix:
+        return base_image_path
+    variant_name = f"{base_image_path.stem}_{suffix}{base_image_path.suffix}"
+    sibling = base_image_path.with_name(variant_name)
+    if sibling.exists():
+        return sibling
+    in_tmx_dir = tmx_dir / variant_name
+    if in_tmx_dir.exists():
+        return in_tmx_dir
+    return base_image_path
+
+
+def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
     """Load all tilesets referenced by a TMX file.
 
-    Returns dict mapping GID ranges to (tileset_image, firstgid, columns).
+    Each entry is `(firstgid, tilecount, columns, tile_w, tile_h,
+    tileset_img)`. Tile dimensions come from the loaded image
+    (`width // columns`, `height // rows`) so variant tilesets at a
+    different native resolution (e.g. 2x at 16px) render correctly
+    without a separate TSX.
+
+    `tileset_suffix` (when non-empty) substitutes a sibling
+    `<base>_<suffix>.png` for any TSX-referenced PNG when the variant
+    exists on disk — this is what lets the preview honour the map's
+    DefaultTileset.
     """
     tree = ET.parse(tmx_path)
     root = tree.getroot()
@@ -62,7 +93,6 @@ def load_tilesets(tmx_path: Path) -> dict:
         source = tileset_elem.get('source')
 
         if source:
-            # External TSX file
             tsx_path = tmx_dir / source
             if not tsx_path.exists():
                 print(f"  Warning: TSX not found: {tsx_path}")
@@ -71,15 +101,13 @@ def load_tilesets(tmx_path: Path) -> dict:
             try:
                 result = parse_tsx(tsx_path)
                 if result is None:
-                    continue  # Collection-of-images tileset, skip
+                    continue
                 image_source, tilecount, columns = result
-                # Image path is relative to TSX location
                 image_path = tsx_path.parent / image_source
             except Exception as e:
                 print(f"  Warning: Error parsing {tsx_path}: {e}")
                 continue
         else:
-            # Embedded tileset
             image = tileset_elem.find('image')
             if image is None:
                 continue
@@ -87,20 +115,25 @@ def load_tilesets(tmx_path: Path) -> dict:
             columns = int(tileset_elem.get('columns', 16))
             tilecount = int(tileset_elem.get('tilecount', 0))
 
+        image_path = _resolve_variant_image(image_path, tileset_suffix, tmx_dir)
+
         if not image_path.exists():
             print(f"  Warning: Image not found: {image_path}")
             continue
 
         try:
             tileset_img = Image.open(image_path).convert('RGBA')
-            tilesets.append((firstgid, tilecount, columns, tileset_img))
+            tile_w = tileset_img.width // max(columns, 1)
+            rows = max((tilecount + columns - 1) // columns, 1) if columns else 1
+            tile_h = tileset_img.height // rows if rows else tile_w
+            if tile_w <= 0 or tile_h <= 0:
+                tile_w = tile_h = TILE_WIDTH
+            tilesets.append((firstgid, tilecount, columns, tile_w, tile_h, tileset_img))
         except Exception as e:
             print(f"  Warning: Error loading {image_path}: {e}")
             continue
 
-    # Sort by firstgid
     tilesets.sort(key=lambda x: x[0])
-
     return tilesets
 
 
@@ -109,20 +142,16 @@ def get_tile_from_gid(gid: int, tilesets: list) -> Image.Image | None:
     if gid == 0:
         return None
 
-    # Find the tileset containing this GID
-    for i, (firstgid, tilecount, columns, tileset_img) in enumerate(tilesets):
-        # Check if this GID belongs to this tileset
+    for i, (firstgid, tilecount, columns, tile_w, tile_h, tileset_img) in enumerate(tilesets):
         next_firstgid = tilesets[i + 1][0] if i + 1 < len(tilesets) else float('inf')
 
         if firstgid <= gid < next_firstgid:
-            # This is our tileset
             local_id = gid - firstgid
-            tile_x = (local_id % columns) * TILE_WIDTH
-            tile_y = (local_id // columns) * TILE_HEIGHT
+            tile_x = (local_id % columns) * tile_w
+            tile_y = (local_id // columns) * tile_h
 
-            # Make sure we're within bounds
-            if tile_x + TILE_WIDTH <= tileset_img.width and tile_y + TILE_HEIGHT <= tileset_img.height:
-                return tileset_img.crop((tile_x, tile_y, tile_x + TILE_WIDTH, tile_y + TILE_HEIGHT))
+            if tile_x + tile_w <= tileset_img.width and tile_y + tile_h <= tileset_img.height:
+                return tileset_img.crop((tile_x, tile_y, tile_x + tile_w, tile_y + tile_h))
 
     return None
 
@@ -175,10 +204,15 @@ def get_background_color(tmx_path: Path) -> tuple:
     return (0, 0, 0, 255)
 
 
-def render_room_to_image(tmx_path: Path) -> Optional[Image.Image]:
-    """Render a TMX room to a PIL Image (256x128 RGBA). Returns None on error."""
+def render_room_to_image(tmx_path: Path, tileset_suffix: str = "") -> Optional[Image.Image]:
+    """Render a TMX room to a PIL Image. Returns None on error.
+
+    Output dimensions follow the (first) loaded tileset's tile size:
+    32x16 tiles × 8px = 256x128 for the base set, 32x16 × 16px = 512x256
+    for a 2x variant, etc.
+    """
     try:
-        tilesets = load_tilesets(tmx_path)
+        tilesets = load_tilesets(tmx_path, tileset_suffix=tileset_suffix)
         if not tilesets:
             print(f"  No tilesets loaded for {tmx_path.name}")
             return None
@@ -186,8 +220,13 @@ def render_room_to_image(tmx_path: Path) -> Optional[Image.Image]:
         tile_rows = parse_tmx_tiles(tmx_path)
         bg_color = get_background_color(tmx_path)
 
-        img_width = ROOM_WIDTH * TILE_WIDTH
-        img_height = ROOM_HEIGHT * TILE_HEIGHT
+        # Pick the dominant tile dimensions from the first tile-bearing
+        # tileset (in practice all variant tilesets in a single map are
+        # the same scale; the first entry is the lowest firstgid which
+        # is always one of the room tile sets).
+        out_tile_w, out_tile_h = tilesets[0][3], tilesets[0][4]
+        img_width = ROOM_WIDTH * out_tile_w
+        img_height = ROOM_HEIGHT * out_tile_h
         img = Image.new('RGBA', (img_width, img_height), bg_color)
 
         for y, row in enumerate(tile_rows):
@@ -196,9 +235,7 @@ def render_room_to_image(tmx_path: Path) -> Optional[Image.Image]:
                     continue
                 tile_img = get_tile_from_gid(gid, tilesets)
                 if tile_img:
-                    px = x * TILE_WIDTH
-                    py = y * TILE_HEIGHT
-                    img.paste(tile_img, (px, py), tile_img)
+                    img.paste(tile_img, (x * out_tile_w, y * out_tile_h), tile_img)
 
         return img
 
@@ -207,9 +244,9 @@ def render_room_to_image(tmx_path: Path) -> Optional[Image.Image]:
         return None
 
 
-def render_room_to_png_bytes(tmx_path: Path) -> Optional[bytes]:
+def render_room_to_png_bytes(tmx_path: Path, tileset_suffix: str = "") -> Optional[bytes]:
     """Render a TMX room to PNG bytes. Returns None on error."""
-    img = render_room_to_image(tmx_path)
+    img = render_room_to_image(tmx_path, tileset_suffix=tileset_suffix)
     if img is None:
         return None
     buf = io.BytesIO()
@@ -217,9 +254,9 @@ def render_room_to_png_bytes(tmx_path: Path) -> Optional[bytes]:
     return buf.getvalue()
 
 
-def render_room(tmx_path: Path, output_path: Path) -> bool:
+def render_room(tmx_path: Path, output_path: Path, tileset_suffix: str = "") -> bool:
     """Render a TMX room to PNG file."""
-    img = render_room_to_image(tmx_path)
+    img = render_room_to_image(tmx_path, tileset_suffix=tileset_suffix)
     if img is None:
         return False
     try:
