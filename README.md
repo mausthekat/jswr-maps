@@ -22,7 +22,7 @@ creating maps, placing guardians, routes, spawns, game modes, and building.
 ```
 jswr-maps/
 ├── content/              # Published map projects
-│   ├── main/             # The main 472-room mansion
+│   ├── main/             # The main 255-room mansion
 │   ├── training/         # Small tutorial map (good reference)
 │   ├── _gaminglounge/    # Multiplayer lobby infrastructure
 │   └── .../              # Other community maps
