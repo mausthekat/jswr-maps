@@ -1,6 +1,6 @@
 [project]
 name = "jswr-maps"
-version = "0.53.9"
+version = "0.53.10"
 description = "Map editing toolkit for Jet Set Willy: Redux"
 requires-python = ">=3.10"
 dependencies = [
