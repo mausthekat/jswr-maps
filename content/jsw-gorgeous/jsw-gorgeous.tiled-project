@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -11,7 +12,7 @@
             "name": "Author",
             "propertytype": "",
             "type": "string",
-            "value": ""
+            "value": "MauS + Matthew Smith + Paul Vera-Broadbent"
         },
         {
             "name": "DefaultTileset",
@@ -142,8 +143,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
