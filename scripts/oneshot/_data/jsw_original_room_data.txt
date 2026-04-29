@@ -1,0 +1,570 @@
+# Jet Set Willy - Original Room Data (ZX Spectrum)
+# Source: analysis/legacy/C/src/robots.c (authoritative)
+# Room 47 '[' skipped in C source (offset +1 for rooms 48-60)
+#
+# Guardian positions: x in tiles (0-31), y in pixels (0-127)
+# Horizontal routes: x_min/x_max in tiles, y fixed in pixels
+# Vertical routes: y_min/y_max in pixels, x fixed in tiles
+#
+# TMX route conversion:
+#   Horizontal: route_x = x_min*8,  route_y = y+8,    dx = (x_max-x_min)*8+16
+#   Vertical:   route_x = x*8+8,    route_y = y_min,  dy = (y_max-y_min)+16
+
+
+  ┌──────────┬────────────────────────┬──────┬───────────────────────┬──────────────────────┬──────────────────────────────────┐
+  │ Room TMX │       Room Name        │  x   │    TMX Tile (GID)     │     robots.c gfx     │          Likely issue?           │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 015      │ Rescue Esmerelda       │ x=4  │ Spear Hunter (67)     │ gfx[39] "Guard"      │ Wrong GID?                       │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 015      │ Rescue Esmerelda       │ x=12 │ Spear Hunter (67)     │ gfx[39] "Guard"      │ Wrong GID?                       │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 024      │ Cold Store             │ x=16 │ Penguin (56)          │ gfx[34] "Ice Cream"  │ Swapped                          │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 024      │ Cold Store             │ x=4  │ Ice Cream (26)        │ gfx[31] "Penguin"    │ Swapped                          │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 024      │ Cold Store             │ x=3  │ Penguin (56)          │ gfx[34] "Ice Cream"  │ Swapped                          │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 024      │ Cold Store             │ x=8  │ Ice Cream (26)        │ gfx[31] "Penguin"    │ Swapped                          │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 029      │ Nightmare Room         │ x=14 │ Foot (11)             │ gfx[42] "Flying Pig" │ Wrong GID?                       │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 033      │ Top Landing            │ x=16 │ Swiss Army Knife (17) │ gfx[9] "Coin"        │ Wrong GID?                       │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 041      │ Under the Roof         │ x=4  │ Ice Cream (26)        │ gfx[31] "Penguin"    │ Wrong GID?                       │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 041      │ Under the Roof         │ x=16 │ Swiss Army Knife (17) │ gfx[9] "Coin"        │ Wrong GID?                       │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 043      │ On top of the house    │ x=20 │ Flag (24)             │ gfx[16] "Sun Face"   │ Wrong GID?                       │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 044      │ Under the Drive        │ x=22 │ Robot (22)            │ gfx[8] "Robot"       │ Probably fine (my mapping wrong) │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 055      │ Above the West Bedroom │ x=11 │ Spear Hunter (67)     │ gfx[37] "Monkey"     │ Wrong GID?                       │
+  ├──────────┼────────────────────────┼──────┼───────────────────────┼──────────────────────┼──────────────────────────────────┤
+  │ 057      │ The Yacht              │ x=21 │ Flag (24)             │ gfx[16] "Sun Face"   │ Wrong GID?                       │
+  └──────────┴────────────────────────┴──────┴───────────────────────┴──────────────────────┴──────────────────────────────────┘
+
+Room 00: The Off Licence
+  Collectibles (12):
+    (19,  4)
+    (20,  4)
+    (21,  4)
+    (22,  4)
+    (23,  4)
+    (24,  4)
+    (25,  4)
+    (26,  4)
+    (27,  4)
+    (28,  4)
+    (29,  4)
+    (30,  4)
+  Guardians (3):
+    Wobbly Ball            vertical    pos=(10,  48px)  route y=8-104px  color=cyan (#00d7d7)
+    Dish Robot             horizontal  pos=(29,  56px)  route x=19-29  color=green (#00d700)
+    Beetle                 vertical    pos=( 7,  56px)  route y=0-104px  color=red (#d70000)
+
+Room 01: The Bridge
+  Collectibles: none
+  Guardians (3):
+    Bird                   horizontal  pos=( 8,  80px)  route x=0-10  color=red (#d70000)
+    Bird                   horizontal  pos=(20,  80px)  route x=14-29  color=magenta (#d700d7)
+    UFO                    vertical    pos=(12,  24px)  route y=0-96px  color=green (#00d700)
+
+Room 02: Under the MegaTree
+  Collectibles (1):
+    (22,  0)
+  Guardians (3):
+    Bunny                  horizontal  pos=(16, 104px)  route x=0-30  color=yellow (#d7d700)
+    Beetle                 vertical    pos=(14,  72px)  route y=48-87px  color=magenta (#d700d7)
+    Flying Pig             horizontal  pos=(27,  24px)  route x=5-30  color=red (#d70000)
+
+Room 03: At the Foot of the MegaTree
+  Collectibles (3):
+    ( 4, 10)
+    ( 1, 11)
+    ( 7, 11)
+  Guardians (4):
+    Monkey                 vertical    pos=( 2,  32px)  route y=32-88px  color=cyan (#00d7d7)
+    Monkey                 vertical    pos=( 5,  50px)  route y=16-80px  color=cyan (#00d7d7)
+    Monkey                 vertical    pos=( 8,  64px)  route y=19-88px  color=red (#d70000)
+    Saw                    horizontal  pos=( 9, 104px)  route x=4-14  color=magenta (#d700d7)
+
+Room 04: The Drive
+  Collectibles: none
+  Guardians (5):
+    Bird                   horizontal  pos=(18,  80px)  route x=14-29  color=magenta (#d700d7)
+    Bird                   horizontal  pos=(21,  88px)  route x=16-29  color=green (#00d700)
+    Bird                   horizontal  pos=( 8,  64px)  route x=5-29  color=yellow (#d7d700)
+    Bird                   horizontal  pos=(20,  40px)  route x=0-10  color=cyan (#00d7d7)
+    Egg                    horizontal  pos=(15, 104px)  route x=10-30  color=cyan (#00d7d7)
+
+Room 05: The Security Guard
+  Collectibles: none
+  Guardians (4):
+    Guard                  vertical    pos=(14,  64px)  route y=40-104px  color=green (#00d700)
+    Guard                  vertical    pos=(11,  80px)  route y=44-104px  color=red (#d70000)
+    Guard                  vertical    pos=(23,  80px)  route y=44-104px  color=red (#d70000)
+    Guard                  vertical    pos=(17,  48px)  route y=48-96px  color=yellow (#d7d700)
+
+Room 06: Entrance to Hades
+  Collectibles: none
+  Guardians (3):
+    Evil Head              vertical    pos=( 2,  48px)  route y=0-88px  color=green (#00d700)
+    Evil Head              vertical    pos=( 4,  48px)  route y=0-88px  color=green (#00d700)
+    Evil Head              vertical    pos=( 3,  64px)  route y=16-104px  color=green (#00d700)
+
+Room 07: Cuckoo's Nest
+  Collectibles (1):
+    (15,  7)
+  Guardians (3):
+    Egg                    horizontal  pos=(16,  64px)  route x=12-18  color=cyan (#00d7d7)
+    Saw                    horizontal  pos=( 5,  88px)  route x=0-11  color=magenta (#d700d7)
+    Arrow (L to R)         arrow
+
+Room 08: Inside the MegaTrunk
+  Collectibles: none
+  Guardians (7):
+    Monkey                 vertical    pos=( 2,  80px)  route y=64-112px  color=magenta (#d700d7)
+    Monkey                 vertical    pos=( 5,  80px)  route y=64-112px  color=magenta (#d700d7)
+    Monkey                 vertical    pos=( 8,  80px)  route y=64-112px  color=magenta (#d700d7)
+    Bird                   horizontal  pos=( 6,  40px)  route x=0-10  color=cyan (#00d7d7)
+    Beetle                 vertical    pos=(12,  32px)  route y=0-104px  color=red (#d70000)
+    Bird                   horizontal  pos=(27,  88px)  route x=16-29  color=green (#00d700)
+    Flower                 horizontal  pos=(19,  24px)  route x=17-30  color=yellow (#d7d700)
+
+Room 09: On a Branch Over the Drive
+  Collectibles (1):
+    ( 5, 11)
+  Guardians (5):
+    Monkey                 vertical    pos=(30,  80px)  route y=64-112px  color=magenta (#d700d7)
+    Sun Face               vertical    pos=( 7,  72px)  route y=64-104px  color=red (#d70000)
+    Pliars                 horizontal  pos=(19,  40px)  route x=16-30  color=yellow (#d7d700)
+    Two Globes             vertical    pos=(14,  48px)  route y=0-56px  color=cyan (#00d7d7)
+    Arrow (L to R)         arrow
+
+Room 10: The Front Door
+  Collectibles (1):
+    (11,  4)
+  Guardians: none
+
+Room 11: The Hall
+  Collectibles: none
+  Guardians (5):
+    Chandelier             stationary  pos=(10,  48px)  color=yellow (#d7d700)
+    Flying Pig             horizontal  pos=(19,  24px)  route x=5-30  color=red (#d70000)
+    Bird                   horizontal  pos=(19,  80px)  route x=9-17  color=yellow (#d7d700)
+    Arrow (R to L)         arrow
+    Arrow (L to R)         arrow
+
+Room 12: Tree Top
+  Collectibles (3):
+    (16,  3)
+    (22,  4)
+    (19, 13)
+  Guardians (4):
+    Bird                   horizontal  pos=( 7,  40px)  route x=0-10  color=cyan (#00d7d7)
+    Flower                 horizontal  pos=( 8,  80px)  route x=0-19  color=yellow (#d7d700)
+    Flying Pig             horizontal  pos=(24,  24px)  route x=5-30  color=red (#d70000)
+    Arrow (R to L)         arrow
+
+Room 13: Out on a limb
+  Collectibles (2):
+    ( 5,  1)
+    ( 2,  6)
+  Guardians (3):
+    Beetle                 vertical    pos=(12,  88px)  route y=0-104px  color=cyan (#00d7d7)
+    Bird                   horizontal  pos=(19,  56px)  route x=14-23  color=magenta (#d700d7)
+    Saw                    horizontal  pos=(20,  80px)  route x=19-30  color=yellow (#d7d700)
+
+Room 14: Rescue Esmerelda
+  Collectibles (2):
+    (26,  2)
+    (26,  3)
+  Guardians (4):
+    Guard                  vertical    pos=( 4,  48px)  route y=48-96px  color=yellow (#d7d700)
+    Guard                  vertical    pos=(12,  64px)  route y=40-104px  color=green (#00d700)
+    Bird                   horizontal  pos=( 5,  32px)  route x=0-9  color=green (#00d700)
+    Esmeralda              vertical    pos=(24,   8px)  route y=0-16px  color=white (#d7d7d7)
+
+Room 15: I'm sure I've seen this before..
+  Collectibles: none
+  Guardians (7):
+    Guard                  vertical    pos=( 5,  48px)  route y=48-96px  color=yellow (#d7d700)
+    Guard                  vertical    pos=(11,  80px)  route y=44-104px  color=red (#d70000)
+    Guard                  vertical    pos=(19,  32px)  route y=32-96px  color=cyan (#00d7d7)
+    Guard                  vertical    pos=(25,  64px)  route y=40-104px  color=green (#00d700)
+    Bird                   horizontal  pos=( 6,  32px)  route x=0-9  color=green (#00d700)
+    Arrow (R to L)         arrow
+    Arrow (L to R)         arrow
+
+Room 16: We must perform a Quirkafleeg
+  Collectibles (1):
+    (31,  4)
+  Guardians (2):
+    Bird                   horizontal  pos=( 8,  32px)  route x=0-9  color=green (#00d700)
+    Arrow (L to R)         arrow
+
+Room 17: Up on the Battlements
+  Collectibles (1):
+    (31,  4)
+  Guardians (5):
+    Guard                  vertical    pos=( 5,  64px)  route y=40-104px  color=green (#00d700)
+    Guard                  vertical    pos=(11,  80px)  route y=40-104px  color=red (#d70000)
+    Guard                  vertical    pos=(19,  48px)  route y=48-96px  color=yellow (#d7d700)
+    Guard                  vertical    pos=(25,  32px)  route y=32-96px  color=cyan (#00d7d7)
+    Arrow (R to L)         arrow
+
+Room 18: On the Roof
+  Collectibles (1):
+    (25, 12)
+  Guardians (1):
+    Bunny                  horizontal  pos=(22, 104px)  route x=14-24  color=cyan (#00d7d7)
+
+Room 19: The Forgotten Abbey
+  Collectibles (1):
+    ( 2,  3)
+  Guardians (8):
+    Duck Priest            horizontal  pos=( 8,  40px)  route x=4-20  color=green (#00d700)
+    Duck Priest            horizontal  pos=(16,  40px)  route x=12-28  color=yellow (#d7d700)
+    Duck Priest            horizontal  pos=(11,  72px)  route x=9-20  color=red (#d70000)
+    Duck Priest            horizontal  pos=(24,  72px)  route x=22-27  color=white (#d7d7d7)
+    Duck Priest            horizontal  pos=( 7, 104px)  route x=5-12  color=yellow (#d7d700)
+    Duck Priest            horizontal  pos=(12, 104px)  route x=11-18  color=blue (#0000d7)
+    Duck Priest            horizontal  pos=(18, 104px)  route x=16-23  color=green (#00d700)
+    Duck Priest            horizontal  pos=(24, 104px)  route x=23-30  color=red (#d70000)
+
+Room 20: Ballroom East
+  Collectibles: none
+  Guardians (5):
+    Barrel                 vertical    pos=(12,  16px)  route y=16-48px  color=red (#d70000)
+    Beetle                 vertical    pos=( 5,  72px)  route y=48-87px  color=magenta (#d700d7)
+    Beetle                 vertical    pos=( 7,  56px)  route y=48-96px  color=cyan (#00d7d7)
+    Beetle                 vertical    pos=(11,  75px)  route y=72-96px  color=yellow (#d7d700)
+    Bird                   horizontal  pos=(24,  80px)  route x=14-29  color=magenta (#d700d7)
+
+Room 21: Ballroom West
+  Collectibles (7):
+    (17, 12)
+    (18, 12)
+    (20, 12)
+    (22, 12)
+    (23, 12)
+    (25, 12)
+    (27, 12)
+  Guardians (3):
+    Bunny                  horizontal  pos=(24,  88px)  route x=16-26  color=magenta (#d700d7)
+    Beetle                 vertical    pos=(14,  56px)  route y=48-96px  color=cyan (#00d7d7)
+    Beetle                 vertical    pos=( 6,  72px)  route y=48-87px  color=magenta (#d700d7)
+
+Room 22: To the Kitchens Main Stairway
+  Collectibles (2):
+    ( 9,  6)
+    ( 2,  9)
+  Guardians (6):
+    Warehouse Beast        horizontal  pos=( 4,  24px)  route x=0-11  color=magenta (#d700d7)
+    Dish Robot             horizontal  pos=(16,  24px)  route x=13-21  color=yellow (#d7d700)
+    Coin                   horizontal  pos=(22,  48px)  route x=12-24  color=white (#d7d7d7)
+    Two Globes             horizontal  pos=( 4,  72px)  route x=2-6  color=red (#d70000)
+    Egg                    horizontal  pos=(22,  96px)  route x=0-30  color=green (#00d700)
+    Bird                   horizontal  pos=(11,  80px)  route x=9-17  color=yellow (#d7d700)
+
+Room 23: The Kitchen
+  Collectibles: none
+  Guardians (4):
+    Chef                   vertical    pos=( 3,  32px)  route y=8-104px  color=magenta (#d700d7)
+    Chef                   vertical    pos=( 9,  96px)  route y=0-104px  color=yellow (#d7d700)
+    Chef                   vertical    pos=(15,  64px)  route y=0-104px  color=green (#00d700)
+    Chef                   vertical    pos=(20,  32px)  route y=8-104px  color=magenta (#d700d7)
+
+Room 24: West of Kitchen
+  Collectibles: none
+  Guardians (4):
+    Chef                   vertical    pos=( 9,  96px)  route y=0-104px  color=yellow (#d7d700)
+    Chef                   vertical    pos=(14,  64px)  route y=0-104px  color=green (#00d700)
+    Chef                   vertical    pos=(20,  96px)  route y=0-104px  color=yellow (#d7d700)
+    Chef                   vertical    pos=(27,  32px)  route y=8-104px  color=magenta (#d700d7)
+
+Room 25: Cold Store
+  Collectibles (4):
+    ( 3,  2)
+    ( 8,  5)
+    ( 6,  8)
+    ( 6, 11)
+  Guardians (4):
+    Ice Cream              horizontal  pos=(16, 104px)  route x=0-24  color=yellow (#d7d700)
+    Penguin                horizontal  pos=( 4,  72px)  route x=0-5  color=white (#d7d7d7)
+    Ice Cream              horizontal  pos=( 3,  48px)  route x=0-6  color=green (#00d700)
+    Penguin                horizontal  pos=( 8,  24px)  route x=0-9  color=magenta (#d700d7)
+
+Room 26: East Wall Base
+  Collectibles: none
+  Guardians (2):
+    Scroll                 vertical    pos=( 3,  72px)  route y=0-96px  color=red (#d70000)
+    Beetle                 vertical    pos=( 7,  88px)  route y=0-104px  color=cyan (#00d7d7)
+
+Room 27: The Chapel
+  Collectibles (1):
+    (29,  6)
+  Guardians (6):
+    Evil Head              vertical    pos=(25,  48px)  route y=0-88px  color=green (#00d700)
+    Evil Head              vertical    pos=(27,  48px)  route y=0-88px  color=green (#00d700)
+    Evil Head              vertical    pos=(26,  64px)  route y=16-104px  color=green (#00d700)
+    Duck Priest            horizontal  pos=(12,  96px)  route x=0-15  color=magenta (#d700d7)
+    Scroll                 vertical    pos=( 6,  64px)  route y=56-80px  color=green (#00d700)
+    Devil                  vertical    pos=(17,  76px)  route y=40-80px  color=cyan (#00d7d7)
+
+Room 28: First Landing
+  Collectibles (1):
+    (26,  3)
+  Guardians (1):
+    Duck Priest            horizontal  pos=(25,  96px)  route x=24-30  color=yellow (#d7d700)
+
+Room 29: The Nightmare Room
+  Collectibles (1):
+    (26,  9)
+  Guardians (7):
+    Flying Pig             vertical    pos=( 8,  32px)  route y=0-88px  color=cyan (#00d7d7)
+    Flying Pig             vertical    pos=(11,  16px)  route y=0-104px  color=magenta (#d700d7)
+    Flying Pig             vertical    pos=(14,  72px)  route y=0-96px  color=yellow (#d7d700)
+    Flying Pig             vertical    pos=(17,  64px)  route y=8-104px  color=red (#d70000)
+    Flying Pig             vertical    pos=(20,  32px)  route y=0-80px  color=cyan (#00d7d7)
+    Flying Pig             vertical    pos=(23,  16px)  route y=0-104px  color=magenta (#d700d7)
+    Flying Pig             vertical    pos=(28,  72px)  route y=0-96px  color=yellow (#d7d700)
+
+Room 30: The Banyan Tree
+  Collectibles (1):
+    ( 8, 14)
+  Guardians (4):
+    Spiral                 vertical    pos=(10,  64px)  route y=56-80px  color=green (#00d700)
+    Devil                  vertical    pos=(13,  48px)  route y=40-80px  color=magenta (#d700d7)
+    Chip                   vertical    pos=(16,  76px)  route y=40-80px  color=cyan (#00d7d7)
+    Saw                    horizontal  pos=(22,  80px)  route x=19-30  color=yellow (#d7d700)
+
+Room 31: Swimming Pool
+  Collectibles (1):
+    ( 4, 11)
+  Guardians (1):
+    Duck Priest            horizontal  pos=(12, 104px)  route x=5-12  color=yellow (#d7d700)
+
+Room 32: Halfway up the East Wall
+  Collectibles: none
+  Guardians (1):
+    Warehouse Beast        horizontal  pos=( 4,  48px)  route x=2-7  color=yellow (#d7d700)
+
+Room 33: The Bathroom
+  Collectibles (1):
+    (23, 13)
+  Guardians (2):
+    Two Globes             horizontal  pos=(16,  24px)  route x=0-27  color=green (#00d700)
+    Toilet                 stationary  pos=(28, 104px)  color=bright white (#ffffff)
+
+Room 34: Top Landing
+  Collectibles (1):
+    ( 2,  9)
+  Guardians (3):
+    Razor Blade            vertical    pos=( 6,  32px)  route y=16-104px  color=white (#d7d7d7)
+    Barrel                 vertical    pos=(12,  16px)  route y=16-48px  color=red (#d70000)
+    Coin                   horizontal  pos=(16, 104px)  route x=10-30  color=cyan (#00d7d7)
+
+Room 35: Master Bedroom
+  Collectibles: none
+  Guardians (2):
+    Maria                  maria       pos=(14,  88px)  color=white (#d7d7d7)
+    Maria                  maria       pos=(14,  88px)  color=cyan (#00d7d7)
+
+Room 36: A bit of tree
+  Collectibles: none
+  Guardians (3):
+    Bird                   horizontal  pos=( 2,  16px)  route x=0-10  color=yellow (#d7d700)
+    Chip                   vertical    pos=( 7,  48px)  route y=40-80px  color=magenta (#d700d7)
+    Arrow (R to L)         arrow
+
+Room 37: Orangery
+  Collectibles (3):
+    (28,  1)
+    (16,  6)
+    ( 6, 13)
+  Guardians (3):
+    Spiral                 vertical    pos=(20,  32px)  route y=0-96px  color=cyan (#00d7d7)
+    Sun Face               vertical    pos=( 9,  72px)  route y=64-104px  color=red (#d70000)
+    Arrow (L to R)         arrow
+
+Room 38: Priests' Hole
+  Collectibles (1):
+    ( 9,  2)
+  Guardians (4):
+    Evil Head              vertical    pos=( 4,  48px)  route y=0-88px  color=green (#00d700)
+    Evil Head              vertical    pos=( 6,  48px)  route y=0-88px  color=green (#00d700)
+    Evil Head              vertical    pos=( 5,  64px)  route y=16-104px  color=green (#00d700)
+    Bird                   horizontal  pos=(22,  80px)  route x=8-24  color=red (#d70000)
+
+Room 39: Emergency Generator
+  Collectibles: none
+  Guardians (1):
+    Flying Pig             horizontal  pos=( 8,  24px)  route x=5-30  color=red (#d70000)
+
+Room 40: Dr Jones will never believe this
+  Collectibles (1):
+    (19,  7)
+  Guardians (2):
+    Sun Face               vertical    pos=(18,  72px)  route y=64-104px  color=red (#d70000)
+    Monkey                 vertical    pos=(10,  96px)  route y=56-96px  color=yellow (#d7d700)
+
+Room 41: The Attic
+  Collectibles: none
+  Guardians (8):
+    Eye                    vertical    pos=( 4,  66px)  route y=56-88px  color=magenta (#d700d7)
+    Eye                    vertical    pos=( 6,  70px)  route y=56-88px  color=yellow (#d7d700)
+    Eye                    vertical    pos=( 8,  74px)  route y=56-88px  color=blue (#0000d7)
+    Eye                    vertical    pos=(10,  78px)  route y=56-88px  color=green (#00d700)
+    Eye                    vertical    pos=(12,  82px)  route y=56-88px  color=red (#d70000)
+    Pac-Man                vertical    pos=(14,  86px)  route y=56-88px  color=cyan (#00d7d7)
+    Arrow (R to L)         arrow
+    Arrow (L to R)         arrow
+
+Room 42: Under the Roof
+  Collectibles: none
+  Guardians (3):
+    Penguin                horizontal  pos=( 4,  72px)  route x=0-5  color=white (#d7d7d7)
+    Coin                   horizontal  pos=(16,  64px)  route x=12-18  color=cyan (#00d7d7)
+    Arrow (L to R)         arrow
+
+Room 43: Conservatory Roof
+  Collectibles (4):
+    (22,  8)
+    (25,  8)
+    (28,  8)
+    (31,  8)
+  Guardians (2):
+    Warehouse Beast        horizontal  pos=(20,  88px)  route x=17-30  color=red (#d70000)
+    Pliars                 horizontal  pos=(24,  40px)  route x=16-30  color=yellow (#d7d700)
+
+Room 44: On top of the house
+  Collectibles (1):
+    (18,  4)
+  Guardians (1):
+    Sun Face               vertical    pos=(20,  24px)  route y=0-64px  color=cyan (#00d7d7)
+
+Room 45: Under the Drive
+  Collectibles: none
+  Guardians (3):
+    Bird                   horizontal  pos=(16,  88px)  route x=12-29  color=yellow (#d7d700)
+    Sun Face               vertical    pos=(18,  24px)  route y=0-64px  color=cyan (#00d7d7)
+    Robot                  horizontal  pos=(22,  64px)  route x=21-30  color=magenta (#d700d7)
+
+Room 46: Tree Root
+  Collectibles (2):
+    (10,  3)
+    (29,  4)
+  Guardians (4):
+    Razor Blade            vertical    pos=( 4,  32px)  route y=0-64px  color=cyan (#00d7d7)
+    Beetle                 vertical    pos=(13,  56px)  route y=48-96px  color=cyan (#00d7d7)
+    Bunny                  horizontal  pos=(19,  72px)  route x=15-23  color=red (#d70000)
+    Jelly                  vertical    pos=(25,  72px)  route y=32-80px  color=magenta (#d700d7)
+
+Room 47: [
+  Collectibles: none
+  Guardians: none
+
+Room 48: Nomen Luni
+  Collectibles: none
+  Guardians (4):
+    Bird                   horizontal  pos=( 5,  16px)  route x=0-10  color=yellow (#d7d700)
+    Dish Robot             horizontal  pos=(20,  24px)  route x=18-22  color=green (#00d700)
+    Sun Face               vertical    pos=(16,  24px)  route y=0-64px  color=cyan (#00d7d7)
+    Monkey                 vertical    pos=(22,  96px)  route y=56-96px  color=yellow (#d7d700)
+
+Room 49: The Wine Cellar
+  Collectibles (6):
+    (28,  4)
+    ( 4,  7)
+    (28,  7)
+    ( 2, 10)
+    (28, 10)
+    ( 4, 13)
+  Guardians (4):
+    Saw                    horizontal  pos=(16, 104px)  route x=7-22  color=magenta (#d700d7)
+    Duck Priest            horizontal  pos=(25,  24px)  route x=0-27  color=magenta (#d700d7)
+    Duck Priest            horizontal  pos=( 9,  48px)  route x=4-27  color=yellow (#d7d700)
+    Duck Priest            horizontal  pos=(19,  72px)  route x=2-27  color=green (#00d700)
+
+Room 50: Watch Tower
+  Collectibles (4):
+    (25,  8)
+    (10,  9)
+    (20,  9)
+    (24,  9)
+  Guardians (2):
+    Flower                 horizontal  pos=(17,  72px)  route x=11-18  color=magenta (#d700d7)
+    Bird                   horizontal  pos=(11,  56px)  route x=9-30  color=yellow (#d7d700)
+
+Room 51: Tool Shed
+  Collectibles (1):
+    ( 7, 14)
+  Guardians (3):
+    Saw                    horizontal  pos=(16, 104px)  route x=7-22  color=magenta (#d700d7)
+    Coin                   horizontal  pos=( 9,  72px)  route x=7-20  color=yellow (#d7d700)
+    Pliars                 horizontal  pos=(20,  48px)  route x=7-17  color=green (#00d700)
+
+Room 52: Back Stairway
+  Collectibles: none
+  Guardians (3):
+    Egg                    horizontal  pos=(22, 104px)  route x=10-30  color=cyan (#00d7d7)
+    Coin                   horizontal  pos=(16,  48px)  route x=12-24  color=white (#d7d7d7)
+    Sun Face               vertical    pos=( 3,  24px)  route y=0-64px  color=cyan (#00d7d7)
+
+Room 53: Back Door
+  Collectibles: none
+  Guardians: none
+
+Room 54: West Wing
+  Collectibles: none
+  Guardians (3):
+    Scroll                 vertical    pos=(14,  32px)  route y=0-96px  color=cyan (#00d7d7)
+    Chandelier             stationary  pos=( 4,  48px)  color=yellow (#d7d700)
+    Bird                   horizontal  pos=( 9,  80px)  route x=0-10  color=red (#d70000)
+
+Room 55: West Bedroom
+  Collectibles: none
+  Guardians (2):
+    Razor Blade            vertical    pos=(11,  32px)  route y=0-64px  color=cyan (#00d7d7)
+    Jelly                  vertical    pos=(14,  24px)  route y=0-80px  color=red (#d70000)
+
+Room 56: West Wing Roof
+  Collectibles (4):
+    ( 6, 10)
+    (27, 11)
+    (19, 13)
+    ( 9, 14)
+  Guardians (3):
+    Saw                    horizontal  pos=(19, 104px)  route x=7-22  color=magenta (#d700d7)
+    Bird                   horizontal  pos=(20,  88px)  route x=12-29  color=yellow (#d7d700)
+    Arrow (L to R)         arrow
+
+Room 57: Above the West Bedroom
+  Collectibles (1):
+    (23,  9)
+  Guardians (2):
+    Monkey                 vertical    pos=(11,  50px)  route y=16-80px  color=cyan (#00d7d7)
+    Jelly                  vertical    pos=(14,  24px)  route y=0-80px  color=red (#d70000)
+
+Room 58: The Beach
+  Collectibles (2):
+    (22, 13)
+    (22, 13)
+  Guardians (1):
+    Arrow (L to R)         arrow
+
+Room 59: The Yacht
+  Collectibles (1):
+    (13, 14)
+  Guardians (2):
+    Saw                    horizontal  pos=( 8, 104px)  route x=4-14  color=magenta (#d700d7)
+    Sun Face               vertical    pos=(21,  72px)  route y=64-104px  color=red (#d70000)
+
+Room 60: The Bow
+  Collectibles (1):
+    (26,  8)
+  Guardians (2):
+    Dish Robot             horizontal  pos=(23,  24px)  route x=23-30  color=yellow (#d7d700)
+    Warehouse Beast        horizontal  pos=(20, 104px)  route x=17-30  color=magenta (#d700d7)
+

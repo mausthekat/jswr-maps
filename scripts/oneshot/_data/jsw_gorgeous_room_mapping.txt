@@ -1,0 +1,64 @@
+Room Name, JSW-Gorgeous, Main
+The Off Licence, 1, 1
+The Bridge, 2, 2
+Under the MegaTree, 3, 3
+At the Foot of the MegaTree, 4, 4
+The Drive, 5, 5
+The Security Guard, 6, 6
+Entrance to Hades, 7, 7
+Cuckoo's Nest, 8, 8
+Inside the MegaTrunk, 9, 9
+On a Branch Over the Drive, 10, 10
+The Front Door, 11, 11
+The Hall, 12, 12
+Tree Top, 13, 13
+Out on a limb, 14, 14
+Rescue Esmerelda, 15, 15
+I'm sure I've seen this before.., 16, 16
+We must perform a Quirkafleeg, 17, 17
+Up on the Battlements, 18, 18
+On the Roof, 19, 19
+The Forgotten Abbey, 20, 58
+Ballroom East, 21, 59
+Ballroom West, 22, 20
+To the Kitchens    Main Stairway, 23, 21
+The Kitchen, 24, 22
+West of Kitchen, 25, 23
+Cold Store, 26, 24
+East Wall Base, 27, 25
+The Chapel, 28, 26
+First Landing, 29, 27
+The Nightmare Room, 30, 29
+The Banyan Tree, 31, 30
+Swimming Pool, 32, 71
+Halfway up the East Wall, 33, 31
+The Bathroom, 34, 32
+Top Landing, 35, 33
+Master Bedroom, 36, 34
+A bit of tree, 37, 35
+Orangery, 38, 36
+Priests' Hole, 39, 37
+Emergency Generator, 40, 38
+Dr Jones will never believe this, 41, 39
+The Attic, 42, 40
+Under the Roof, 43, 41
+Conservatory Roof, 44, 42
+On top of the house, 45, 43
+Under the Drive, 46, 44
+Tree Root, 47, 45
+Nomen Luni, 49, 46
+The Wine Cellar, 50, 47
+Watch Tower, 51, 49
+Tool  Shed, 52, 48
+Back Stairway, 53, 50
+Back Door, 54, 51
+West  Wing, 55, 52
+West Bedroom, 56, 53
+West Wing Roof, 57, 54
+Above the West Bedroom, 58, 55
+The Beach, 59, 28
+The Yacht, 60, 57
+The Bow, 61, 56
+
+
+
