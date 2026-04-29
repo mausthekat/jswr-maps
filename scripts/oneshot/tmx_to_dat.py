@@ -20,10 +20,6 @@ import re
 import xml.etree.ElementTree as ET
 from typing import Dict, List, Optional, Tuple
 
-# Project root is 2 levels up from this script (tmx/scripts -> tmx -> project)
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
-
 # =============================================================================
 # Constants - Must match dat_to_tmx.py exactly
 # =============================================================================
