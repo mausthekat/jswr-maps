@@ -318,7 +318,7 @@ def parse_tmx_room(tmx_path: str, room_id: int) -> Optional[Tuple[ParsedRoom, Li
     collectible_objects: List[dict] = []
 
     for objgroup in root.findall('objectgroup'):
-        group_name = objgroup.get('name', '')
+        # group_name = objgroup.get('name', '')
 
         for obj in objgroup.findall('object'):
             obj_id = obj.get('id', '')

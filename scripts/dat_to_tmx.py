@@ -1562,7 +1562,7 @@ def build_room_layout(rooms: Dict[int, Room], start_room_id: int = 1) -> Tuple[s
             if next_id is None or next_id not in rooms:
                 continue
 
-            target_pos = (nx, ny)
+            # target_pos = (nx, ny)
 
             if next_id not in visited:
                 # Room not yet placed - place at target position
@@ -1780,7 +1780,7 @@ def generate_room_tmx(room: Room,
             guardian_props.append(f'    <property name="Color" type="color" value="{tint_color}"/>')
         # Add Flags property (HARMLESS for lifts)
         if enemy.entity_type == ENTITY_TYPE_LIFT:
-            guardian_props.append(f'    <property name="Flags" propertytype="GuardianFlags" value="HARMLESS"/>')
+            guardian_props.append('    <property name="Flags" propertytype="GuardianFlags" value="HARMLESS"/>')
         # Add FlightDirection and Speed properties for arrows
         if enemy.is_arrow:
             flight_direction = 0 if enemy.facing == 2 else 1  # 1=Left→Right, 0=Right→Left
