@@ -39,10 +39,6 @@ uv run python build_scripts/tmx/tmx_to_jsw.py tmx/content/jsw-gorgeous --pack
 
 **Important:** do **not** run the converter without `--pack` for a standalone map. The folder-mode output (`assets/maps/<mapname>/NNN.jsw`) is loaded by `load_rooms_from_folder()`, which has no `tile_loader` hook and will silently fall back to the base game's tiles — the map will look wrong. If you accidentally create a per-room folder for a standalone map, delete it so the resolver falls through to the pack.
 
-### Legacy: `build_scripts/pack_map_standalone.py`
-
-An older standalone-only packer script still ships at `build_scripts/pack_map_standalone.py`. It reuses the shared helpers from `tmx_to_jsw.py` (`parse_tmx_room`, `pack_tileset_variants`, etc.) but **does not read `DefaultTileset`, does not emit V5 custom data, and does not validate game modes**. Prefer `tmx_to_jsw.py --pack` unless you have a specific reason to use the legacy path.
-
 ### Input Folder Structure (jsw-gorgeous example)
 
 ```
