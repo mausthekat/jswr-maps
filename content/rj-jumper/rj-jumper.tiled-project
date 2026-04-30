@@ -74,6 +74,12 @@
             "propertytype": "JumpType",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "RespawnMode",
+            "propertytype": "RespawnMode",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -396,6 +402,17 @@
             "type": "enum",
             "values": [
                 "JSW:R",
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 23,
+            "name": "RespawnMode",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
                 "JSW2",
                 "JSW1"
             ],
