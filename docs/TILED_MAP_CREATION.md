@@ -262,10 +262,10 @@ keep the common case lean — adding them to every room would mean ~600 lines
 of noise for features used in a handful of rooms. Add them manually via
 Map > Map Properties > Add Property.
 
-| Property | Type | Where used | Description |
-|----------|------|------------|-------------|
+| Property | Type | Where used | Description                                                                                                                                                                                                                                         |
+|----------|------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Border` | int | `jsw-gorgeous` | ZX `$FE` border palette index (0–7): 0=black, 1=blue, 2=red, 3=magenta, 4=green, 5=cyan, 6=yellow, 7=white. Applied on room entry when the player has Options > Border Color enabled. Stored in JSWR header byte 16. Absent or 0 = black (default). |
-| `RaceLabel` | string | `main` | Target label for `RACE_TO_GAMES`. Rooms sharing the same label form a race group. |
+| `RaceLabel` | string | `main` | Target label for `RACE_TO_GAMES`. Displayed in the menu as flavour text. E.g. "The Lager Run" for a race to the Off License.                                                                                                                        |
 
 > `CHAIN_GAMES` chain groups are **no longer authored via a per-room property**. They are auto-generated at pack build time from BFS distance data using farthest-first clustering (`tmx_to_jsw.py:_generate_chain_groups_from_bfs`) and stored in the pack's `chain_groups` custom data block. See [MAP_FLAGS.md](MAP_FLAGS.md) and [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md).
 
