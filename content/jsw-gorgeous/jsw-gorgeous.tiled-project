@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -68,6 +69,12 @@
             "value": true
         },
         {
+            "name": "RespawnMode",
+            "propertytype": "RespawnMode",
+            "type": "int",
+            "value": 1
+        },
+        {
             "name": "SPVictoryRoom",
             "propertytype": "",
             "type": "int",
@@ -84,12 +91,6 @@
             "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "RespawnMode",
-            "propertytype": "RespawnMode",
-            "type": "int",
-            "value": 0
         }
     ],
     "propertyTypes": [
@@ -148,8 +149,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -196,6 +197,17 @@
             "type": "enum",
             "values": [
                 "JSW:R",
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 23,
+            "name": "RespawnMode",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
                 "JSW2",
                 "JSW1"
             ],
@@ -414,17 +426,6 @@
                 "SpaceSuit",
                 "DivingSuit",
                 "FlyingPig"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 23,
-            "name": "RespawnMode",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "JSW2",
-                "JSW1"
             ],
             "valuesAsFlags": false
         }
