@@ -17,20 +17,20 @@
  <tileset firstgid="641" source="../../tilesets/tiles_hazard.tsx"/>
  <tileset firstgid="705" source="../../tilesets/tiles_decoration.tsx"/>
  <tileset firstgid="833" source="../../tilesets/tiles_conveyor.tsx"/>
- <tileset firstgid="1345" source="../../tilesets/collectibles.tsx"/>
- <tileset firstgid="1577" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="1678" source="../../tilesets/tiles_collapsible.tsx"/>
- <tileset firstgid="1838" source="../../tilesets/meta/meta_markers.tsx"/>
+ <tileset firstgid="1745" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="1977" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="2078" source="../../tilesets/tiles_collapsible.tsx"/>
+ <tileset firstgid="2238" source="../../tilesets/meta/meta_markers.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-545,545,545,545,0,0,0,545,545,545,0,0,0,545,545,0,0,582,582,0,0,0,582,582,582,0,0,0,582,582,582,582,
+498,545,545,545,0,0,0,545,545,545,0,0,0,545,545,0,0,582,582,0,0,0,582,582,582,0,0,0,582,582,582,587,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-545,545,545,545,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,517,517,582,582,
+498,545,545,545,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,582,582,582,587,
 0,0,0,0,545,545,545,545,545,545,0,0,0,0,0,0,0,0,0,0,0,0,582,582,582,582,582,582,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,545,0,0,457,545,0,0,582,458,0,0,582,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,545,545,0,0,457,0,0,0,0,0,0,458,0,0,582,582,0,0,0,0,0,0,0,0,
@@ -43,7 +43,7 @@
  </layer>
  <objectgroup id="2" name="Collectables"/>
  <objectgroup id="3" name="Enemies">
-  <object id="1" name="Lift" type="Guardian" gid="1647" x="120" y="128" width="16" height="16">
+  <object id="1" name="Lift" type="Guardian" gid="2047" x="120" y="128" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffffff"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
