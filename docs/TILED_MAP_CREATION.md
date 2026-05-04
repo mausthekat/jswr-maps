@@ -785,6 +785,36 @@ uv run build_scripts\tmx\tmx_to_jsw.py tmx\content\<map-name> --pack
 > when it exists, preferring them over the pack file. Running only `--pack` can leave stale
 > individual files.
 
+### Authorship metadata (`--pack` only)
+
+Standalone packs (maps with their own tilesets) carry an authorship
+`meta` entry: originator GUID + display name + a per-export
+modification log. The exporter reads the local `client.cfg`
+identity by default; CI / scripted builds override it via flags:
+
+```bash
+# Tag a build with explicit identity (CI use)
+uv run build_scripts/tmx/tmx_to_jsw.py tmx/content/<map-name> --pack \
+    --originator-guid 0123456789abcdef --originator-name BuildBot
+
+# Suppress meta entirely (legacy / hermetic builds)
+uv run build_scripts/tmx/tmx_to_jsw.py tmx/content/<map-name> --pack --no-meta
+```
+
+**First export** anchors `originator_guid` + `originator_name`.
+**Re-exports** preserve the original anchor and append a fresh
+modification entry — the originator never gets overwritten, so a
+map's lineage stays intact even when contributors take turns
+editing. **Non-standalone (rooms-only) packs** silently skip
+stamping; the compact `ContentType.ROOMS` entry table strips entry
+names on save, so a `meta` entry wouldn't survive a round-trip
+there. The exporter prints a one-line note if `--originator-*` was
+given on a non-standalone target.
+
+The metadata feeds the upcoming custom-map sharing flow — see
+[`docs/formats/CUSTOM_MAPS_TRANSFER.md`](../../docs/formats/CUSTOM_MAPS_TRANSFER.md)
+for how forks / divergence / network distribution are layered on top.
+
 ### Regenerating All Maps
 
 ```bash
