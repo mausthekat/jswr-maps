@@ -67,7 +67,7 @@
  <objectgroup id="3" name="Enemies">
   
   
-  <object id="100" name="Spiral" type="Guardian" gid="14357" x="160" y="64" width="16" height="16">
+  <object id="100" name="Spiral" type="Guardian" gid="14357" x="160" y="48" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d7d7" />
    </properties>
@@ -98,7 +98,7 @@
   </object>
   <object id="103" type="Route" x="80" y="64">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Direction" type="int" propertytype="Direction" value="0" />
     <property name="Guardian" type="object" value="102" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />

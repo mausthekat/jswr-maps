@@ -39,13 +39,13 @@
  </layer>
  <objectgroup id="2" name="Collectables"/>
  <objectgroup id="3" name="Enemies">
-  <object id="102" name="Scroll" type="Guardian" gid="1037" x="24" y="40" width="16" height="16">
+  <object id="102" name="Scroll" type="Guardian" gid="1037" x="24" y="88" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffff0000"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="104" name="Beetle" type="Guardian" gid="1060" x="56" y="112" width="16" height="16">
+  <object id="104" name="Beetle" type="Guardian" gid="1060" x="56" y="104" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d7d7"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
@@ -55,7 +55,7 @@
  <objectgroup color="#00ffff" id="4" name="Routes">
   <object id="101" type="Route" x="32" y="0">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Direction" type="int" propertytype="Direction" value="0"/>
     <property name="Guardian" type="object" value="102"/>
     <property name="Speed" type="int" propertytype="Speed" value="1"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>

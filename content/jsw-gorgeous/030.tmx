@@ -43,7 +43,7 @@
   <object id="1" gid="12369" x="64" y="120" width="8" height="8" />
  </objectgroup>
  <objectgroup id="3" name="Enemies">
-  <object id="100" name="Spiral" type="Guardian" gid="14357" x="80" y="64" width="16" height="16">
+  <object id="100" name="Spiral" type="Guardian" gid="14357" x="80" y="80" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d700" />
     <property name="Flags" propertytype="GuardianFlags" value="" />
@@ -55,7 +55,7 @@
     <property name="Flags" propertytype="GuardianFlags" value="" />
    </properties>
   </object>
-  <object id="104" name="Chip" type="Guardian" gid="14340" x="128" y="64" width="16" height="16">
+  <object id="104" name="Chip" type="Guardian" gid="14340" x="128" y="92" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d7d7" />
     <property name="Flags" propertytype="GuardianFlags" value="" />
@@ -71,7 +71,7 @@
  <objectgroup color="#00ffff" id="4" name="Routes">
   <object id="101" type="Route" x="88" y="56">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="1" />
+    <property name="Direction" type="int" propertytype="Direction" value="0" />
     <property name="Guardian" type="object" value="100" />
     <property name="Speed" type="int" propertytype="Speed" value="1" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />

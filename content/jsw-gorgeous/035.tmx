@@ -45,7 +45,7 @@
     <property name="Flags" propertytype="GuardianFlags" value="" />
    </properties>
   </object>
-  <object id="105" name="Bird" type="Guardian" gid="14368" x="16" y="64" width="16" height="16">
+  <object id="105" name="Bird" type="Guardian" gid="14368" x="16" y="32" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffd7d700" />
     <property name="Flags" propertytype="GuardianFlags" value="" />

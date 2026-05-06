@@ -69,7 +69,7 @@
     <property name="Flags" propertytype="GuardianFlags" value="" />
    </properties>
   </object>
-  <object id="114" name="Flower" type="Guardian" gid="14347" x="144" y="40" width="16" height="16">
+  <object id="114" name="Flower" type="Guardian" gid="14347" x="152" y="40" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffff00" />
     <property name="Flags" propertytype="GuardianFlags" value="" />
