@@ -25,11 +25,16 @@ wheels = [
 
 [[package]]
 name = "jswr-maps"
-version = "0.57.1"
+version = "0.57.2"
 source = { virtual = "." }
 dependencies = [
     { name = "pillow" },
     { name = "rapidocr-onnxruntime" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "skoolkit" },
 ]
 
 [package.metadata]
@@ -37,6 +42,9 @@ requires-dist = [
     { name = "pillow", specifier = ">=11.3.0" },
     { name = "rapidocr-onnxruntime", specifier = ">=1.4.0" },
 ]
+
+[package.metadata.requires-dev]
+dev = [{ name = "skoolkit", specifier = ">=10.0" }]
 
 [[package]]
 name = "mpmath"
@@ -619,6 +627,39 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81", size = 34031, upload-time = "2024-12-04T17:35:28.174Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274", size = 11050, upload-time = "2024-12-04T17:35:26.475Z" },
+]
+
+[[package]]
+name = "skoolkit"
+version = "10.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f8/4c/ed1a749e305d655f81906309018606df51283b27e42f98b43b15e1fb2746/skoolkit-10.0.tar.gz", hash = "sha256:c935453de7bf2be065d095ac82bdf8bf636d813be146f87a0379c69b11849be3", size = 1277209, upload-time = "2026-04-04T11:57:46.251Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a6/39/ad5a3901909aea963863a967be933b9045f459cfe529df04814e5594c3a3/skoolkit-10.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:1bd2f56203a9309531e9c614ead38f6d040d8bcc60008e9db6610e34699c7ac4", size = 464934, upload-time = "2026-04-04T12:02:23.667Z" },
+    { url = "https://files.pythonhosted.org/packages/9e/87/c646b0c1273a2fdd405b4a831708083dd84145f50baeafd8a53ce4c20377/skoolkit-10.0-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:b39e7c316463d3da6c3d029ba058d4f7ea33dacf0ad8e6b9566dc0162bff7802", size = 684327, upload-time = "2026-04-04T12:02:26.012Z" },
+    { url = "https://files.pythonhosted.org/packages/24/49/73d3d0f36925b4b12bc00c08298fa386ae88e3389c86b07a12524a0ac1ae/skoolkit-10.0-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:159c8bb5754ebeefd16cde1160ec18d20270022a94e89786ac24c65e18df1f65", size = 683748, upload-time = "2026-04-04T12:02:28.064Z" },
+    { url = "https://files.pythonhosted.org/packages/5f/46/659c0c6a2c74539e37cc289cd7bf994fa46082d36e45980a815de4e5e830/skoolkit-10.0-cp310-cp310-win32.whl", hash = "sha256:44e88a1ca87fc9c5e5ef76302b1939e4a16fb1a737bbf33cf75ca57a133f469a", size = 450440, upload-time = "2026-04-04T12:02:29.91Z" },
+    { url = "https://files.pythonhosted.org/packages/74/ec/9363dedb2cb2d486823ac9107ebfe2c13ae38d8a87fd9de73dd54e50097c/skoolkit-10.0-cp310-cp310-win_amd64.whl", hash = "sha256:b6080771b2853949ae3dc1c810ad293b9934546211a95df261d79d38a312f29d", size = 453939, upload-time = "2026-04-04T12:02:32.41Z" },
+    { url = "https://files.pythonhosted.org/packages/42/74/9ecffa5bff4001972f0e89fa0b0478aeddcdf675bbb59246978b336a205a/skoolkit-10.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:4e3fd0d334664789bb97e69b299d344e0bec3a6071a4092349e01bce01d2be52", size = 463248, upload-time = "2026-04-04T12:02:34.867Z" },
+    { url = "https://files.pythonhosted.org/packages/88/92/2d2fb8b9d793f4f2e83a9c1b9efa886e3c964f31bae96681e1d42da80b13/skoolkit-10.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:3caad208f05de0d00126011d0d718ba7135e6acb49b3d2e7451de0b9aa75ea45", size = 666380, upload-time = "2026-04-04T12:02:37.061Z" },
+    { url = "https://files.pythonhosted.org/packages/bd/74/7dec699c2ef683cda122da70022b1dc179ede7cd0ed1933d21f88bce3a49/skoolkit-10.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:48cf66046617d103df95114bdf84f387619f745f174a88df7be40aecbe78b161", size = 666221, upload-time = "2026-04-04T12:02:39.11Z" },
+    { url = "https://files.pythonhosted.org/packages/30/d8/16a5f201588279c7a9c931b809ef96d61179e8ab9a691df1f14222a7cca8/skoolkit-10.0-cp311-cp311-win32.whl", hash = "sha256:1b3e1e10b946965923221233ebdc87a60c70566dae09363ffddb9b59f23d2615", size = 449575, upload-time = "2026-04-04T12:02:41.006Z" },
+    { url = "https://files.pythonhosted.org/packages/32/bb/4998c02ac56cdd42063d93d0edb9042e4f9ef04a66eb070a4b327aadb632/skoolkit-10.0-cp311-cp311-win_amd64.whl", hash = "sha256:3015c54ac576927c3002d6735c5b8dbdef7e2b603511521a581a23fa48b005c5", size = 453196, upload-time = "2026-04-04T12:02:42.757Z" },
+    { url = "https://files.pythonhosted.org/packages/b7/3b/2aed11b6cdc730da11d88c6fd9c33226d7f29a3b173ce035f0a9c3f0c3ff/skoolkit-10.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:796a6fb64acd840656b9090c28a97caf5f2aec992a4e399dbeeee7fe47fa7baf", size = 463249, upload-time = "2026-04-04T12:02:44.702Z" },
+    { url = "https://files.pythonhosted.org/packages/d8/c0/7a1559a12835d674ff7d6667b3ad3ce0c84ebdd69c89bb791cccd853877b/skoolkit-10.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:30fd7389cf86426f7b9103d93f7c3fea5b99c9f38f083c1b4e90bd02c6ebddc7", size = 675428, upload-time = "2026-04-04T12:02:46.903Z" },
+    { url = "https://files.pythonhosted.org/packages/4c/0e/6955062011acfc1f66cddee3fc0e991a8590d4a8bac7160ec7d842175425/skoolkit-10.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:cb8f1ee68856e19a014ee3b8156098aaeeb4632966384ece2038b8748fe85ed0", size = 674933, upload-time = "2026-04-04T12:02:50.18Z" },
+    { url = "https://files.pythonhosted.org/packages/be/b7/1dfb8722fd8cfd5d4a65b5a40b165fb1856b7c003422bad495f19ec6826e/skoolkit-10.0-cp312-cp312-win32.whl", hash = "sha256:00d65441058653d38f2456e4c5842919cebc3789152c77ecf1d1083848b24da3", size = 450112, upload-time = "2026-04-04T12:02:52.11Z" },
+    { url = "https://files.pythonhosted.org/packages/22/d9/630eac0cce670ea4c5315c04c8d7dc9fa02469ae67489769547280d76c3e/skoolkit-10.0-cp312-cp312-win_amd64.whl", hash = "sha256:41cd50aefceb7903bd58da10149d4e1279a8d6b668eb6782994a8f33d4f5c781", size = 453423, upload-time = "2026-04-04T12:02:54.119Z" },
+    { url = "https://files.pythonhosted.org/packages/ba/17/c42a37331d4272eb385ea7796f48f2f4e07f41605f42e6762c4dbe4906c4/skoolkit-10.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:928a9df0fff15967ab0db170b82f4a7210e0c664aeebacadda63bc85592c9517", size = 463240, upload-time = "2026-04-04T12:02:56.171Z" },
+    { url = "https://files.pythonhosted.org/packages/40/75/b81ffdca25c38a30fc29726ef256c19ec43017f6214ed5c7bc147a3c66de/skoolkit-10.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:b9cfffedd8482513766a86ce819e39769e4e9bfa43e26e64581733976f13e1f2", size = 675479, upload-time = "2026-04-04T12:02:58.407Z" },
+    { url = "https://files.pythonhosted.org/packages/e3/07/178e1db11939804b1ea8cba03c106b3d3dab0ea53481c21c27852db6ffa4/skoolkit-10.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:fafbcb51e5d3aac6f3ac3b87efeb39fee0a99126b74a13817b3668a567de2716", size = 674917, upload-time = "2026-04-04T12:03:00.41Z" },
+    { url = "https://files.pythonhosted.org/packages/17/4f/d1a6f8738e2288d576e8769cc0058b8c13e8a216c44e919f4598dc082322/skoolkit-10.0-cp313-cp313-win32.whl", hash = "sha256:51c0d9daf0704b4b847bd3b257e1bf54b11d3836fe3654594ad349c500add427", size = 450115, upload-time = "2026-04-04T12:03:02.716Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/a9/d82220fc5c447a9ad87d102e67badd681ed5c614aee7536cf05ede092930/skoolkit-10.0-cp313-cp313-win_amd64.whl", hash = "sha256:092cd7062c74b61280a29f9266a1aee007578901c3caac4c517189b83841c579", size = 453422, upload-time = "2026-04-04T12:03:04.777Z" },
+    { url = "https://files.pythonhosted.org/packages/2a/f7/919f6d7f9c107a9f051a6cae32d23d88e99a4e1f1dd9b08be321d522ae64/skoolkit-10.0-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:f799f8ea5cbd4071cc2e16b9c63cc789e6a0dfd92b9ee9de67bdf0bacca8f07a", size = 463205, upload-time = "2026-04-04T12:03:06.41Z" },
+    { url = "https://files.pythonhosted.org/packages/7b/29/5ee39f432710ba8d1f38b5df9046a36fe5c1d711f2ff9d0c1b3aa31d3272/skoolkit-10.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:fa1d6746eb6293659b5f5ef4230595d5cf5eb0471e11e63249ecf33e5576e930", size = 675605, upload-time = "2026-04-04T12:03:08.205Z" },
+    { url = "https://files.pythonhosted.org/packages/a1/b2/90b03c49dea48b89d942abb02707cc6b7af1618cfe6158c5a43c9a4c6f25/skoolkit-10.0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:20ae083c0cd92007e9729c5529181e670e3c9d8b5d3096ed143b5a35295eb70c", size = 675045, upload-time = "2026-04-04T12:03:10.245Z" },
+    { url = "https://files.pythonhosted.org/packages/6f/ab/7ba1d086b938eb45ea507f3dfe3819968e89e2531fc320090a729cefa57a/skoolkit-10.0-cp314-cp314-win32.whl", hash = "sha256:82bdbf5a5e07c471c8071e80c5f6fadf385ef7c2a8edee04875584cd6e53b948", size = 454165, upload-time = "2026-04-04T12:03:12.142Z" },
+    { url = "https://files.pythonhosted.org/packages/99/1e/b62b891fa56e1382e5e9a4306ec82a0c132ab2535b5eaa06479b66569787/skoolkit-10.0-cp314-cp314-win_amd64.whl", hash = "sha256:094323ddfc566fb704eed586712b6deed031113a5e5c45e7c5c9c934989e8da8", size = 457627, upload-time = "2026-04-04T12:03:13.785Z" },
 ]
 
 [[package]]
