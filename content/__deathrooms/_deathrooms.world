@@ -1,0 +1,10 @@
+{
+    "maps": [
+        {
+            "fileName": "001.tmx",
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "type": "world"
+}

@@ -78,10 +78,18 @@ GLOBAL_TILE_REPEATS = 2
 
 # When a sprite candidate cell's paper matches the room's predominant
 # background colour, its bitmask is scanned across the WHOLE map at
-# every pixel offset (not just tile-aligned). If at least this many
-# matches are found, it is confirmed as a guardian — overriding the
-# global-bitmap-repeat rule. Two marias in one room produce >= 2 matches.
-GUARDIAN_BITMASK_MIN_MATCHES = 2
+# every pixel offset. The discriminator is *non-tile-aligned* matches:
+# tiles / stairs / platforms only ever sit on the 8-pixel grid, so any
+# match at a sub-cell offset (px % 8 != 0 or py % 8 != 0) is positive
+# guardian evidence. With per-room bg silhouette the comparison is
+# colour-insensitive, so a single non-aligned match is meaningful.
+GUARDIAN_NONALIGNED_MIN_MATCHES = 1
+
+# Solid bitmasks (all-set or all-clear) match anywhere they overlap a
+# uniformly inked / blank region — those are floor blocks, walls, and
+# pure bg, never guardians. Skip the non-aligned scan for those tails.
+BITMASK_MIN_SET_BITS = 1
+BITMASK_MAX_SET_BITS = 63
 
 
 # ---------------------------------------------------------------------------
@@ -89,7 +97,7 @@ GUARDIAN_BITMASK_MIN_MATCHES = 2
 # ---------------------------------------------------------------------------
 
 REGION_TYPES = ("room", "room_title", "title", "credits", "annotation",
-                "item", "guardian", "unknown")
+                "item", "guardian", "rope", "unknown")
 
 
 @dataclass
@@ -1316,6 +1324,30 @@ def _cluster_8connected(cells: set[tuple[int, int]]) -> list[list[tuple[int, int
     return out
 
 
+def _cluster_is_linear(cluster: list[tuple[int, int]]) -> bool:
+    """
+    True if the cluster's cells lie along a line — either strictly 1D
+    (single row or column), or sparse along a diagonal/curve (low
+    bounding-box fill ratio with enough cells to count as a span).
+
+    Tiles for floors, walls, ceilings, ramps, conveyors, stairs and
+    ladders all match this profile. Sprite clusters (guardians, items,
+    big single-block sprites) are compact, with fill_ratio close to 1.
+    """
+    if len(cluster) < 2:
+        return False
+    xs = [cx for cx, _ in cluster]
+    ys = [cy for _, cy in cluster]
+    bbox_w = max(xs) - min(xs) + 1
+    bbox_h = max(ys) - min(ys) + 1
+    if bbox_w == 1 or bbox_h == 1:
+        return True
+    fill = len(cluster) / (bbox_w * bbox_h)
+    if fill <= 0.5 and len(cluster) >= 4:
+        return True
+    return False
+
+
 def _attribute_is_structural(
     clusters: list[list[tuple[int, int]]],
     paper_attr: int,
@@ -1326,52 +1358,25 @@ def _attribute_is_structural(
     are structural (background / floor / wall / ramp / conveyor / stairs /
     platforms / ladders) rather than sprite overlays.
 
-    Heuristics, in order:
-      1. Solid attribute (paper == ink, no ink pixels in any tile) ->
-         always structural. Solid colour blocks are background or solid
-         walls / floors, never sprites.
-      2. Single cell -> sprite (definitely not structural by itself).
-      3. Cells span only one row OR one column (with >= 2 cells) ->
-         structural. Catches platforms, ceilings, conveyors, single-row
-         floors, and ladders.
-      4. Cells span >= 4 distinct rows AND >= 4 distinct cols AND there
-         is at least one cluster of size >= 4 -> usually structural
-         (room-sized backbone like floor + walls + ceiling sharing an
-         attribute). EXCEPT when it's one compact cluster with high
-         bbox fill ratio — that's an oversized sprite (big guardian)
-         sitting in one place. Without the size->=4 cluster constraint,
-         a swarm of N scattered singletons that happens to span the
-         room would be wrongly classed as a backbone.
-      5. Otherwise -> sprite candidate.
+    Rules:
+      1. Solid attribute (paper == ink) -> always structural.
+      2. Single cell -> sprite.
+      3. ANY cluster is linear (1D row/col, or low-fill diagonal/curve
+         with >= 4 cells) -> structural backbone. Catches everything
+         from straight walls and floors to short / long staircases,
+         ladders, conveyors, ramps, even multi-piece outlines (each
+         piece is a separate linear cluster).
+      4. Otherwise (all clusters are compact blobs) -> sprite. Compact
+         shapes are guardians / items / oversized-single-sprite. The
+         attribute being shared by multiple compact clusters means
+         multiple sprites of the same colour, never a backbone.
     """
     if paper_attr == ink_attr:
-        return True  # solid colour block (background / solid wall)
+        return True
     total = sum(len(c) for c in clusters)
     if total <= 1:
         return False
-    rows: set[int] = set()
-    cols: set[int] = set()
-    for cluster in clusters:
-        for (cx, cy) in cluster:
-            rows.add(cy)
-            cols.add(cx)
-    if len(rows) == 1 or len(cols) == 1:
-        return True
-    if len(rows) >= 4 and len(cols) >= 4:
-        max_cluster = max(len(cl) for cl in clusters)
-        if max_cluster < 4:
-            # All-small clusters scattered across the room = many
-            # sprites with the same attribute, not a backbone.
-            return False
-        if len(clusters) == 1:
-            cluster = clusters[0]
-            xs = [cx for cx, _ in cluster]
-            ys = [cy for _, cy in cluster]
-            bbox_w = max(xs) - min(xs) + 1
-            bbox_h = max(ys) - min(ys) + 1
-            fill_ratio = len(cluster) / (bbox_w * bbox_h)
-            if fill_ratio >= 0.5:
-                return False  # compact blob -> oversized sprite
+    if any(_cluster_is_linear(c) for c in clusters):
         return True
     return False
 
@@ -1466,16 +1471,56 @@ def classify_room_contents(im: Image.Image, grid: Grid,
                 sig = sigs[cy][cx]
                 global_sig_count[sig] = global_sig_count.get(sig, 0) + 1
 
-    # --- pre-pass: cross-map silhouette + bitmask map for guardian
-    # confirmation. Bg paper assumed to be ZX attribute 0 (black,
-    # bright=0); true for the vast majority of JSW-style rooms. Cells
-    # whose room bg differs (cyan-paper rooms etc.) skip this branch and
-    # fall back to the elimination logic only.
+    # --- pre-pass: per-room bg paper + per-room "silhouette" of
+    # paper-vs-not-paper at native game-pixel resolution.
+    #
+    # Each room's bg paper is the paper component of its most-common
+    # attribute pair (almost always solid black, but rooms like the
+    # Swimming Pool use blue paper). We build a single universal
+    # silhouette by stitching each room's bg-relative silhouette into
+    # one (H, W) uint8 array. Then bmask_at_pos[y, x] is the 64-bit
+    # silhouette of the 8x8 window at (y, x) — using whichever room's
+    # bg paper that pixel belongs to.
+    #
+    # This makes the cross-map bitmask scan COLOUR-INSENSITIVE: a
+    # guardian rendered cyan-on-black in one room and yellow-on-blue
+    # in another produces the same silhouette pattern, so its bitmask
+    # matches across the map regardless of which colours are in use.
     import numpy as np
+    from collections import Counter
     map_quant = _quantize_full_map(im, grid)
-    BG_ATTR = 0
-    silhouette = (map_quant != BG_ATTR).astype(np.uint8)
-    bmask_at_pos = _all_8x8_bitmasks(silhouette)
+    BG_ATTR = 0  # default outside any classified room: black
+    universal_silhouette = (map_quant != BG_ATTR).astype(np.uint8)
+    s = grid.scale
+    room_bg_paper_map: dict[int, int] = {}
+    for rr in room_regions:
+        if rr.type != "room" or rr.room_number is None:
+            continue
+        cached = room_sigs.get(rr.room_number)
+        if cached is None:
+            continue
+        sigs_room, rt_room, ct_room = cached
+        ap_counts: Counter[tuple[int, int]] = Counter()
+        for cy in range(rt_room):
+            for cx in range(ct_room):
+                p, i, _ = sigs_room[cy][cx]
+                ap_counts[(p, i)] += 1
+        if not ap_counts:
+            continue
+        bg_p = ap_counts.most_common(1)[0][0][0]
+        room_bg_paper_map[rr.room_number] = bg_p
+        rx, ry, rw, rh = rr.bbox
+        # Native-resolution slice for this room body.
+        half = s // 2
+        nx0 = max(0, (rx + half) // s)
+        ny0 = max(0, (ry + half) // s)
+        nx1 = min(universal_silhouette.shape[1], nx0 + rw // s)
+        ny1 = min(universal_silhouette.shape[0], ny0 + rh // s)
+        universal_silhouette[ny0:ny1, nx0:nx1] = (
+            map_quant[ny0:ny1, nx0:nx1] != bg_p
+        ).astype(np.uint8)
+
+    bmask_at_pos = _all_8x8_bitmasks(universal_silhouette)
     bmask_view = bmask_at_pos  # alias used inside the loop
 
     sprite_regions: list[Region] = []
@@ -1562,39 +1607,49 @@ def classify_room_contents(im: Image.Image, grid: Grid,
             paper, ink = ap
             if paper == 0 and ink == 0:
                 continue
-            on_bg = (paper == room_bg_paper) and (paper == BG_ATTR)
+            # Bitmask-match override fires for any candidate whose paper
+            # equals its room's bg paper (regardless of what specific
+            # colour that bg is) — the cross-map silhouette is built
+            # per-room so the comparison is colour-insensitive.
+            on_bg = (paper == room_bg_paper)
             for cluster in clusters:
-                kept: list[tuple[int, int]] = []
-                cell_match_counts: dict[tuple[int, int], int] = {}
+                # Every cell in a non-structural attribute pair is kept
+                # as a sprite candidate. We previously dropped cells
+                # whose full bitmap repeated >= 2 times globally
+                # (treating repetition as a tile signal), but that
+                # silently discarded the most useful cross-room signal:
+                # the same guardian rendered in many rooms is identical
+                # *on purpose*. Now we just record the per-cell match
+                # counts (aligned + non-aligned) for confidence, and
+                # leave the tile-vs-sprite decision to the per-room
+                # elimination logic above.
+                kept: list[tuple[int, int]] = list(cluster)
+                cell_match_counts: dict[tuple[int, int], tuple[int, int]] = {}
                 for c in cluster:
                     bm = cell_bitmap[c]
-                    g_count = global_sig_count.get((paper, ink, bm), 0)
-                    bm_matches = 0
+                    aligned_matches = 0
+                    nonaligned_matches = 0
                     if on_bg and bm != 0:
-                        bm_matches = int(
-                            (bmask_view == np.uint64(bm)).sum()
-                        )
-                    cell_match_counts[c] = bm_matches
-                    keep = (g_count < GLOBAL_TILE_REPEATS) or (
-                        bm_matches >= GUARDIAN_BITMASK_MIN_MATCHES
-                    )
-                    if keep:
-                        kept.append(c)
-                    else:
-                        n_repeat_overrides += 1
-                if not kept:
-                    continue
+                        set_bits = bin(bm).count("1")
+                        if (BITMASK_MIN_SET_BITS <= set_bits
+                                <= BITMASK_MAX_SET_BITS):
+                            match_mask = (bmask_view == np.uint64(bm))
+                            aligned_matches = int(match_mask[::8, ::8].sum())
+                            nonaligned_matches = (int(match_mask.sum())
+                                                  - aligned_matches)
+                    cell_match_counts[c] = (aligned_matches,
+                                            nonaligned_matches)
                 shape_sc, sprite_type = _shape_score(len(kept))
                 rarity = _rarity_score(len(kept))
                 sat = _saturation_score(ink, paper)
-                # Match-count boost: many matches across the map
-                # (especially for bg-paper candidates) is positive
-                # guardian evidence. Cap at 0.3 to keep a single
-                # signal from saturating confidence.
-                max_matches = max(cell_match_counts.values()) if kept else 0
+                # Confidence boost from non-aligned matches: the more
+                # off-grid evidence, the more confident the guardian.
+                max_na = max(
+                    (na for _, na in cell_match_counts.values()), default=0
+                )
                 match_boost = 0.0
-                if on_bg and max_matches >= 2:
-                    match_boost = min(0.3, 0.1 + 0.05 * (max_matches - 2))
+                if on_bg and max_na >= 1:
+                    match_boost = min(0.3, 0.15 + 0.05 * (max_na - 1))
                 conf = min(1.0,
                            0.35 * rarity + 0.30 * sat + 0.20 * shape_sc
                            + match_boost)
@@ -1603,7 +1658,7 @@ def classify_room_contents(im: Image.Image, grid: Grid,
                     ty = y + cy * tile_img_px
                     bm = cell_bitmap[(cx, cy)]
                     g_count = global_sig_count.get((paper, ink, bm), 0)
-                    bm_matches = cell_match_counts[(cx, cy)]
+                    al_m, na_m = cell_match_counts[(cx, cy)]
                     sprite_regions.append(Region(
                         type=sprite_type,
                         bbox=(tx, ty, tile_img_px, tile_img_px),
@@ -1613,7 +1668,7 @@ def classify_room_contents(im: Image.Image, grid: Grid,
                         notes=(f"attr_count={len(attr_cells[ap])} "
                                f"cluster={len(kept)} "
                                f"global_bitmap_count={g_count} "
-                               f"bm_matches={bm_matches} "
+                               f"aligned_m={al_m} non_aligned_m={na_m} "
                                f"rarity={rarity:.2f} sat={sat:.2f} "
                                f"shape={shape_sc:.2f} "
                                f"ink={_ZX_NAMES[ink >> 1]}"
@@ -1624,11 +1679,86 @@ def classify_room_contents(im: Image.Image, grid: Grid,
                     else:
                         n_guardians += 1
 
+        # Rope detector. JSW ropes are 1-pixel-wide animated lines that
+        # cut diagonally / vertically across a room, so each cell they
+        # pass through carries only a handful of non-bg pixels — enough
+        # to defeat the per-attribute-pair structural rule (long thin
+        # clusters look like stairs to the spread heuristic). We pick
+        # them up here as a separate sprite type.
+        already_sprite = {r.tile_cell for r in sprite_regions
+                          if r.tile_cell is not None
+                          and r.room_number == rr.room_number}
+        rope_candidates: dict[tuple[int, int],
+                              tuple[int, int, int]] = {}
+        for cy in range(rows_t):
+            for cx in range(cols_t):
+                if (cx, cy) in already_sprite:
+                    continue
+                paper, ink, bm = sigs[cy][cx]
+                if paper != room_bg_paper:
+                    continue
+                if paper == ink:
+                    continue
+                set_bits = bin(bm).count("1")
+                # Each rope cell carries 1-4 ink pixels (the rope is
+                # 1px wide; an 8x8 tile clips a short section of the
+                # arc). Stricter than the earlier 1..6 range so we
+                # don't sweep up dense sprites.
+                if not (1 <= set_bits <= 4):
+                    continue
+                rope_candidates[(cx, cy)] = (paper, ink, bm)
+
+        if rope_candidates:
+            rope_clusters = _cluster_8connected(set(rope_candidates.keys()))
+            for cluster in rope_clusters:
+                xs = sorted({cx for cx, _ in cluster})
+                ys = sorted({cy for _, cy in cluster})
+                bbox_w = len(xs)
+                bbox_h = len(ys)
+                fill = len(cluster) / (bbox_w * bbox_h)
+                # Rope shape: sparse along a vertical or diagonal arc.
+                # We look for a long-ish cluster (>= 4 cells), at least
+                # 3 cells along its longer axis, with a low bounding-
+                # box fill ratio (<= 0.45) — the rope arcs through bg,
+                # never densely packing the bbox.
+                if (len(cluster) < 4
+                        or max(bbox_w, bbox_h) < 3
+                        or fill > 0.45):
+                    continue
+                paper, ink, _ = rope_candidates[cluster[0]]
+                sat = _saturation_score(ink, paper)
+                # Confidence: longer + sparser + thin = stronger rope.
+                length_score = min(1.0, len(cluster) / 8.0)
+                sparse_bonus = max(0.0, 0.45 - fill) * 0.5
+                conf = min(1.0,
+                           0.35 * length_score + 0.25 * sat
+                           + 0.20 + sparse_bonus)
+                for (cx, cy) in cluster:
+                    p, i, bm = rope_candidates[(cx, cy)]
+                    set_bits = bin(bm).count("1")
+                    tx = x + cx * tile_img_px
+                    ty = y + cy * tile_img_px
+                    sprite_regions.append(Region(
+                        type="rope",
+                        bbox=(tx, ty, tile_img_px, tile_img_px),
+                        confidence=conf,
+                        tile_cell=(cx, cy),
+                        room_number=rr.room_number,
+                        notes=(f"rope cluster len={len(cluster)} "
+                               f"bbox={bbox_w}x{bbox_h} "
+                               f"fill={fill:.2f} "
+                               f"set_bits={set_bits} "
+                               f"ink={_ZX_NAMES[i >> 1]}"
+                               f"{'+B' if i & 1 else ''}"),
+                    ))
+
         rr.notes += (f"  | attrs={len(attr_cells)} "
                      f"struct_share={cls_conf:.2f}")
+    n_ropes = sum(1 for r in sprite_regions if r.type == "rope")
     if progress:
         print(f"    {n_rooms} rooms classified: "
-              f"{n_items} item-cells, {n_guardians} guardian-cells "
+              f"{n_items} item-cells, {n_guardians} guardian-cells, "
+              f"{n_ropes} rope-cells "
               f"(repeat-bitmap overrides: {n_repeat_overrides})")
     return sprite_regions
 
@@ -1674,16 +1804,19 @@ def render_overlay(im: Image.Image, grid: Grid,
     # blanket the per-room frame, but above grid lines.
     label_priority = {"title": 5, "credits": 4, "room": 3,
                       "annotation": 3, "room_title": 2,
-                      "item": 1, "guardian": 1, "unknown": 1}
+                      "item": 1, "guardian": 1, "rope": 1, "unknown": 1}
     # Render high-priority regions last so their labels sit on top.
     for r in sorted(regions, key=lambda r: label_priority.get(r.type, 0)):
         x, y, w, h = r.bbox
         if w <= 0 or h <= 0:
             continue
         col = confidence_color(r.confidence)
-        if r.type in ("item", "guardian"):
+        if r.type in ("item", "guardian", "rope"):
             # Single-tile sprites: 1px outline, no label, fill alpha tint.
-            tint = (col[0], col[1], col[2], 70)
+            # Rope cells get a slightly stronger tint so the long thin
+            # diagonal stands out against the room.
+            alpha = 110 if r.type == "rope" else 70
+            tint = (col[0], col[1], col[2], alpha)
             draw.rectangle([x, y, x + w - 1, y + h - 1],
                            outline=col, fill=tint, width=1)
             continue
@@ -1869,6 +2002,7 @@ def cmd_detect_metadata(args: argparse.Namespace) -> int:
 
     n_items = sum(1 for r in sprite_regions if r.type == "item")
     n_guardians = sum(1 for r in sprite_regions if r.type == "guardian")
+    n_ropes = sum(1 for r in sprite_regions if r.type == "rope")
 
     all_regions: list[Region] = (
         room_regions + block_regions + room_title_regions
@@ -1890,6 +2024,7 @@ def cmd_detect_metadata(args: argparse.Namespace) -> int:
             "ocr_detections": len(words),
             "item_cells": n_items,
             "guardian_cells": n_guardians,
+            "rope_cells": n_ropes,
             "regions_total": len(all_regions),
         },
         "regions": [r.to_json() for r in all_regions],

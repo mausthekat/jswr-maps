@@ -29,21 +29,27 @@ ROOM_WIDTH = 32   # tiles
 ROOM_HEIGHT = 16  # tiles
 
 
-def parse_tsx(tsx_path: Path) -> tuple[str, int, int]:
-    """Parse TSX file to get image source, tile count, and columns."""
+def parse_tsx(tsx_path: Path):
+    """Parse TSX file to get image source, tile count, columns, tile size.
+
+    Returns ``(source, tilecount, columns, tile_w, tile_h)`` or
+    ``None`` for collection-of-images tilesets (per-tile images,
+    e.g. guardians) that aren't renderable as a sheet.
+    """
     tree = ET.parse(tsx_path)
     root = tree.getroot()
 
     image = root.find('image')
     if image is None:
-        # Collection-of-images tileset (per-tile images, e.g. guardians) — not renderable as a sheet
         return None
 
     source = image.get('source')
     columns = int(root.get('columns', 16))
     tilecount = int(root.get('tilecount', 0))
+    tile_w = int(root.get('tilewidth', TILE_WIDTH))
+    tile_h = int(root.get('tileheight', TILE_HEIGHT))
 
-    return source, tilecount, columns
+    return source, tilecount, columns, tile_w, tile_h
 
 
 def _resolve_variant_image(base_image_path: Path, suffix: str,
@@ -72,10 +78,24 @@ def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
     """Load all tilesets referenced by a TMX file.
 
     Each entry is `(firstgid, tilecount, columns, tile_w, tile_h,
-    tileset_img)`. Tile dimensions come from the loaded image
-    (`width // columns`, `height // rows`) so variant tilesets at a
-    different native resolution (e.g. 2x at 16px) render correctly
-    without a separate TSX.
+    tileset_img)`. ``tile_w`` and ``tile_h`` come from the TSX-declared
+    ``tilewidth`` / ``tileheight`` (or the inline tileset element's
+    same attributes) — these are authoritative regardless of whether
+    the PNG file has been resized or has trailing rows the TSX
+    doesn't know about. A variant suffix can swap in a higher-res
+    sibling PNG; we detect that as a uniform integer scale factor
+    against the TSX-declared base dimensions and bump tile sizes
+    accordingly.
+
+    Why not derive tile_h from ``image_height // rows`` (where rows
+    comes from ``tilecount`` and ``columns``)? Because some shipped
+    tile category PNGs have extra rows beyond what their TSX
+    declares (e.g. tiles_platform.png is 128×72 while the TSX
+    declares an image of 128×56). The derived ``tile_h`` then comes
+    out wrong (10 instead of 8), tiles get sliced too tall, and
+    they overflow into the neighbouring grid cell at render time —
+    visible as "phantom tile graphics" in non-standalone map
+    previews. The TSX is the source of truth.
 
     `tileset_suffix` (when non-empty) substitutes a sibling
     `<base>_<suffix>.png` for any TSX-referenced PNG when the variant
@@ -102,7 +122,7 @@ def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
                 result = parse_tsx(tsx_path)
                 if result is None:
                     continue
-                image_source, tilecount, columns = result
+                image_source, tilecount, columns, base_tile_w, base_tile_h = result
                 image_path = tsx_path.parent / image_source
             except Exception as e:
                 print(f"  Warning: Error parsing {tsx_path}: {e}")
@@ -114,6 +134,8 @@ def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
             image_path = tmx_dir / image.get('source')
             columns = int(tileset_elem.get('columns', 16))
             tilecount = int(tileset_elem.get('tilecount', 0))
+            base_tile_w = int(tileset_elem.get('tilewidth', TILE_WIDTH))
+            base_tile_h = int(tileset_elem.get('tileheight', TILE_HEIGHT))
 
         image_path = _resolve_variant_image(image_path, tileset_suffix, tmx_dir)
 
@@ -123,11 +145,19 @@ def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
 
         try:
             tileset_img = Image.open(image_path).convert('RGBA')
-            tile_w = tileset_img.width // max(columns, 1)
-            rows = max((tilecount + columns - 1) // columns, 1) if columns else 1
-            tile_h = tileset_img.height // rows if rows else tile_w
-            if tile_w <= 0 or tile_h <= 0:
-                tile_w = tile_h = TILE_WIDTH
+            # Variant suffixes (`_2x` etc.) ship a uniformly scaled
+            # PNG. Detect the scale by comparing actual width to the
+            # TSX-implied base width — fall back to 1 (no scale) when
+            # the math doesn't divide cleanly, so a one-off resized
+            # image can't silently produce non-integer tile sizes.
+            expected_base_width = columns * base_tile_w
+            scale = 1
+            if expected_base_width > 0 and tileset_img.width >= expected_base_width:
+                candidate = tileset_img.width // expected_base_width
+                if candidate >= 1 and candidate * expected_base_width == tileset_img.width:
+                    scale = candidate
+            tile_w = base_tile_w * scale
+            tile_h = base_tile_h * scale
             tilesets.append((firstgid, tilecount, columns, tile_w, tile_h, tileset_img))
         except Exception as e:
             print(f"  Warning: Error loading {image_path}: {e}")

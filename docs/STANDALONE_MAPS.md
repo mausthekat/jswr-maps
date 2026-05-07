@@ -29,7 +29,7 @@ See [TILESET_PROPERTIES.md](TILESET_PROPERTIES.md) for tileset property details.
 
 ### Canonical command: `tmx_to_jsw.py --pack`
 
-The build pipeline autodetects standalone maps by calling `_detect_custom_tilesets()`: if any TMX file in the folder references a **local** `tiles_<category>.tsx` (i.e. not via `../../tilesets/`), the `--pack` output is wrapped in a `ContentType.PACKS` pack with a `tiles` entry plus every variant listed in `tilesets.json`. No separate command is required.
+Every `--pack` output is a `ContentType.PACKS` outer pack — that's universal, regardless of whether the map is standalone (see [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md#map-packs) for the universal structure). The build pipeline detects standalone maps by calling `_detect_custom_tilesets()`: if any TMX file in the folder references a **local** `tiles_<category>.tsx` (i.e. not via `../../tilesets/`), the converter additionally writes a `tiles` entry plus every variant listed in `tilesets.json` into the outer pack. No separate command is required.
 
 ```bash
 # Build jsw-gorgeous (the shipping reference) into a standalone pack
@@ -127,14 +127,16 @@ This means you can pack TMX files with non-standard firstGid values without edit
 
 ### What `tmx_to_jsw.py --pack` Does For Standalone Maps
 
+Every `--pack` output is `ContentType.PACKS`-wrapped (see [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md#map-packs)) — `rooms` plus optional `preview` and `meta`. Standalone maps add tile entries to the same wrapper:
+
 1. `_detect_custom_tilesets()` scans the first TMX and flips the pack builder into standalone mode if any `tiles_<category>.tsx` reference is local rather than `../../tilesets/…`
 2. Reads `tilesets.json` (falls back to `tiles_solid.tsx` properties if absent)
 3. Detects tile size from the TMX `tilewidth`/`tileheight` attribute (8 or 16)
-4. Converts each TMX to a binary room record (JSWR) and bundles them into an inner `rooms` sub-pack
-5. Creates a JSWC collection for the base variant from `tiles_<category>.png`
+4. Converts each TMX to a binary room record (JSWR) and bundles them into an inner `rooms` sub-pack (always — universal)
+5. Creates a JSWC collection for the base variant from `tiles_<category>.png` and writes it as the `tiles` entry on the outer pack
 6. Calls `pack_tileset_variants()` to build a JSWC collection per additional manifest key and per-room override PNGs from `tilesets/<suffix>/`
 7. Reads `DefaultTileset` from `.tiled-project`, resolves a suffix via the manifest, and writes the resolved name as V5 pack custom data `default_tileset`
-8. Wraps everything in a `ContentType.PACKS` outer pack: `rooms`, `tiles`, `tiles_<suffix>` entries, and `tiles_<suffix>_room<NNN>` entries
+8. Adds the `tiles`, `tiles_<suffix>`, and `tiles_<suffix>_room<NNN>` entries to the outer wrapper alongside the universal `rooms` / `preview` / `meta`
 
 ### Tileset Variant Detection
 
@@ -206,7 +208,15 @@ my-map.jsw (JSWP format, ContentType.PACKS)
 │
 │   Variant names and color_clash flags come from tilesets.json manifest.
 │   Without a manifest, only tiles_2x is auto-detected and per-room overrides are not supported.
+│
+├── preview (nested JSWP, ContentType.PACKS) [optional]
+│   ├── layout — UTF-8 JSON: room_width / room_height / [{id, x, y}, ...]
+│   └── <room_id> — PNG bytes for each room (entry name is the room id as a decimal string)
+│
+└── meta (JSON authorship metadata — originator GUID, modification history) [optional]
 ```
+
+The `preview` and `meta` entries are universal — every map pack carries them when enabled, regardless of whether it's standalone. The `tiles*` entries above are the standalone-specific additions.
 
 See [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md) for the JSWP container format and [JSWC_TILESET_COLLECTION_FORMAT.md](../../docs/formats/JSWC_TILESET_COLLECTION_FORMAT.md) for the JSWC tileset format.
 
