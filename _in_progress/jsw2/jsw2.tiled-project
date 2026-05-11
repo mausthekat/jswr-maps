@@ -10,7 +10,7 @@
         {
             "name": "MapName",
             "type": "string",
-            "value": ""
+            "value": "jsw2"
         },
         {
             "name": "Author",
@@ -21,7 +21,7 @@
             "name": "FallDamageMode",
             "propertytype": "FallDamageMode",
             "type": "int",
-            "value": 1
+            "value": 0
         },
         {
             "name": "IncludeMapPreview",
@@ -34,14 +34,36 @@
             "value": false
         },
         {
-            "name": "ManicFinalRoom",
-            "type": "int",
-            "value": 0
+            "name": "InfiniteLivesSP",
+            "type": "bool",
+            "value": false
+        },
+        {
+            "name": "InfiniteLivesMP",
+            "type": "bool",
+            "value": false
         },
         {
             "name": "OriginalArrows",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "JumpType",
+            "propertytype": "JumpType",
+            "type": "int",
+            "value": 0
+        },
+        {
+            "name": "RespawnMode",
+            "propertytype": "RespawnMode",
+            "type": "int",
+            "value": 0
+        },
+        {
+            "name": "ManicFinalRoom",
+            "type": "int",
+            "value": 0
         },
         {
             "name": "SinglePlayerModes",
@@ -58,28 +80,6 @@
             "name": "DefaultTileset",
             "type": "string",
             "value": ""
-        },
-        {
-            "name": "InfiniteLivesSP",
-            "type": "bool",
-            "value": false
-        },
-        {
-            "name": "InfiniteLivesMP",
-            "type": "bool",
-            "value": false
-        },
-        {
-            "name": "JumpType",
-            "propertytype": "JumpType",
-            "type": "int",
-            "value": 0
-        },
-        {
-            "name": "RespawnMode",
-            "propertytype": "RespawnMode",
-            "type": "int",
-            "value": 0
         }
     ],
     "propertyTypes": [
@@ -97,24 +97,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 2,
-            "name": "Speed",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "0",
-                "1 (Normal)",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7 (Very Fast)",
-                "8 (Very Slow)"
-            ],
-            "valuesAsFlags": false
-        },
-        {
             "id": 3,
             "name": "FlightDirection",
             "storageType": "int",
@@ -124,6 +106,17 @@
                 "Left\u2192Right"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 6,
+            "name": "GuardianFlags",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "HARMLESS",
+                "ALWAYS_DEADLY"
+            ],
+            "valuesAsFlags": true
         },
         {
             "id": 5,
@@ -139,13 +132,27 @@
             "valuesAsFlags": true
         },
         {
-            "id": 6,
-            "name": "GuardianFlags",
-            "storageType": "string",
+            "id": 13,
+            "name": "GameModes",
+            "storageType": "int",
             "type": "enum",
             "values": [
-                "HARMLESS",
-                "ALWAYS_DEADLY"
+                "COLLECT_X_ITEMS",
+                "TIMED_GAMES",
+                "RACE_TO_GAMES",
+                "DISCOVERY_GAMES",
+                "GOLDEN_WILLY",
+                "WILLY_TAG",
+                "BRITISH_BULLDOG",
+                "WILLY_TEAMS",
+                "CAPTURE_THE_FLAG",
+                "LOBBY",
+                "FIRST_TO_COLLECT",
+                "COLLECT_ALL",
+                "CHAIN_GAMES",
+                "IT_TAG",
+                "MM_START",
+                "WILLY_BALL"
             ],
             "valuesAsFlags": true
         },
@@ -200,6 +207,28 @@
             ]
         },
         {
+            "id": 2,
+            "name": "Speed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "0",
+                "1 (Very Slow)",
+                "2",
+                "3",
+                "4 (Normal)",
+                "5",
+                "6",
+                "7",
+                "8 (Fast)",
+                "9",
+                "10",
+                "11",
+                "12 (Very Fast)"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 8,
             "name": "Team",
             "storageType": "int",
@@ -241,47 +270,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 11,
-            "name": "TileType",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "solid",
-                "stairs",
-                "platform",
-                "hazard",
-                "decoration",
-                "conveyor",
-                "collapsible"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 13,
-            "name": "GameModes",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "COLLECT_X_ITEMS",
-                "TIMED_GAMES",
-                "RACE_TO_GAMES",
-                "DISCOVERY_GAMES",
-                "GOLDEN_WILLY",
-                "WILLY_TAG",
-                "BRITISH_BULLDOG",
-                "WILLY_TEAMS",
-                "CAPTURE_THE_FLAG",
-                "LOBBY",
-                "FIRST_TO_COLLECT",
-                "COLLECT_ALL",
-                "CHAIN_GAMES",
-                "IT_TAG",
-                "MM_START",
-                "WILLY_BALL"
-            ],
-            "valuesAsFlags": true
-        },
-        {
             "id": 14,
             "name": "RoomPurpose",
             "storageType": "int",
@@ -294,6 +282,22 @@
                 "Victory Room",
                 "Briefing",
                 "Team Select 4"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 11,
+            "name": "TileType",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "solid",
+                "stairs",
+                "platform",
+                "hazard",
+                "decoration",
+                "conveyor",
+                "collapsible"
             ],
             "valuesAsFlags": false
         },
@@ -320,6 +324,29 @@
             "valuesAsFlags": true
         },
         {
+            "id": 22,
+            "name": "JumpType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW:R",
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 23,
+            "name": "RespawnMode",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 17,
             "name": "TriggerType",
             "storageType": "string",
@@ -334,6 +361,31 @@
                 "GameStart",
                 "Never",
                 "ExternalEvent"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 18,
+            "name": "Action",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay"
             ],
             "valuesAsFlags": false
         },
@@ -367,54 +419,6 @@
             "values": [
                 "Unique",
                 "PerPlayer"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 18,
-            "name": "Action",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Complete",
-                "HideGuardian",
-                "ShowGuardian",
-                "ShowTile",
-                "HideTile",
-                "TeleportPlayerTo",
-                "RemovePlayer",
-                "DisablePlayerInput",
-                "EnablePlayerInput",
-                "ReplaceGuardian",
-                "ShowEntity",
-                "HideEntity",
-                "EndGame",
-                "PlaySound",
-                "Delay",
-                "DoReplay"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 22,
-            "name": "JumpType",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "JSW:R",
-                "JSW2",
-                "JSW1"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 23,
-            "name": "RespawnMode",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "JSW2",
-                "JSW1"
             ],
             "valuesAsFlags": false
         }

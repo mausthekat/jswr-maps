@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -149,8 +148,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -310,14 +309,18 @@
             "type": "enum",
             "values": [
                 "0",
-                "1 (Normal)",
+                "1 (Very Slow)",
                 "2",
                 "3",
-                "4",
+                "4 (Normal)",
                 "5",
                 "6",
-                "7 (Very Fast)",
-                "8 (Very Slow)"
+                "7",
+                "8 (Fast)",
+                "9",
+                "10",
+                "11",
+                "12 (Very Fast)"
             ],
             "valuesAsFlags": false
         },

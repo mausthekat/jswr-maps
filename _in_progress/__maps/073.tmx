@@ -30,7 +30,7 @@
    <properties>
     <property name="Color" type="color" value="#ffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="0" />
-    <property name="Speed" type="int" propertytype="Speed" value="4" />
+    <property name="Speed" type="int" propertytype="Speed" value="7" />
    </properties>
   </object>
  </objectgroup>

@@ -33,14 +33,14 @@
    <properties>
     <property name="Color" type="color" value="#ffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="0" />
-    <property name="Speed" type="int" propertytype="Speed" value="4" />
+    <property name="Speed" type="int" propertytype="Speed" value="7" />
    </properties>
   </object>
   <object id="9" name="Arrow II 2" type="Arrow" gid="14409" x="224" y="88" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="0" />
-    <property name="Speed" type="int" propertytype="Speed" value="4" />
+    <property name="Speed" type="int" propertytype="Speed" value="7" />
    </properties>
   </object>
   <object id="10" name="Chandelier" type="Guardian" gid="14405" x="224" y="24" width="16" height="16">
@@ -55,7 +55,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="10"/>
-    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Speed" type="int" propertytype="Speed" value="7"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 208,0"/>

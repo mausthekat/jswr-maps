@@ -19,6 +19,76 @@ def get_tmx_dir() -> Path:
     return Path(__file__).parent.parent
 
 
+def make_empty_room_tmx(template_dir: Path, name: str = "Room 1") -> str:
+    """Read `archetype.tmx` from the template dir and substitute the room
+    name. Used by `tmx_project.py create` for the initial placeholder
+    room and by `jsw_snapshot_to_tmx.py` callers that want the same
+    archetype-derived empty room.
+    """
+    archetype = template_dir / "archetype.tmx"
+    content = archetype.read_text()
+    content = content.replace('value="Room 1"', f'value="{name}"')
+    return content
+
+
+def scaffold_project(name: str, location: str = "in_progress",
+                     force: bool = False,
+                     write_initial_world: bool = True,
+                     write_initial_room: bool = True) -> Path:
+    """Create a new TMX project directory from the archetype.
+
+    Used by `tmx_project.py create` (CLI: `write_initial_world=True`,
+    `write_initial_room=True`) and by `jsw_snapshot_to_tmx.py` (which
+    sets both False because it generates the world placements and
+    every room from snapshot data afterwards).
+
+    Returns the project directory path.
+    Raises SystemExit if the directory exists and `force=False`.
+    """
+    if "/" in name or "\\" in name:
+        raise SystemExit("Project name cannot contain path separators")
+    template_dir = get_template_dir()
+    bundle_extensions(template_dir)
+    tmx_dir = get_tmx_dir()
+    target_dir = (tmx_dir / "content" / name) if location == "content" else (
+        tmx_dir / "_in_progress" / name
+    )
+    if target_dir.exists():
+        if not force:
+            raise SystemExit(
+                f"Refusing to overwrite existing directory: {target_dir} "
+                f"(pass force=True to delete it first)"
+            )
+        shutil.rmtree(target_dir)
+    target_dir.mkdir(parents=True)
+
+    # Top-level archetype files: project + world.
+    project_file = target_dir / f"{name}.tiled-project"
+    project_file.write_text(
+        (template_dir / "archetype.tiled-project").read_text().replace(
+            "{PROJECT_NAME}", name
+        )
+    )
+    if write_initial_world:
+        # Single-room placeholder world; callers that generate their
+        # own placements (the snapshot importer) skip this and write
+        # the world later.
+        initial_world = json.dumps({
+            "maps": [{"fileName": "001.tmx", "x": 0, "y": 0}],
+            "type": "world",
+        }, indent=4) + "\n"
+        (target_dir / f"{name}.world").write_text(initial_world)
+
+    if write_initial_room:
+        (target_dir / "001.tmx").write_text(
+            make_empty_room_tmx(template_dir, "Room 1")
+        )
+
+    copy_templates(template_dir / "templates", target_dir / "templates")
+    copy_extensions(template_dir / ".extensions", target_dir / ".extensions")
+    return target_dir
+
+
 def get_template_dir() -> Path:
     """Return the path to the project-template directory."""
     return get_tmx_dir() / "project-template"

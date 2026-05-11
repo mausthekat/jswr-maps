@@ -27,14 +27,14 @@
    <properties>
     <property name="Color" type="color" value="#ffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="1" />
-    <property name="Speed" type="int" propertytype="Speed" value="1" />
+    <property name="Speed" type="int" propertytype="Speed" value="4" />
    </properties>
   </object>
   <object id="3" name="Arrow I" type="Arrow" gid="2147498056" x="0" y="48" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="1" />
-    <property name="Speed" type="int" propertytype="Speed" value="4" />
+    <property name="Speed" type="int" propertytype="Speed" value="7" />
    </properties>
   </object>
   <object id="4" name="Duck Priest 1" type="Guardian" gid="14353" x="16" y="64" width="16" height="16">
@@ -55,7 +55,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="4"/>
-    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 48,0"/>
@@ -64,7 +64,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="6"/>
-    <property name="Speed" type="int" propertytype="Speed" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 48,0"/>

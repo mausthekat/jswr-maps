@@ -743,8 +743,11 @@ function fixObjectProperties(obj, guardianCounts, guardianInstances, map) {
                 wasModified = true;
             }
             if (obj.property("Speed") === undefined) {
-                obj.setProperty("Speed", tiled.propertyValue("Speed", 4));
-                changes.push("Added Speed: 4");
+                // Arrows default to "Fast" (= 2× Willy) — matches the
+                // pre-2026-migration behaviour after the engine table
+                // identity rewrite. New scale: Speed=8 → 4 px/tick.
+                obj.setProperty("Speed", tiled.propertyValue("Speed", 8));
+                changes.push("Added Speed: 8");
                 wasModified = true;
             }
         } else {
@@ -763,8 +766,10 @@ function fixObjectProperties(obj, guardianCounts, guardianInstances, map) {
             wasModified = true;
         }
         if (obj.property("Speed") === undefined) {
-            obj.setProperty("Speed", tiled.propertyValue("Speed", 1));
-            changes.push("Added Speed: 1");
+            // Routes default to "Normal" (= Willy speed). New scale:
+            // Speed=4 → 2 px/tick (matches WALK_SPEED).
+            obj.setProperty("Speed", tiled.propertyValue("Speed", 4));
+            changes.push("Added Speed: 4");
             wasModified = true;
         }
         if (obj.property("Traversal") === undefined) {

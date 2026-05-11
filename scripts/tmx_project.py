@@ -20,136 +20,52 @@ import argparse
 import sys
 from pathlib import Path
 
-import json
-
 from tmx_project_lib import (
     get_template_dir,
     get_tmx_dir,
-    copy_templates,
-    copy_extensions,
-    bundle_extensions,
     update_project,
     find_all_projects,
+    scaffold_project,
 )
-
-def _make_empty_room_tmx(template_dir: Path, name: str = "Room 1") -> str:
-    """Create an empty room TMX from the archetype template.
-
-    Reads archetype.tmx from the template directory and substitutes the
-    room name. The archetype contains the canonical tilesets, properties,
-    and layer structure.
-    """
-    archetype = template_dir / "archetype.tmx"
-    content = archetype.read_text()
-    content = content.replace('value="Room 1"', f'value="{name}"')
-    return content
 
 
 def cmd_create(args) -> int:
     """Create a new project from the archetype."""
     name = args.name
     dry_run = args.dry_run
-    template_dir = get_template_dir()
-    if not dry_run:
-        bundle_extensions(template_dir)
     tmx_dir = get_tmx_dir()
-
-    # Validate project name
-    if "/" in name or "\\" in name:
-        print("Error: Project name cannot contain path separators")
-        return 1
-
-    # Determine target directory
-    if args.location == "content":
-        target_dir = tmx_dir / "content" / name
-    else:
-        target_dir = tmx_dir / "_in_progress" / name
-
-    if target_dir.exists():
-        print(f"Error: Directory already exists: {target_dir}")
-        return 1
+    target_dir = (tmx_dir / "content" / name) if args.location == "content" else (
+        tmx_dir / "_in_progress" / name
+    )
 
     print(f"{'[DRY RUN] ' if dry_run else ''}Creating project: {name}")
     print(f"  Location: {target_dir}")
     print()
 
-    # Files to copy (with renaming and placeholder substitution)
-    files_to_copy = [
-        ("archetype.tiled-project", f"{name}.tiled-project"),
-        ("archetype.world", f"{name}.world"),
-    ]
-
     if dry_run:
+        if target_dir.exists():
+            print(f"Error: Directory already exists: {target_dir}")
+            return 1
+        template_dir = get_template_dir()
         print("Would create directory structure:")
         print(f"  {target_dir}/")
-        for src, dst in files_to_copy:
-            print(f"    {dst}")
+        print(f"    {name}.tiled-project")
+        print(f"    {name}.world")
         print("    001.tmx  (empty room)")
-
-        # Show templates
-        src_templates = template_dir / "templates"
-        if src_templates.exists():
-            print("    templates/")
-            for f in src_templates.rglob("*"):
-                if f.is_file():
-                    rel = f.relative_to(src_templates)
-                    print(f"      {rel}")
-
-        # Show extensions
-        src_extensions = template_dir / ".extensions"
-        if src_extensions.exists():
-            print("    .extensions/")
-            for f in src_extensions.rglob("*"):
-                if f.is_file():
-                    rel = f.relative_to(src_extensions)
-                    print(f"      {rel}")
-
+        for sub in ("templates", ".extensions"):
+            src = template_dir / sub
+            if src.exists():
+                print(f"    {sub}/")
+                for f in src.rglob("*"):
+                    if f.is_file():
+                        print(f"      {f.relative_to(src)}")
         return 0
 
-    # Create target directory
-    target_dir.mkdir(parents=True)
-
-    # Copy and rename files with placeholder substitution.
-    # The world file gets an initial room entry instead of an empty maps array.
-    initial_world = json.dumps({
-        "maps": [
-            {"fileName": "001.tmx", "x": 0, "y": 0}
-        ],
-        "type": "world"
-    }, indent=4) + "\n"
-
-    for src_name, dst_name in files_to_copy:
-        src_path = template_dir / src_name
-        dst_path = target_dir / dst_name
-
-        if src_path.exists():
-            if src_name.endswith(".world"):
-                # Use our initial world with room 001 placed at origin
-                dst_path.write_text(initial_world)
-            else:
-                content = src_path.read_text()
-                content = content.replace("{PROJECT_NAME}", name)
-                dst_path.write_text(content)
-            print(f"  Created: {dst_name}")
-
-    # Create empty room 001.tmx from archetype
-    room_path = target_dir / "001.tmx"
-    room_path.write_text(_make_empty_room_tmx(template_dir, "Room 1"))
-    print("  Created: 001.tmx")
-
-    # Copy templates (with path adjustment)
-    src_templates = template_dir / "templates"
-    dst_templates = target_dir / "templates"
-    changes = copy_templates(src_templates, dst_templates)
-    if changes:
-        print("  Copied:  templates/")
-
-    # Copy extensions
-    src_extensions = template_dir / ".extensions"
-    dst_extensions = target_dir / ".extensions"
-    changes = copy_extensions(src_extensions, dst_extensions)
-    if changes:
-        print("  Copied:  .extensions/")
+    target_dir = scaffold_project(name, location=args.location, force=False)
+    for fname in (f"{name}.tiled-project", f"{name}.world", "001.tmx",
+                  "templates", ".extensions"):
+        if (target_dir / fname).exists():
+            print(f"  Created: {fname}")
 
     print()
     print("Project created successfully!")

@@ -64,7 +64,7 @@
    <properties>
     <property name="Color" type="color" value="#ffffffff"/>
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="1"/>
-    <property name="Speed" type="int" propertytype="Speed" value="7"/>
+    <property name="Speed" type="int" propertytype="Speed" value="10"/>
    </properties>
   </object>
   <object id="9" name="Lift 1" type="Guardian" gid="1647" x="168" y="72" width="16" height="16">
@@ -81,7 +81,7 @@
    <properties>
     <property name="Color" type="color" value="#ffffffff"/>
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="0"/>
-    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Speed" type="int" propertytype="Speed" value="7"/>
    </properties>
   </object>
   <object id="14" name="Sun Face" type="Guardian" gid="1600" x="16" y="24" width="16" height="16">
@@ -95,7 +95,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="2"/>
     <property name="Guardian" type="object" value="6"/>
-    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Speed" type="int" propertytype="Speed" value="5"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 200,0"/>
@@ -104,7 +104,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="0"/>
     <property name="Guardian" type="object" value="9"/>
-    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Speed" type="int" propertytype="Speed" value="5"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 0,72"/>
@@ -113,7 +113,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="11"/>
-    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Speed" type="int" propertytype="Speed" value="5"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 0,64"/>

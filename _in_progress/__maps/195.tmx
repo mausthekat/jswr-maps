@@ -35,7 +35,7 @@
    <properties>
     <property name="Color" type="color" value="#ffffff" />
     <property name="FlightDirection" type="int" propertytype="FlightDirection" value="1" />
-    <property name="Speed" type="int" propertytype="Speed" value="6" />
+    <property name="Speed" type="int" propertytype="Speed" value="9" />
    </properties>
   </object>
   <object id="11" name="UFO 1" type="Guardian" gid="14365" x="88" y="72" width="16" height="16">
@@ -56,7 +56,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="11"/>
-    <property name="Speed" type="int" propertytype="Speed" value="3"/>
+    <property name="Speed" type="int" propertytype="Speed" value="6"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 0,64"/>
@@ -65,7 +65,7 @@
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="13"/>
-    <property name="Speed" type="int" propertytype="Speed" value="3"/>
+    <property name="Speed" type="int" propertytype="Speed" value="6"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 0,64"/>
