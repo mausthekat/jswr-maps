@@ -25,7 +25,7 @@ wheels = [
 
 [[package]]
 name = "jswr-maps"
-version = "0.60.3"
+version = "0.60.4"
 source = { virtual = "." }
 dependencies = [
     { name = "pillow" },
