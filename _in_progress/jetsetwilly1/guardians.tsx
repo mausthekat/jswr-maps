@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="Guardians" class="Guardian" tilewidth="16" tileheight="16" tilecount="84" columns="0" backgroundcolor="#000000">
+<tileset version="1.10" tiledversion="1.11.2" name="Guardians" class="Guardian" tilewidth="16" tileheight="16" tilecount="83" columns="0" backgroundcolor="#000000">
  <properties>
   <property name="Color" type="color" value=""/>
   <property name="TilesetName" value="jetsetwilly1"/>
@@ -228,161 +228,158 @@
  </tile>
  <tile id="49">
   <image source="guardians/g118_f0.png" width="16" height="16"/>
- </tile>
- <tile id="50">
-  <image source="guardians/g119_f0.png" width="16" height="16"/>
   <animation>
+   <frame tileid="49" duration="100"/>
    <frame tileid="50" duration="100"/>
    <frame tileid="51" duration="100"/>
    <frame tileid="52" duration="100"/>
-   <frame tileid="53" duration="100"/>
   </animation>
  </tile>
+ <tile id="50">
+  <image source="guardians/g118_f1.png" width="16" height="16"/>
+ </tile>
  <tile id="51">
-  <image source="guardians/g119_f1.png" width="16" height="16"/>
+  <image source="guardians/g118_f2.png" width="16" height="16"/>
  </tile>
  <tile id="52">
-  <image source="guardians/g119_f2.png" width="16" height="16"/>
+  <image source="guardians/g118_f3.png" width="16" height="16"/>
  </tile>
  <tile id="53">
-  <image source="guardians/g119_f3.png" width="16" height="16"/>
- </tile>
- <tile id="54">
-  <image source="guardians/g120_f0.png" width="16" height="16"/>
+  <image source="guardians/g119_f0.png" width="16" height="16"/>
   <animation>
+   <frame tileid="53" duration="100"/>
    <frame tileid="54" duration="100"/>
    <frame tileid="55" duration="100"/>
    <frame tileid="56" duration="100"/>
-   <frame tileid="57" duration="100"/>
   </animation>
  </tile>
+ <tile id="54">
+  <image source="guardians/g119_f1.png" width="16" height="16"/>
+ </tile>
  <tile id="55">
-  <image source="guardians/g120_f1.png" width="16" height="16"/>
+  <image source="guardians/g119_f2.png" width="16" height="16"/>
  </tile>
  <tile id="56">
-  <image source="guardians/g120_f2.png" width="16" height="16"/>
+  <image source="guardians/g119_f3.png" width="16" height="16"/>
  </tile>
  <tile id="57">
-  <image source="guardians/g120_f3.png" width="16" height="16"/>
- </tile>
- <tile id="58">
-  <image source="guardians/g121_f0.png" width="16" height="16"/>
+  <image source="guardians/g120_f0.png" width="16" height="16"/>
   <animation>
+   <frame tileid="57" duration="100"/>
    <frame tileid="58" duration="100"/>
    <frame tileid="59" duration="100"/>
    <frame tileid="60" duration="100"/>
-   <frame tileid="61" duration="100"/>
   </animation>
  </tile>
+ <tile id="58">
+  <image source="guardians/g120_f1.png" width="16" height="16"/>
+ </tile>
  <tile id="59">
-  <image source="guardians/g121_f1.png" width="16" height="16"/>
+  <image source="guardians/g120_f2.png" width="16" height="16"/>
  </tile>
  <tile id="60">
-  <image source="guardians/g121_f2.png" width="16" height="16"/>
+  <image source="guardians/g120_f3.png" width="16" height="16"/>
  </tile>
  <tile id="61">
-  <image source="guardians/g121_f3.png" width="16" height="16"/>
- </tile>
- <tile id="62">
-  <image source="guardians/g122_f0.png" width="16" height="16"/>
+  <image source="guardians/g121_f0.png" width="16" height="16"/>
   <animation>
+   <frame tileid="61" duration="100"/>
    <frame tileid="62" duration="100"/>
    <frame tileid="63" duration="100"/>
    <frame tileid="64" duration="100"/>
-   <frame tileid="65" duration="100"/>
   </animation>
  </tile>
+ <tile id="62">
+  <image source="guardians/g121_f1.png" width="16" height="16"/>
+ </tile>
  <tile id="63">
-  <image source="guardians/g122_f1.png" width="16" height="16"/>
+  <image source="guardians/g121_f2.png" width="16" height="16"/>
  </tile>
  <tile id="64">
-  <image source="guardians/g122_f2.png" width="16" height="16"/>
+  <image source="guardians/g121_f3.png" width="16" height="16"/>
  </tile>
  <tile id="65">
-  <image source="guardians/g122_f3.png" width="16" height="16"/>
- </tile>
- <tile id="66">
-  <image source="guardians/g123_f0.png" width="16" height="16"/>
+  <image source="guardians/g122_f0.png" width="16" height="16"/>
   <animation>
+   <frame tileid="65" duration="100"/>
    <frame tileid="66" duration="100"/>
    <frame tileid="67" duration="100"/>
    <frame tileid="68" duration="100"/>
-   <frame tileid="69" duration="100"/>
   </animation>
  </tile>
+ <tile id="66">
+  <image source="guardians/g122_f1.png" width="16" height="16"/>
+ </tile>
  <tile id="67">
-  <image source="guardians/g123_f1.png" width="16" height="16"/>
+  <image source="guardians/g122_f2.png" width="16" height="16"/>
  </tile>
  <tile id="68">
-  <image source="guardians/g123_f2.png" width="16" height="16"/>
+  <image source="guardians/g122_f3.png" width="16" height="16"/>
  </tile>
  <tile id="69">
-  <image source="guardians/g123_f3.png" width="16" height="16"/>
- </tile>
- <tile id="70">
-  <image source="guardians/g124_f0.png" width="16" height="16"/>
+  <image source="guardians/g123_f0.png" width="16" height="16"/>
   <animation>
+   <frame tileid="69" duration="100"/>
    <frame tileid="70" duration="100"/>
    <frame tileid="71" duration="100"/>
    <frame tileid="72" duration="100"/>
-   <frame tileid="73" duration="100"/>
   </animation>
  </tile>
+ <tile id="70">
+  <image source="guardians/g123_f1.png" width="16" height="16"/>
+ </tile>
  <tile id="71">
-  <image source="guardians/g124_f1.png" width="16" height="16"/>
+  <image source="guardians/g123_f2.png" width="16" height="16"/>
  </tile>
  <tile id="72">
-  <image source="guardians/g124_f2.png" width="16" height="16"/>
+  <image source="guardians/g123_f3.png" width="16" height="16"/>
  </tile>
  <tile id="73">
-  <image source="guardians/g124_f3.png" width="16" height="16"/>
- </tile>
- <tile id="74">
-  <image source="guardians/g125_f0.png" width="16" height="16"/>
+  <image source="guardians/g124_f0.png" width="16" height="16"/>
   <animation>
+   <frame tileid="73" duration="100"/>
    <frame tileid="74" duration="100"/>
    <frame tileid="75" duration="100"/>
    <frame tileid="76" duration="100"/>
-   <frame tileid="77" duration="100"/>
   </animation>
+ </tile>
+ <tile id="74">
+  <image source="guardians/g124_f1.png" width="16" height="16"/>
  </tile>
  <tile id="75">
-  <image source="guardians/g125_f1.png" width="16" height="16"/>
+  <image source="guardians/g124_f2.png" width="16" height="16"/>
  </tile>
  <tile id="76">
-  <image source="guardians/g125_f2.png" width="16" height="16"/>
+  <image source="guardians/g124_f3.png" width="16" height="16"/>
  </tile>
  <tile id="77">
-  <image source="guardians/g125_f3.png" width="16" height="16"/>
+  <image source="guardians/g125_f0.png" width="16" height="16"/>
+  <animation>
+   <frame tileid="77" duration="100"/>
+   <frame tileid="78" duration="100"/>
+  </animation>
  </tile>
  <tile id="78">
-  <image source="guardians/g126_f0.png" width="16" height="16"/>
-  <animation>
-   <frame tileid="78" duration="100"/>
-   <frame tileid="79" duration="100"/>
-  </animation>
+  <image source="guardians/g125_f1.png" width="16" height="16"/>
  </tile>
  <tile id="79">
-  <image source="guardians/g126_f1.png" width="16" height="16"/>
+  <image source="guardians/g126_f0.png" width="16" height="16"/>
+  <animation>
+   <frame tileid="79" duration="100"/>
+   <frame tileid="80" duration="100"/>
+  </animation>
  </tile>
  <tile id="80">
-  <image source="guardians/g127_f0.png" width="16" height="16"/>
-  <animation>
-   <frame tileid="80" duration="100"/>
-   <frame tileid="81" duration="100"/>
-  </animation>
+  <image source="guardians/g126_f1.png" width="16" height="16"/>
  </tile>
  <tile id="81">
-  <image source="guardians/g127_f1.png" width="16" height="16"/>
- </tile>
- <tile id="82">
-  <image source="guardians/g128_f0.png" width="16" height="16"/>
+  <image source="guardians/g127_f0.png" width="16" height="16"/>
   <animation>
+   <frame tileid="81" duration="100"/>
    <frame tileid="82" duration="100"/>
-   <frame tileid="83" duration="100"/>
   </animation>
  </tile>
- <tile id="83">
-  <image source="guardians/g128_f1.png" width="16" height="16"/>
+ <tile id="82">
+  <image source="guardians/g127_f1.png" width="16" height="16"/>
  </tile>
 </tileset>

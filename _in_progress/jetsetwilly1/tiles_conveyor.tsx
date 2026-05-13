@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_conveyor" tilewidth="8" tileheight="8" tilecount="30" columns="16">
+<tileset version="1.10" tiledversion="1.11.2" name="tiles_conveyor" tilewidth="8" tileheight="8" tilecount="31" columns="16">
  <properties>
   <property name="TilesetName" value="jetsetwilly1"/>
  </properties>
  <image source="tiles_conveyor.png" width="128" height="16"/>
  <tile id="0">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="1">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
@@ -36,31 +35,31 @@
  </tile>
  <tile id="5">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="6">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="7">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="8">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="9">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
@@ -84,13 +83,13 @@
  </tile>
  <tile id="13">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
  <tile id="14">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
@@ -108,7 +107,7 @@
  </tile>
  <tile id="17">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
@@ -126,7 +125,7 @@
  </tile>
  <tile id="20">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
@@ -138,7 +137,7 @@
  </tile>
  <tile id="22">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
@@ -162,7 +161,7 @@
  </tile>
  <tile id="26">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
   </properties>
  </tile>
@@ -179,6 +178,12 @@
   </properties>
  </tile>
  <tile id="29">
+  <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="TileType" propertytype="TileType" value="conveyor"/>
+  </properties>
+ </tile>
+ <tile id="30">
   <properties>
    <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="conveyor"/>

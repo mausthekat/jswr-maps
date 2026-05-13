@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_hazard" tilewidth="8" tileheight="8" tilecount="36" columns="16">
+<tileset version="1.10" tiledversion="1.11.2" name="tiles_hazard" tilewidth="8" tileheight="8" tilecount="37" columns="16">
  <properties>
   <property name="TilesetName" value="jetsetwilly1"/>
  </properties>
@@ -180,6 +180,11 @@
   </properties>
  </tile>
  <tile id="35">
+  <properties>
+   <property name="TileType" propertytype="TileType" value="hazard"/>
+  </properties>
+ </tile>
+ <tile id="36">
   <properties>
    <property name="TileType" propertytype="TileType" value="hazard"/>
   </properties>

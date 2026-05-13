@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="4">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="4">
  <properties>
-  <property name="Down" type="file" value=""/>
+  <property name="Down" type="file" value="001.tmx"/>
   <property name="Flags" propertytype="RoomFlags" value=""/>
   <property name="Left" type="file" value="005.tmx"/>
   <property name="Name" value="At the Foot of the MegaTree"/>
@@ -10,62 +10,65 @@
   <property name="Rope Offset" type="int" value="0"/>
   <property name="Up" type="file" value="009.tmx"/>
   <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+  <property name="Superjump" type="bool" value="false"/>
+  <property name="RigorMortis" type="bool" value="false"/>
+  <property name="WillyColor" type="int" value="0"/>
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx"/>
- <tileset firstgid="59" source="tiles_stairs.tsx"/>
- <tileset firstgid="97" source="tiles_platform.tsx"/>
- <tileset firstgid="156" source="tiles_hazard.tsx"/>
- <tileset firstgid="192" source="tiles_conveyor.tsx"/>
- <tileset firstgid="222" source="collectibles.tsx"/>
- <tileset firstgid="366" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="467" source="guardians.tsx"/>
+ <tileset firstgid="60" source="tiles_stairs.tsx"/>
+ <tileset firstgid="99" source="tiles_platform.tsx"/>
+ <tileset firstgid="159" source="tiles_hazard.tsx"/>
+ <tileset firstgid="196" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="227" source="collectibles.tsx"/>
+ <tileset firstgid="371" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="472" source="guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
-0,159,0,0,159,0,0,159,0,0,4,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,159,0,0,159,0,0,159,0,0,4,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
-0,159,0,0,159,0,0,159,0,0,4,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,159,0,0,159,0,0,159,0,0,4,0,0,0,0,100,100,100,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,159,0,0,159,0,0,159,0,0,4,100,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
-0,159,0,0,159,0,0,159,0,0,4,0,0,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,159,0,0,159,0,0,159,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,159,0,0,159,0,0,159,0,0,4,100,0,0,0,0,0,100,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
-0,159,0,0,159,0,0,159,0,0,4,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,159,0,0,159,0,0,159,0,0,4,0,0,0,0,0,100,100,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,159,0,0,0,0,0,159,0,0,4,100,100,61,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,4,0,0,0,61,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,61,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,163,0,0,163,0,0,163,0,0,5,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,163,0,0,163,0,0,163,0,0,5,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+0,163,0,0,163,0,0,163,0,0,5,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,163,0,0,163,0,0,163,0,0,5,0,0,0,0,103,103,103,5,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,163,0,0,163,0,0,163,0,0,5,103,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+0,163,0,0,163,0,0,163,0,0,5,0,0,103,103,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,163,0,0,163,0,0,163,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,163,0,0,163,0,0,163,0,0,5,103,0,0,0,0,0,103,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+0,163,0,0,163,0,0,163,0,0,5,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,163,0,0,163,0,0,163,0,0,5,0,0,0,0,0,103,103,5,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,163,0,0,0,0,0,163,0,0,5,103,103,63,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,5,0,0,0,63,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,63,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,103,103,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103
   </data>
  </layer>
  <objectgroup id="2" name="Collectables">
-  <object id="1" gid="230" x="8" y="96" width="8" height="8"/>
-  <object id="2" gid="230" x="32" y="88" width="8" height="8"/>
-  <object id="3" gid="230" x="56" y="96" width="8" height="8"/>
+  <object id="1" gid="235" x="8" y="96" width="8" height="8"/>
+  <object id="2" gid="235" x="32" y="88" width="8" height="8"/>
+  <object id="3" gid="235" x="56" y="96" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="Enemies">
-  <object id="4" name="Vert 0x06" type="Guardian" gid="487" x="16" y="48" width="16" height="16">
+  <object id="4" name="Vert 0x06" type="Guardian" gid="492" x="16" y="48" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Color" type="color" value="#ff00d7d7"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="5" name="Vert 0x07" type="Guardian" gid="487" x="40" y="66" width="16" height="16">
+  <object id="5" name="Vert 0x07" type="Guardian" gid="492" x="40" y="66" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Color" type="color" value="#ff00d7d7"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="6" name="Vert 0x08" type="Guardian" gid="487" x="64" y="80" width="16" height="16">
+  <object id="6" name="Vert 0x08" type="Guardian" gid="492" x="64" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Color" type="color" value="#fffc0104"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="7" name="Horiz 0x35" type="Guardian" gid="489" x="72" y="120" width="16" height="16">
+  <object id="7" name="Horiz 0x35" type="Guardian" gid="494" x="72" y="120" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Color" type="color" value="#ffff00ff"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>

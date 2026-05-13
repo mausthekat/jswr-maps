@@ -1,126 +1,101 @@
-<?xml version='1.0' encoding='utf-8'?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="108">
- 
- 
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="108">
  <properties>
-  
-  
-  <property name="Name" value="Nomen Luni" />
-  
-  
-  <property name="Border" type="int" value="2" />
-  
-  
-  <property name="Left" type="file" value="" />
-  
-  
-  <property name="Right" type="file" value="019.tmx" />
-  
-  
-  <property name="Rope" type="bool" value="false" />
-  <property name="Up" type="file" value="" />
-  
-  
-  <property name="Down" type="file" value="043.tmx" />
-  
- 
+  <property name="Border" type="int" value="2"/>
+  <property name="Down" type="file" value="043.tmx"/>
+  <property name="Left" type="file" value=""/>
+  <property name="Name" value="Nomen Luni"/>
+  <property name="Right" type="file" value="019.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value=""/>
  </properties>
- 
- 
- <tileset firstgid="1" source="tiles_solid.tsx" />
- <tileset firstgid="2049" source="tiles_stairs.tsx" />
- <tileset firstgid="4097" source="tiles_platform.tsx" />
- <tileset firstgid="6145" source="tiles_hazard.tsx" />
- <tileset firstgid="8193" source="tiles_decoration.tsx" />
- <tileset firstgid="10241" source="tiles_conveyor.tsx" />
- <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" /><tileset firstgid="14337" source="../../tilesets/guardians.tsx" /><layer id="1" name="Tiles" width="32" height="16">
-  
-  
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="161" source="tiles_stairs.tsx"/>
+ <tileset firstgid="225" source="tiles_platform.tsx"/>
+ <tileset firstgid="337" source="tiles_hazard.tsx"/>
+ <tileset firstgid="417" source="tiles_decoration.tsx"/>
+ <tileset firstgid="673" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="801" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="1033" source="../../tilesets/guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8205,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8206,8194,8209,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
-8194,8194,8206,8194,8194,8194,8372,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8206,8194,
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8207,8194,8194,8205,8194,8194,8194,8194,8194,
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8212,8194,8194,8194,8194,8194,8207,8194,8194,105,105,106,107,105,105,8194,8194,8194,8194,8381,8207,8194,8194,
-8194,8205,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,4157,8194,8194,108,109,106,107,110,111,8194,8194,8194,8355,4157,4157,8381,8194,
-8194,8212,8194,8194,8194,8194,8194,8194,8194,8194,8194,8381,8194,8207,8194,8381,8194,8194,8354,8194,106,107,8194,8354,8207,8354,8194,8354,8355,8370,8194,8194,
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,4157,4157,4157,8194,8354,8357,8194,8207,8370,112,113,8194,8194,4157,8194,8194,8381,8194,8194,8207,8355,
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8381,8357,8370,8381,8194,8354,4157,8381,112,113,8194,8355,8194,8370,8357,8194,8194,8357,13,35,
-8194,8194,8194,8194,8194,8194,8194,8206,8194,8194,8194,8194,8194,8194,8355,8194,8207,8194,8355,8194,112,113,8381,8194,8381,8354,8207,8354,8381,13,13,38,
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,2071,8369,8381,4157,8381,8370,8381,112,113,8194,8354,8194,8381,38,10,13,10,8370,13,
-8194,8194,8194,8194,8205,8194,8194,8194,8194,8194,8194,8194,2071,8369,8370,8357,8194,8355,8194,4157,112,113,8354,8354,8194,13,8357,4157,4157,8381,8357,38,
-8194,8206,8194,8194,8194,8194,8194,8194,8194,8194,8194,2071,8369,8207,8370,8354,8381,8207,8370,8207,112,113,8207,8354,8381,8354,8355,8354,8381,8207,13,10,
-8194,8194,8194,8194,8194,8194,8194,8194,8194,8194,2071,8369,105,105,105,105,105,105,105,105,112,113,105,105,105,105,105,105,105,105,8355,13,
-8194,8194,8194,8194,8194,8194,8194,8194,8207,2071,8369,8370,114,114,114,114,115,114,114,114,112,113,114,114,114,115,114,114,114,114,8207,10
+418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,429,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+418,418,418,418,418,418,418,418,418,418,418,418,430,418,433,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+418,418,430,418,418,418,596,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,430,418,
+418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,431,418,418,429,418,418,418,418,418,
+418,418,418,418,418,418,418,418,418,436,418,418,418,418,418,431,418,418,105,105,106,107,105,105,418,418,418,418,605,431,418,418,
+418,429,418,418,418,418,418,418,418,418,418,418,418,418,418,285,418,418,108,109,106,107,110,111,418,418,418,579,285,285,605,418,
+418,436,418,418,418,418,418,418,418,418,418,605,418,431,418,605,418,418,578,418,106,107,418,578,431,578,418,578,579,594,418,418,
+418,418,418,418,418,418,418,418,418,418,418,285,285,285,418,578,581,418,431,594,112,113,418,418,285,418,418,605,418,418,431,579,
+418,418,418,418,418,418,418,418,418,418,418,418,605,581,594,605,418,578,285,605,112,113,418,579,418,594,581,418,418,581,13,35,
+418,418,418,418,418,418,418,430,418,418,418,418,418,418,579,418,431,418,579,418,112,113,605,418,605,578,431,578,605,13,13,38,
+418,418,418,418,418,418,418,418,418,418,418,418,418,183,593,605,285,605,594,605,112,113,418,578,418,605,38,10,13,10,594,13,
+418,418,418,418,429,418,418,418,418,418,418,418,183,593,594,581,418,579,418,285,112,113,578,578,418,13,581,285,285,605,581,38,
+418,430,418,418,418,418,418,418,418,418,418,183,593,431,594,578,605,431,594,431,112,113,431,578,605,578,579,578,605,431,13,10,
+418,418,418,418,418,418,418,418,418,418,183,593,105,105,105,105,105,105,105,105,112,113,105,105,105,105,105,105,105,105,579,13,
+418,418,418,418,418,418,418,418,431,183,593,594,114,114,114,114,115,114,114,114,112,113,114,114,114,115,114,114,114,114,431,10
 </data>
-  
- 
  </layer>
- 
- 
- <objectgroup id="2" name="Collectables" />
+ <objectgroup id="2" name="Collectables"/>
  <objectgroup id="3" name="Enemies">
-  
-  
-  <object id="100" name="Bird" type="Guardian" gid="14368" x="40" y="32" width="16" height="16">
+  <object id="100" name="Bird" type="Guardian" gid="1064" x="40" y="32" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffd7d700" />
+    <property name="Color" type="color" value="#ffd7d700"/>
    </properties>
   </object>
-  <object id="102" name="Dish Robot" type="Guardian" gid="14395" x="160" y="40" width="16" height="16">
+  <object id="102" name="Dish Robot" type="Guardian" gid="1091" x="160" y="40" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff00d700" />
+    <property name="Color" type="color" value="#ff00d700"/>
    </properties>
   </object>
-  <object id="104" name="Sun Face" type="Guardian" gid="14360" x="128" y="40" width="16" height="16">
+  <object id="104" name="Sun Face" type="Guardian" gid="1056" x="128" y="40" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff00d7d7" />
+    <property name="Color" type="color" value="#ff00d7d7"/>
    </properties>
   </object>
-  <object id="106" name="Monkey" type="Guardian" gid="14398" x="176" y="112" width="16" height="16">
+  <object id="106" name="Monkey" type="Guardian" gid="1094" x="176" y="112" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffd7d700" />
+    <property name="Color" type="color" value="#ffd7d700"/>
    </properties>
   </object>
-  </objectgroup>
- 
-
-<objectgroup color="#00ffff" id="4" name="Routes"><object id="101" type="Route" x="0" y="24">
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="101" type="Route" x="0" y="24">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="2" />
-    <property name="Guardian" type="object" value="100" />
-    <property name="Speed" type="int" propertytype="Speed" value="4" />
-    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+    <property name="Direction" type="int" propertytype="Direction" value="2"/>
+    <property name="Guardian" type="object" value="100"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 96,0" />
+   <polyline points="0,0 96,0"/>
   </object>
   <object id="103" type="Route" x="144" y="32">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="3" />
-    <property name="Guardian" type="object" value="102" />
-    <property name="Speed" type="int" propertytype="Speed" value="4" />
-    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+    <property name="Direction" type="int" propertytype="Direction" value="3"/>
+    <property name="Guardian" type="object" value="102"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 48,0" />
+   <polyline points="0,0 48,0"/>
   </object>
   <object id="105" type="Route" x="136" y="0">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="1" />
-    <property name="Guardian" type="object" value="104" />
-    <property name="Speed" type="int" propertytype="Speed" value="4" />
-    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="104"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 0,80" />
+   <polyline points="0,0 0,80"/>
   </object>
   <object id="107" type="Route" x="184" y="56">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="0" />
-    <property name="Guardian" type="object" value="106" />
-    <property name="Speed" type="int" propertytype="Speed" value="4" />
-    <property name="Traversal" type="int" propertytype="Traversal" value="0" />
+    <property name="Direction" type="int" propertytype="Direction" value="0"/>
+    <property name="Guardian" type="object" value="106"/>
+    <property name="Speed" type="int" propertytype="Speed" value="10"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 0,56" />
+   <polyline points="0,0 0,56"/>
   </object>
-  </objectgroup>
- </map>
+ </objectgroup>
+</map>

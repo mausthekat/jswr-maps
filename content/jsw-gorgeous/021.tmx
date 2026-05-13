@@ -51,7 +51,7 @@
     <property name="Flags" propertytype="GuardianFlags" value="" />
    </properties>
   </object>
-  <object id="106" name="Beetle 2" type="Guardian" gid="14364" x="88" y="88" width="16" height="16">
+  <object id="106" name="Beetle 2" type="Guardian" gid="14364" x="88" y="91" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffd7d700" />
     <property name="Flags" propertytype="GuardianFlags" value="" />
@@ -87,7 +87,7 @@
     <property name="Speed" type="int" propertytype="Speed" value="6" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,56" />
+   <polyline points="0,0 0,55" />
   </object>
   <object id="105" type="Route" x="64" y="48">
    <properties>

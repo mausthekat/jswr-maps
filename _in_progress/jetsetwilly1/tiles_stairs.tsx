@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_stairs" tilewidth="8" tileheight="8" tilecount="38" columns="16">
+<tileset version="1.10" tiledversion="1.11.2" name="tiles_stairs" tilewidth="8" tileheight="8" tilecount="39" columns="16">
  <properties>
   <property name="TilesetName" value="jetsetwilly1"/>
  </properties>
  <image source="tiles_stairs.png" width="128" height="24"/>
  <tile id="0">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
@@ -18,7 +17,7 @@
  </tile>
  <tile id="2">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
@@ -42,13 +41,13 @@
  </tile>
  <tile id="6">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="7">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
@@ -84,55 +83,55 @@
  </tile>
  <tile id="13">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="14">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="15">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="16">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="17">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="18">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="19">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="20">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="21">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
@@ -150,13 +149,13 @@
  </tile>
  <tile id="24">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="25">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
@@ -174,13 +173,13 @@
  </tile>
  <tile id="28">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="29">
   <properties>
-   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
@@ -227,6 +226,12 @@
   </properties>
  </tile>
  <tile id="37">
+  <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="TileType" propertytype="TileType" value="stairs"/>
+  </properties>
+ </tile>
+ <tile id="38">
   <properties>
    <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>

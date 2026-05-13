@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_solid" tilewidth="8" tileheight="8" tilecount="58" columns="16">
+<tileset version="1.10" tiledversion="1.11.2" name="tiles_solid" tilewidth="8" tileheight="8" tilecount="59" columns="16">
  <properties>
   <property name="TilesetName" value="jetsetwilly1"/>
  </properties>
@@ -290,6 +290,11 @@
   </properties>
  </tile>
  <tile id="57">
+  <properties>
+   <property name="TileType" propertytype="TileType" value="solid"/>
+  </properties>
+ </tile>
+ <tile id="58">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
   </properties>
