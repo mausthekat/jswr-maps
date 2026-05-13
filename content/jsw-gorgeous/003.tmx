@@ -79,7 +79,7 @@
     <property name="Speed" type="int" propertytype="Speed" value="6" />
     <property name="Traversal" type="int" propertytype="Traversal" value="0" />
    </properties>
-   <polyline points="0,0 0,56" />
+   <polyline points="0,0 0,55" />
   </object>
   <object id="105" type="Route" x="40" y="32">
    <properties>

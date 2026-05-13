@@ -49,7 +49,7 @@
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="102" name="Monkey 2" type="Guardian" gid="1094" x="40" y="64" width="16" height="16">
+  <object id="102" name="Monkey 2" type="Guardian" gid="1094" x="40" y="66" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d7d7"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
@@ -87,14 +87,14 @@
    </properties>
    <polyline points="0,0 0,80"/>
   </object>
-  <object id="105" type="Route" x="72" y="16">
+  <object id="105" type="Route" x="72" y="19">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="104"/>
     <property name="Speed" type="int" propertytype="Speed" value="6"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 0,88"/>
+   <polyline points="0,0 0,85"/>
   </object>
   <object id="107" type="Route" x="32" y="112">
    <properties>
