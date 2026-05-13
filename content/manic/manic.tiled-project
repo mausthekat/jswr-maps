@@ -44,6 +44,12 @@
             "value": false
         },
         {
+            "name": "JumpType",
+            "propertytype": "JumpType",
+            "type": "int",
+            "value": 2
+        },
+        {
             "name": "ManicFinalRoom",
             "propertytype": "",
             "type": "int",
@@ -62,6 +68,18 @@
             "value": false
         },
         {
+            "name": "PhysicsSpeed",
+            "propertytype": "PhysicsSpeed",
+            "type": "int",
+            "value": 2
+        },
+        {
+            "name": "RespawnMode",
+            "propertytype": "RespawnMode",
+            "type": "int",
+            "value": 0
+        },
+        {
             "name": "SPVictoryRoom",
             "propertytype": "",
             "type": "int",
@@ -78,18 +96,6 @@
             "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "JumpType",
-            "propertytype": "JumpType",
-            "type": "int",
-            "value": 0
-        },
-        {
-            "name": "RespawnMode",
-            "propertytype": "RespawnMode",
-            "type": "int",
-            "value": 0
         }
     ],
     "propertyTypes": [
@@ -114,7 +120,8 @@
                 "EndGame",
                 "PlaySound",
                 "Delay",
-                "DoReplay"
+                "DoReplay",
+                "SetWillySuit"
             ],
             "valuesAsFlags": false
         },
@@ -188,6 +195,136 @@
                 "ALWAYS_DEADLY"
             ],
             "valuesAsFlags": true
+        },
+        {
+            "id": 22,
+            "name": "JumpType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW:R",
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 25,
+            "name": "PhysicsSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSWR (21 fps)",
+                "JSW2 (18 fps)",
+                "JSW (15 fps)"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 23,
+            "name": "RespawnMode",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 24,
+            "members": [
+                {
+                    "name": "AirSupply",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Border",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Down",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Flags",
+                    "propertyType": "RoomFlags",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "Left",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Name",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "RaceLabel",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "Right",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "RigorMortis",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "RoomPurpose",
+                    "propertyType": "RoomPurpose",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Rope",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "Rope Offset",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Superjump",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "Up",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "WillyColor",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "WillySuit",
+                    "propertyType": "WillySuit",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "Room",
+            "type": "class",
+            "useAs": [
+                "map"
+            ]
         },
         {
             "id": 5,
@@ -405,30 +542,8 @@
                 "Normal",
                 "SpaceSuit",
                 "DivingSuit",
-                "FlyingPig"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 22,
-            "name": "JumpType",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "JSW:R",
-                "JSW2",
-                "JSW1"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 23,
-            "name": "RespawnMode",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "JSW2",
-                "JSW1"
+                "FlyingPig",
+                "Miner"
             ],
             "valuesAsFlags": false
         }

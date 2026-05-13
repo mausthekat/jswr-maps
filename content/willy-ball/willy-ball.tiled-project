@@ -87,6 +87,12 @@
             "propertytype": "RespawnMode",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "PhysicsSpeed",
+            "propertytype": "PhysicsSpeed",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -326,7 +332,8 @@
                 "Normal",
                 "SpaceSuit",
                 "DivingSuit",
-                "FlyingPig"
+                "FlyingPig",
+                "Miner"
             ],
             "valuesAsFlags": false
         },
@@ -402,7 +409,8 @@
                 "EndGame",
                 "PlaySound",
                 "Delay",
-                "DoReplay"
+                "DoReplay",
+                "SetWillySuit"
             ],
             "valuesAsFlags": false
         },
@@ -426,6 +434,113 @@
             "values": [
                 "JSW2",
                 "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 24,
+            "members": [
+                {
+                    "name": "Name",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "Up",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Right",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Down",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Left",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Rope",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "Rope Offset",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Flags",
+                    "propertyType": "RoomFlags",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "WillySuit",
+                    "propertyType": "WillySuit",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "RoomPurpose",
+                    "propertyType": "RoomPurpose",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Border",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "AirSupply",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "RaceLabel",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "RigorMortis",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "Superjump",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "WillyColor",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "Room",
+            "type": "class",
+            "useAs": [
+                "map"
+            ]
+        },
+        {
+            "id": 25,
+            "name": "PhysicsSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSWR (21 fps)",
+                "JSW2 (18 fps)",
+                "JSW (15 fps)"
             ],
             "valuesAsFlags": false
         }
