@@ -147,8 +147,14 @@ def _resolve_cell(room: Room, value: int) -> tuple[TileGraphic | None, int]:
     For palette-index layouts: cell value indexes the palette directly.
     For attribute-array layouts (Z): cell value is a ZX attribute byte;
     look up the palette tile with the matching attribute. Unmatched
-    cells return (None, attr) so the renderer can substitute the
-    placeholder water graphic colored by `attr`.
+    attribute bytes reuse palette slot 1's bitmap colored by the
+    cell's own attribute — JSWED's `Jsw64Room::exportCells`
+    (`j64room.cxx:1620-1652`) does the same: it iterates every attr
+    byte that appears on-screen but isn't in the 16-entry palette,
+    creates a synthetic cell entry inheriting palette[1]'s 8-byte
+    bitmap with the new attribute, and exports it as `CB_WATER`.
+    Without this fallback the cell vanishes from the TMX (e.g. the
+    "DeePeR" letter straights at the top of cavern 19).
     """
     palette = room.tile_palette
     if not palette:
@@ -156,6 +162,11 @@ def _resolve_cell(room: Room, value: int) -> tuple[TileGraphic | None, int]:
     if room.is_attribute_layout:
         idx = _attr_match_palette(palette, value)
         if idx is None:
+            # Unmatched attribute: synthesize a tile using palette[1]'s
+            # bitmap with the cell's own attribute as colour.
+            if len(palette) > 1:
+                base = palette[1]
+                return TileGraphic(attr=value, bitmap=base.bitmap), value
             return None, value
         tile = palette[idx]
         return tile, tile.attr
@@ -234,6 +245,17 @@ def _category_index(room: Room, value: int) -> int | None:
     role_map = room.tile_role_map
     if room.is_attribute_layout:
         idx = _attr_match_palette(room.tile_palette, value)
+        if idx is None:
+            # JSWED `Jsw64Room::exportCells` exports unmatched attrs as
+            # `CB_WATER` (= PLATFORM in the Manic-engine canonical role
+            # map). Returning 2 here means the cell ends up in
+            # `tiles_platform.tsx` with palette[1]'s bitmap recoloured
+            # by the cell's attribute (see `_resolve_cell`). Skips
+            # background-attribute cells: when the cell carries the
+            # AIR slot's own attribute it's just empty space.
+            if room.tile_palette and value == room.tile_palette[0].attr:
+                return None
+            return 2
     elif 0 <= value < len(room.tile_palette):
         idx = value
     else:

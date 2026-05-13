@@ -174,6 +174,7 @@ def load_snapshot(path: str | Path) -> Snapshot:
     `.szx`, `.tap`, `.tzx`, `.pzx`. Always attempts 128K mode first so
     multi-bank room data (JSW128, JSW64) lands in `Snapshot.banks` —
     falls back to 48K only when the 128K path fails or doesn't apply.
+
     """
     p = Path(path).resolve()
     ext = p.suffix.lower()
@@ -586,8 +587,30 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
            layout_is_attributes=True,
            air_supply_offset=(0xDF, 0xE0),
            is_manic_style=True,
-           tile_role_map=(None, 3, 0, 3, 1, 1, 5, 5, 7, 8),
-           tile_mirror_map=(False, False, False, False, True, False, True, False, False, False)),
+           # Per JSWED's `Jsw64Room::getCellBehaviour` (`j64room.cxx:437`)
+           # the cell-behaviour map for variants W/Y/Z is stored at
+           # bank 7 offset `$F4FF` (16 bytes). Each entry maps a
+           # palette index → CB_* constant (see room.hxx:60-70):
+           #   CB_AIR=0, CB_WATER=1, CB_EARTH=2, CB_FIRE=3,
+           #   CB_LRAMP=4, CB_RRAMP=5, CB_LCONV=6, CB_RCONV=7,
+           #   CB_CRUMBLY=8, CB_TRAMP=9, CB_TRAP=10.
+           #
+           # Extracted from MMDD's bank 7 $F4FF:
+           #   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 5, 1, 3, 2, 1, 1]
+           # → slot 10 = CB_RRAMP (STAIRS), slot 11 = CB_WATER
+           # (PLATFORM — Manic engines treat "water" cells as the
+           # standard walkable surface), slot 12 = CB_FIRE (HAZARD).
+           # Slots 13..15 unused by MMDD's 13-entry palette.
+           #
+           # Translated to canonical category roles (0=SOLID,
+           # 1=STAIRS, 2=PLATFORM, 3=HAZARD, 5=CONVEYOR,
+           # 7=COLLAPSIBLE, 8=TRAMPOLINE; None=AIR):
+           tile_role_map=(None, 2, 0, 3, 1, 1, 5, 5, 7, 8, 1, 2, 3),
+           # Mirror flag tracks direction variants:
+           #   slot 4 (LRAMP) mirrored; slot 5 (RRAMP) not.
+           #   slot 6 (LCONV) mirrored; slot 7 (RCONV) not.
+           #   slot 10 = RRAMP (same as slot 5, not mirrored).
+           tile_mirror_map=(False, False, False, False, True, False, True, False, False, False, False, False, False)),
 )
 
 
@@ -853,7 +876,78 @@ def detect_engine(snap: Snapshot) -> Engine | None:
         _count_rooms_in_slot(snap, src, off, n, chosen, strict=True)
         for (src, off, n) in chosen.slots
     )
+    # JSW64 W/Y/Z and Manic-DD: per JSWED `Jsw64Room::getCellBehaviour`
+    # (`j64room.cxx:437`), the palette→behaviour map for these variants
+    # is stored at bank 7 offset `$F4FF` (16 bytes). When present and
+    # non-default, derive `tile_role_map`/`tile_mirror_map` from it so
+    # each game's per-cavern palette semantics round-trip exactly. The
+    # variant byte at `$85C9` selects the addressing scheme.
+    dynamic_role = _read_jsw64_cb_role_map(snap, chosen)
+    if dynamic_role is not None:
+        role_map, mirror_map = dynamic_role
+        return dataclasses.replace(
+            chosen,
+            populated_rooms=populated,
+            tile_role_map=role_map,
+            tile_mirror_map=mirror_map,
+        )
     return dataclasses.replace(chosen, populated_rooms=populated)
+
+
+# JSWED CB_* constants (`room.hxx:60-70`) — palette cell behaviours.
+# Mapped to our canonical category roles (0=SOLID, 1=STAIRS, 2=PLATFORM,
+# 3=HAZARD, 5=CONVEYOR, 7=COLLAPSIBLE, 8=TRAMPOLINE; None=AIR). Manic-
+# engine games treat CB_WATER as the walkable surface, so the canonical
+# role is PLATFORM. CB_TRAP (10) has no canonical mapping — surfaced as
+# HAZARD until we wire trap-specific semantics.
+_JSW64_CB_TO_ROLE: dict[int, int | None] = {
+    0: None,   # CB_AIR
+    1: 2,      # CB_WATER  → PLATFORM
+    2: 0,      # CB_EARTH  → SOLID
+    3: 3,      # CB_FIRE   → HAZARD
+    4: 1,      # CB_LRAMP  → STAIRS (mirror)
+    5: 1,      # CB_RRAMP  → STAIRS
+    6: 5,      # CB_LCONV  → CONVEYOR (mirror)
+    7: 5,      # CB_RCONV  → CONVEYOR
+    8: 7,      # CB_CRUMBLY → COLLAPSIBLE
+    9: 8,      # CB_TRAMP  → TRAMPOLINE
+    10: 3,     # CB_TRAP   → HAZARD (fallback)
+}
+# Which CB_* values are the mirrored direction variant of their canonical
+# role — used to populate `tile_mirror_map` entries.
+_JSW64_CB_MIRRORED = {4, 6}
+
+
+def _read_jsw64_cb_role_map(snap: Snapshot, engine: Engine
+                            ) -> tuple[tuple[int | None, ...],
+                                       tuple[bool, ...]] | None:
+    """Read the per-game cell-behaviour map for JSW64 W/Y/Z variants
+    (and Manic-DD which inherits the Z packaging) and translate it into
+    `(tile_role_map, tile_mirror_map)` tuples. Returns None when the
+    map isn't applicable (wrong engine, missing bank 7, or all-zero
+    map indicating an uninitialized snapshot) — caller falls back to
+    the engine's hardcoded role map.
+    """
+    if not (engine.name.startswith("JSW64-") or engine.name == "Manic-DD"):
+        return None
+    bank7 = snap.banks.get(7)
+    if bank7 is None or len(bank7) < 0x4000:
+        return None
+    # JSWED's `memoryAt(0xF4FF, 7)` reads bank 7 at offset $34FF for
+    # variants W/Y/Z. Variant `[` uses $F519 (offset $3519). V/X store
+    # the map per-room, not globally — they don't reach this helper.
+    variant = chr(int(snap.ram[0x85C9])) if 0x85C9 < len(snap.ram) else ''
+    if variant == '[':
+        offset = 0xF519 - 0xC000
+    else:
+        offset = 0xF4FF - 0xC000
+    cb_map = [int(bank7[offset + i]) for i in range(16)]
+    if not any(cb_map):
+        return None  # uninitialized — fall back to hardcoded
+    palette_n = engine.tile_palette_count
+    role_map = tuple(_JSW64_CB_TO_ROLE.get(cb_map[i]) for i in range(palette_n))
+    mirror_map = tuple(cb_map[i] in _JSW64_CB_MIRRORED for i in range(palette_n))
+    return role_map, mirror_map
 
 
 # ---------------------------------------------------------------------------
@@ -1663,6 +1757,57 @@ class ItemData:
 
 
 @dataclass(frozen=True)
+class PortalData:
+    """A cavern's exit/portal — the `MM_EXIT` cell in Manic-style packs
+    and the door/gate in JSW64. Coordinates are in tiles. `attribute`
+    is the ZX colour byte for the portal sprite.
+    """
+
+    x: int
+    y: int
+    attribute: int
+    target_room: int = 0
+    target_x: int = 0
+    target_y: int = 0
+
+
+def parse_portal(room: "Room") -> PortalData | None:
+    """Decode the JSW64/Manic-DD portal from a room's raw bytes.
+
+    Per JSWED `Jsw64Room::getPortal` (`j64room.cxx:331`):
+      $EE..$EF : 16-bit sprite address (`0` = no portal)
+      $F0       : x in bits 0-4, y_low3 in bits 5-7
+      $F1 bit 0 : y_high1
+      $F4       : portal attribute (ZX colour byte)
+      $F5       : target room id
+      $F6       : target x in bits 0-4, target y_low3 in bits 5-7
+      $F8 bits 4-7 : target y_high
+
+    Returns None when the room block has no portal address set (cavern
+    has no exit) or the raw block is too short.
+    """
+    raw = room.raw
+    if not raw or len(raw) < 0xF9:
+        return None
+    sprite_addr = int(raw[0xEE]) | (int(raw[0xEF]) << 8)
+    if sprite_addr == 0:
+        return None
+    f0 = int(raw[0xF0])
+    f1 = int(raw[0xF1])
+    x = f0 & 0x1F
+    y = ((f0 & 0xE0) >> 5) | ((f1 & 1) << 3)
+    attribute = int(raw[0xF4])
+    target_room = int(raw[0xF5])
+    f6 = int(raw[0xF6])
+    f8 = int(raw[0xF8])
+    target_x = f6 & 0x1F
+    target_y = ((f6 & 0xE0) >> 5) | ((f8 >> 4) & 0x08)
+    return PortalData(x=x, y=y, attribute=attribute,
+                      target_room=target_room,
+                      target_x=target_x, target_y=target_y)
+
+
+@dataclass(frozen=True)
 class GuardianRef:
     """One guardian entry referenced from a room's `$F0..$FF` list.
 
@@ -1674,7 +1819,8 @@ class GuardianRef:
     """
     def_idx: int                 # index into the global def table
     ix: int                      # per-instance byte from $F0..$FF
-    kind: str                    # "horiz" / "vert" / "rope" / "arrow" / "lift" / "toilet"
+    kind: str                    # one of: horiz / vert / rope / arrow / lift / toilet
+                                 # / diag_nw_se / diag_ne_sw / scenery / switch / opening_wall
     x: int                       # initial x in pixels (0..255)
     y: int                       # initial y in pixels (0..127)
     direction: int | None        # Tiled Direction enum: 0=Up 1=Down 2=Left 3=Right; None for rope
@@ -1746,29 +1892,39 @@ _ITEMS_FIRST_INDEX = 173
 _ITEMS_LAST_INDEX = 255
 
 
-# JSW64 (all six variants V/W/X/Y/YY/Z) keep the parallel-array idea
-# but split the high byte into a separate 256-byte page that lives in
-# bank 0 — per https://seasip.info/Jsw/doc128.html: "Object at 0A4xxh
-# is in location at 0C0xxh". Low byte is still at default-banking
-# 0xA400+N (bank 2's view); high byte is at bank-0 offset N (mapped
-# to 0xC000+N when bank 0 is paged).
+# JSW64 items table — schema per JSWED 2.3.7's `Jsw64Game::Jsw64Game()`
+# constructor (file `j64game.cxx:61-69`) and `JswGame::itemPos`
+# (`jswgame.cxx:205-219`). Two parallel 256-byte tables indexed by
+# slot N ∈ 0..255:
 #
-# Bit layout (verified empirically across JSW64-V/W/X/Y/YY/Z snapshots):
-#   bit 15    : "collected" flag (set = collected — items zeroed when
-#               collected, so this is 0 across all live entries)
-#   bits 14-8 : room number (0..127) — wide enough for V/W's 128
-#               rooms; X/Y/YY/Z fit in the lower 6 bits
-#   bits 7-5  : y-coordinate (0..7) — items always live in the upper
-#               half of a room in JSW64
-#   bits 4-0  : x-coordinate (0..31)
+#   - "stat/room" byte: room id (low 6 or 7 bits per variant mask),
+#     plus Y high bit in bit 7.
+#   - "xy" byte: X in low 5 bits, Y low-3-bits in upper 3 bits.
 #
-# Total table size is 256 entries (V/W use slots 76..255 = 180 items;
-# X/Y/YY/Z use slots 166..255 = 90 items). Trailing slots may be
-# zeroed because the player has collected those items in the
-# snapshot — we just iterate the whole 256-entry range and skip
-# zeroes, which is robust whether or not the snapshot is mid-game.
-_JSW64_ITEMS_LOW_ADDR = 0xA400
-_JSW64_ITEMS_HIGH_BANK = 0
+# The TABLE LOCATION depends on the variant byte at `$85C9`:
+#
+#   V / W (`m_itemBase = 0xC000`, `m_itemMask = 0x7F`)
+#     stat byte: bank 0 at offset N (= `$C000+N` when bank 0 paged)
+#     xy byte:   default-banking `$A500+N`
+#
+#   X / Y / YY / Z / Manic-DD (default case — `m_itemBase = 0xA400`,
+#                              `m_itemMask = 0x3F`)
+#     stat byte: default-banking `$A400+N`
+#     xy byte:   default-banking `$A500+N`
+#
+# `itemCount` byte at `$85CA` gives the lowest valid slot index —
+# entries below it are reserved engine workspace, not items. JSW1's
+# 173-item-floor moved to `$A3FF`; J64 relocates to `$85CA`.
+#
+# Y reconstruction (4 bits in pixel units, multiples of 8):
+#     Y = ((xy & 0xE0) >> 2) | ((stat & 0x80) >> 1)
+#     → bits 5..3 from xy[7..5], bit 6 from stat[7]
+#   range 0..120, divisible by 8 = tile rows 0..15.
+_JSW64_VARIANT_ADDR = 0x85C9    # peek -> ASCII variant letter
+_JSW64_ITEM_COUNT_ADDR = 0x85CA  # peek -> lowest valid slot index
+_JSW64_ITEM_XY_ADDR = 0xA500     # default-banking, X/Y byte (all variants)
+_JSW64_ITEM_STAT_DEFAULT_ADDR = 0xA400  # X/Y/Z/YY/Manic-DD stat byte
+_JSW64_ITEM_STAT_VW_BANK = 0     # V/W stat byte lives in bank 0 at offset N
 
 
 def _engine_has_jsw48_items_table(engine: Engine) -> bool:
@@ -1806,23 +1962,47 @@ def _parse_items_jsw48(snap: Snapshot) -> dict[int, list[ItemData]]:
     return by_room
 
 
-def _parse_items_jsw64(snap: Snapshot) -> dict[int, list[ItemData]]:
+def _parse_items_jsw64(snap: Snapshot,
+                       populated_rooms: int | None = None
+                       ) -> dict[int, list[ItemData]]:
+    """JSW64-family items decode, dispatching by variant byte at `$85C9`.
+
+    Y comes out as a tile-row index 0..15 (the underlying field is a
+    pixel y on multiples of 8 — divided here so callers get the same
+    tile units as JSW48 / JSW128).
+
+    Verified against ManicMinerRedux's MMDD level data: cavern 0 ("The
+    Hollow Chamber") items at `$A400/$A500` decode to the exact (x, y)
+    positions Redux lists.
+    """
     by_room: dict[int, list[ItemData]] = {}
     ram = snap.ram
-    high_bank = snap.banks.get(_JSW64_ITEMS_HIGH_BANK)
-    if high_bank is None or len(high_bank) < 256:
+    if _JSW64_ITEM_XY_ADDR + 255 >= len(ram):
         return by_room
-    if _JSW64_ITEMS_LOW_ADDR + 255 >= len(ram):
-        return by_room
-    for n in range(256):
-        lo = int(ram[_JSW64_ITEMS_LOW_ADDR + n])
-        hi = int(high_bank[n])
-        if (hi << 8 | lo) == 0:
+    variant = chr(int(ram[_JSW64_VARIANT_ADDR])) if _JSW64_VARIANT_ADDR < len(ram) else ''
+    if variant in ('V', 'W'):
+        stat_bank = snap.banks.get(_JSW64_ITEM_STAT_VW_BANK)
+        if stat_bank is None or len(stat_bank) < 256:
+            return by_room
+        stat_bytes = [int(stat_bank[i]) for i in range(256)]
+        room_mask = 0x7F
+    else:
+        if _JSW64_ITEM_STAT_DEFAULT_ADDR + 255 >= len(ram):
+            return by_room
+        stat_bytes = [int(ram[_JSW64_ITEM_STAT_DEFAULT_ADDR + i]) for i in range(256)]
+        room_mask = 0x3F
+    item_count = int(ram[_JSW64_ITEM_COUNT_ADDR]) if _JSW64_ITEM_COUNT_ADDR < len(ram) else 0
+    for n in range(item_count, 256):
+        stat = stat_bytes[n]
+        xy = int(ram[_JSW64_ITEM_XY_ADDR + n])
+        if stat == 0 and xy == 0:
             continue
-        room = hi & 0x7F  # 7-bit room; bit 7 is the (zeroed) collected flag
-        y = (lo >> 5) & 0x07
-        x = lo & 0x1F
-        by_room.setdefault(room, []).append(ItemData(x=x, y=y))
+        room = stat & room_mask
+        if populated_rooms is not None and room >= populated_rooms:
+            continue
+        x = xy & 0x1F
+        y_pix = ((xy & 0xE0) >> 2) | ((stat & 0x80) >> 1)
+        by_room.setdefault(room, []).append(ItemData(x=x, y=y_pix // 8))
     return by_room
 
 
@@ -1878,10 +2058,20 @@ def _decode_jsw48_def(def_idx: int, ix: int, defb: tuple[int, ...]
                       ) -> GuardianRef | None:
     """Build a `GuardianRef` from one (def_idx, ix) pair + its 8 def
     bytes. Returns None for "unused" slots (def_idx 0xFF or all-zero
-    def bytes)."""
+    def bytes).
+
+    Mirrors JSWED `Jsw128Guard::getType()` (`j128guard.cxx:905`):
+        type = defb[0] & 0x0F
+        if type == 8: type = defb[0]   # full byte selects sub-type
+
+    The low-nibble path covers classic JSW1/JSW128 guardians (horiz,
+    vert, rope, arrow, diagonals). The full-byte path covers JSW64
+    specials (scenery, lift, switch, opening wall).
+    """
     if def_idx == 0xFF:
         return None
-    type_bits = defb[0] & 0x07
+    low_nibble = defb[0] & 0x0F
+    gtype = low_nibble if low_nibble != 8 else defb[0]
     bit7 = (defb[0] >> 7) & 1
     initial_frame = (defb[0] >> 5) & 0x03
     frame_mask = (defb[1] >> 5) & 0x07
@@ -1892,31 +2082,73 @@ def _decode_jsw48_def(def_idx: int, ix: int, defb: tuple[int, ...]
     # barrel that lives at frame 3 of code-remnant page $9C) draw
     # the right graphic.
     base_sprite = (ix >> 5) & 0x07
-    if type_bits == 1:           # horizontal patrol
+    # Default position decode (most types): JSW128 `Jsw128Guard::draw`
+    # reads `x = (m_guard[2] & 0x1F) * 16` and `y = m_guard[3] & 0xFE`.
+    # In our 1× pixel coords that's `(ix & 0x1F) * 8` and `defb[3] >> 1`.
+    if low_nibble in (1, 9):     # horizontal patrol (1 normal, 9 cycling)
         x = (ix & 0x1F) * 8
         y = defb[3] >> 1
         kind = "horiz"
         direction = 3 if bit7 else 2
         mirrored = not bit7
-    elif type_bits == 2:         # vertical patrol
+    elif low_nibble in (2, 7, 10, 15):   # vertical patrol variants
         x = (ix & 0x1F) * 8
         y = defb[3] >> 1
         kind = "vert"
         y_inc = defb[4] if defb[4] < 128 else defb[4] - 256
         direction = 0 if y_inc < 0 else 1
         mirrored = False
-    elif type_bits == 3:         # rope
+    elif low_nibble == 3:        # rope
         x = (ix & 0x1F) * 8
         y = 16
         kind = "rope"
         direction = None
         mirrored = False
-    elif type_bits == 4:         # arrow
+    elif low_nibble == 4:        # arrow
         x = 0 if bit7 else 240
         y = ((ix >> 3) << 2) + 8
         kind = "arrow"
         direction = 3 if bit7 else 2
         mirrored = not bit7
+    elif low_nibble in (5, 13):  # NW→SE diagonal (incl. cycling)
+        x = (ix & 0x1F) * 8
+        y = defb[3] >> 1
+        kind = "diag_nw_se"
+        direction = None
+        mirrored = False
+    elif low_nibble in (6, 14):  # NE→SW diagonal (incl. cycling)
+        x = (ix & 0x1F) * 8
+        y = defb[3] >> 1
+        kind = "diag_ne_sw"
+        direction = None
+        mirrored = False
+    elif gtype in (0x08, 0x18, 0x28, 0x38, 0x68, 0x88):  # static scenery
+        x = (ix & 0x1F) * 8
+        y = defb[3] >> 1
+        kind = "scenery"
+        direction = None
+        mirrored = False
+    elif gtype == 0x58:          # Lift (vertical platform)
+        x = (ix & 0x1F) * 8
+        y = defb[3] >> 1
+        kind = "lift"
+        direction = None
+        mirrored = False
+    elif gtype == 0x98:          # Switch — interactive trigger
+        x = (ix & 0x1F) * 8
+        y = defb[3] >> 1
+        kind = "switch"
+        direction = None
+        mirrored = False
+    elif gtype == 0xA8:          # Opening wall — per JSWED `drawOpeningWall`
+                                  # x/y come from defb[6]/defb[7]:
+                                  #   x = (m_guard[6] & 0x1F) * 16
+                                  #   y = m_guard[7] & 0xFE
+        x = (defb[6] & 0x1F) * 8
+        y = defb[7] >> 1
+        kind = "opening_wall"
+        direction = None
+        mirrored = False
     else:
         return None
     # Guardian ink lives in `defb[1] & 0x0F` for JSW48 / JSW128 / all
@@ -1977,12 +2209,16 @@ def parse_room_guardians(snap: Snapshot, engine: Engine,
                 out.append(gref)
         return out
 
-    if engine.name.startswith("JSW64-"):
+    if engine.name.startswith("JSW64-") or engine.name == "Manic-DD":
         # Inline 8-byte defs starting at room offset 0, terminated by
         # 0xFF. Cap by the documented max-instance count per variant.
+        # Manic-DD / MMLL inherit JSW64-Z's 8-instance cap (per the
+        # MMDD readme: "using the JSW64 game engine"; bank 2 carries
+        # the literal "JET-SET WILLY Room format is Z").
         max_instances = {
             "JSW64-V": 13, "JSW64-X": 13,
             "JSW64-W": 8,  "JSW64-Y": 8, "JSW64-YY": 8, "JSW64-Z": 8,
+            "Manic-DD": 8,
         }.get(engine.name, 0)
         if max_instances == 0:
             return []
@@ -1995,12 +2231,18 @@ def parse_room_guardians(snap: Snapshot, engine: Engine,
             if raw[base] == 0xFF:
                 break
             defb = tuple(int(b) for b in raw[base:base + _JSW48_DEF_BYTES])
-            # JSW64 stores the initial X/Y inside the def itself rather
-            # than carrying a separate per-instance ix byte. Reuse the
-            # JSW48 decoder by passing the def's own byte 3 high-bits
-            # as a synthetic ix — the type-bit branch in the decoder
-            # already reads x and y from the bytes it has.
-            gref = _decode_jsw48_def(slot, defb[3], defb)
+            # JSW64 / Manic-DD store the initial X (bits 0-4) and
+            # base_sprite (bits 5-7) in `defb[2]` — same encoding JSW48
+            # uses for its per-instance `ix` byte. Per JSWED's
+            # `Jsw128Guard::draw` (`j128guard.cxx:198`):
+            #     x = (m_guard[2] & 0x1F) * 16
+            #     y = (m_guard[3] & 0xFE)
+            # (the *16 scaling is JSWED's 2x display; our pixel coords
+            # use *8 / `>> 1` respectively, matching the JSW48 decoder).
+            # Pass `defb[2]` as the synthetic `ix` so the JSW48 decoder
+            # reads x and base_sprite from the right byte; `defb[3]`
+            # remains the y source via the type-bit branches.
+            gref = _decode_jsw48_def(slot, defb[2], defb)
             if gref is not None:
                 out.append(gref)
         return out
@@ -2085,7 +2327,7 @@ def parse_items(snap: Snapshot, engine: Engine
     if _engine_has_jsw48_items_table(engine):
         return _parse_items_jsw48(snap)
     if _engine_has_jsw64_items_table(engine):
-        return _parse_items_jsw64(snap)
+        return _parse_items_jsw64(snap, engine.populated_rooms)
     return {}
 
 
