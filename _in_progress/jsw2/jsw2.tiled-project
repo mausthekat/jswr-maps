@@ -392,7 +392,8 @@
                 "EndGame",
                 "PlaySound",
                 "Delay",
-                "DoReplay"
+                "DoReplay",
+                "SetWillySuit"
             ],
             "valuesAsFlags": false
         },

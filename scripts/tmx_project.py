@@ -26,6 +26,7 @@ from tmx_project_lib import (
     update_project,
     find_all_projects,
     scaffold_project,
+    bundle_extensions,
 )
 
 
