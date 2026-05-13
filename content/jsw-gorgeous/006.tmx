@@ -74,23 +74,23 @@
    </properties>
    <polyline points="0,0 0,80"/>
   </object>
-  <object id="103" type="Route" x="96" y="40">
+  <object id="103" type="Route" x="96" y="44">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="102"/>
     <property name="Speed" type="int" propertytype="Speed" value="4"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 0,80"/>
+   <polyline points="0,0 0,76"/>
   </object>
-  <object id="105" type="Route" x="192" y="40">
+  <object id="105" type="Route" x="192" y="44">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
     <property name="Guardian" type="object" value="104"/>
     <property name="Speed" type="int" propertytype="Speed" value="4"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 0,80"/>
+   <polyline points="0,0 0,76"/>
   </object>
   <object id="107" type="Route" x="144" y="48">
    <properties>
