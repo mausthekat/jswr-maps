@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="2">
+ <properties>
+  <property name="Down" type="file" value="105.tmx"/>
+  <property name="Flags" propertytype="RoomFlags" value=""/>
+  <property name="Left" type="file" value="099.tmx"/>
+  <property name="Name" value="Ship's Computer"/>
+  <property name="Right" type="file" value="101.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Rope Offset" type="int" value="0"/>
+  <property name="Up" type="file" value=""/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="87" source="tiles_stairs.tsx"/>
+ <tileset firstgid="152" source="tiles_platform.tsx"/>
+ <tileset firstgid="241" source="tiles_hazard.tsx"/>
+ <tileset firstgid="301" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="381" source="collectibles.tsx"/>
+ <tileset firstgid="629" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="730" source="guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+0,0,0,0,0,0,0,356,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,
+0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+228,228,228,228,228,228,228,291,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,228,228,228,228,228,228,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,356,228,228,0,0,228,228,228,228,228,95,0,0,0,0,0,0,0,357,357,
+0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,95,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,95,0,0,0,0,0,0,0,
+95,0,0,0,0,0,0,0,0,0,356,228,228,228,228,0,0,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,
+0,95,0,0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+228,228,95,0,0,0,0,228,228,228,291,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+  </data>
+ </layer>
+ <objectgroup id="2" name="Collectables">
+  <object id="1" gid="381" x="232" y="40" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup id="3" name="Enemies">
+  <object id="2" name="Vert 0x00" type="Guardian" gid="873" x="212" y="24" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffd7d7d7"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="3" name="Vert 0x01" type="Guardian" gid="875" x="212" y="40" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffd7d7d7"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="4" name="Vert 0x02" type="Guardian" gid="632" x="120" y="24" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00ffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="5" name="Vert 0x03" type="Guardian" gid="875" x="136" y="104" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffd7d7d7"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="6" name="Vert 0x04" type="Guardian" gid="873" x="152" y="104" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffd7d7d7"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="7" type="Route" x="128" y="8">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="4"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,120"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Spawn"/>
+ <objectgroup id="6" name="Special"/>
+</map>

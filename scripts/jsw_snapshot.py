@@ -480,7 +480,7 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
     # cell-types per layout cell (vs JSW48's 4 from 2-bit packing);
     # global cell-graphic table at $8C78. Room iteration is via
     # `_walk_jsw2_directory`, NOT `_walk_slots` — the empty `slots`
-    # tuple here is a marker. See `docs/JSW2_FORMAT_NOTES.md`.
+    # tuple here is a marker. See `docs/JSW_ENGINES_REFERENCE.md` §J2-7.
     Engine(name="JSW2",
            slots=(),
            room_size=0,            # variable; not used by walker
@@ -532,7 +532,7 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
     #   $290..$2AF  portal sprite (32 bytes)
     #   $2B0..$2B3  portal position (packed across 688..691)
     #   $2B4..$2BB  item bitmap (8 rows)
-    #   $2BC..$2BD  AIR SUPPLY — see docs/MANIC_MINER_FORMAT_NOTES.md
+    #   $2BC..$2BD  AIR SUPPLY — see docs/formats/JSW_ENGINES_REFERENCE.md §Manic Miner family
     #   $2BE..$2DA  4 horizontal guardians × 7 bytes
     #   $2DD..$2F9  4 vertical guardians × 7 bytes
     # MM has no Left/Right/Up/Down exit bytes — caverns play in a fixed
@@ -959,7 +959,7 @@ _JSW2_MAGIC_DECRYPTED = bytes((0xC0, 0x50, 0xC0, 0x51, 0xC0, 0x52,
                                0xC0, 0x53, 0xC0, 0x54, 0xC0, 0x55))
 _JSW2_MAGIC_ENCRYPTED = bytes((0xEC, 0x93, 0x75, 0xDA, 0x7C, 0xED,
                                0x88, 0x3B, 0xC6, 0x49, 0xF3, 0x8E))
-# Address constants (see docs/JSW2_FORMAT_NOTES.md).
+# Address constants (see docs/JSW_ENGINES_REFERENCE.md §J2-5).
 JSW2_GUARDINKS = 0x70A9     # 4-byte palette indexed by CG6 bits 2-3
 JSW2_CELLS = 0x8C78
 JSW2_CELLSEND = 0x9A2E
@@ -1251,7 +1251,7 @@ def _jsw2_walk_directory(snap: "Snapshot",
         yield rid, "ram", _jsw2_room_offset(snap, rid)
 
 
-# Token dictionary expansion (see docs/JSW2_FORMAT_NOTES.md §9).
+# Token dictionary expansion (see docs/JSW_ENGINES_REFERENCE.md §J2-9).
 def _jsw2_expand_token(ram: np.ndarray, token_id: int,
                        buf: list[str], remaining_cap: list[int]) -> None:
     """Expand token `token_id` from the dictionary at $FA81 into
@@ -1541,8 +1541,8 @@ def _parse_room_guardians_jsw2(snap: "Snapshot",
     * `mirrored`: True when major-step is negative (so the runtime
       has to draw the sprite mirrored from the canonical pose).
     * `sprite_page`: 9-bit field
-      `byte[2] | ((byte[4] >> 7) << 8)` — see §12 of
-      `docs/JSW2_FORMAT_NOTES.md`.
+      `byte[2] | ((byte[4] >> 7) << 8)` — see §J2-12 of
+      `docs/JSW_ENGINES_REFERENCE.md`.
     * `base_sprite`: 0 (JSW2 frames are sequential within the
       sprite-page index space; there is no JSW1-style "base in
       high-nibble of `ix`" packing).
@@ -2383,7 +2383,7 @@ class Room:
     items: list["ItemData"] = field(default_factory=list)
     # Manic Miner per-cavern air supply on the JSWED 0..161 scale
     # (decoded from cavern bytes `700`/`701` per
-    # `docs/MANIC_MINER_FORMAT_NOTES.md`). 0 = unset / not from a
+    # `docs/formats/JSW_ENGINES_REFERENCE.md` §Manic Miner family). 0 = unset / not from a
     # Manic snapshot; non-Manic engines leave this at the default.
     air_supply: int = 0
 

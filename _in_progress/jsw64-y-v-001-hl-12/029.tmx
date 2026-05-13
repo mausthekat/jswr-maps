@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="1">
+ <properties>
+  <property name="Down" type="file" value="023.tmx"/>
+  <property name="Flags" propertytype="RoomFlags" value=""/>
+  <property name="Left" type="file" value="030.tmx"/>
+  <property name="Name" value="First Landing"/>
+  <property name="Right" type="file" value="028.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Rope Offset" type="int" value="0"/>
+  <property name="Up" type="file" value="035.tmx"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="60" source="tiles_stairs.tsx"/>
+ <tileset firstgid="106" source="tiles_hazard.tsx"/>
+ <tileset firstgid="199" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="230" source="tiles_collapsible.tsx"/>
+ <tileset firstgid="232" source="tiles_trampoline.tsx"/>
+ <tileset firstgid="233" source="collectibles.tsx"/>
+ <tileset firstgid="377" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="478" source="guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,27,27,0,0,0,0,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,0,27,27,0,0,0,0,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,0,0,27,27,0,0,0,0,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,0,0,0,27,27,0,0,0,146,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,27,27,0,0,146,146,146,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,27,27,0,0,0,146,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,27,27,0,0,0,146,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,27,27,0,0,0,146,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,0,27,27,0,0,0,0,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,0,0,27,27,0,0,0,0,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,27,27,0,0,0,0,0,0,
+27,27,0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,0,27,27,0,0,0,0,0,0,
+27,27,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,80,0,0,0,0,0,146,0,0,0,0,0,0,0,0,27,147,27,147,27,147,27,147,
+147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,0,0,27,27,27,27,27,27,27,27
+  </data>
+ </layer>
+ <objectgroup id="2" name="Collectables"/>
+ <objectgroup id="3" name="Enemies">
+  <object id="1" name="Horiz 0x00" type="Guardian" gid="491" x="0" y="128" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="2" type="Route" x="192" y="120">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="3"/>
+    <property name="Guardian" type="object" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 48,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Spawn"/>
+ <objectgroup id="6" name="Special"/>
+</map>

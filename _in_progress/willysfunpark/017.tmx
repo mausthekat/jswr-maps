@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#00ff00" nextlayerid="7" nextobjectid="2">
+ <properties>
+  <property name="Down" type="file" value="027.tmx"/>
+  <property name="Flags" propertytype="RoomFlags" value=""/>
+  <property name="Left" type="file" value="016.tmx"/>
+  <property name="Name" value="The Ferris Wheel       D"/>
+  <property name="Right" type="file" value="018.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Rope Offset" type="int" value="0"/>
+  <property name="Up" type="file" value="008.tmx"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="43" source="tiles_stairs.tsx"/>
+ <tileset firstgid="114" source="tiles_hazard.tsx"/>
+ <tileset firstgid="184" source="tiles_decoration.tsx"/>
+ <tileset firstgid="314" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="363" source="tiles_collapsible.tsx"/>
+ <tileset firstgid="405" source="tiles_trampoline.tsx"/>
+ <tileset firstgid="433" source="collectibles.tsx"/>
+ <tileset firstgid="517" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="618" source="guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+223,0,223,223,223,66,0,0,0,0,0,0,132,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,133,132,132,
+223,0,0,223,223,223,66,0,0,0,0,132,0,0,0,0,0,0,133,0,0,0,0,0,0,0,0,0,0,133,133,132,
+223,0,0,0,223,223,223,66,0,0,0,0,0,0,0,0,0,331,0,0,0,0,0,0,0,0,0,0,0,133,133,133,
+223,0,0,0,0,223,223,223,66,0,0,0,0,0,0,0,133,331,0,0,0,11,0,0,0,0,0,0,0,0,0,0,
+223,0,0,0,0,0,223,223,223,66,0,0,0,0,0,67,377,377,377,66,0,0,0,0,0,0,0,0,0,0,0,0,
+223,0,0,0,0,132,0,223,223,223,66,0,0,0,133,377,0,0,0,377,0,0,0,0,0,0,0,0,0,0,0,0,
+223,0,0,132,132,0,0,0,223,223,223,66,0,0,0,377,0,0,0,377,0,0,0,0,0,0,0,0,0,0,0,0,
+223,132,132,0,0,0,0,0,0,223,223,223,66,0,0,377,377,377,377,377,0,0,0,0,0,0,0,0,0,0,0,0,
+223,0,0,0,0,0,0,0,0,0,223,223,223,66,0,0,0,133,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+223,0,0,0,0,0,0,0,0,0,0,223,223,223,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+223,0,0,0,0,0,0,0,0,0,0,0,223,223,223,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,223,223,223,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,223,223,223,66,0,11,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,332,332,332,332,66,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,332,332,332,332,332,332,66,0,0,0,0,0,0,0,0,0,0,0,0,
+224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224
+  </data>
+ </layer>
+ <objectgroup id="2" name="Collectables">
+  <object id="1" gid="457" x="16" y="32" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup id="3" name="Enemies">
+  <object id="2" name="Horiz 0x00" type="Guardian" gid="622" x="128" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="3" name="Horiz 0x01" type="Guardian" gid="622" x="128" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="4" name="Horiz 0x02" type="Guardian" gid="622" x="128" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="5" name="Horiz 0x03" type="Guardian" gid="622" x="128" y="88" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="6" name="Horiz 0x04" type="Guardian" gid="622" x="128" y="88" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="7" name="Horiz 0x05" type="Guardian" gid="622" x="128" y="88" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="8" name="Vert 0x06" type="Guardian" gid="631" x="128" y="56" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="9" name="Horiz 0x07" type="Guardian" gid="632" x="128" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="10" type="Route" x="136" y="56">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="0"/>
+    <property name="Guardian" type="object" value="8"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,56"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Spawn"/>
+ <objectgroup id="6" name="Special"/>
+</map>

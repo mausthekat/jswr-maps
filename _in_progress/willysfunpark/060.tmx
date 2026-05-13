@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="1">
+ <properties>
+  <property name="Down" type="file" value="060.tmx"/>
+  <property name="Flags" propertytype="RoomFlags" value=""/>
+  <property name="Left" type="file" value="059.tmx"/>
+  <property name="Name" value="CONGRATULATIONS!!!      F"/>
+  <property name="Right" type="file" value="060.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Rope Offset" type="int" value="0"/>
+  <property name="Up" type="file" value="055.tmx"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="43" source="tiles_stairs.tsx"/>
+ <tileset firstgid="114" source="tiles_hazard.tsx"/>
+ <tileset firstgid="184" source="tiles_decoration.tsx"/>
+ <tileset firstgid="314" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="363" source="tiles_collapsible.tsx"/>
+ <tileset firstgid="405" source="tiles_trampoline.tsx"/>
+ <tileset firstgid="433" source="collectibles.tsx"/>
+ <tileset firstgid="517" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="618" source="guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+310,310,311,432,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,311,310,310,
+432,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+432,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+310,310,312,312,312,312,312,312,0,0,0,0,0,312,312,312,312,312,312,0,0,0,0,0,312,312,312,312,312,0,310,310,
+432,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+432,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+310,310,312,312,312,312,312,312,0,0,0,0,0,312,312,312,312,312,312,0,0,0,0,0,312,312,312,312,312,312,310,310,
+432,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+432,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+310,310,312,312,312,312,312,312,0,0,0,0,0,312,312,312,312,312,312,0,0,0,0,0,312,312,312,312,312,312,310,310,
+432,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+432,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+310,310,312,312,312,312,312,312,0,0,0,0,0,312,312,312,312,312,312,0,0,0,0,0,312,312,312,312,312,312,310,310,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311,432,
+182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182
+  </data>
+ </layer>
+ <objectgroup id="2" name="Collectables"/>
+ <objectgroup id="3" name="Enemies">
+  <object id="1" name="Horiz 0x00" type="Guardian" gid="656" x="128" y="136" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="2" name="Horiz 0x01" type="Guardian" gid="656" x="128" y="136" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="3" name="Horiz 0x02" type="Guardian" gid="656" x="0" y="112" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="4" name="Horiz 0x03" type="Guardian" gid="656" x="0" y="112" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="5" name="Horiz 0x04" type="Guardian" gid="656" x="0" y="112" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes"/>
+ <objectgroup id="5" name="Spawn"/>
+ <objectgroup id="6" name="Special"/>
+</map>

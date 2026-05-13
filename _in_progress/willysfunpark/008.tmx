@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#ff0000" nextlayerid="7" nextobjectid="2">
+ <properties>
+  <property name="Down" type="file" value="017.tmx"/>
+  <property name="Flags" propertytype="RoomFlags" value=""/>
+  <property name="Left" type="file" value="007.tmx"/>
+  <property name="Name" value="The Dancer          F"/>
+  <property name="Right" type="file" value="009.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Rope Offset" type="int" value="0"/>
+  <property name="Up" type="file" value="002.tmx"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="43" source="tiles_stairs.tsx"/>
+ <tileset firstgid="114" source="tiles_hazard.tsx"/>
+ <tileset firstgid="184" source="tiles_decoration.tsx"/>
+ <tileset firstgid="314" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="363" source="tiles_collapsible.tsx"/>
+ <tileset firstgid="405" source="tiles_trampoline.tsx"/>
+ <tileset firstgid="433" source="collectibles.tsx"/>
+ <tileset firstgid="517" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="618" source="guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+203,0,0,0,0,0,0,0,54,203,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+203,0,0,0,0,0,0,54,203,203,0,0,204,0,0,204,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,204,
+203,0,0,0,0,0,54,203,0,203,0,0,319,0,0,320,320,320,204,204,0,0,0,0,0,0,0,0,0,0,204,204,
+203,0,0,0,0,54,203,0,0,0,203,0,204,368,368,0,0,0,0,204,0,0,0,0,0,0,0,0,0,0,204,204,
+203,0,0,0,54,203,0,0,0,0,203,0,204,0,0,0,0,0,0,204,0,0,0,0,0,0,0,0,0,0,0,204,
+0,203,0,54,203,0,0,0,0,0,203,0,204,320,320,320,320,204,204,204,0,0,0,0,0,0,0,0,0,0,3,204,
+0,0,203,203,0,0,0,203,0,0,0,203,0,0,0,0,0,0,0,0,0,0,0,0,0,0,204,319,0,0,3,204,
+0,0,0,0,0,0,0,0,0,0,0,203,0,0,0,0,0,0,0,0,0,0,0,0,0,0,120,204,319,319,3,204,
+0,0,0,203,203,203,204,204,204,204,204,203,203,203,203,203,203,203,203,203,203,0,0,0,0,0,0,319,3,3,3,3,
+0,0,0,0,0,0,204,0,0,0,204,203,0,0,0,0,0,0,0,54,205,205,205,55,0,0,0,204,204,3,3,3,
+0,0,0,0,0,0,204,0,0,0,204,203,0,0,0,0,0,0,0,205,0,0,0,205,0,0,0,0,204,204,204,204,
+0,203,55,0,0,0,320,204,320,320,204,0,0,0,0,0,0,0,0,205,0,0,0,205,0,0,0,0,0,0,3,3,
+203,203,203,55,0,0,0,204,0,0,203,0,0,0,0,0,0,0,368,205,205,205,205,205,0,0,0,0,0,0,0,0,
+203,203,203,203,55,0,0,0,0,0,203,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+203,0,203,203,203,55,0,0,0,203,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+203,0,0,203,203,203,55,0,203,0,0,203,203,0,0,0,0,203,203,0,0,0,0,0,0,368,0,0,0,0,0,0
+  </data>
+ </layer>
+ <objectgroup id="2" name="Collectables">
+  <object id="1" gid="449" x="32" y="32" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup id="3" name="Enemies">
+  <object id="2" name="Horiz 0x00" type="Guardian" gid="627" x="0" y="112" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="3" name="Horiz 0x04" type="Guardian" gid="618" x="224" y="108" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="4" type="Route" x="112" y="100">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="2"/>
+    <property name="Guardian" type="object" value="3"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 24,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Spawn"/>
+ <objectgroup id="6" name="Special"/>
+</map>
