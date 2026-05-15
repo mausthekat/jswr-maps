@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -77,7 +78,7 @@
             "name": "RespawnMode",
             "propertytype": "RespawnMode",
             "type": "int",
-            "value": 0
+            "value": 1
         },
         {
             "name": "SPVictoryRoom",
@@ -155,8 +156,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
