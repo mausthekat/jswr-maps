@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -97,6 +96,12 @@
             "propertytype": "",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "GuardianSpeed",
+            "propertytype": "GuardianSpeed",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -156,8 +161,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -203,7 +208,7 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "JSW:R",
+                "JSWR",
                 "JSW2",
                 "JSW1"
             ],
@@ -545,6 +550,17 @@
                 "DivingSuit",
                 "FlyingPig",
                 "Miner"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 26,
+            "name": "GuardianSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW",
+                "JSWR"
             ],
             "valuesAsFlags": false
         }

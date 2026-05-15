@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -14,10 +15,22 @@
             "value": "Ovine+MauS"
         },
         {
+            "name": "DefaultTileset",
+            "propertytype": "",
+            "type": "string",
+            "value": ""
+        },
+        {
             "name": "FallDamageMode",
             "propertytype": "FallDamageMode",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "GuardianSpeed",
+            "propertytype": "GuardianSpeed",
+            "type": "int",
+            "value": 1
         },
         {
             "name": "IncludeMapPreview",
@@ -26,49 +39,14 @@
             "value": true
         },
         {
-            "name": "MapName",
+            "name": "InfiniteLivesMP",
             "propertytype": "",
-            "type": "string",
-            "value": "Mansion Redux"
-        },
-        {
-            "name": "SoftLifts",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "ManicFinalRoom",
-            "type": "int",
-            "value": 0
-        },
-        {
-            "name": "OriginalArrows",
-            "type": "bool",
-            "value": false
-        },
-        {
-            "name": "SinglePlayerModes",
-            "propertytype": "SPModes",
-            "type": "int",
-            "value": 1
-        },
-        {
-            "name": "SPVictoryRoom",
-            "type": "int",
-            "value": 32
-        },
-        {
-            "name": "DefaultTileset",
-            "type": "string",
-            "value": ""
         },
         {
             "name": "InfiniteLivesSP",
-            "type": "bool",
-            "value": false
-        },
-        {
-            "name": "InfiniteLivesMP",
+            "propertytype": "",
             "type": "bool",
             "value": false
         },
@@ -79,19 +57,81 @@
             "value": 0
         },
         {
-            "name": "RespawnMode",
-            "propertytype": "RespawnMode",
+            "name": "ManicFinalRoom",
+            "propertytype": "",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "MapName",
+            "propertytype": "",
+            "type": "string",
+            "value": "Mansion Redux"
+        },
+        {
+            "name": "OriginalArrows",
+            "propertytype": "",
+            "type": "bool",
+            "value": false
         },
         {
             "name": "PhysicsSpeed",
             "propertytype": "PhysicsSpeed",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "RespawnMode",
+            "propertytype": "RespawnMode",
+            "type": "int",
+            "value": 0
+        },
+        {
+            "name": "SPVictoryRoom",
+            "propertytype": "",
+            "type": "int",
+            "value": 32
+        },
+        {
+            "name": "SinglePlayerModes",
+            "propertytype": "SPModes",
+            "type": "int",
+            "value": 1
+        },
+        {
+            "name": "SoftLifts",
+            "propertytype": "",
+            "type": "bool",
+            "value": true
         }
     ],
     "propertyTypes": [
+        {
+            "id": 18,
+            "name": "Action",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Complete",
+                "HideGuardian",
+                "ShowGuardian",
+                "ShowTile",
+                "HideTile",
+                "TeleportPlayerTo",
+                "RemovePlayer",
+                "DisablePlayerInput",
+                "EnablePlayerInput",
+                "ReplaceGuardian",
+                "ShowEntity",
+                "HideEntity",
+                "EndGame",
+                "PlaySound",
+                "Delay",
+                "DoReplay",
+                "SetWillySuit"
+            ],
+            "valuesAsFlags": false
+        },
         {
             "id": 1,
             "name": "Direction",
@@ -122,8 +162,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -164,6 +204,147 @@
             "valuesAsFlags": true
         },
         {
+            "id": 26,
+            "name": "GuardianSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW",
+                "JSWR"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 22,
+            "name": "JumpType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSWR",
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 25,
+            "name": "PhysicsSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSWR (21 fps)",
+                "JSW2 (18 fps)",
+                "JSW (15 fps)"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 23,
+            "name": "RespawnMode",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW2",
+                "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 24,
+            "members": [
+                {
+                    "name": "AirSupply",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Border",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Down",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Flags",
+                    "propertyType": "RoomFlags",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "Left",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Name",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "RaceLabel",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "Right",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "RigorMortis",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "RoomPurpose",
+                    "propertyType": "RoomPurpose",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Rope",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "Rope Offset",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Superjump",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "Up",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "WillyColor",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "WillySuit",
+                    "propertyType": "WillySuit",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "Room",
+            "type": "class",
+            "useAs": [
+                "map"
+            ]
+        },
+        {
             "id": 5,
             "name": "RoomFlags",
             "storageType": "string",
@@ -193,6 +374,17 @@
             "valuesAsFlags": false
         },
         {
+            "id": 19,
+            "name": "SessionType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SinglePlayer",
+                "Multiplayer"
+            ],
+            "valuesAsFlags": true
+        },
+        {
             "id": 9,
             "name": "SpawnKind",
             "storageType": "int",
@@ -211,6 +403,12 @@
             "id": 10,
             "members": [
                 {
+                    "name": "GameModes",
+                    "propertyType": "GameModes",
+                    "type": "int",
+                    "value": 0
+                },
+                {
                     "name": "Kind",
                     "propertyType": "SpawnKind",
                     "type": "int",
@@ -219,12 +417,6 @@
                 {
                     "name": "Team",
                     "propertyType": "Team",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "GameModes",
-                    "propertyType": "GameModes",
                     "type": "int",
                     "value": 0
                 }
@@ -263,6 +455,17 @@
                 "12 (Very Fast)"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "id": 16,
+            "name": "SPModes",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SP_CLASSIC",
+                "SP_MANIC_MINER"
+            ],
+            "valuesAsFlags": true
         },
         {
             "id": 8,
@@ -309,29 +512,15 @@
             "valuesAsFlags": false
         },
         {
-            "id": 12,
-            "name": "WillySuit",
-            "storageType": "int",
+            "id": 21,
+            "name": "TriggerMode",
+            "storageType": "string",
             "type": "enum",
             "values": [
-                "Normal",
-                "SpaceSuit",
-                "DivingSuit",
-                "FlyingPig",
-                "Miner"
+                "Unique",
+                "PerPlayer"
             ],
             "valuesAsFlags": false
-        },
-        {
-            "id": 16,
-            "name": "SPModes",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "SP_CLASSIC",
-                "SP_MANIC_MINER"
-            ],
-            "valuesAsFlags": true
         },
         {
             "id": 17,
@@ -352,17 +541,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 19,
-            "name": "SessionType",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "SinglePlayer",
-                "Multiplayer"
-            ],
-            "valuesAsFlags": true
-        },
-        {
             "id": 20,
             "name": "Visibility",
             "storageType": "string",
@@ -374,169 +552,16 @@
             "valuesAsFlags": false
         },
         {
-            "id": 21,
-            "name": "TriggerMode",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Unique",
-                "PerPlayer"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 18,
-            "name": "Action",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Complete",
-                "HideGuardian",
-                "ShowGuardian",
-                "ShowTile",
-                "HideTile",
-                "TeleportPlayerTo",
-                "RemovePlayer",
-                "DisablePlayerInput",
-                "EnablePlayerInput",
-                "ReplaceGuardian",
-                "ShowEntity",
-                "HideEntity",
-                "EndGame",
-                "PlaySound",
-                "Delay",
-                "DoReplay",
-                "SetWillySuit"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 22,
-            "name": "JumpType",
+            "id": 12,
+            "name": "WillySuit",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "JSW:R",
-                "JSW2",
-                "JSW1"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 23,
-            "name": "RespawnMode",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "JSW2",
-                "JSW1"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "color": "#ffa0a0a4",
-            "drawFill": true,
-            "id": 24,
-            "members": [
-                {
-                    "name": "Name",
-                    "type": "string",
-                    "value": ""
-                },
-                {
-                    "name": "Up",
-                    "type": "file",
-                    "value": ""
-                },
-                {
-                    "name": "Right",
-                    "type": "file",
-                    "value": ""
-                },
-                {
-                    "name": "Down",
-                    "type": "file",
-                    "value": ""
-                },
-                {
-                    "name": "Left",
-                    "type": "file",
-                    "value": ""
-                },
-                {
-                    "name": "Rope",
-                    "type": "bool",
-                    "value": false
-                },
-                {
-                    "name": "Rope Offset",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "Flags",
-                    "propertyType": "RoomFlags",
-                    "type": "string",
-                    "value": ""
-                },
-                {
-                    "name": "WillySuit",
-                    "propertyType": "WillySuit",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "RoomPurpose",
-                    "propertyType": "RoomPurpose",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "Border",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "AirSupply",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "RaceLabel",
-                    "type": "string",
-                    "value": ""
-                },
-                {
-                    "name": "RigorMortis",
-                    "type": "bool",
-                    "value": false
-                },
-                {
-                    "name": "Superjump",
-                    "type": "bool",
-                    "value": false
-                },
-                {
-                    "name": "WillyColor",
-                    "type": "int",
-                    "value": 0
-                }
-            ],
-            "name": "Room",
-            "type": "class",
-            "useAs": [
-                "map"
-            ]
-        },
-        {
-            "id": 25,
-            "name": "PhysicsSpeed",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "JSWR (21 fps)",
-                "JSW2 (18 fps)",
-                "JSW (15 fps)"
+                "Normal",
+                "SpaceSuit",
+                "DivingSuit",
+                "FlyingPig",
+                "Miner"
             ],
             "valuesAsFlags": false
         }

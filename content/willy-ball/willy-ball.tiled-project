@@ -93,6 +93,12 @@
             "propertytype": "PhysicsSpeed",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "GuardianSpeed",
+            "propertytype": "GuardianSpeed",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -420,7 +426,7 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "JSW:R",
+                "JSWR",
                 "JSW2",
                 "JSW1"
             ],
@@ -541,6 +547,17 @@
                 "JSWR (21 fps)",
                 "JSW2 (18 fps)",
                 "JSW (15 fps)"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 26,
+            "name": "GuardianSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW",
+                "JSWR"
             ],
             "valuesAsFlags": false
         }
