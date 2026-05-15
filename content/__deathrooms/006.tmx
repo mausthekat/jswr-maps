@@ -3,7 +3,7 @@
  <properties>
   <property name="Border" type="int" value="1"/>
   <property name="Down" type="file" value="007.tmx"/>
-  <property name="Name" value="The Security 404"/>
+  <property name="Name" value="The 404 Guard"/>
   <property name="Rope" type="bool" value="false"/>
   <property name="Up" type="file" value="011.tmx"/>
  </properties>
