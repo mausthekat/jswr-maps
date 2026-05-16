@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -26,6 +27,12 @@
             "value": 1
         },
         {
+            "name": "GuardianSpeed",
+            "propertytype": "GuardianSpeed",
+            "type": "int",
+            "value": 0
+        },
+        {
             "name": "IncludeMapPreview",
             "propertytype": "",
             "type": "bool",
@@ -47,7 +54,7 @@
             "name": "JumpType",
             "propertytype": "JumpType",
             "type": "int",
-            "value": 0
+            "value": 2
         },
         {
             "name": "ManicFinalRoom",
@@ -71,7 +78,7 @@
             "name": "PhysicsSpeed",
             "propertytype": "PhysicsSpeed",
             "type": "int",
-            "value": 0
+            "value": 2
         },
         {
             "name": "RespawnMode",
@@ -96,12 +103,6 @@
             "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "GuardianSpeed",
-            "propertytype": "GuardianSpeed",
-            "type": "int",
-            "value": 0
         }
     ],
     "propertyTypes": [
@@ -161,8 +162,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -201,6 +202,17 @@
                 "ALWAYS_DEADLY"
             ],
             "valuesAsFlags": true
+        },
+        {
+            "id": 26,
+            "name": "GuardianSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW1",
+                "JSWR"
+            ],
+            "valuesAsFlags": false
         },
         {
             "id": 22,
@@ -550,17 +562,6 @@
                 "DivingSuit",
                 "FlyingPig",
                 "Miner"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 26,
-            "name": "GuardianSpeed",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "JSW1",
-                "JSWR"
             ],
             "valuesAsFlags": false
         }

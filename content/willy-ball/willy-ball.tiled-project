@@ -59,7 +59,7 @@
             "name": "SoftLifts",
             "propertytype": "",
             "type": "bool",
-            "value": false
+            "value": true
         },
         {
             "name": "DefaultTileset",

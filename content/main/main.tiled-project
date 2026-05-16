@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -29,7 +30,7 @@
             "name": "GuardianSpeed",
             "propertytype": "GuardianSpeed",
             "type": "int",
-            "value": 1
+            "value": 0
         },
         {
             "name": "IncludeMapPreview",
@@ -161,8 +162,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },

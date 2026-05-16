@@ -34,7 +34,7 @@
         {
             "name": "SoftLifts",
             "type": "bool",
-            "value": false
+            "value": true
         },
         {
             "name": "ManicFinalRoom",

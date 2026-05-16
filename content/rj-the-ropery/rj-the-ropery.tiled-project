@@ -91,7 +91,7 @@
             "name": "GuardianSpeed",
             "propertytype": "GuardianSpeed",
             "type": "int",
-            "value": 0
+            "value": 1
         }
     ],
     "propertyTypes": [
