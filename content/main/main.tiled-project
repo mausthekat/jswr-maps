@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -162,8 +161,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -209,7 +208,7 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "JSW",
+                "JSW1",
                 "JSWR"
             ],
             "valuesAsFlags": false
@@ -234,7 +233,7 @@
             "values": [
                 "JSWR (21 fps)",
                 "JSW2 (18 fps)",
-                "JSW (15 fps)"
+                "JSW1 (15 fps)"
             ],
             "valuesAsFlags": false
         },

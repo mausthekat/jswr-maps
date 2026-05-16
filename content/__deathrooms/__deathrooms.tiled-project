@@ -71,7 +71,7 @@
             "name": "PhysicsSpeed",
             "propertytype": "PhysicsSpeed",
             "type": "int",
-            "value": 2
+            "value": 0
         },
         {
             "name": "RespawnMode",
@@ -222,7 +222,7 @@
             "values": [
                 "JSWR (21 fps)",
                 "JSW2 (18 fps)",
-                "JSW (15 fps)"
+                "JSW1 (15 fps)"
             ],
             "valuesAsFlags": false
         },
@@ -559,7 +559,7 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "JSW",
+                "JSW1",
                 "JSWR"
             ],
             "valuesAsFlags": false
