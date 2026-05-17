@@ -3,7 +3,7 @@
  <properties>
   <property name="Down" type="file" value="" />
   <property name="Left" type="file" value="137.tmx" />
-  <property name="Name" value="Odd Bobs Doing Odd Jobs" />
+  <property name="Name" value="Oddie's Jobbie's" />
   <property name="Right" type="file" value="139.tmx" />
   <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="" />

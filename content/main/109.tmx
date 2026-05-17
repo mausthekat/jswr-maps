@@ -3,7 +3,7 @@
  <properties>
   <property name="Down" type="file" value="" />
   <property name="Left" type="file" value="108.tmx" />
-  <property name="Name" value="Smilas Control Mechanism" />
+  <property name="Name" value="Ship's Control Mechanism" />
   <property name="Right" type="file" value="110.tmx" />
   <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="" />
