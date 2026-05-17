@@ -215,7 +215,7 @@ def bundle_extensions(template_dir: Path) -> None:
         "/// <reference types=\"@mapeditor/tiled-api\" />\n",
         "\n",
         "// =======================================================================\n",
-        "// JSW:R Tiled Extension (bundled from extensions-src/*.js)\n",
+        "// JSWR Tiled Extension (bundled from extensions-src/*.js)\n",
         "// DO NOT EDIT — edit the source files in extensions-src/ instead,\n",
         "// then run: python tmx/scripts/tmx_project.py refresh\n",
         "// =======================================================================\n",

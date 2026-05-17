@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.1" class="Room" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#0000cd" nextlayerid="6" nextobjectid="104">
+ <properties>
+  <property name="Border" type="int" value="3"/>
+  <property name="Down" type="file" value="039.tmx"/>
+  <property name="Name" value="On top of the 404"/>
+  <property name="Right" type="file" value=""/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value=""/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="161" source="tiles_stairs.tsx"/>
+ <tileset firstgid="225" source="tiles_platform.tsx"/>
+ <tileset firstgid="337" source="tiles_hazard.tsx"/>
+ <tileset firstgid="417" source="tiles_decoration.tsx"/>
+ <tileset firstgid="673" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="801" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="1033" source="../../tilesets/guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+418,418,418,418,429,418,418,418,433,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+418,418,418,418,418,418,418,418,418,418,418,430,418,418,418,418,418,418,418,430,418,418,418,418,418,418,418,418,418,418,418,418,
+418,418,418,418,418,418,418,418,418,418,418,418,418,418,429,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,430,418,
+455,418,418,455,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+35,280,507,35,418,418,418,418,418,418,418,418,418,418,418,418,418,188,281,418,418,418,418,418,418,418,418,418,418,418,418,418,
+35,280,491,503,418,418,418,418,418,432,418,418,418,418,418,418,188,282,418,418,418,418,418,418,418,418,429,418,418,418,418,418,
+10,280,491,493,418,418,418,418,418,418,418,418,418,418,418,188,282,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+38,280,491,35,455,418,418,418,418,418,418,418,418,418,188,282,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,430,
+10,280,491,38,34,455,418,418,418,418,418,455,418,188,282,418,418,418,418,418,418,418,418,418,430,418,418,418,418,418,418,418,
+10,280,491,10,10,34,455,455,35,455,418,35,188,282,418,418,418,418,418,418,418,429,418,418,418,418,418,418,418,432,418,418,
+38,280,491,13,38,10,34,34,34,34,34,34,282,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+10,280,491,10,13,10,10,38,10,10,13,10,513,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,
+491,280,491,503,491,491,491,491,491,491,491,491,459,418,418,418,418,418,430,418,418,418,418,418,418,418,418,418,418,418,418,418,
+494,503,491,494,493,494,494,494,493,494,494,493,418,418,418,418,418,432,418,418,418,418,418,418,418,418,418,430,418,418,418,418,
+34,36,36,34,34,36,34,36,34,36,34,35,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,418
+</data>
+ </layer>
+ <objectgroup id="3" name="Enemies">
+  <object id="102" name="Flag" type="Guardian" gid="1057" x="160" y="40" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00d7d7"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="101" type="Route" x="168" y="0">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="102"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,80"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Spawn">
+  <object id="103" template="templates/spawn_player.tx" x="144" y="64"/>
+ </objectgroup>
+</map>

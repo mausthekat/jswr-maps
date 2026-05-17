@@ -11,25 +11,25 @@
             "name": "Author",
             "propertytype": "",
             "type": "string",
-            "value": "MauS"
+            "value": "MauS + Matthew Smith + Paul Vera-Broadbent"
         },
         {
             "name": "DefaultTileset",
             "propertytype": "",
             "type": "string",
-            "value": ""
+            "value": "2x"
         },
         {
             "name": "FallDamageMode",
             "propertytype": "FallDamageMode",
             "type": "int",
-            "value": 0
+            "value": 1
         },
         {
             "name": "IncludeMapPreview",
             "propertytype": "",
             "type": "bool",
-            "value": false
+            "value": true
         },
         {
             "name": "InfiniteLivesMP",
@@ -59,13 +59,19 @@
             "name": "MapName",
             "propertytype": "",
             "type": "string",
-            "value": "deathrooms"
+            "value": "JSW Gorgeous"
         },
         {
             "name": "OriginalArrows",
             "propertytype": "",
             "type": "bool",
-            "value": false
+            "value": true
+        },
+        {
+            "name": "PhysicsSpeed",
+            "propertytype": "PhysicsSpeed",
+            "type": "int",
+            "value": 0
         },
         {
             "name": "RespawnMode",
@@ -83,7 +89,7 @@
             "name": "SinglePlayerModes",
             "propertytype": "SPModes",
             "type": "int",
-            "value": 0
+            "value": 1
         },
         {
             "name": "SoftLifts",
@@ -92,8 +98,8 @@
             "value": false
         },
         {
-            "name": "PhysicsSpeed",
-            "propertytype": "PhysicsSpeed",
+            "name": "GuardianSpeed",
+            "propertytype": "GuardianSpeed",
             "type": "int",
             "value": 0
         }
@@ -202,9 +208,21 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "JSW:R",
+                "JSWR",
                 "JSW2",
                 "JSW1"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 25,
+            "name": "PhysicsSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSWR (21 fps)",
+                "JSW2 (18 fps)",
+                "JSW1 (15 fps)"
             ],
             "valuesAsFlags": false
         },
@@ -218,6 +236,101 @@
                 "JSW1"
             ],
             "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 24,
+            "members": [
+                {
+                    "name": "AirSupply",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Border",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Down",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Flags",
+                    "propertyType": "RoomFlags",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "Left",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "Name",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "RaceLabel",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "Right",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "RigorMortis",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "RoomPurpose",
+                    "propertyType": "RoomPurpose",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Rope",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "Rope Offset",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "Superjump",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "Up",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "WillyColor",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "WillySuit",
+                    "propertyType": "WillySuit",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "Room",
+            "type": "class",
+            "useAs": [
+                "map"
+            ]
         },
         {
             "id": 5,
@@ -441,109 +554,13 @@
             "valuesAsFlags": false
         },
         {
-            "color": "#ffa0a0a4",
-            "drawFill": true,
-            "id": 24,
-            "members": [
-                {
-                    "name": "Name",
-                    "type": "string",
-                    "value": ""
-                },
-                {
-                    "name": "Up",
-                    "type": "file",
-                    "value": ""
-                },
-                {
-                    "name": "Right",
-                    "type": "file",
-                    "value": ""
-                },
-                {
-                    "name": "Down",
-                    "type": "file",
-                    "value": ""
-                },
-                {
-                    "name": "Left",
-                    "type": "file",
-                    "value": ""
-                },
-                {
-                    "name": "Rope",
-                    "type": "bool",
-                    "value": false
-                },
-                {
-                    "name": "Rope Offset",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "Flags",
-                    "propertyType": "RoomFlags",
-                    "type": "string",
-                    "value": ""
-                },
-                {
-                    "name": "WillySuit",
-                    "propertyType": "WillySuit",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "RoomPurpose",
-                    "propertyType": "RoomPurpose",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "Border",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "AirSupply",
-                    "type": "int",
-                    "value": 0
-                },
-                {
-                    "name": "RaceLabel",
-                    "type": "string",
-                    "value": ""
-                },
-                {
-                    "name": "RigorMortis",
-                    "type": "bool",
-                    "value": false
-                },
-                {
-                    "name": "Superjump",
-                    "type": "bool",
-                    "value": false
-                },
-                {
-                    "name": "WillyColor",
-                    "type": "int",
-                    "value": 0
-                }
-            ],
-            "name": "Room",
-            "type": "class",
-            "useAs": [
-                "map"
-            ]
-        },
-        {
-            "id": 25,
-            "name": "PhysicsSpeed",
+            "id": 26,
+            "name": "GuardianSpeed",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "JSWR (21 fps)",
-                "JSW2 (18 fps)",
-                "JSW (15 fps)"
+                "JSW1",
+                "JSWR"
             ],
             "valuesAsFlags": false
         }

@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -22,6 +23,12 @@
         {
             "name": "FallDamageMode",
             "propertytype": "FallDamageMode",
+            "type": "int",
+            "value": 1
+        },
+        {
+            "name": "GuardianSpeed",
+            "propertytype": "GuardianSpeed",
             "type": "int",
             "value": 0
         },
@@ -77,7 +84,7 @@
             "name": "RespawnMode",
             "propertytype": "RespawnMode",
             "type": "int",
-            "value": 0
+            "value": 1
         },
         {
             "name": "SPVictoryRoom",
@@ -155,8 +162,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -197,12 +204,23 @@
             "valuesAsFlags": true
         },
         {
+            "id": 26,
+            "name": "GuardianSpeed",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JSW1",
+                "JSWR"
+            ],
+            "valuesAsFlags": false
+        },
+        {
             "id": 22,
             "name": "JumpType",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "JSW:R",
+                "JSWR",
                 "JSW2",
                 "JSW1"
             ],
@@ -216,7 +234,7 @@
             "values": [
                 "JSWR (21 fps)",
                 "JSW2 (18 fps)",
-                "JSW (15 fps)"
+                "JSW1 (15 fps)"
             ],
             "valuesAsFlags": false
         },

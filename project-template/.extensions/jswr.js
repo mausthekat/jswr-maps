@@ -1,7 +1,7 @@
 /// <reference types="@mapeditor/tiled-api" />
 
 // =======================================================================
-// JSW:R Tiled Extension (bundled from extensions-src/*.js)
+// JSWR Tiled Extension (bundled from extensions-src/*.js)
 // DO NOT EDIT — edit the source files in extensions-src/ instead,
 // then run: python tmx/scripts/tmx_project.py refresh
 // =======================================================================

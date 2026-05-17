@@ -3,7 +3,7 @@
  <properties>
   <property name="Down" type="file" value="" />
   <property name="Left" type="file" value="168.tmx" />
-  <property name="Name" value="Stompy's Hidden Wool Shop" />
+  <property name="Name" value="The Hidden Wool Shop" />
   <property name="Right" type="file" value="138.tmx" />
   <property name="Rope" type="bool" value="false" />
   <property name="Up" type="file" value="135.tmx" />
