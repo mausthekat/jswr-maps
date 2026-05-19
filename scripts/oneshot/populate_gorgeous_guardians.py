@@ -402,7 +402,7 @@ def main():
         all_warnings.extend([(room_name, w) for w in warnings])
 
         status = "[DRY RUN]" if args.dry_run else "OK"
-        print(f"  {status} {os.path.basename(tmx_path)}: {room_name} — {count} guardians")
+        print(f"  {status} {os.path.basename(tmx_path)}: {room_name} - {count} guardians")
 
     print(f"\nTotal: {total_placed} guardians placed")
 

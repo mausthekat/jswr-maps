@@ -62,7 +62,7 @@ CANONICAL_VALUES = [
     "11",
     "12 (Very Fast)",
 ]
-# Idempotency sentinel — match the new label at the position that
+# Idempotency sentinel - match the new label at the position that
 # unambiguously identifies "this enum is post-migration".
 SENTINEL_LABEL_AT_INDEX_1 = "1 (Very Slow)"
 
@@ -112,7 +112,7 @@ def migrate_tiled_project(path: Path, dry_run: bool) -> tuple[bool, int]:
         None,
     )
     if speed_type is None:
-        # No Speed type defined in this project — nothing to migrate.
+        # No Speed type defined in this project - nothing to migrate.
         return True, 0
 
     values = speed_type.get("values", [])
@@ -144,7 +144,7 @@ def migrate_tiled_project(path: Path, dry_run: bool) -> tuple[bool, int]:
 
 
 def project_already_migrated(path: Path) -> bool:
-    """Read-only check — does the project's `.tiled-project` already have
+    """Read-only check - does the project's `.tiled-project` already have
     the post-migration Speed enum?"""
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -203,7 +203,7 @@ def main() -> int:
                 continue  # template copies are owned by the archetype
             tmx_count += migrate_tmx_file(tmx, args.dry_run)
 
-        # Phase 2 (per project): rewrite the .tiled-project — the enum
+        # Phase 2 (per project): rewrite the .tiled-project - the enum
         # update + any project-level Speed property remaps. This is the
         # commit-marker that flips the project's idempotency state.
         _, prop_count = migrate_tiled_project(proj_files[0], args.dry_run)
@@ -220,7 +220,7 @@ def main() -> int:
           f"{no_project_file} dir(s) without `.tiled-project`.")
     print(f"      {total_tmx} TMX values + {total_props} project props remapped.")
     if args.dry_run:
-        print("      (dry-run — no files written)")
+        print("      (dry-run - no files written)")
     return 0
 
 

@@ -147,7 +147,7 @@ def main():
     if args.tmx_directory:
         tmx_dir = args.tmx_directory
     else:
-        # script lives at tmx/scripts/oneshot/ — go up to tmx/ then into _in_progress
+        # script lives at tmx/scripts/oneshot/ - go up to tmx/ then into _in_progress
         tmx_dir = script_dir.parent.parent / '_in_progress' / 'jsw-gorgeous'
 
     rooms_dir = tmx_dir / 'rooms'

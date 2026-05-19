@@ -6,7 +6,7 @@ file `NNN.tmx` <-> JSW1 room id `NNN-1`).
 
 Per-guardian mapping is by spawn-x proximity inside the room: the
 gorgeous Guardian object's `x` is matched to the JSW1 entity with the
-closest x in the same room. Tolerance is one tile (8 px) — anything
+closest x in the same room. Tolerance is one tile (8 px) - anything
 further apart is reported and skipped (no edit).
 
 Speed semantics under the new identity Speed table:
@@ -15,7 +15,7 @@ Speed semantics under the new identity Speed table:
     1 tile / 4 frames = 2 px/tick = Willy speed = identity-table 4)
 
 Skipped (the user fixes manually):
-  * gorgeous Guardian objects whose `width != 16` — these are
+  * gorgeous Guardian objects whose `width != 16` - these are
     oversized composites (Evil Head etc.) where the JSW1 source is 3
     separate vert entities sharing one sprite page.
   * gorgeous Guardian objects whose route's Direction is rope/arrow
@@ -240,7 +240,7 @@ def main() -> int:
                 tmx_path.write_text(new_text)
 
     # Reporting
-    print(f"\n{'APPLYING' if args.apply else 'DRY RUN'} — JSW1 speed → jsw-gorgeous\n")
+    print(f"\n{'APPLYING' if args.apply else 'DRY RUN'} - JSW1 speed → jsw-gorgeous\n")
     print(f"Files visited:               {len(list(GORGEOUS_DIR.glob('*.tmx')))}")
     print(f"Files with edits:            {len(edits)}")
     for k in ("total_guardians", "updated", "already_correct",

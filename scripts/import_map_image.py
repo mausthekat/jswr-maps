@@ -72,7 +72,7 @@ STRUCTURAL_MIN_FRAC = 0.04
 # in-room cluster shape. Tiles repeat; sprite frames captured in a still
 # screenshot rarely line up bitmap-for-bitmap. Counter-case: items
 # rendered into many rooms share a bitmap and so will be classed as
-# tiles by this rule — accepted false-negative.
+# tiles by this rule - accepted false-negative.
 GLOBAL_TILE_REPEATS = 2
 
 # When a sprite candidate cell's paper matches the room's predominant
@@ -85,7 +85,7 @@ GLOBAL_TILE_REPEATS = 2
 GUARDIAN_NONALIGNED_MIN_MATCHES = 1
 
 # Solid bitmasks (all-set or all-clear) match anywhere they overlap a
-# uniformly inked / blank region — those are floor blocks, walls, and
+# uniformly inked / blank region - those are floor blocks, walls, and
 # pure bg, never guardians. Skip the non-aligned scan for those tails.
 BITMASK_MIN_SET_BITS = 1
 BITMASK_MAX_SET_BITS = 63
@@ -312,7 +312,7 @@ def classify_cells(
     """
     Walk every grid cell and tag it as "empty" or "room".
 
-    JSW maps don't always have a clear floor band — guardian-only rooms,
+    JSW maps don't always have a clear floor band - guardian-only rooms,
     sky-themed rooms, vortex rooms, etc. So the floor check is recorded
     as a separate signal (used later as one input into title/credits
     detection) but NOT used to gate the room/empty classification.
@@ -357,7 +357,7 @@ def build_room_regions(grid: Grid, cell_kind: list[list[str]],
     rooms by number in feedback.
 
     Returns (regions, cell_to_number) where cell_to_number maps (row, col)
-    to the assigned room_number — useful for cross-referencing room titles
+    to the assigned room_number - useful for cross-referencing room titles
     and other related regions.
     """
     out: list[Region] = []
@@ -525,7 +525,7 @@ def _expand_title_bbox(bbox_cells: tuple[int, int, int, int],
         if c < 0 or c >= grid.cols:
             return False
         # If ANY cell in this column's title-row span is a real titled
-        # room, this column is part of the playable mansion — don't
+        # room, this column is part of the playable mansion - don't
         # absorb it.
         for r in range(rmin, rmax + 1):
             if is_real_room(r, c):
@@ -578,7 +578,7 @@ def detect_title_screens(
 
     Strategy: find cells whose OCR contains title-screen keywords, cluster
     them spatially, then *filter out* clusters whose cells all have real
-    per-strip room titles — those clusters are just regular playable rooms
+    per-strip room titles - those clusters are just regular playable rooms
     whose strip text happens to contain a title-like word, not actual
     title-screen cells.
 
@@ -605,7 +605,7 @@ def detect_title_screens(
                 # Filter: if every cell in the cluster has a strong room-
                 # title detection in its strip, this cluster is just a
                 # group of normal rooms whose body OCR happened to contain
-                # a keyword — not a title screen.
+                # a keyword - not a title screen.
                 titled = sum(
                     1 for cell in cluster
                     if cell in strip_titles
@@ -702,7 +702,7 @@ def _credits_signal(title_text: str,
     Decide whether a candidate credits cell's room title looks credits-like.
 
     A "yes" requires explicit evidence (year, credit keyword, or word-overlap
-    with the title screen). An empty / unrelated title returns "no" — biased
+    with the title screen). An empty / unrelated title returns "no" - biased
     toward classifying as a room when uncertain (per user guidance: false-
     negative on credits is preferable to false-positive).
     """
@@ -746,7 +746,7 @@ def detect_credits(grid: Grid,
       1. it lies in the bottom CREDITS_BOTTOM_ROWS rows of the grid, AND
       2. its body contains an OCR detection with glyph height >=
          GLYPH_H_LARGE_MIN (scaled), AND
-      3. its under-room title strip yields a credits signal — either a
+      3. its under-room title strip yields a credits signal - either a
          4-digit year, a known credit keyword, or word-overlap with the
          title-screen text (per user feedback: correlate room titles
          against the title-screen credits).
@@ -836,7 +836,7 @@ def ocr_room_title_strips(
     JSW-style maps that use under-room titles place each room's name in a
     single horizontal strip immediately below the room body (typically 8 px
     tall at native scale). We crop each strip individually and OCR it as a
-    single block — much more accurate than letting the global tiled pass
+    single block - much more accurate than letting the global tiled pass
     detect them piecemeal, which tends to fragment or miss them.
 
     Returns a dict keyed by (row, col) -> { 'text', 'bbox', 'conf' } in
@@ -1031,7 +1031,7 @@ def _looks_like_real_annotation(text: str) -> tuple[bool, str]:
     Known real-annotation forms observed:
       - T-numbered tags (T1, T2, T3)
       - Short words (Out, ENTRY, EXIT)
-      - Asterisk markers (*, **) — JSW1 uses these to indicate
+      - Asterisk markers (*, **) - JSW1 uses these to indicate
         "gap between rooms is gameplay-irrelevant; rooms are adjacent"
 
     Common OCR noise to drop:
@@ -1072,14 +1072,14 @@ def classify_ocr(words: list[dict], grid: Grid,
       - drop annotations that fail _looks_like_real_annotation
         (filters tile-pattern noise like '202', 'LLL', '#+', '...')
       - if skip_title_strips, also drop detections in any under-room
-        title strip — room titles are handled by ocr_room_title_strips
+        title strip - room titles are handled by ocr_room_title_strips
 
     Categorisation:
       - text in the under-room title strip (small glyphs)  -> room_title
       - small glyphs (<=GLYPH_H_SMALL_MAX) in a room body  -> annotation
       - large glyphs (>=GLYPH_H_LARGE_MIN)                 -> SUPPRESSED
       - mid-sized glyphs                                   -> annotation
-        (lower confidence — uncertain category)
+        (lower confidence - uncertain category)
     """
     out: list[Region] = []
     small_max = GLYPH_H_SMALL_MAX * grid.scale
@@ -1128,7 +1128,7 @@ def classify_ocr(words: list[dict], grid: Grid,
         if glyph_h >= large_min:
             continue  # tile-spelled / stylized
 
-        # Annotation candidate — apply real-annotation heuristics.
+        # Annotation candidate - apply real-annotation heuristics.
         is_real, reason = _looks_like_real_annotation(text)
         if not is_real:
             continue
@@ -1147,7 +1147,7 @@ def classify_ocr(words: list[dict], grid: Grid,
                 bbox=(bx, by, bw, bh),
                 confidence=0.30 + 0.3 * ocr_conf,
                 ocr_text=text,
-                notes=f"medium text (h={glyph_h}) — ambiguous size",
+                notes=f"medium text (h={glyph_h}) - ambiguous size",
             ))
     return out
 
@@ -1161,7 +1161,7 @@ def classify_ocr(words: list[dict], grid: Grid,
 # cell using ZX Spectrum 4-bit attribute quantisation. The most-frequent
 # signatures in the room are structural tiles (background / floor / wall /
 # ramp / conveyor); rare signatures (especially with bright vivid ink) are
-# sprite overlays — items if isolated, guardians if part of a small
+# sprite overlays - items if isolated, guardians if part of a small
 # 4-connected cluster.
 #
 # Two confidence scores come out:
@@ -1181,7 +1181,7 @@ _ZX_NAMES = ("black", "blue", "red", "magenta",
 # Color indices that read as visually "vivid" / sprite-like ink colors.
 _VIVID_INKS = {3, 5, 6, 7}  # magenta, cyan, yellow, white
 
-# Bright threshold for max-channel intensity — between 0xCD (normal) and
+# Bright threshold for max-channel intensity - between 0xCD (normal) and
 # 0xFF (bright). We allow some headroom for screenshot variation.
 _BRIGHT_MIN = 0xE0
 
@@ -1215,7 +1215,7 @@ def _all_8x8_bitmasks(silhouette):
     Returns a uint64 (H-7, W-7) array. Bit (dy*8 + dx) is set when the
     pixel at (y+dy, x+dx) is non-bg.
 
-    Vectorised via slicing — 64 numpy ops, no Python per-pixel loops.
+    Vectorised via slicing - 64 numpy ops, no Python per-pixel loops.
     """
     import numpy as np
     H, W = silhouette.shape
@@ -1235,7 +1235,7 @@ def _quantize_room(im: Image.Image, grid: Grid,
     pixel to a ZX 4-bit attribute code (3 bits color + 1 bit brightness).
 
     Returns a numpy uint8 array of shape (rows_t * 8, cols_t * 8) where
-    each entry is in [0..15] — the per-pixel ZX attribute. Caller reshapes
+    each entry is in [0..15] - the per-pixel ZX attribute. Caller reshapes
     into 8x8 tiles.
     """
     import numpy as np
@@ -1297,7 +1297,7 @@ def _tile_signatures(quant) -> tuple[list[list[tuple[int, int, int]]],
 def _cluster_8connected(cells: set[tuple[int, int]]) -> list[list[tuple[int, int]]]:
     """
     8-connected (queen-move) clustering of (col, row) cells. Diagonal
-    neighbours count — important so a 1-tile-wide diagonal staircase
+    neighbours count - important so a 1-tile-wide diagonal staircase
     becomes a single long cluster instead of N isolated cells (which
     would be wrongly flagged as N tiny sprites).
     """
@@ -1325,7 +1325,7 @@ def _cluster_8connected(cells: set[tuple[int, int]]) -> list[list[tuple[int, int
 
 def _cluster_is_linear(cluster: list[tuple[int, int]]) -> bool:
     """
-    True if the cluster's cells lie along a line — either strictly 1D
+    True if the cluster's cells lie along a line - either strictly 1D
     (single row or column), or sparse along a diagonal/curve (low
     bounding-box fill ratio with enough cells to count as a span).
 
@@ -1410,7 +1410,7 @@ def _shape_score(cluster_size: int) -> tuple[float, str]:
         return 0.45, "guardian"
     if cluster_size <= 16:
         return 0.25, "guardian"
-    return 0.10, "guardian"  # blob — likely stylized text or decoration
+    return 0.10, "guardian"  # blob - likely stylized text or decoration
 
 
 def _rarity_score(count: int) -> float:
@@ -1429,13 +1429,13 @@ def classify_room_contents(im: Image.Image, grid: Grid,
 
     Two complementary signals decide whether a cell is structural:
 
-    A) **Cross-room bitmap repetition** (positive tile signal) — a full
+    A) **Cross-room bitmap repetition** (positive tile signal) - a full
        (paper, ink, bitmap) signature seen >= GLOBAL_TILE_REPEATS times
        across the whole map is a tile. Tile graphics are shared across
        rooms; sprite frames captured in a still screenshot rarely line
        up bitmap-for-bitmap.
 
-    B) **In-room (paper, ink) attribute spread** (elimination signal) —
+    B) **In-room (paper, ink) attribute spread** (elimination signal) -
        cells of the same attribute pair grouped by 8-connectivity:
          - solid attribute (paper == ink) -> structural
          - cells span 1 row or 1 col >= 2 cells -> structural (line)
@@ -1446,7 +1446,7 @@ def classify_room_contents(im: Image.Image, grid: Grid,
          - 1- or 2-cell isolated clusters -> sprite candidate
 
     Anything left over after both passes is emitted as a sprite
-    Region — single-cell clusters as items, multi-cell clusters as
+    Region - single-cell clusters as items, multi-cell clusters as
     guardians. Confidence combines rarity, ink saturation/brightness,
     and cluster-shape fit.
 
@@ -1478,7 +1478,7 @@ def classify_room_contents(im: Image.Image, grid: Grid,
     # Swimming Pool use blue paper). We build a single universal
     # silhouette by stitching each room's bg-relative silhouette into
     # one (H, W) uint8 array. Then bmask_at_pos[y, x] is the 64-bit
-    # silhouette of the 8x8 window at (y, x) — using whichever room's
+    # silhouette of the 8x8 window at (y, x) - using whichever room's
     # bg paper that pixel belongs to.
     #
     # This makes the cross-map bitmask scan COLOUR-INSENSITIVE: a
@@ -1608,7 +1608,7 @@ def classify_room_contents(im: Image.Image, grid: Grid,
                 continue
             # Bitmask-match override fires for any candidate whose paper
             # equals its room's bg paper (regardless of what specific
-            # colour that bg is) — the cross-map silhouette is built
+            # colour that bg is) - the cross-map silhouette is built
             # per-room so the comparison is colour-insensitive.
             on_bg = (paper == room_bg_paper)
             for cluster in clusters:
@@ -1680,7 +1680,7 @@ def classify_room_contents(im: Image.Image, grid: Grid,
 
         # Rope detector. JSW ropes are 1-pixel-wide animated lines that
         # cut diagonally / vertically across a room, so each cell they
-        # pass through carries only a handful of non-bg pixels — enough
+        # pass through carries only a handful of non-bg pixels - enough
         # to defeat the per-attribute-pair structural rule (long thin
         # clusters look like stairs to the spread heuristic). We pick
         # them up here as a separate sprite type.
@@ -1718,7 +1718,7 @@ def classify_room_contents(im: Image.Image, grid: Grid,
                 # Rope shape: sparse along a vertical or diagonal arc.
                 # We look for a long-ish cluster (>= 4 cells), at least
                 # 3 cells along its longer axis, with a low bounding-
-                # box fill ratio (<= 0.45) — the rope arcs through bg,
+                # box fill ratio (<= 0.45) - the rope arcs through bg,
                 # never densely packing the bbox.
                 if (len(cluster) < 4
                         or max(bbox_w, bbox_h) < 3
@@ -1823,7 +1823,7 @@ def render_overlay(im: Image.Image, grid: Grid,
             [x, y, x + w - 1, y + h - 1], outline=col, width=2
         )
         # Always label annotations (small text labels like T2/T3/Out are
-        # the whole point — even tiny boxes need their text shown).
+        # the whole point - even tiny boxes need their text shown).
         # For other types skip the label on tiny boxes to keep overlay clean.
         if r.type != "annotation" and (w < 30 or h < 12):
             continue
@@ -1900,7 +1900,7 @@ def cmd_detect_metadata(args: argparse.Namespace) -> int:
         )
         print(f"  detections={len(words)}")
 
-    # Per-room-strip OCR runs FIRST — its results feed both title detection
+    # Per-room-strip OCR runs FIRST - its results feed both title detection
     # (to filter out keyword-cluster false positives that turn out to be
     # regular rooms with title-like words in their strips) and credits
     # detection (to correlate candidate body content against strip titles).
@@ -1929,7 +1929,7 @@ def cmd_detect_metadata(args: argparse.Namespace) -> int:
     else:
         print("  no title screen detected")
 
-    # Drop strip-title entries inside any title cell — they're not real
+    # Drop strip-title entries inside any title cell - they're not real
     # room titles, they're title-screen content that happened to fall in
     # the under-strip area.
     strip_titles = {
@@ -1937,7 +1937,7 @@ def cmd_detect_metadata(args: argparse.Namespace) -> int:
         if cell_kind[r][c] == "room"
     }
 
-    # Words harvested from the title-screen block(s) — used by
+    # Words harvested from the title-screen block(s) - used by
     # detect_credits to disambiguate stylized rooms from real credits.
     title_screen_words: set[str] = set()
     for t in titles:

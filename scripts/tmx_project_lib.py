@@ -216,7 +216,7 @@ def bundle_extensions(template_dir: Path) -> None:
         "\n",
         "// =======================================================================\n",
         "// JSWR Tiled Extension (bundled from extensions-src/*.js)\n",
-        "// DO NOT EDIT — edit the source files in extensions-src/ instead,\n",
+        "// DO NOT EDIT - edit the source files in extensions-src/ instead,\n",
         "// then run: python tmx/scripts/tmx_project.py refresh\n",
         "// =======================================================================\n",
     ]
@@ -368,7 +368,7 @@ def merge_property_types(existing: list, archetype: list,
     if stale_names and not prune:
         for name in stale_names:
             changes.append(
-                f"WARNING: {name!r} is not in archetype — consider running "
+                f"WARNING: {name!r} is not in archetype - consider running "
                 f"with --prune to remove"
             )
     if stale_names and prune:
@@ -469,7 +469,7 @@ def _build_enum_remap(
 
     Returns None if no remapping is needed (values are a prefix of archetype).
     """
-    # If old values are a prefix of new, positions haven't changed — no remap needed
+    # If old values are a prefix of new, positions haven't changed - no remap needed
     if new_values[:len(old_values)] == old_values:
         return None
 
@@ -517,7 +517,7 @@ def _build_enum_remap(
             }
 
     elif storage_type == "string":
-        # String-stored enums use value names — only need remap if names removed
+        # String-stored enums use value names - only need remap if names removed
         removed = [v for v in old_values if v not in new_values]
         if not removed:
             return None
@@ -596,7 +596,7 @@ def remap_tmx_property_values(
     changes = []
     remap_count = 0
 
-    # Find all TMX and TSX files (skip templates dir — those come from archetype)
+    # Find all TMX and TSX files (skip templates dir - those come from archetype)
     all_files = sorted(project_dir.rglob("*.tmx")) + sorted(project_dir.rglob("*.tsx"))
     tmx_files = [f for f in all_files if "templates" not in f.parts]
 
@@ -609,7 +609,7 @@ def remap_tmx_property_values(
             remap_data = remap_info["remap_data"]
 
             # Match <property> elements with this propertytype that have a value attr.
-            # Tiled consistently outputs: name, type, propertytype, value — so
+            # Tiled consistently outputs: name, type, propertytype, value - so
             # propertytype always precedes value in the element.
             pattern = re.compile(
                 r'(<property\b[^>]*?\bpropertytype="'

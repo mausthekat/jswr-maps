@@ -112,7 +112,7 @@ def main() -> int:
     print(f"Files renamed: {changed_count}")
 
     if args.dry_run:
-        print("  (dry-run — no files changed)")
+        print("  (dry-run - no files changed)")
 
     return 0
 

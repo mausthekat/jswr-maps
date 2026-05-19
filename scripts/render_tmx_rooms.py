@@ -80,7 +80,7 @@ def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
     Each entry is `(firstgid, tilecount, columns, tile_w, tile_h,
     tileset_img)`. ``tile_w`` and ``tile_h`` come from the TSX-declared
     ``tilewidth`` / ``tileheight`` (or the inline tileset element's
-    same attributes) — these are authoritative regardless of whether
+    same attributes) - these are authoritative regardless of whether
     the PNG file has been resized or has trailing rows the TSX
     doesn't know about. A variant suffix can swap in a higher-res
     sibling PNG; we detect that as a uniform integer scale factor
@@ -93,13 +93,13 @@ def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
     declares (e.g. tiles_platform.png is 128×72 while the TSX
     declares an image of 128×56). The derived ``tile_h`` then comes
     out wrong (10 instead of 8), tiles get sliced too tall, and
-    they overflow into the neighbouring grid cell at render time —
+    they overflow into the neighbouring grid cell at render time -
     visible as "phantom tile graphics" in non-standalone map
     previews. The TSX is the source of truth.
 
     `tileset_suffix` (when non-empty) substitutes a sibling
     `<base>_<suffix>.png` for any TSX-referenced PNG when the variant
-    exists on disk — this is what lets the preview honour the map's
+    exists on disk - this is what lets the preview honour the map's
     DefaultTileset.
     """
     tree = ET.parse(tmx_path)
@@ -147,7 +147,7 @@ def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
             tileset_img = Image.open(image_path).convert('RGBA')
             # Variant suffixes (`_2x` etc.) ship a uniformly scaled
             # PNG. Detect the scale by comparing actual width to the
-            # TSX-implied base width — fall back to 1 (no scale) when
+            # TSX-implied base width - fall back to 1 (no scale) when
             # the math doesn't divide cleanly, so a one-off resized
             # image can't silently produce non-integer tile sizes.
             expected_base_width = columns * base_tile_w
@@ -204,7 +204,7 @@ def parse_tmx_tiles(tmx_path: Path) -> list[list[int]]:
 
     width = int(layer.get('width', ROOM_WIDTH))
 
-    # Parse CSV data — handle both single-line and multi-line formats
+    # Parse CSV data - handle both single-line and multi-line formats
     csv_text = data.text.strip()
     all_gids = [int(g) for g in csv_text.replace('\n', ',').split(',') if g.strip()]
 

@@ -155,10 +155,10 @@ def patch_room(gorgeous_path, main_path, dry_run=False):
         if g_count != m_count:
             room_name = os.path.basename(gorgeous_path)
             warnings.append(
-                f"{room_name}: gorgeous has {g_count} guardians, main has {m_count} — skipped guardian GIDs"
+                f"{room_name}: gorgeous has {g_count} guardians, main has {m_count} - skipped guardian GIDs"
             )
         else:
-            # Counts match — copy gid and name by order
+            # Counts match - copy gid and name by order
             for i, g_obj in enumerate(g_guardians):
                 m_obj = m_guardians[i]
                 m_gid = m_obj.get("gid")
@@ -170,10 +170,10 @@ def patch_room(gorgeous_path, main_path, dry_run=False):
                     g_obj.set("name", m_name)
                     patched = True
     else:
-        # No main map counterpart — skip guardian GIDs
+        # No main map counterpart - skip guardian GIDs
         if g_guardians:
             warnings.append(
-                f"{os.path.basename(gorgeous_path)}: no main map counterpart — skipped guardian GIDs"
+                f"{os.path.basename(gorgeous_path)}: no main map counterpart - skipped guardian GIDs"
             )
 
     if patched and not dry_run:

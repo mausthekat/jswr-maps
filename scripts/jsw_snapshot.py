@@ -13,7 +13,7 @@ a small API:
         print(room.id, room.title)
 
 Snapshot loading (`.z80` / `.sna` / `.szx`) and tape simulation
-(`.tap` / `.tzx` / `.pzx`) are handled by `skoolkit` — for tape files
+(`.tap` / `.tzx` / `.pzx`) are handled by `skoolkit` - for tape files
 the loader is simulated through to a 128K memory image and we read
 back via `skoolkit.snapshot.get_snapshot`. That keeps every JSW-era
 loader (stock, JGH-style, JSW128, JSW64) in scope without us having
@@ -33,7 +33,7 @@ for the broader taxonomy):
 JSW64-family variants (V/W/X/Y/Z/[) exist with quite different shape:
 512- or 1024-byte room records, title at offset 0xB6 instead of 0x80,
 layout at the END of the record at variable offset, and 3/4/8-bit cell
-encoding instead of 2-bit. They're not handled yet — the `Engine`
+encoding instead of 2-bit. They're not handled yet - the `Engine`
 class only models the JSW48/JSW128 schema today; widening it to JSW64
 is a TODO once we have a snapshot to validate against. See
 https://seasip.info/Jsw/jsw64room.html
@@ -67,7 +67,7 @@ class Snapshot:
 
     `ram` is the 64 KB default-banking image (Spectrum 48K layout, or
     128K with $7FFD = 0). `banks[n]` holds RAM bank n as a 16 KB uint8
-    array — populated for both 48K (banks 0, 2, 5) and 128K (all eight
+    array - populated for both 48K (banks 0, 2, 5) and 128K (all eight
     banks 0..7), so room data living in paged-out banks is reachable.
     """
 
@@ -96,7 +96,7 @@ def _snapshot_from_skoolkit_ram(ram_list: list[int],
     arr = np.asarray(ram_list, dtype=np.uint8)
     banks: dict[int, np.ndarray] = {}
     if len(arr) == 0x20000:
-        # 128K — eight 16 KB banks in order.
+        # 128K - eight 16 KB banks in order.
         for n in range(8):
             banks[n] = arr[n * 0x4000:(n + 1) * 0x4000].copy()
         ram = np.zeros(0x10000, dtype=np.uint8)
@@ -106,7 +106,7 @@ def _snapshot_from_skoolkit_ram(ram_list: list[int],
         return Snapshot(ram=ram, banks=banks, is_128k=True,
                         source_path=source)
     if len(arr) == 0x10000:
-        # 48K — ROM + 48K RAM in default banking.
+        # 48K - ROM + 48K RAM in default banking.
         ram = arr.copy()
         for bank, addr in _BANK_DEFAULT_ADDR.items():
             banks[bank] = ram[addr:addr + 0x4000].copy()
@@ -172,7 +172,7 @@ def load_snapshot(path: str | Path) -> Snapshot:
     """
     Load a JSW-style snapshot or tape file. Supports `.z80`, `.sna`,
     `.szx`, `.tap`, `.tzx`, `.pzx`. Always attempts 128K mode first so
-    multi-bank room data (JSW128, JSW64) lands in `Snapshot.banks` —
+    multi-bank room data (JSW128, JSW64) lands in `Snapshot.banks` -
     falls back to 48K only when the 128K path fails or doesn't apply.
 
     """
@@ -188,7 +188,7 @@ def load_snapshot(path: str | Path) -> Snapshot:
     )
 
 
-# Backwards-compatible alias — older callers (and the importer)
+# Backwards-compatible alias - older callers (and the importer)
 # already import `load_z80`. New code should use `load_snapshot`.
 def load_z80(path: str | Path) -> Snapshot:
     return load_snapshot(path)
@@ -278,7 +278,7 @@ class Engine:
     # `_count_rooms_in_slot` pass; `iter_rooms` stops yielding once
     # this many rooms have been emitted, so callers don't see phantom
     # rooms in slot capacity past the end of the actual game.
-    # `None` on the `_KNOWN_ENGINES` constants — only set on the
+    # `None` on the `_KNOWN_ENGINES` constants - only set on the
     # detected engine returned by `detect_engine`.
     populated_rooms: int | None = None
     # JSW2-specific: room blobs are variable-length and indexed by a
@@ -293,7 +293,7 @@ class Engine:
     air_supply_offset: tuple[int, int] | None = None
     # Manic Miner-style content marker. When True, `_score_engine`
     # waives the `exit_roundtrip_rate >= 0.4` filter and uses a lower
-    # `title_pop_frac` threshold (caverns are sequential — navigation
+    # `title_pop_frac` threshold (caverns are sequential - navigation
     # is via MM_EXIT portals, not L/R/U/D bytes; one or more banks may
     # be fully empty in MM-style packs like MMDD).
     is_manic_style: bool = False
@@ -315,7 +315,7 @@ def _looks_like_jsw_room(buf: np.ndarray, addr: int,
     (packed data is always "valid"), so the title is the signature.
 
     `strict=True` is for "this is an actual game room, not a tail
-    fragment" — used by `_count_rooms_in_slot` (and thus
+    fragment" - used by `_count_rooms_in_slot` (and thus
     `Engine.populated_rooms`). It tightens the non-printable budget
     from `title_length - 8` to `1`. Empirically this rejects JSW1's
     phantom rooms 61+ (2+ non-print) while keeping every real room
@@ -366,7 +366,7 @@ def _count_rooms_in_slot(snap: Snapshot, source: str | int,
 _KNOWN_ENGINES: tuple[Engine, ...] = (
     # JSW48: the original 48K JSW. 64 rooms in default-banking RAM at
     # 0xC000..0xFFFF. Tile palette is the canonical 6-entry sequence
-    # BG / FLOOR / WALL / NASTY / RAMP / CONVEYOR — see
+    # BG / FLOOR / WALL / NASTY / RAMP / CONVEYOR - see
     # `TILE_TYPE_NAMES`. Stairs and conveyors are stored as separate
     # (direction, location, length) records at room offsets
     # 0xD6..0xDD; they are NOT in the layout grid (which only carries
@@ -384,7 +384,7 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
            has_separate_stairs_conveyors=True),
     # JSW128: 128K rerelease and its hacklevel descendants (e.g. JSW
     # in Paris, hacklevel 9). 64 rooms in each of FOUR RAM banks
-    # (1, 3, 4, 6 — z80 pages 4, 6, 7, 9), 256 rooms total, paged in
+    # (1, 3, 4, 6 - z80 pages 4, 6, 7, 9), 256 rooms total, paged in
     # by the engine as the player crosses bank boundaries.
     # See https://seasip.info/Jsw/doc128.html
     Engine(name="JSW128",
@@ -410,7 +410,7 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
     #   6 Conveyor <<, 7 Conveyor >>, 8 Crumbling, 9 Trampoline,
     #   10..15 reserved. Mapped to canonical categories
     #   (SOLID=0, STAIRS=1, HAZARD=3, CONVEYOR=5, COLLAPSIBLE=7,
-    #   TRAMPOLINE=8 — see CANONICAL_TILE_CATEGORY_COLORS.md).
+    #   TRAMPOLINE=8 - see CANONICAL_TILE_CATEGORY_COLORS.md).
     Engine(name="JSW64-W",
            slots=((1, 0, 32), (3, 0, 32), (4, 0, 32), (6, 0, 32)),
            room_size=512,
@@ -461,7 +461,7 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
            tile_role_map=(None, 3, 0, 3, 1, 1, 5, 5, 7, 8),
            tile_mirror_map=(False, False, False, False, True, False, True, False, False, False)),
     # JSW64-Z: 1024-byte records, title at +0xB6, layout at +0x200
-    # (8 bits per cell, but values are ZX attribute bytes — see
+    # (8 bits per cell, but values are ZX attribute bytes - see
     # `layout_is_attributes`). 13-tile palette at +0x41 like W / Y.
     # Same Seasip slot roles as W/Y.
     Engine(name="JSW64-Z",
@@ -475,11 +475,11 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
            layout_is_attributes=True,
            tile_role_map=(None, 3, 0, 3, 1, 1, 5, 5, 7, 8),
            tile_mirror_map=(False, False, False, False, True, False, True, False, False, False)),
-    # JSW2 — Jet Set Willy II - The Final Frontier. Variable-length
+    # JSW2 - Jet Set Willy II - The Final Frontier. Variable-length
     # per-room blobs indexed by a directory pointer at $7E69; 9
     # cell-types per layout cell (vs JSW48's 4 from 2-bit packing);
     # global cell-graphic table at $8C78. Room iteration is via
-    # `_walk_jsw2_directory`, NOT `_walk_slots` — the empty `slots`
+    # `_walk_jsw2_directory`, NOT `_walk_slots` - the empty `slots`
     # tuple here is a marker. See `docs/JSW2_FORMAT_NOTES.md`.
     Engine(name="JSW2",
            slots=(),
@@ -497,7 +497,7 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
            # rendered with grass-tuft pixels = JSW1's PLATFORM tile),
            # while cell 2 is the structural / wall fill. So the
            # role-map below treats cell 1 as PLATFORM and cell 2 as
-           # SOLID — matching JSW1 semantics and the visible game.
+           # SOLID - matching JSW1 semantics and the visible game.
            tile_role_map=(None,    # 0 AIR
                           2,       # 1 PLATFORM  (JSWED label: CB_WATER)
                           0,       # 2 SOLID     (JSWED label: CB_EARTH)
@@ -508,16 +508,16 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
                           1,       # 7 LRAMP  → STAIRS (mirrored = ascending left)
                           5),      # 8 RCONV  → CONVEYOR (default-direction = right)
            tile_mirror_map=(False, False, False, False,
-                            False,  # 4 RRAMP — default direction
-                            True,   # 5 LCONV — mirrored
+                            False,  # 4 RRAMP - default direction
+                            True,   # 5 LCONV - mirrored
                             False,  # 6 ITEM
-                            True,   # 7 LRAMP — mirrored
-                            False), # 8 RCONV — default direction
+                            True,   # 7 LRAMP - mirrored
+                            False), # 8 RCONV - default direction
            jsw2_directory_ptr_addr=0x7E69),
     # Manic Miner (Matthew Smith, 48K Spectrum). 20 caverns × 1024
     # bytes each, located at $B000..$EFFF in default-banking RAM
     # (per JSWED's `ManicGame::getRoom = memoryAt(0xB000 + 1024 * n)`).
-    # Cavern layout — completely different from JSW1's:
+    # Cavern layout - completely different from JSW1's:
     #   $000..$1FF  cell layout (32×16, 1 byte per cell = ZX attribute
     #               byte, matched against palette like JSW64-Z)
     #   $200..$21F  cavern title (32 bytes ASCII)
@@ -532,14 +532,14 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
     #   $290..$2AF  portal sprite (32 bytes)
     #   $2B0..$2B3  portal position (packed across 688..691)
     #   $2B4..$2BB  item bitmap (8 rows)
-    #   $2BC..$2BD  AIR SUPPLY — see docs/MANIC_MINER_FORMAT_NOTES.md
+    #   $2BC..$2BD  AIR SUPPLY - see docs/MANIC_MINER_FORMAT_NOTES.md
     #   $2BE..$2DA  4 horizontal guardians × 7 bytes
     #   $2DD..$2F9  4 vertical guardians × 7 bytes
-    # MM has no Left/Right/Up/Down exit bytes — caverns play in a fixed
+    # MM has no Left/Right/Up/Down exit bytes - caverns play in a fixed
     # sequence keyed by cavern id, with a portal sprite as the exit.
     # `exits_offset` is therefore not meaningful here; the engine
     # detector's exit-roundtrip filter will reject Manic snapshots
-    # (which is fine — auto-detect on a stock MM snapshot needs a
+    # (which is fine - auto-detect on a stock MM snapshot needs a
     # follow-up to relax that filter for content with no roomgraph).
     # `tile_role_map` follows JSWED `ManicRoom::getCellBehaviour`:
     #   0 AIR, 1 WATER (=PLATFORM), 2 CRUMBLY (=COLLAPSIBLE),
@@ -572,8 +572,8 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
     # MM_EXIT portal rather than directional exits, and a per-cavern
     # air clock at the JSW64 `$DF`/`$E0` location (per JSWED's
     # `j64roomform.cxx:89-100`). Detection: the `is_manic_style` flag
-    # waives the exit-roundtrip + title-pop filters so MMDD/MMLL —
-    # which have one fully-empty room bank and no roundtrip exits —
+    # waives the exit-roundtrip + title-pop filters so MMDD/MMLL -
+    # which have one fully-empty room bank and no roundtrip exits -
     # pass scoring; plain JSW64-Z snapshots (Willy's Fun Park) still
     # detect as Z because Z scores higher on a fully-populated map.
     Engine(name="Manic-DD",
@@ -598,7 +598,7 @@ _KNOWN_ENGINES: tuple[Engine, ...] = (
            # Extracted from MMDD's bank 7 $F4FF:
            #   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 5, 1, 3, 2, 1, 1]
            # → slot 10 = CB_RRAMP (STAIRS), slot 11 = CB_WATER
-           # (PLATFORM — Manic engines treat "water" cells as the
+           # (PLATFORM - Manic engines treat "water" cells as the
            # standard walkable surface), slot 12 = CB_FIRE (HAZARD).
            # Slots 13..15 unused by MMDD's 13-entry palette.
            #
@@ -641,7 +641,7 @@ _DIR_REVERSE_T = (1, 0, 3, 2)
 def _engine_metrics(snap: Snapshot, engine: Engine) -> _EngineMetrics:
     """
     Compute the structural-fitness metrics for `engine` against `snap`.
-    No filtering yet — `_score_engine` interprets these into a verdict.
+    No filtering yet - `_score_engine` interprets these into a verdict.
     """
     palette_n = engine.tile_palette_count
     title_pop = 0
@@ -677,7 +677,7 @@ def _engine_metrics(snap: Snapshot, engine: Engine) -> _EngineMetrics:
         # before the engine's claimed palette start look like a real
         # tile (non-zero attr AND non-zero bitmap) AND don't overlap
         # the title region, the palette boundary is wrong (palette
-        # extends earlier). Both checks matter — V's "other data"
+        # extends earlier). Both checks matter - V's "other data"
         # right before its 0x6E palette has bitmap-side bytes set but
         # attr=0, which is metadata, not a tile.
         title_start = engine.title_offset
@@ -742,32 +742,32 @@ def _score_engine(metrics: _EngineMetrics, engine: Engine,
 
     Filters that any correct engine MUST pass:
 
-    * `title_pop_frac >= threshold` — the stride and title offset land
+    * `title_pop_frac >= threshold` - the stride and title offset land
       on real titles. Catches obvious mismatches (JSW48's 256-byte
       stride against a JSW64 1024-byte file). Threshold is 70% in
       general, but 95% for a 48K-style engine (RAM-only slots) on a
-      128K snapshot — bank-0 ($C000..$FFFF) on 128K maps sometimes
+      128K snapshot - bank-0 ($C000..$FFFF) on 128K maps sometimes
       carries loader-relic room-shaped bytes that hit ~80% on a
       256-byte probe yet aren't the real room table.
 
-    * `exit_roundtrip_rate >= 0.4` — the engine's stride is aligned
+    * `exit_roundtrip_rate >= 0.4` - the engine's stride is aligned
       with the file's actual record size. Catches V/X confusion: V on
       a V file scores ~64%, but X (1024-byte stride on a 512-byte
-      file) reads "room 0 title with room 1 layout" — exit IDs are in
+      file) reads "room 0 title with room 1 layout" - exit IDs are in
       the wrong room space and round-trip rate collapses to 0%.
 
-    * `layout_runs_per_row <= 7.5` — bit-width is right and the layout
+    * `layout_runs_per_row <= 7.5` - bit-width is right and the layout
       bytes haven't been read at the wrong offset. Real JSW rooms
       have ~4.7 runs/row (long uniform stretches: floor, walls, sky);
       wrong decodes look noisy at >8.
 
-    * `layout_max <= max(palette_count, 8) * 2` — the layout values
+    * `layout_max <= max(palette_count, 8) * 2` - the layout values
       reference real palette entries. Catches Y/Z confusion: Z's 8-bit
       decode of Y's 4-bit-packed bytes gives max ≈ 93 vs palette of
       13–16; the right engine has max ≤ palette_count.
 
       JSW64-Z genuinely violates this filter because the variant
-      stores per-cell ZX attribute bytes, not palette indices — see
+      stores per-cell ZX attribute bytes, not palette indices - see
       the engine table. The current generic decoder doesn't model Z's
       attribute-array format, so a Z snapshot legitimately fails to
       detect; this is preferable to silent misdetection.
@@ -780,7 +780,7 @@ def _score_engine(metrics: _EngineMetrics, engine: Engine,
     is_48k_engine = all(s[0] == "ram" for s in engine.slots)
     # Manic-style packs (stock MM, MMDD, MMLL) navigate via the
     # MM_EXIT portal in the Spawn layer instead of L/R/U/D byte
-    # exits — so the exit-roundtrip filter doesn't apply. They also
+    # exits - so the exit-roundtrip filter doesn't apply. They also
     # tend to leave one or more banks empty (MMDD uses 3 of 4 JSW64
     # banks → 0.66 title_pop), so the title threshold drops to 0.50.
     if engine.is_manic_style:
@@ -795,8 +795,8 @@ def _score_engine(metrics: _EngineMetrics, engine: Engine,
         return False, ()
     # Palette-index layouts have low runs/row by construction (long
     # uniform stretches of floor / wall / sky). Attribute-byte layouts
-    # (Z) naturally vary more — adjacent cells often carry different
-    # ZX colour attributes for visual contrast — so allow more headroom
+    # (Z) naturally vary more - adjacent cells often carry different
+    # ZX colour attributes for visual contrast - so allow more headroom
     # there. WillysFunPark scores 7.70 on Z; the JSW64-Y/YY misdetection
     # noise floor on Z files is 12+, so 10.0 is a safe widening.
     runs_threshold = 10.0 if engine.layout_is_attributes else 7.5
@@ -804,12 +804,12 @@ def _score_engine(metrics: _EngineMetrics, engine: Engine,
         return False, ()
     if metrics.pre_palette_tile_frac > 0.5:
         # The 9 bytes before the engine's palette look like a real
-        # tile entry in most rooms — palette extends earlier than the
+        # tile entry in most rooms - palette extends earlier than the
         # engine claims. Reject so a wider-palette sibling can win
         # (Y vs YY).
         return False, ()
     if not engine.layout_is_attributes:
-        # Layout values index into the palette — they must stay within
+        # Layout values index into the palette - they must stay within
         # range. Catches Y/Z confusion. Skip when the layout actually
         # stores raw attribute bytes (Z).
         palette_bound = max(engine.tile_palette_count, 8) * 2
@@ -822,7 +822,7 @@ def _score_engine(metrics: _EngineMetrics, engine: Engine,
     # Z plausibly fit any 1024-byte file with low-runs random byte
     # pairings (Y/YY decode as Z look coherent because adjacent 4-bit
     # cells often tile up). Z should win only when no simpler model
-    # passes — i.e. only on real Z snapshots, where Y/YY get rejected
+    # passes - i.e. only on real Z snapshots, where Y/YY get rejected
     # by layout_runs (their 4-bit decoder reads Z's 8-bit attr stream
     # at the wrong stride and produces noise).
     return True, (
@@ -841,9 +841,9 @@ def detect_engine(snap: Snapshot) -> Engine | None:
     `room_size` + `title_offset`:
 
       1. title-stride population (gating)
-      2. exit-graph round-trip rate (gating — stride alignment)
-      3. layout cell values within palette range (gating — bit-width)
-      4. layout spatial coherence (tiebreak — low runs-per-row wins)
+      2. exit-graph round-trip rate (gating - stride alignment)
+      3. layout cell values within palette range (gating - bit-width)
+      4. layout spatial coherence (tiebreak - low runs-per-row wins)
 
     See `_score_engine` for thresholds and rationale.
     """
@@ -894,11 +894,11 @@ def detect_engine(snap: Snapshot) -> Engine | None:
     return dataclasses.replace(chosen, populated_rooms=populated)
 
 
-# JSWED CB_* constants (`room.hxx:60-70`) — palette cell behaviours.
+# JSWED CB_* constants (`room.hxx:60-70`) - palette cell behaviours.
 # Mapped to our canonical category roles (0=SOLID, 1=STAIRS, 2=PLATFORM,
 # 3=HAZARD, 5=CONVEYOR, 7=COLLAPSIBLE, 8=TRAMPOLINE; None=AIR). Manic-
 # engine games treat CB_WATER as the walkable surface, so the canonical
-# role is PLATFORM. CB_TRAP (10) has no canonical mapping — surfaced as
+# role is PLATFORM. CB_TRAP (10) has no canonical mapping - surfaced as
 # HAZARD until we wire trap-specific semantics.
 _JSW64_CB_TO_ROLE: dict[int, int | None] = {
     0: None,   # CB_AIR
@@ -914,7 +914,7 @@ _JSW64_CB_TO_ROLE: dict[int, int | None] = {
     10: 3,     # CB_TRAP   → HAZARD (fallback)
 }
 # Which CB_* values are the mirrored direction variant of their canonical
-# role — used to populate `tile_mirror_map` entries.
+# role - used to populate `tile_mirror_map` entries.
 _JSW64_CB_MIRRORED = {4, 6}
 
 
@@ -925,7 +925,7 @@ def _read_jsw64_cb_role_map(snap: Snapshot, engine: Engine
     (and Manic-DD which inherits the Z packaging) and translate it into
     `(tile_role_map, tile_mirror_map)` tuples. Returns None when the
     map isn't applicable (wrong engine, missing bank 7, or all-zero
-    map indicating an uninitialized snapshot) — caller falls back to
+    map indicating an uninitialized snapshot) - caller falls back to
     the engine's hardcoded role map.
     """
     if not (engine.name.startswith("JSW64-") or engine.name == "Manic-DD"):
@@ -935,7 +935,7 @@ def _read_jsw64_cb_role_map(snap: Snapshot, engine: Engine
         return None
     # JSWED's `memoryAt(0xF4FF, 7)` reads bank 7 at offset $34FF for
     # variants W/Y/Z. Variant `[` uses $F519 (offset $3519). V/X store
-    # the map per-room, not globally — they don't reach this helper.
+    # the map per-room, not globally - they don't reach this helper.
     variant = chr(int(snap.ram[0x85C9])) if 0x85C9 < len(snap.ram) else ''
     if variant == '[':
         offset = 0xF519 - 0xC000
@@ -943,7 +943,7 @@ def _read_jsw64_cb_role_map(snap: Snapshot, engine: Engine
         offset = 0xF4FF - 0xC000
     cb_map = [int(bank7[offset + i]) for i in range(16)]
     if not any(cb_map):
-        return None  # uninitialized — fall back to hardcoded
+        return None  # uninitialized - fall back to hardcoded
     palette_n = engine.tile_palette_count
     role_map = tuple(_JSW64_CB_TO_ROLE.get(cb_map[i]) for i in range(palette_n))
     mirror_map = tuple(cb_map[i] in _JSW64_CB_MIRRORED for i in range(palette_n))
@@ -951,7 +951,7 @@ def _read_jsw64_cb_role_map(snap: Snapshot, engine: Engine
 
 
 # ---------------------------------------------------------------------------
-# JSW2 — Jet Set Willy II - The Final Frontier
+# JSW2 - Jet Set Willy II - The Final Frontier
 # ---------------------------------------------------------------------------
 
 _JSW2_MAGIC_ADDR = 0x7089
@@ -1044,11 +1044,11 @@ def _jsw2_decode_hv_record(ram, defb: tuple[int, ...], slot: int,
     kind = kind_override or ("horiz" if is_horiz else "vert")
     frame_mask = b6 & 0x03
 
-    # Bouncing-bounds simulator — produces (x_min, x_max, y_min, y_max)
+    # Bouncing-bounds simulator - produces (x_min, x_max, y_min, y_max)
     # for axis-aligned guardians and a multi-vertex waypoint list for
     # diagonals. See the long comment that used to live in
     # _parse_room_guardians_jsw2 for the rationale (Eggoids, JSW2 edge
-    # bouncing). Forces 45° on diagonal motion — the actual JSW2
+    # bouncing). Forces 45° on diagonal motion - the actual JSW2
     # `minor_step` value (1/2/3) sets a different angle each, but
     # we approximate as 45° pending a full per-axis slope fix.
     sim_x, sim_y = x_native, y_native
@@ -1165,7 +1165,7 @@ def _jsw2_synth_toilet(ram, defb: tuple[int, ...]) -> "GuardianRef":
     return _jsw2_decode_hv_record(ram, defb, 0xE0,
                                   kind_override="toilet")
 # JSW1's Z80 RAM-mapped origin. snap.ram is indexed from 0x0000 in our
-# module (verified earlier — `snap.ram[0xC000]` returns the byte at
+# module (verified earlier - `snap.ram[0xC000]` returns the byte at
 # Z80 address $C000). JSW2 lives entirely in 48K RAM, so the same
 # direct addressing applies.
 
@@ -1191,7 +1191,7 @@ def _jsw2_decrypt_inplace_if_needed(snap: "Snapshot") -> None:
     """Apply JSWED's two-step decryption when the snapshot's $7089
     magic is the encrypted form. Mutates `snap.ram` in place. No-op on
     already-decrypted snapshots. The init-fragment patch at $7000 is
-    NOT applied — we don't run the snapshot, only read its data, and
+    NOT applied - we don't run the snapshot, only read its data, and
     the post-decrypt bytes at $7000 are stable game data either way."""
     blob = bytes(snap.ram[_JSW2_MAGIC_ADDR:_JSW2_MAGIC_ADDR + 12])
     if blob != _JSW2_MAGIC_ENCRYPTED:
@@ -1279,7 +1279,7 @@ def _jsw2_expand_token(ram: np.ndarray, token_id: int,
 def _jsw2_expand_string(ram: np.ndarray, addr: int,
                         buf: list[str], remaining_cap: list[int]) -> None:
     """Expand a JSW2-tokenised string starting at `addr` into `buf`,
-    stopping at the first byte with bit-7 set (inclusive — that byte
+    stopping at the first byte with bit-7 set (inclusive - that byte
     contributes its low 7 bits as the final character) or when
     `remaining_cap[0]` is exhausted. Tokens (`< 0x1F`) recurse via
     `_jsw2_expand_token`."""
@@ -1384,7 +1384,7 @@ def _jsw2_read_cell_graphic(ram: np.ndarray, cell_no: int) -> "TileGraphic":
 def _jsw2_room_blob_size(ram: np.ndarray, blob_off: int,
                          next_blob_off: int | None) -> int:
     """Best-effort blob length. Used to fill `Room.raw`. We don't
-    actually need to walk every field — the next room's blob offset
+    actually need to walk every field - the next room's blob offset
     (or end of RAM) caps it."""
     if next_blob_off is not None and next_blob_off > blob_off:
         return next_blob_off - blob_off
@@ -1403,7 +1403,7 @@ def _build_room_jsw2(snap: "Snapshot", engine: "Engine",
     # Title (and offset of post-title bytes)
     title, post_title_offset = _jsw2_decode_title(ram, blob_off)
     after_title = blob_off + post_title_offset
-    # Exits: 4 bytes in JSW2 order (LEFT, UP, RIGHT, DOWN) — confirmed
+    # Exits: 4 bytes in JSW2 order (LEFT, UP, RIGHT, DOWN) - confirmed
     # against `st_exnames[4] = {"left", "up", "right", "down"}` in
     # JSWED's `Jsw2Room::exportExits` (jsw2room.cxx:762). Values are
     # 1-indexed (subtract 1 for a 0-indexed room id), and a self-loop
@@ -1470,7 +1470,7 @@ def _build_room_jsw2(snap: "Snapshot", engine: "Engine",
 
     # Parse JSW2 arrow defs (2 bytes each). T5 bit 7 = "has arrows";
     # arrow count follows guardians, then 2 bytes per arrow:
-    #   byte 0: starting `m_x` (cycle counter, 0..255) — only matters
+    #   byte 0: starting `m_x` (cycle counter, 0..255) - only matters
     #           for flight phase, NOT the visible spawn column.
     #   byte 1: bit 7 = direction (0=right, 1=left); bits 0-6 = y in
     #           pixels (0..127).
@@ -1541,7 +1541,7 @@ def _parse_room_guardians_jsw2(snap: "Snapshot",
     * `mirrored`: True when major-step is negative (so the runtime
       has to draw the sprite mirrored from the canonical pose).
     * `sprite_page`: 9-bit field
-      `byte[2] | ((byte[4] >> 7) << 8)` — see §12 of
+      `byte[2] | ((byte[4] >> 7) << 8)` - see §12 of
       `docs/JSW2_FORMAT_NOTES.md`.
     * `base_sprite`: 0 (JSW2 frames are sequential within the
       sprite-page index space; there is no JSW1-style "base in
@@ -1549,7 +1549,7 @@ def _parse_room_guardians_jsw2(snap: "Snapshot",
     * `frame_mask`: `byte[6] & 3` (animation-cycle mask; reachable
       frames are `0..mask`, doubled to `4..4+mask` if byte[6] bit 6
       is set for direction-dependent frames).
-    * `initial_frame`: 0 — the "starting frame" inside the cycle
+    * `initial_frame`: 0 - the "starting frame" inside the cycle
       doesn't apply the same way; mostly a JSW1 concept. The JSW2
       runtime uses `byte[0]` (initial tick countdown) for movement
       phasing, not animation phasing.
@@ -1579,10 +1579,10 @@ def _parse_room_guardians_jsw2(snap: "Snapshot",
     # JSW2 patch-vector specials. T5's low 5 bits select a special-case
     # routine in the dispatch table at `$8361`. A handful of those
     # specials inject extra guardians at room load:
-    #   * Lift pairs — IDs {2, 3, 4, 5, 19, 21, 24}, two HV-guardian
+    #   * Lift pairs - IDs {2, 3, 4, 5, 19, 21, 24}, two HV-guardian
     #     records sourced from JSW2_LIFT_TABLE at the offset given by
     #     JSW2_LIFT_PAIR_OFFSET (per JSWED's `checkSpecials` switch).
-    #   * Toilet — ID 9, one stationary HV-guardian record at
+    #   * Toilet - ID 9, one stationary HV-guardian record at
     #     JSW2_TOILET_RECORD. The JSW2 toilet is *deadly*, unlike the
     #     `HARMLESS`-flagged jsw-gorgeous toilet that mirrors JSW1's.
     # Emit each as a synthetic GuardianRef so the existing emitter
@@ -1603,7 +1603,7 @@ def _parse_room_guardians_jsw2(snap: "Snapshot",
                                              JSW2_TOILET_RECORD + 7])
             out.append(_jsw2_synth_toilet(ram, defb))
 
-    # JSW2 arrows — stored after guardians, parsed during _build_room
+    # JSW2 arrows - stored after guardians, parsed during _build_room
     # and stashed on room._jsw2_arrows as a list of (x_px, y_px, dir).
     # Emit each as an Arrow-kind GuardianRef so the importer pipeline
     # handles them uniformly with JSW2's other entities.
@@ -1655,7 +1655,7 @@ def _parse_room_guardians_jsw2(snap: "Snapshot",
 #   0xF0 .. 0xFF  Guardian instances.
 #
 # JSW64 keeps the same exit / border conventions but moves layout,
-# title and tile palette around per variant — the fields on `Engine`
+# title and tile palette around per variant - the fields on `Engine`
 # capture each engine's specific offsets.
 TILE_TYPE_NAMES = ("background", "floor", "wall", "nasty",
                    "ramp", "conveyor")
@@ -1674,7 +1674,7 @@ class TileGraphic:
 
 # JSW48 / JSW128 store room-buffer addresses (location of stairs base
 # / conveyor leftmost cell) as 16-bit pointers into the engine's
-# expanded-attribute work area at 0x5E00..0x5FFF — 32 cols * 16 rows
+# expanded-attribute work area at 0x5E00..0x5FFF - 32 cols * 16 rows
 # laid out row-major.
 _ROOM_BUFFER_BASE = 0x5E00
 _ROOM_BUFFER_END = 0x6000
@@ -1701,7 +1701,7 @@ class ConveyorData:
       direction == 1  : motion RIGHT (canonical default)
       direction == 0  : motion LEFT  (mirrored from canonical)
 
-    Verified empirically against JSW1 + Paris snapshots — Paris
+    Verified empirically against JSW1 + Paris snapshots - Paris
     'Welcome to Paris!' has a length-15 ramp at base x=5 with dir=1
     that fits the room only when dir=1 means up-and-right; conveyor
     direction follows the same byte convention.
@@ -1724,7 +1724,7 @@ class RampData:
     A diagonal ramp / staircase in a JSW48/JSW128 room. Each step
     moves diagonally up-and-`direction` from base (x, y):
 
-      direction == 1  : ascending RIGHT (canonical default — `/` shape)
+      direction == 1  : ascending RIGHT (canonical default - `/` shape)
       direction == 0  : ascending LEFT  (`\\\\` shape, mirrored)
     """
 
@@ -1758,7 +1758,7 @@ class ItemData:
 
 @dataclass(frozen=True)
 class PortalData:
-    """A cavern's exit/portal — the `MM_EXIT` cell in Manic-style packs
+    """A cavern's exit/portal - the `MM_EXIT` cell in Manic-style packs
     and the door/gate in JSW64. Coordinates are in tiles. `attribute`
     is the ZX colour byte for the portal sprite.
     """
@@ -1825,10 +1825,10 @@ class GuardianRef:
     y: int                       # initial y in pixels (0..127)
     direction: int | None        # Tiled Direction enum: 0=Up 1=Down 2=Left 3=Right; None for rope
     mirrored: bool               # MIRROR flag for stairs/conveyor-style direction
-    sprite_page: int             # `defb[5]` — engine sprite page (high byte of address)
-    base_sprite: int             # `(ix >> 5) & 7` — non-cycling bits of frame index
-    initial_frame: int           # `defb[0]` bits 5-6 — starting animation-counter value
-    frame_mask: int              # `defb[1]` bits 5-7 — animation cycle mask
+    sprite_page: int             # `defb[5]` - engine sprite page (high byte of address)
+    base_sprite: int             # `(ix >> 5) & 7` - non-cycling bits of frame index
+    initial_frame: int           # `defb[0]` bits 5-6 - starting animation-counter value
+    frame_mask: int              # `defb[1]` bits 5-7 - animation cycle mask
     raw_def: tuple[int, ...]     # full 8 def bytes, for debugging
     # JSW2-only: address of frame 0 of this guardian's sprite. JSW2
     # stores a 9-bit *frame index* (not a Z80 page) in its 7-byte def
@@ -1839,7 +1839,7 @@ class GuardianRef:
     # JSW2 diagonal-guardian override. When set, the importer skips
     # `raw_def[6]/[7]`-based axis-aligned route synthesis and emits
     # the polyline directly from these waypoints. Each tuple is
-    # (x_px, y_px) — sprite top-left absolute coords. The first
+    # (x_px, y_px) - sprite top-left absolute coords. The first
     # waypoint is the route object's origin in the TMX; subsequent
     # waypoints become signed relative `dx,dy` polyline points.
     # Edge bounces and forced reversals each add a waypoint, so the
@@ -1856,7 +1856,7 @@ class GuardianRef:
     def displayed_frame_at(self) -> int:
         """Frame index *currently visible* given this instance's
         `base_sprite` + `initial_frame` + `frame_mask`. JSW1 computes
-        the live frame as `(counter & mask) | (base_sprite & ~mask)` —
+        the live frame as `(counter & mask) | (base_sprite & ~mask)` -
         mask bits cycle, the rest stay fixed at `base_sprite`. So a
         guardian with `base_sprite=3, mask=0` always shows frame 3
         (the barrel); one with `base_sprite=0, mask=2` cycles 0↔2."""
@@ -1878,7 +1878,7 @@ class GuardianRef:
 #
 # JSW128 keeps the same layout and only places items in rooms 0..63
 # (the first bank), so the 6-bit room field still covers every item.
-# We deliberately ignore the "uncollected" flag — it reflects runtime
+# We deliberately ignore the "uncollected" flag - it reflects runtime
 # game state, but the structure pack records the at-game-start
 # positions, which the position bits preserve regardless of state.
 # Per skoolkit `analysis/jsw_annotated_source/jsw_to_tmx.py:660-662` and
@@ -1892,7 +1892,7 @@ _ITEMS_FIRST_INDEX = 173
 _ITEMS_LAST_INDEX = 255
 
 
-# JSW64 items table — schema per JSWED 2.3.7's `Jsw64Game::Jsw64Game()`
+# JSW64 items table - schema per JSWED 2.3.7's `Jsw64Game::Jsw64Game()`
 # constructor (file `j64game.cxx:61-69`) and `JswGame::itemPos`
 # (`jswgame.cxx:205-219`). Two parallel 256-byte tables indexed by
 # slot N ∈ 0..255:
@@ -1907,12 +1907,12 @@ _ITEMS_LAST_INDEX = 255
 #     stat byte: bank 0 at offset N (= `$C000+N` when bank 0 paged)
 #     xy byte:   default-banking `$A500+N`
 #
-#   X / Y / YY / Z / Manic-DD (default case — `m_itemBase = 0xA400`,
+#   X / Y / YY / Z / Manic-DD (default case - `m_itemBase = 0xA400`,
 #                              `m_itemMask = 0x3F`)
 #     stat byte: default-banking `$A400+N`
 #     xy byte:   default-banking `$A500+N`
 #
-# `itemCount` byte at `$85CA` gives the lowest valid slot index —
+# `itemCount` byte at `$85CA` gives the lowest valid slot index -
 # entries below it are reserved engine workspace, not items. JSW1's
 # 173-item-floor moved to `$A3FF`; J64 relocates to `$85CA`.
 #
@@ -1968,7 +1968,7 @@ def _parse_items_jsw64(snap: Snapshot,
     """JSW64-family items decode, dispatching by variant byte at `$85C9`.
 
     Y comes out as a tile-row index 0..15 (the underlying field is a
-    pixel y on multiples of 8 — divided here so callers get the same
+    pixel y on multiples of 8 - divided here so callers get the same
     tile units as JSW48 / JSW128).
 
     Verified against ManicMinerRedux's MMDD level data: cavern 0 ("The
@@ -2011,7 +2011,7 @@ def _parse_items_jsw64(snap: Snapshot,
 # bitmap to the fixed working address $80E1 when entering the room;
 # the routine at $93F1 then renders items from that working address.
 # Different rooms have different item graphics (cross, bottle, cigar,
-# trophy, etc.) — anyone calling `engine_item_bitmap(snap, engine)`
+# trophy, etc.) - anyone calling `engine_item_bitmap(snap, engine)`
 # (no room) gets the engine working-area copy, which only reflects
 # whichever room was last entered before the snapshot was taken; for
 # real per-room access use `room_item_bitmap(room)`.
@@ -2023,7 +2023,7 @@ def engine_item_bitmap(snap: Snapshot, engine: Engine) -> tuple[int, ...] | None
     """Return the 8-byte working-copy item bitmap from the engine area.
 
     For JSW48 / JSW128 this is the bitmap of whichever room was last
-    entered when the snapshot was taken — fine as a fallback when no
+    entered when the snapshot was taken - fine as a fallback when no
     Room object is available, but per-room callers should prefer
     `room_item_bitmap(room)`.
 
@@ -2044,7 +2044,7 @@ def engine_item_bitmap(snap: Snapshot, engine: Engine) -> tuple[int, ...] | None
     return None
 
 
-# JSW48 / JSW128 entity-def table at $A000 — 96 entries × 8 bytes.
+# JSW48 / JSW128 entity-def table at $A000 - 96 entries × 8 bytes.
 # Each room's `$F0..$FF` is 8 (def_idx, ix) pairs. Sprite frames live
 # in the page named by `defb[5]` (high byte of address); each frame is
 # 32 bytes (16×16 monochrome). The frame count comes from
@@ -2075,7 +2075,7 @@ def _decode_jsw48_def(def_idx: int, ix: int, defb: tuple[int, ...]
     bit7 = (defb[0] >> 7) & 1
     initial_frame = (defb[0] >> 5) & 0x03
     frame_mask = (defb[1] >> 5) & 0x07
-    # Per-instance "base sprite" bits in the high nibble of `ix` —
+    # Per-instance "base sprite" bits in the high nibble of `ix` -
     # these set the non-cycling bits of the displayed frame index, so
     # different guardians sharing the same `sprite_page` (Maria's
     # pieces, the JSW1 multi-entity Evil Head, the Off Licence
@@ -2134,13 +2134,13 @@ def _decode_jsw48_def(def_idx: int, ix: int, defb: tuple[int, ...]
         kind = "lift"
         direction = None
         mirrored = False
-    elif gtype == 0x98:          # Switch — interactive trigger
+    elif gtype == 0x98:          # Switch - interactive trigger
         x = (ix & 0x1F) * 8
         y = defb[3] >> 1
         kind = "switch"
         direction = None
         mirrored = False
-    elif gtype == 0xA8:          # Opening wall — per JSWED `drawOpeningWall`
+    elif gtype == 0xA8:          # Opening wall - per JSWED `drawOpeningWall`
                                   # x/y come from defb[6]/defb[7]:
                                   #   x = (m_guard[6] & 0x1F) * 16
                                   #   y = m_guard[7] & 0xFE
@@ -2154,8 +2154,8 @@ def _decode_jsw48_def(def_idx: int, ix: int, defb: tuple[int, ...]
     # Guardian ink lives in `defb[1] & 0x0F` for JSW48 / JSW128 / all
     # JSW64 variants (they share `JswGuardian::getInk` in JSWED). Rope
     # and arrow entities don't have a meaningful colour at the engine
-    # level — they're drawn from fixed bitmaps using room/global state,
-    # not the def's ink — but we still pull bits 0-3 so the TMX has a
+    # level - they're drawn from fixed bitmaps using room/global state,
+    # not the def's ink - but we still pull bits 0-3 so the TMX has a
     # plausible value rather than the default white.
     color_rgba = _zx_attr_to_rgba(defb[1] & 0x0F)
     return GuardianRef(
@@ -2172,14 +2172,14 @@ def parse_room_guardians(snap: Snapshot, engine: Engine,
                          room: "Room") -> list[GuardianRef]:
     """Decode the per-room guardian list. Format depends on engine:
 
-    * **JSW48 / JSW128** — 8 (def_idx, ix) pairs at room offset
+    * **JSW48 / JSW128** - 8 (def_idx, ix) pairs at room offset
       `$F0..$FF`; each pair references the global 8-byte entity-def
       table at `$A000 + def_idx*8`. List terminates at `def_idx=0xFF`.
-    * **JSW64-V/W/X/Y/YY/Z** — up to N 8-byte FULL definitions stored
+    * **JSW64-V/W/X/Y/YY/Z** - up to N 8-byte FULL definitions stored
       inline at the START of the room block (offset `$00`), terminated
       by `0xFF`. N = 13 for V/X, 8 for W/Y/Z, 4 for `[`. Per
       [Seasip](https://seasip.info/Jsw/jsw64room.html). The (def_idx,
-      ix) abstraction doesn't apply — each room carries its own
+      ix) abstraction doesn't apply - each room carries its own
       guardian definitions, so we synthesise a fake def_idx from the
       list position purely for `GuardianRef` bookkeeping.
 
@@ -2190,7 +2190,7 @@ def parse_room_guardians(snap: Snapshot, engine: Engine,
     if engine.jsw2_directory_ptr_addr is not None:
         return _parse_room_guardians_jsw2(snap, room)
     if _engine_has_jsw48_items_table(engine):
-        # JSW48 / JSW128 — references into the global $A000 table.
+        # JSW48 / JSW128 - references into the global $A000 table.
         raw = room.raw
         if not raw or len(raw) < 0x100:
             return []
@@ -2232,7 +2232,7 @@ def parse_room_guardians(snap: Snapshot, engine: Engine,
                 break
             defb = tuple(int(b) for b in raw[base:base + _JSW48_DEF_BYTES])
             # JSW64 / Manic-DD store the initial X (bits 0-4) and
-            # base_sprite (bits 5-7) in `defb[2]` — same encoding JSW48
+            # base_sprite (bits 5-7) in `defb[2]` - same encoding JSW48
             # uses for its per-instance `ix` byte. Per JSWED's
             # `Jsw128Guard::draw` (`j128guard.cxx:198`):
             #     x = (m_guard[2] & 0x1F) * 16
@@ -2259,7 +2259,7 @@ def guardian_sprite_frames(snap: Snapshot, gref: GuardianRef) -> list[bytes]:
     so the reachable frame *indices* on this sprite page are the
     union of that formula over `counter ∈ 0..mask` (sub-mask trimmed
     for sparse masks). For `mask=0` only the static `base_sprite`
-    frame is reachable — that's how the Off Licence barrel
+    frame is reachable - that's how the Off Licence barrel
     (`base_sprite=3, mask=0`) lands on the actual barrel graphic at
     page-offset 3 even though `initial_frame=0`."""
     if gref.sprite_frame0_addr:
@@ -2295,7 +2295,7 @@ def room_item_bitmap(room: "Room") -> tuple[int, ...] | None:
     JSW48 / JSW128 / JSW64 all store one bitmap per room at room
     offset `$E1..$E8`. (Despite Seasip's note that JSW64 uses just
     1 byte at `$E1`, empirical inspection of WFP / hacklevel-12
-    snapshots shows the same 8-byte layout as JSW48 — e.g. WFP
+    snapshots shows the same 8-byte layout as JSW48 - e.g. WFP
     "The Clowns" room has a clown-face bitmap at `$E1..$E8`.)
     Returns None only when the room block is too short to contain
     the field. Many rooms share the same bitmap (or none, when the
@@ -2315,9 +2315,9 @@ def parse_items(snap: Snapshot, engine: Engine
     tile coordinates. Different engine families use different table
     formats:
 
-      * JSW48 / JSW48-JGH / JSW128 — both bytes at default-banking
+      * JSW48 / JSW48-JGH / JSW128 - both bytes at default-banking
         $A400 / $A500 (parallel arrays), 6-bit room, 4-bit y, 5-bit x.
-      * JSW64-V/W/X/Y/YY/Z — low byte at default-banking $A400,
+      * JSW64-V/W/X/Y/YY/Z - low byte at default-banking $A400,
         high byte in bank 0 (= $C000 when paged), 7-bit room (max
         127), 3-bit y, 5-bit x.
 
@@ -2349,7 +2349,7 @@ class Room:
     # have 6 entries (BG, FLOOR, WALL, NASTY, RAMP, CONVEYOR); JSW64
     # variants have 8, 13 or 16 depending on hacklevel.
     tile_palette: list["TileGraphic"] = field(repr=False, default_factory=list)
-    # Convenience lookup by the JSW48/JSW128 names — same TileGraphic
+    # Convenience lookup by the JSW48/JSW128 names - same TileGraphic
     # objects as in `tile_palette[0..5]`. Empty for JSW64.
     tiles: dict[str, "TileGraphic"] = field(repr=False, default_factory=dict)
     # Neighbour ids in (LEFT, RIGHT, ABOVE, BELOW) order. 0 is a valid
@@ -2370,7 +2370,7 @@ class Room:
     # Mirror of `engine.tile_mirror_map` so the structure exporter can
     # set the MIRROR bit per cell without re-consulting the engine spec.
     tile_mirror_map: tuple[bool, ...] = ()
-    # JSW48/JSW128 only — the single conveyor and ramp record each
+    # JSW48/JSW128 only - the single conveyor and ramp record each
     # room can carry, stored as separate fields rather than as cells
     # in `layout`. None when the engine doesn't use this encoding
     # (JSW64 V/W/X/Y/YY/Z), or when the field is empty (length=0).
@@ -2590,7 +2590,7 @@ def _build_room(snap: Snapshot, engine: Engine, rid: int,
     title = _read_title(buf, off, engine.title_offset, engine.title_length)
     layout = _read_layout(buf, off, engine)
     palette = _read_tile_palette(buf, off, engine)
-    # Stock Manic Miner has no L/R/U/D directional exits — caverns are
+    # Stock Manic Miner has no L/R/U/D directional exits - caverns are
     # navigated via the MM_EXIT portal sprite, not via byte fields.
     # MMDD/MMLL use JSW64-Z's exit bytes but most of them are 0xFF
     # (no exit) since the portal does the work.
@@ -2610,7 +2610,7 @@ def _build_room(snap: Snapshot, engine: Engine, rid: int,
     # Stock Manic Miner stores guardians inline in the cavern record
     # (h-pair at `$2BE`, v-pair at `$2DD`), so the field is unused.
     # MMDD/MMLL (Manic-DD) overload `$DF..$E0` for the air-supply pair
-    # — the JSW64 runtime treats it as guardian-ptr-OR-air depending
+    # - the JSW64 runtime treats it as guardian-ptr-OR-air depending
     # on context, but for *static* extraction we just want the air
     # value and skip the gptr read.
     if engine.name == "Manic" or engine.is_manic_style:
@@ -2664,7 +2664,7 @@ def _build_room(snap: Snapshot, engine: Engine, rid: int,
         role_map = engine.tile_role_map
         mirror_map = engine.tile_mirror_map
 
-    # Air supply — generic extraction driven by `engine.air_supply_offset`.
+    # Air supply - generic extraction driven by `engine.air_supply_offset`.
     # Stock Manic Miner reads from `(700, 701)`; Manic-DD (JSW64-Z
     # packaging used by MMDD/MMLL) reads from `($DF, $E0)`. Non-Manic
     # engines leave the offset `None` so this returns 0.
@@ -2721,7 +2721,7 @@ def iter_rooms(snap: Snapshot, engine: Engine,
     """
     Yield every room defined by the engine's slot list. `skip_empty=True`
     drops blocks whose title is unprintable AND whose layout is all
-    zeros — common for unused tail entries in 128K / Paris maps.
+    zeros - common for unused tail entries in 128K / Paris maps.
 
     The global items table is parsed once per call and items are
     dispatched to their owning rooms via `Room.items`.
@@ -2750,7 +2750,7 @@ def iter_rooms(snap: Snapshot, engine: Engine,
 
 
 # ---------------------------------------------------------------------------
-# Debug helpers — useful for `python jsw_snapshot.py <path>` style probing.
+# Debug helpers - useful for `python jsw_snapshot.py <path>` style probing.
 # ---------------------------------------------------------------------------
 
 
@@ -2778,7 +2778,7 @@ def find_text(ram: np.ndarray, needle: str,
 
 def main(argv: list[str] | None = None) -> int:
     """
-    `python jsw_snapshot.py <path>` — dump engine + room titles for any
+    `python jsw_snapshot.py <path>` - dump engine + room titles for any
     supported snapshot or tape file (.z80 / .sna / .szx / .tap / .tzx
     / .pzx).
     """

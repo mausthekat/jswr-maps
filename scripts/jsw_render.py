@@ -8,21 +8,21 @@ showing every room rendered at native ZX colours.
 
 Algorithm in three stages:
 
-1. **Per-room render** — each cell is 8x8 pixels using its tile
+1. **Per-room render** - each cell is 8x8 pixels using its tile
    graphic's ZX attribute (paper / ink / bright) and bitmap.
 
-2. **Exit-graph layout** — BFS from the first populated room; for each
+2. **Exit-graph layout** - BFS from the first populated room; for each
    exit (LEFT / RIGHT / ABOVE / BELOW) place the neighbour at the
    corresponding offset. Skip an edge when the neighbour already has
    a position that would conflict OR the destination cell is occupied
-   by another room. Repeat from any room not yet placed — those form
+   by another room. Repeat from any room not yet placed - those form
    their own components.
 
-3. **Map composition** — every component gets a tightly packed
+3. **Map composition** - every component gets a tightly packed
    bounding box of its rooms, components are stacked vertically with
    a gutter, and cross-component exits (the dropped edges) are routed
    as right-angled connector lines through the free tile-space between
-   rooms — never crossing any room rectangle. Routing falls back to a
+   rooms - never crossing any room rectangle. Routing falls back to a
    text label only when no orthogonal path exists.
 
 CLI:
@@ -91,7 +91,7 @@ ROOM_W_PX = ROOM_W_TILES * TILE_PX  # 256
 ROOM_H_PX = ROOM_H_TILES * TILE_PX  # 128
 
 
-# Canonical tile-category colours — single source of truth is
+# Canonical tile-category colours - single source of truth is
 # docs/formats/CANONICAL_TILE_CATEGORY_COLORS.md (mirrored at runtime
 # in src/rendering/tile_renderer.py and src/procgen/room_renderer.py).
 # Keep these RGB values in sync with that doc.
@@ -123,7 +123,7 @@ def _attr_match_palette(palette: list[TileGraphic], attr: int) -> int | None:
 
 # 8x8 "water" placeholder pattern for JSW64-Z cells whose attribute
 # doesn't match any palette tile. Real Z files use a global water
-# bitmap stored elsewhere in the engine — until we extract that, this
+# bitmap stored elsewhere in the engine - until we extract that, this
 # wave-like hatch keeps unmatched cells visually distinct from solid
 # blocks while still showing the cell's attribute colour.
 _WATER_PATTERN = bytes(
@@ -148,7 +148,7 @@ def _resolve_cell(room: Room, value: int) -> tuple[TileGraphic | None, int]:
     For attribute-array layouts (Z): cell value is a ZX attribute byte;
     look up the palette tile with the matching attribute. Unmatched
     attribute bytes reuse palette slot 1's bitmap colored by the
-    cell's own attribute — JSWED's `Jsw64Room::exportCells`
+    cell's own attribute - JSWED's `Jsw64Room::exportCells`
     (`j64room.cxx:1620-1652`) does the same: it iterates every attr
     byte that appears on-screen but isn't in the 16-entry palette,
     creates a synthetic cell entry inheriting palette[1]'s 8-byte
@@ -173,7 +173,7 @@ def _resolve_cell(room: Room, value: int) -> tuple[TileGraphic | None, int]:
     if value < len(palette):
         tile = palette[value]
         return tile, tile.attr
-    # Out-of-range index — fall back to BG tile.
+    # Out-of-range index - fall back to BG tile.
     bg = palette[0]
     return bg, bg.attr
 
@@ -182,7 +182,7 @@ def render_room(room: Room, category: bool = False) -> Image.Image:
     """
     Render one room as a 256x128 RGB image.
 
-    `category=False` (default): native ZX rendering — each tile uses
+    `category=False` (default): native ZX rendering - each tile uses
     its own attribute (paper/ink/bright) and bitmap. JSW64-Z cells
     whose attribute doesn't match any palette tile are drawn with a
     placeholder "water" hatch coloured by the cell's attribute, since
@@ -205,7 +205,7 @@ def render_room(room: Room, category: bool = False) -> Image.Image:
             if category:
                 cat_idx = _category_index(room, value)
                 if cat_idx is None:
-                    continue  # background — leave the cell black
+                    continue  # background - leave the cell black
                 if 0 <= cat_idx < len(_CATEGORY_COLORS):
                     color = _CATEGORY_COLORS[cat_idx]
                 else:
@@ -231,7 +231,7 @@ def _category_index(room: Room, value: int) -> int | None:
     For engines with a documented role map (JSW48, JSW128) the
     mapping is exact. For engines whose role assignment we haven't
     decoded yet (JSW64 V/W/X/Y/YY/Z) the role map is empty, and we
-    fall through to using the palette index as the category — a
+    fall through to using the palette index as the category - a
     visual-distinguishability hack: tile-class N maps to category N
     so different tiles get different hues, and indices past the 9
     documented roles render in the grey "uncategorised" colour. This
@@ -239,7 +239,7 @@ def _category_index(room: Room, value: int) -> int | None:
     structure to read the layout.
 
     For attribute-array layouts (Z), the layout value is a ZX
-    attribute byte — match it against palette attrs first to recover
+    attribute byte - match it against palette attrs first to recover
     the palette index, then resolve through the role table.
     """
     role_map = room.tile_role_map
@@ -263,7 +263,7 @@ def _category_index(room: Room, value: int) -> int | None:
     if idx is None:
         return None
     if not role_map:
-        # No documented mapping — surface the palette index directly
+        # No documented mapping - surface the palette index directly
         # so the renderer can still distinguish tile classes visually.
         # Index 0 is reserved for "background" across every JSW
         # engine seen so far, so map it to None to keep BG black.
@@ -280,7 +280,7 @@ def _category_index(room: Room, value: int) -> int | None:
 # Direction order matches Room.exits: LEFT, RIGHT, ABOVE, BELOW.
 _DIR_OFFSET = ((-1, 0), (1, 0), (0, -1), (0, 1))
 _DIR_NAMES = ("L", "R", "U", "D")
-# Reverse of each direction index — used for the "is this exit
+# Reverse of each direction index - used for the "is this exit
 # genuinely bidirectional?" sanity check below.
 _DIR_REVERSE = (1, 0, 3, 2)
 
@@ -290,8 +290,8 @@ def _is_bidirectional_exit(rooms: dict[int, Room], src_id: int,
     """
     True only when the source's exit in `direction` is mirrored by the
     target's exit in the opposite direction. JSW engines overload
-    exit-byte `0` (and sometimes `255`) as a "no exit" sentinel —
-    even though room 0 is a real room — so we can't trust the raw
+    exit-byte `0` (and sometimes `255`) as a "no exit" sentinel -
+    even though room 0 is a real room - so we can't trust the raw
     byte. A genuine playable edge always round-trips: room A's right
     is room B, and room B's left is room A.
     """
@@ -328,7 +328,7 @@ def _bfs_from_seed(rooms: dict[int, Room], seed: int,
     cross)` pair where `placed` maps room-id to (x, y) and `cross`
     is the list of dropped edges (src_id, dst_id, direction, reason).
 
-    `blocked_ids` are rooms already committed to earlier components —
+    `blocked_ids` are rooms already committed to earlier components -
     BFS won't claim them or use their cells.
     """
     placed: dict[int, tuple[int, int]] = {seed: (0, 0)}
@@ -344,7 +344,7 @@ def _bfs_from_seed(rooms: dict[int, Room], seed: int,
             if not _is_bidirectional_exit(rooms, rid, direction, tgt):
                 continue
             if tgt in blocked_ids:
-                # Target already lives in another committed component —
+                # Target already lives in another committed component -
                 # this becomes a cross-component edge for the renderer.
                 cross.append((rid, tgt, direction, 'conflict'))
                 continue
@@ -370,7 +370,7 @@ def _attach_one_way_singletons(rooms: dict[int, Room],
     **incoming** (other rooms' exits *to* the singleton) constraints.
 
     JSW rooms often have death-respawn pointers in their exit table
-    that aren't real adjacencies — JSW1's 'Entrance to Hades' is
+    that aren't real adjacencies - JSW1's 'Entrance to Hades' is
     referenced from multiple rooms via spatial fall/walk-into edges
     (Drive.U, Security-Guard.D, Under-the-Drive.L all point at it),
     which collectively pin Hades to a single empty cell, but Hades's
@@ -378,7 +378,7 @@ def _attach_one_way_singletons(rooms: dict[int, Room],
     both directions lets us honour the "spatial" half while ignoring
     the "respawn" half.
 
-    For each singleton R we collect every implied position — from the
+    For each singleton R we collect every implied position - from the
     singleton's own exits (R.exits[d] = X => R is at X.pos - offset[d])
     AND from incoming references (X.exits[d] = R => R is at X.pos +
     offset[d]). The position with the most votes wins; ties broken by
@@ -468,7 +468,7 @@ def _attach_title_twin_singletons(rooms: dict[int, Room],
     Each level-2 room shares a title with a level-1 twin and exits
     that point back to level-1 rooms (one-way). They have no bidir
     edges among themselves so the BFS leaves them as 22 singleton
-    components — visually noisy. Stacking them in one mirror-shaped
+    components - visually noisy. Stacking them in one mirror-shaped
     component gives an at-a-glance "level 2" map next to "level 1".
 
     Returns the number of singletons moved.
@@ -514,7 +514,7 @@ def compute_placements(snap: Snapshot, engine: Engine
     """
     Place every populated room into a 2D grid of components.
 
-    Strategy — **largest-segment first**:
+    Strategy - **largest-segment first**:
 
     Repeatedly try every unplaced room as a BFS seed and commit the
     seed whose run places the most rooms in one Euclidean-aligned
@@ -531,9 +531,9 @@ def compute_placements(snap: Snapshot, engine: Engine
     Ballroom-West / Kitchen island (7 rooms with 7 bidir-edges into
     the main mansion) is exactly this case.
 
-    Edges dropped during BFS — whether due to in-segment 'occupied'
+    Edges dropped during BFS - whether due to in-segment 'occupied'
     cells or 'conflict' with rooms already placed in another
-    committed segment — are returned as CrossEdges so the renderer
+    committed segment - are returned as CrossEdges so the renderer
     can route a connector line between them.
     """
     rooms = {r.id: r for r in iter_rooms(snap, engine)}
@@ -568,8 +568,8 @@ def compute_placements(snap: Snapshot, engine: Engine
                 break
 
         if best_seed is None:
-            # Should never happen — every non-empty `unplaced` has at
-            # least the trivial size-1 BFS — but defend anyway.
+            # Should never happen - every non-empty `unplaced` has at
+            # least the trivial size-1 BFS - but defend anyway.
             seed = next(iter(unplaced))
             placements[seed] = Placement(seed, next_component, 0, 0)
             unplaced.remove(seed)
@@ -613,7 +613,7 @@ def _build_tile_occupancy(placements: dict[int, "Placement"],
                           comp_origin: dict[int, tuple[int, int]],
                           canvas_w_cells: int,
                           canvas_h_cells: int) -> np.ndarray:
-    """Tile-level occupancy grid — True where a placed room sits."""
+    """Tile-level occupancy grid - True where a placed room sits."""
     grid_w = canvas_w_cells * ROOM_W_TILES
     grid_h = canvas_h_cells * ROOM_H_TILES
     grid = np.zeros((grid_h, grid_w), dtype=bool)
@@ -635,7 +635,7 @@ def _route_orthogonal(occ: np.ndarray, src: tuple[int, int],
     from `src` to `dst` (both inclusive). Returns [] if either
     endpoint is occupied or no path exists.
 
-    The turn penalty produces visually clean routes — the planner
+    The turn penalty produces visually clean routes - the planner
     prefers long straight runs with few corners over wiggly equal-
     length zig-zags. Cost = manhattan_steps + turn_penalty * #turns.
     """
@@ -726,7 +726,7 @@ def _edge_pixel(canvas_cx: int, canvas_cy: int, direction: int
 
 
 # Tile-grid coords of the first tile OUTSIDE a room past its edge in
-# `direction`. This is the start tile for routing — the router can
+# `direction`. This is the start tile for routing - the router can
 # walk from here through free tiles to the destination's port.
 def _port_tile(canvas_cx: int, canvas_cy: int, direction: int
                ) -> tuple[int, int]:
@@ -776,7 +776,7 @@ def compute_canonical_layout(snap: Snapshot, engine: Engine) -> CanonicalLayout 
     """Stable per-room canvas placement, shared between the renderer and
     the TMX importer's world file. Components are stacked vertically by
     descending size, with a fixed gutter between them and a margin around
-    the whole canvas — the same arrangement the canonical PNG output uses.
+    the whole canvas - the same arrangement the canonical PNG output uses.
 
     Returns None when no rooms could be placed."""
     placements, cross = compute_placements(snap, engine)

@@ -337,11 +337,11 @@ def old_tile_to_new_gid(old_index: int) -> int:
     """Convert old monolithic tile index (0-527) to new TMX GID for split tilesets.
 
     Old tile ranges (from tiles.png rows 0-32):
-    - 0-159: Solid tiles (rows 0-9)     — remapped via tile_remap_solid.json
-    - 160-223: Stairs tiles (rows 10-13) — identity mapping
-    - 224-303: Platform tiles (rows 14-18) — remapped via tile_remap_platform.json
-    - 304-335: Hazard tiles (rows 19-20)   — remapped via tile_remap_hazard.json
-    - 336-399: Decoration tiles (rows 21-24) — remapped via tile_remap_decoration.json
+    - 0-159: Solid tiles (rows 0-9)     - remapped via tile_remap_solid.json
+    - 160-223: Stairs tiles (rows 10-13) - identity mapping
+    - 224-303: Platform tiles (rows 14-18) - remapped via tile_remap_platform.json
+    - 304-335: Hazard tiles (rows 19-20)   - remapped via tile_remap_hazard.json
+    - 336-399: Decoration tiles (rows 21-24) - remapped via tile_remap_decoration.json
     - 400-527: Conveyor tiles (rows 25-32, special layout conversion)
 
     Returns TMX GID for the appropriate split tileset.
