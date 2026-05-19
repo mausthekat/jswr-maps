@@ -24,11 +24,10 @@ import argparse
 import json
 import re
 import sys
-from dataclasses import dataclass, asdict, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
 
-from PIL import Image, ImageDraw, ImageFont, ImageStat
+from PIL import Image, ImageDraw, ImageFont
 from rapidocr_onnxruntime import RapidOCR
 
 
