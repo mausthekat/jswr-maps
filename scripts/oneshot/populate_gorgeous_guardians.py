@@ -160,7 +160,7 @@ def get_guardians_firstgid(root: ET.Element):
     for ts in root.findall('tileset'):
         src = ts.get('source', '')
         if 'guardians.tsx' in src:
-            return int(ts.get('firstgid'))
+            return int(ts.get('firstgid', '0'))
     return None
 
 

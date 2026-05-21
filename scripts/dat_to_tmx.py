@@ -157,7 +157,7 @@ class _UnionFind:
                 self.parent[px] = py
 
 
-def parse_setup_dat(filepath: str) -> Dict[str, SpawnInfo]:
+def parse_setup_dat(filepath: str) -> Dict[str, Optional[SpawnInfo]]:
     """Parse a setup.dat file and extract spawn positions.
 
     Args:
@@ -166,7 +166,7 @@ def parse_setup_dat(filepath: str) -> Dict[str, SpawnInfo]:
     Returns:
         Dict with keys 'player', 'red', 'blue' mapping to SpawnInfo (or None if not present)
     """
-    result = {
+    result: Dict[str, Optional[SpawnInfo]] = {
         'player': None,
         'red': None,
         'blue': None,
@@ -507,6 +507,8 @@ def entity_type_to_gid(entity_type: int) -> int:
     - Oversized guardians (70, 71) use tiles 73-74 in guardians collection
     - Lifts and arrows (72, 73, 74) use tiles 70-72 in guardians collection
     """
+    if TILESET_GIDS is None:
+        raise RuntimeError("TILESET_GIDS not initialized")
     if entity_type == ENTITY_TYPE_EVIL_GIANT_HEAD:
         return TILESET_GIDS.guardians + TILE_INDEX_EVIL_GIANT_HEAD
     elif entity_type == ENTITY_TYPE_PERISCOPE_TANK:
@@ -1694,6 +1696,9 @@ def generate_room_tmx(room: Room,
         chunk: Chunk ID for disconnected room groups
         spawn: Optional spawn point info (from setup.dat)
     """
+    if TILESET_GIDS is None:
+        raise RuntimeError("TILESET_GIDS not initialized")
+
     # Build tile data
     tile_data = [[0] * ROOM_WIDTH for _ in range(ROOM_HEIGHT)]
 
@@ -2062,7 +2067,7 @@ def _copy_extensions_to_project(output_folder: str) -> bool:
     return True
 
 
-def convert_map(input_folder: str, output_folder: str = None):
+def convert_map(input_folder: str, output_folder: Optional[str] = None):
     """Convert a folder of .dat files to individual TMX files and a world file."""
     if not os.path.isdir(input_folder):
         print(f"Error: {input_folder} is not a directory")
@@ -2148,13 +2153,14 @@ def convert_map(input_folder: str, output_folder: str = None):
     # Build spawn info by room_id for quick lookup
     spawn_by_room: Dict[int, SpawnInfo] = {}
     for key in ['player', 'red', 'blue']:
-        if spawns[key]:
-            room_id = spawns[key].room_id
+        spawn = spawns[key]
+        if spawn:
+            room_id = spawn.room_id
             if room_id in spawn_by_room:
                 # Multiple spawns in same room - keep the first one
                 print(f"Warning: Multiple spawns in room {room_id}, using first")
             else:
-                spawn_by_room[room_id] = spawns[key]
+                spawn_by_room[room_id] = spawn
 
     # Build layout from connections
     visited_rooms, grid_width, grid_height, connected_height, room_chunks = build_room_layout(rooms)

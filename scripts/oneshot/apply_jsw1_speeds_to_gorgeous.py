@@ -158,7 +158,7 @@ def main() -> int:
     skipped_oversized: list[str] = []
     skipped_no_match: list[str] = []
     skipped_no_jsw1_room: list[str] = []
-    edits: list[tuple[Path, str, list[tuple[int, int]]]] = []
+    edits: list[tuple[Path, str, list[tuple[int, int, str]]]] = []
 
     for tmx_path in sorted(GORGEOUS_DIR.glob("*.tmx")):
         try:

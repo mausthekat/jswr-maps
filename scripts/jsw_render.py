@@ -68,8 +68,8 @@ _ZX_BASE_RGB = (
 def _zx_color(idx: int, bright: bool) -> tuple[int, int, int]:
     if not bright or idx == 0:
         return _ZX_BASE_RGB[idx & 7]
-    base = _ZX_BASE_RGB[idx & 7]
-    return tuple(0xFF if c else 0 for c in base)  # type: ignore[return-value]
+    r, g, b = _ZX_BASE_RGB[idx & 7]
+    return (0xFF if r else 0, 0xFF if g else 0, 0xFF if b else 0)
 
 
 def _attr_paper_ink(attr: int) -> tuple[tuple[int, int, int],
@@ -743,7 +743,7 @@ def _port_tile(canvas_cx: int, canvas_cy: int, direction: int
     return mid_x, base_y + ROOM_H_TILES  # D
 
 
-def _load_label_font(size: int = 11) -> ImageFont.ImageFont:
+def _load_label_font(size: int = 11) -> "ImageFont.ImageFont | ImageFont.FreeTypeFont":
     for candidate in (
         "/System/Library/Fonts/Monaco.ttf",
         "/System/Library/Fonts/SFNSMono.ttf",
@@ -936,7 +936,7 @@ def render_map(snap: Snapshot, engine: Engine,
     if scale != 1:
         canvas = canvas.resize(
             (canvas.width * scale, canvas.height * scale),
-            Image.NEAREST,
+            Image.Resampling.NEAREST,
         )
 
     meta = {

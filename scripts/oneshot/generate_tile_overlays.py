@@ -11,10 +11,18 @@ Output: Overlay images in tmx/_in_progress/jsw-gorgeous/rooms_overlay/*.png
 
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from typing import TypedDict
+
 from PIL import Image, ImageDraw
 
+
+class _TileType(TypedDict):
+    range: tuple[int, int]
+    color: tuple[int, int, int, int] | None
+
+
 # Tile type definitions based on firstgid values
-TILE_TYPES = {
+TILE_TYPES: dict[str, _TileType] = {
     'empty': {'range': (0, 0), 'color': None},
     'solid': {'range': (1, 2048), 'color': (255, 255, 255, 255)},      # White
     'stairs': {'range': (2049, 4096), 'color': (255, 255, 0, 255)},    # Yellow
@@ -70,7 +78,7 @@ def parse_tmx_tiles(tmx_path: Path) -> list:
         raise ValueError(f"Unsupported encoding: {encoding}")
 
     # Parse CSV data
-    csv_text = data.text.strip()
+    csv_text = (data.text or "").strip()
     tiles = []
     for line in csv_text.split('\n'):
         line = line.strip().rstrip(',')
@@ -113,7 +121,7 @@ def generate_overlay(tmx_path: Path, room_image_path: Path, output_path: Path):
 
     # Scale up 4x using nearest neighbor to preserve pixel art
     scaled_size = (room_img.width * SCALE, room_img.height * SCALE)
-    img = room_img.resize(scaled_size, Image.NEAREST)
+    img = room_img.resize(scaled_size, Image.Resampling.NEAREST)
     draw = ImageDraw.Draw(img)
 
     # Build list of (x, y, gid, tile_type) for all tiles

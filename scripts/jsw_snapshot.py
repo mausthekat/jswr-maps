@@ -1511,11 +1511,11 @@ def _build_room_jsw2(snap: "Snapshot", engine: "Engine",
     )
     # Attach JSW2-specific metadata for downstream consumers via
     # named attributes (so importer can reuse without reparsing).
-    room._jsw2_cell_numbers = cell_numbers  # type: ignore[attr-defined]
-    room._jsw2_t4 = t4                       # type: ignore[attr-defined]
-    room._jsw2_t5 = t5                       # type: ignore[attr-defined]
-    room._jsw2_arrows = arrows               # type: ignore[attr-defined]
-    room._jsw2_has_rope = bool(t4 & 0x80)    # type: ignore[attr-defined]
+    room._jsw2_cell_numbers = cell_numbers
+    room._jsw2_t4 = t4
+    room._jsw2_t5 = t5
+    room._jsw2_arrows = arrows
+    room._jsw2_has_rope = bool(t4 & 0x80)
     return room
 
 
@@ -2386,6 +2386,14 @@ class Room:
     # `docs/MANIC_MINER_FORMAT_NOTES.md`). 0 = unset / not from a
     # Manic snapshot; non-Manic engines leave this at the default.
     air_supply: int = 0
+    # JSW2-specific metadata, populated only by the JSW2 room decoder
+    # so the importer can reuse it without reparsing. Left at defaults
+    # for every other engine.
+    _jsw2_cell_numbers: tuple[int, ...] = ()
+    _jsw2_t4: int = 0
+    _jsw2_t5: int = 0
+    _jsw2_arrows: list[tuple[int, int, int]] = field(default_factory=list)
+    _jsw2_has_rope: bool = False
 
     @property
     def superjump(self) -> bool:

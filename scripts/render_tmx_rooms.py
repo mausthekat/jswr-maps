@@ -131,7 +131,10 @@ def load_tilesets(tmx_path: Path, tileset_suffix: str = "") -> list:
             image = tileset_elem.find('image')
             if image is None:
                 continue
-            image_path = tmx_dir / image.get('source')
+            image_source = image.get('source')
+            if image_source is None:
+                continue
+            image_path = tmx_dir / image_source
             columns = int(tileset_elem.get('columns', 16))
             tilecount = int(tileset_elem.get('tilecount', 0))
             base_tile_w = int(tileset_elem.get('tilewidth', TILE_WIDTH))

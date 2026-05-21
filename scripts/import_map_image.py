@@ -27,7 +27,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-from typing import Sequence, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING, cast
 
 from PIL import Image, ImageDraw, ImageFont
 from rapidocr_onnxruntime import RapidOCR
@@ -295,12 +295,15 @@ def has_floor(im_l: Image.Image, x: int, y: int, w: int, h: int,
     band_h = 4 * scale
     band_top = y + h - band_h
     px = im_l.load()
+    assert px is not None
     threshold = max(1, int(round(w * 0.7)))
     for row_y in range(band_top, y + h):
         run = 0
         max_run = 0
         for col_x in range(x, x + w):
-            if px[col_x, row_y] > BG_THRESHOLD:
+            # im_l is L-mode, so each pixel is a scalar int.
+            pixel = cast(int, px[col_x, row_y])
+            if pixel > BG_THRESHOLD:
                 run += 1
                 if run > max_run:
                     max_run = run
@@ -802,7 +805,7 @@ def detect_credits(grid: Grid,
 # OCR
 # ---------------------------------------------------------------------------
 
-def _bbox_from_quad(quad: Sequence[Sequence[float]]) -> tuple[int, int, int, int]:
+def _bbox_from_quad(quad: Any) -> tuple[int, int, int, int]:
     xs = [int(p[0]) for p in quad]
     ys = [int(p[1]) for p in quad]
     return (min(xs), min(ys), max(xs) - min(xs), max(ys) - min(ys))
@@ -882,7 +885,7 @@ def ocr_room_title_strips(
         )
         big = strip.resize(
             (strip.width * upscale, strip.height * upscale),
-            Image.NEAREST,
+            Image.Resampling.NEAREST,
         )
         arr = np.asarray(big.convert("RGB"))
         # Run detection + recognition; combine all detections into a single
@@ -954,7 +957,7 @@ def ocr_image(
     # only accepts ndarray / bytes / str / Path so PIL is out.
     import numpy as np
 
-    big = im.resize((im.width * upscale, im.height * upscale), Image.NEAREST)
+    big = im.resize((im.width * upscale, im.height * upscale), Image.Resampling.NEAREST)
     big_l = big.convert("L")
     engine = RapidOCR()
 
@@ -1771,7 +1774,7 @@ def classify_room_contents(im: Image.Image, grid: Grid,
 # Rendering overlay
 # ---------------------------------------------------------------------------
 
-def _load_label_font(size: int) -> ImageFont.ImageFont:
+def _load_label_font(size: int) -> "ImageFont.ImageFont | ImageFont.FreeTypeFont":
     for candidate in (
         "/System/Library/Fonts/Helvetica.ttc",
         "/System/Library/Fonts/SFNSMono.ttf",
@@ -1890,10 +1893,10 @@ def cmd_detect_metadata(args: argparse.Namespace) -> int:
     print(f"  non-empty rooms={n_room}  with floor band={n_floor}  "
           f"empty={grid.cols * grid.rows - n_room}")
 
+    ocr_regions: list[Region] = []
     if args.no_ocr:
         print("Skipping OCR (--no-ocr)")
         words: list[dict] = []
-        ocr_regions: list[Region] = []
     else:
         print(f"Running tiled OCR (upscale x{args.ocr_scale}, "
               f"tile {args.ocr_tile_size}, overlap {args.ocr_tile_overlap})...")

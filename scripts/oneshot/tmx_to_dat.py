@@ -282,7 +282,7 @@ def parse_tmx_room(tmx_path: str, room_id: int) -> Optional[Tuple[ParsedRoom, Li
     if layer is not None:
         data = layer.find('data')
         if data is not None and data.get('encoding') == 'csv':
-            csv_text = data.text.strip()
+            csv_text = (data.text or "").strip()
             rows = csv_text.split('\n')
             for row in rows:
                 # Handle trailing comma

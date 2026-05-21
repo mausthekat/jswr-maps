@@ -49,7 +49,7 @@ def load_room_mapping():
     return mapping
 
 
-def get_guardians(tree: ET.ElementTree) -> list[ET.Element]:
+def get_guardians(tree: "ET.ElementTree[ET.Element]") -> list[ET.Element]:
     """Extract Guardian objects from an Enemies objectgroup."""
     guardians = []
     for og in tree.findall(".//objectgroup"):
@@ -60,7 +60,7 @@ def get_guardians(tree: ET.ElementTree) -> list[ET.Element]:
     return guardians
 
 
-def get_collectibles(tree: ET.ElementTree) -> list[ET.Element]:
+def get_collectibles(tree: "ET.ElementTree[ET.Element]") -> list[ET.Element]:
     """Extract collectible objects from a Collectables objectgroup."""
     collectibles = []
     for og in tree.findall(".//objectgroup"):
@@ -104,21 +104,23 @@ def add_tileset_ref(root: ET.Element, firstgid: int, source: str) -> ET.Element:
 def indent_xml(elem: ET.Element, level: int = 0) -> None:
     """Add pretty-print indentation to XML."""
     indent = "\n" + " " * level
-    if len(elem):
+    children = list(elem)
+    if children:
         if not elem.text or not elem.text.strip():
             elem.text = indent + " "
         if not elem.tail or not elem.tail.strip():
             elem.tail = indent
-        for child in elem:
+        for child in children:
             indent_xml(child, level + 1)
-        if not child.tail or not child.tail.strip():
-            child.tail = indent
+        last_child = children[-1]
+        if not last_child.tail or not last_child.tail.strip():
+            last_child.tail = indent
     else:
         if level and (not elem.tail or not elem.tail.strip()):
             elem.tail = indent
 
 
-def patch_room(gorgeous_path: str, main_path: str, dry_run: bool = False):
+def patch_room(gorgeous_path: str, main_path: str | None, dry_run: bool = False):
     """Patch a single gorgeous TMX file. Returns (patched, warnings)."""
     warnings = []
     patched = False
