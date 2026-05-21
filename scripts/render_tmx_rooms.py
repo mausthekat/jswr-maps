@@ -172,7 +172,7 @@ def get_tile_from_gid(gid: int, tilesets: list) -> Image.Image | None:
     if gid == 0:
         return None
 
-    for i, (firstgid, tilecount, columns, tile_w, tile_h, tileset_img) in enumerate(tilesets):
+    for i, (firstgid, _tilecount, columns, tile_w, tile_h, tileset_img) in enumerate(tilesets):
         next_firstgid = tilesets[i + 1][0] if i + 1 < len(tilesets) else float('inf')
 
         if firstgid <= gid < next_firstgid:

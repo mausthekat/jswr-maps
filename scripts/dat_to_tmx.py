@@ -27,7 +27,7 @@ import json
 from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 
 # Project root is 2 levels up from this script (tmx/scripts -> tmx -> project)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -131,6 +131,30 @@ class SpawnInfo:
     tile_x: int
     tile_y: int
     team: int  # 0=None (neutral), 1=Red, 2=Blue
+
+
+class _UnionFind:
+    """Union-Find over an arbitrary set of hashable ids.
+
+    Union picks the smaller id as the representative so cluster roots
+    are stable across runs.
+    """
+
+    def __init__(self, ids: Iterable[int]) -> None:
+        self.parent = {i: i for i in ids}
+
+    def find(self, x: int) -> int:
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x: int, y: int) -> None:
+        px, py = self.find(x), self.find(y)
+        if px != py:
+            if px < py:
+                self.parent[py] = px
+            else:
+                self.parent[px] = py
 
 
 def parse_setup_dat(filepath: str) -> Dict[str, SpawnInfo]:
@@ -684,12 +708,12 @@ def _find_regions(rooms: Dict[int, Room], visited: set, room_chunks: Dict[int, i
     # Union-Find for regions
     parent = {rid: rid for rid in chunk0_rooms}
 
-    def find(x):
+    def find(x: int) -> int:
         if parent[x] != x:
             parent[x] = find(parent[x])
         return parent[x]
 
-    def union(x, y):
+    def union(x: int, y: int) -> None:
         px, py = find(x), find(y)
         if px != py:
             parent[px] = py
@@ -769,21 +793,9 @@ def _assign_chunks_by_connectivity(rooms: Dict[int, Room], visited: set,
                 connections[exit_id].add(rid)
 
     # Use Union-Find to group connected rooms
-    parent = {rid: rid for rid in overlap_rooms}
-
-    def find(x):
-        if parent[x] != x:
-            parent[x] = find(parent[x])
-        return parent[x]
-
-    def union(x, y):
-        px, py = find(x), find(y)
-        if px != py:
-            # Prefer lower room ID as root
-            if px < py:
-                parent[py] = px
-            else:
-                parent[px] = py
+    uf = _UnionFind(overlap_rooms)
+    find = uf.find
+    union = uf.union
 
     # Union game-connected rooms, but NOT if they're at the same position
     # (rooms at the same position MUST be in different chunks)
@@ -986,20 +998,9 @@ def _separate_unconnected_clusters(rooms: Dict[int, Room], visited: set, room_ch
         processed_states.add(state_key)
 
         # Build clusters using Union-Find based on physical adjacency + connection score
-        parent = {rid: rid for rid in chunk_rooms}
-
-        def find(x):
-            if parent[x] != x:
-                parent[x] = find(parent[x])
-            return parent[x]
-
-        def union(x, y):
-            px, py = find(x), find(y)
-            if px != py:
-                if px < py:
-                    parent[py] = px
-                else:
-                    parent[px] = py
+        uf = _UnionFind(chunk_rooms)
+        find = uf.find
+        union = uf.union
 
         # Build position map for this chunk
         pos_to_room = {}
@@ -1057,8 +1058,10 @@ def _separate_unconnected_clusters(rooms: Dict[int, Room], visited: set, room_ch
         if not cluster_bad_adjacencies:
             continue  # No bad adjacencies in this chunk
 
-        # Calculate total adjacency score for each cluster
-        def cluster_score(cluster_rooms_set: set) -> int:
+        # Calculate total adjacency score for each cluster. `pos_to_room`
+        # is bound as a default arg so the closure captures this chunk's
+        # map by value rather than the late-bound loop variable.
+        def cluster_score(cluster_rooms_set: set, pos_to_room: dict = pos_to_room) -> int:
             total = 0
             for rid in cluster_rooms_set:
                 r = rooms[rid]
@@ -1220,7 +1223,7 @@ def _optimize_chunk_placement(rooms: Dict[int, Room], visited: set, room_chunks:
 
             # Try to pull rooms from other chunks into this chunk
             # Only pull from HIGHER chunk numbers to LOWER (prefer keeping rooms in chunk 0)
-            for source_rid, target_rid, expected_x, expected_y, exit_dir, target_chunk in dangling_connections:
+            for _source_rid, target_rid, expected_x, expected_y, _exit_dir, target_chunk in dangling_connections:
                 if room_chunks.get(target_rid, 0) == current_chunk:
                     continue
 
@@ -1368,20 +1371,9 @@ def _split_disconnected_chunks(rooms: Dict[int, Room], visited: set, room_chunks
             continue
 
         # Find physically connected components using Union-Find
-        parent = {rid: rid for rid in chunk_rooms}
-
-        def find(x):
-            if parent[x] != x:
-                parent[x] = find(parent[x])
-            return parent[x]
-
-        def union(x, y):
-            px, py = find(x), find(y)
-            if px != py:
-                if px < py:
-                    parent[py] = px
-                else:
-                    parent[px] = py
+        uf = _UnionFind(chunk_rooms)
+        find = uf.find
+        union = uf.union
 
         # Union rooms that are physically adjacent
         for i, rid1 in enumerate(chunk_rooms):

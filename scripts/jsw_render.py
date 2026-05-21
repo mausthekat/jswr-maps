@@ -805,7 +805,7 @@ def compute_canonical_layout(snap: Snapshot, engine: Engine) -> CanonicalLayout 
     for comp_id, _ in components_sorted:
         bx1, by1, _, _ = comp_bboxes[comp_id]
         comp_origin[comp_id] = (LAYOUT_MARGIN_CELLS - bx1, cursor_y - by1)
-        bx2, by2 = comp_bboxes[comp_id][2], comp_bboxes[comp_id][3]
+        by2 = comp_bboxes[comp_id][3]
         cursor_y += (by2 - by1 + 1) + COMPONENT_GUTTER_CELLS
 
     room_xy = {
@@ -841,11 +841,6 @@ def render_map(snap: Snapshot, engine: Engine,
     canvas_w_cells = layout.canvas_w_cells
     canvas_h_cells = layout.canvas_h_cells
     comp_origin = layout.comp_origin
-
-    by_comp: dict[int, list[Placement]] = {}
-    for p in placements.values():
-        by_comp.setdefault(p.component, []).append(p)
-    components_sorted = sorted(by_comp.items(), key=lambda kv: -len(kv[1]))
 
     canvas = Image.new("RGB",
                        (canvas_w_cells * ROOM_W_PX,

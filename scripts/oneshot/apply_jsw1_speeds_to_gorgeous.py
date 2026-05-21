@@ -37,7 +37,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from jsw_snapshot import (
-    detect_engine, iter_rooms, load_snapshot, parse_room_guardians,
+    GuardianRef, detect_engine, iter_rooms, load_snapshot, parse_room_guardians,
 )
 
 
@@ -122,7 +122,7 @@ def jsw1_byte4_signed(raw_def: tuple) -> int:
     return b - 256 if b >= 128 else b
 
 
-def jsw1_speed_for(gref) -> int | None:
+def jsw1_speed_for(gref: GuardianRef) -> int | None:
     """Speed value to write under the new identity table.
     None means 'not eligible for auto-mapping' (rope/arrow)."""
     if gref.kind == "vert":

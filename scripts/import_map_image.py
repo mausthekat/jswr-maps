@@ -27,8 +27,13 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+from typing import Sequence, TYPE_CHECKING
+
 from PIL import Image, ImageDraw, ImageFont
 from rapidocr_onnxruntime import RapidOCR
+
+if TYPE_CHECKING:
+    import numpy as np
 
 
 # JSW native room dimensions in game pixels.
@@ -797,7 +802,7 @@ def detect_credits(grid: Grid,
 # OCR
 # ---------------------------------------------------------------------------
 
-def _bbox_from_quad(quad) -> tuple[int, int, int, int]:
+def _bbox_from_quad(quad: Sequence[Sequence[float]]) -> tuple[int, int, int, int]:
     xs = [int(p[0]) for p in quad]
     ys = [int(p[1]) for p in quad]
     return (min(xs), min(ys), max(xs) - min(xs), max(ys) - min(ys))
@@ -1208,7 +1213,7 @@ def _quantize_full_map(im: Image.Image, grid: Grid):
     return (color.astype(np.uint8) << 1) | bright
 
 
-def _all_8x8_bitmasks(silhouette):
+def _all_8x8_bitmasks(silhouette: np.ndarray):
     """
     For every (y, x) position in the native silhouette map, compute the
     64-bit packed bitmask of the 8x8 window starting at that pixel.
@@ -1261,8 +1266,8 @@ def _quantize_room(im: Image.Image, grid: Grid,
     return (color.astype(np.uint8) << 1) | bright
 
 
-def _tile_signatures(quant) -> tuple[list[list[tuple[int, int, int]]],
-                                     int, int]:
+def _tile_signatures(quant: np.ndarray) -> tuple[list[list[tuple[int, int, int]]],
+                                                  int, int]:
     """
     From a per-pixel ZX attribute array, derive (paper, ink, bitmap) for
     every 8x8 tile. Bitmap is a 64-bit int where bit i is set when the

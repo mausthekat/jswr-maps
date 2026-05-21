@@ -1001,7 +1001,7 @@ def _zx_attr_to_rgba(attr: int) -> str:
     return _ZX_INK_RGBA.get((bright, ink), "#ffffffff")
 
 
-def _jsw2_guardian_color(ram, cg6: int) -> str:
+def _jsw2_guardian_color(ram: np.ndarray, cg6: int) -> str:
     """Resolve a JSW2 guardian's ZX colour through the per-game palette
     at `$70A9`. Per JSWED `Jsw2HVGuardian::constructSprites`:
         ink_index = (CG6 & 0x0C) >> 2          # 0..3
@@ -1017,7 +1017,7 @@ def _jsw2_guardian_color(ram, cg6: int) -> str:
     return _ZX_INK_RGBA.get((bright, ink), "#ffffffff")
 
 
-def _jsw2_decode_hv_record(ram, defb: tuple[int, ...], slot: int,
+def _jsw2_decode_hv_record(ram: np.ndarray, defb: tuple[int, ...], slot: int,
                            kind_override: str | None = None,
                            ) -> "GuardianRef":
     """Decode one 7-byte JSW2 HV-guardian record into a GuardianRef
@@ -1144,7 +1144,7 @@ def _jsw2_decode_hv_record(ram, defb: tuple[int, ...], slot: int,
     )
 
 
-def _jsw2_synth_lift(ram, defb: tuple[int, ...], pair_index: int
+def _jsw2_synth_lift(ram: np.ndarray, defb: tuple[int, ...], pair_index: int
                      ) -> "GuardianRef":
     """Decode one of the two HV-guardian records that make up a JSW2
     lift pair. The kind is forced to `"lift"` so the emitter labels the
@@ -1158,7 +1158,7 @@ def _jsw2_synth_lift(ram, defb: tuple[int, ...], pair_index: int
     return gref
 
 
-def _jsw2_synth_toilet(ram, defb: tuple[int, ...]) -> "GuardianRef":
+def _jsw2_synth_toilet(ram: np.ndarray, defb: tuple[int, ...]) -> "GuardianRef":
     """Decode the JSW2 toilet at `$83C9`. Stationary single guardian;
     we mark it `kind="toilet"` so the emitter names it `Toilet` and
     omits the route. JSW2's toilet is *deadly* (no HARMLESS flag)."""

@@ -83,7 +83,8 @@ def parse_tmx_tiles(tmx_path: Path) -> list:
     return tiles
 
 
-def draw_tile_border(draw: ImageDraw.ImageDraw, x: int, y: int, color, scale: int):
+def draw_tile_border(draw: ImageDraw.ImageDraw, x: int, y: int,
+                     color: "tuple[int, int, int, int] | None", scale: int):
     """Draw a 1px border on top and left edges of a scaled tile."""
     if color is None:
         return
@@ -125,7 +126,7 @@ def generate_overlay(tmx_path: Path, room_image_path: Path, output_path: Path):
 
     # Draw borders in specified order
     for draw_type in DRAW_ORDER:
-        for x, y, gid, tile_type in tile_data:
+        for x, y, _gid, tile_type in tile_data:
             if tile_type == draw_type:
                 color = TILE_TYPES[tile_type]['color']
                 draw_tile_border(draw, x, y, color, SCALE)

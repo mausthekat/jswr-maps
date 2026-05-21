@@ -30,7 +30,7 @@ from tmx_project_lib import (
 )
 
 
-def cmd_create(args) -> int:
+def cmd_create(args: argparse.Namespace) -> int:
     """Create a new project from the archetype."""
     name = args.name
     dry_run = args.dry_run
@@ -74,7 +74,7 @@ def cmd_create(args) -> int:
     return 0
 
 
-def cmd_update(args) -> int:
+def cmd_update(args: argparse.Namespace) -> int:
     """Update specific project(s)."""
     dry_run = args.dry_run
     prune = args.prune
@@ -108,7 +108,7 @@ def cmd_update(args) -> int:
     return 0 if success else 1
 
 
-def cmd_refresh(args) -> int:
+def cmd_refresh(args: argparse.Namespace) -> int:
     """Update ALL projects (content + _in_progress)."""
     dry_run = args.dry_run
     prune = args.prune

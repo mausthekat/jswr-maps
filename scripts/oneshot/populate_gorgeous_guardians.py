@@ -155,7 +155,7 @@ def parse_room_data():
 
 # --- TMX manipulation ---
 
-def get_guardians_firstgid(root):
+def get_guardians_firstgid(root: ET.Element):
     """Get the firstgid for guardians.tsx from a TMX root."""
     for ts in root.findall('tileset'):
         src = ts.get('source', '')
@@ -164,12 +164,12 @@ def get_guardians_firstgid(root):
     return None
 
 
-def get_next_object_id(root):
+def get_next_object_id(root: ET.Element) -> int:
     """Get the next available object ID."""
     return int(root.get('nextobjectid', '1'))
 
 
-def get_max_layer_id(root):
+def get_max_layer_id(root: ET.Element) -> int:
     """Get the max layer/objectgroup ID in use."""
     max_id = 0
     for elem in root:
@@ -179,7 +179,7 @@ def get_max_layer_id(root):
     return max_id
 
 
-def guardian_gid(name, firstgid):
+def guardian_gid(name: str, firstgid: int):
     """Get the GID for a guardian by name."""
     tile_id = GUARDIAN_TILES.get(name)
     if tile_id is None:
@@ -187,7 +187,7 @@ def guardian_gid(name, firstgid):
     return firstgid + tile_id
 
 
-def populate_room(tmx_path, guardians, dry_run=False):
+def populate_room(tmx_path: str, guardians: list[dict], dry_run: bool = False):
     """Add guardians and routes to a gorgeous TMX file.
 
     Returns (num_guardians_added, warnings)

@@ -49,7 +49,7 @@ def load_room_mapping():
     return mapping
 
 
-def get_guardians(tree):
+def get_guardians(tree: ET.ElementTree) -> list[ET.Element]:
     """Extract Guardian objects from an Enemies objectgroup."""
     guardians = []
     for og in tree.findall(".//objectgroup"):
@@ -60,7 +60,7 @@ def get_guardians(tree):
     return guardians
 
 
-def get_collectibles(tree):
+def get_collectibles(tree: ET.ElementTree) -> list[ET.Element]:
     """Extract collectible objects from a Collectables objectgroup."""
     collectibles = []
     for og in tree.findall(".//objectgroup"):
@@ -71,7 +71,7 @@ def get_collectibles(tree):
     return collectibles
 
 
-def has_tileset(root, source_substring):
+def has_tileset(root: ET.Element, source_substring: str) -> bool:
     """Check if a tileset reference already exists."""
     for ts in root.findall("tileset"):
         if source_substring in (ts.get("source") or ""):
@@ -79,7 +79,7 @@ def has_tileset(root, source_substring):
     return False
 
 
-def add_tileset_ref(root, firstgid, source):
+def add_tileset_ref(root: ET.Element, firstgid: int, source: str) -> ET.Element:
     """Add a tileset reference element after the last existing tileset."""
     tilesets = root.findall("tileset")
     if not tilesets:
@@ -101,7 +101,7 @@ def add_tileset_ref(root, firstgid, source):
     return elem
 
 
-def indent_xml(elem, level=0):
+def indent_xml(elem: ET.Element, level: int = 0) -> None:
     """Add pretty-print indentation to XML."""
     indent = "\n" + " " * level
     if len(elem):
@@ -118,7 +118,7 @@ def indent_xml(elem, level=0):
             elem.tail = indent
 
 
-def patch_room(gorgeous_path, main_path, dry_run=False):
+def patch_room(gorgeous_path: str, main_path: str, dry_run: bool = False):
     """Patch a single gorgeous TMX file. Returns (patched, warnings)."""
     warnings = []
     patched = False

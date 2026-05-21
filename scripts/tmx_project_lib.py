@@ -119,7 +119,7 @@ def adjust_tileset_paths(content: str, dest_templates_dir: Path) -> str:
 
     # Replace source="<prefix>/tilesets/<rest>" with source="<rel_path>/<rest>"
     # This handles paths like ../tilesets/meta/meta_markers.tsx
-    def replace_source(match):
+    def replace_source(match: re.Match) -> str:
         rest = match.group(1)
         return f'source="{rel_path}/{rest}"'
 
@@ -617,8 +617,8 @@ def remap_tmx_property_values(
                 + r'"[^>]*?\bvalue=")([^"]*?)(")'
             )
 
-            def _make_replacer(rd):
-                def replacer(match):
+            def _make_replacer(rd: dict):
+                def replacer(match: re.Match) -> str:
                     nonlocal remap_count
                     prefix, old_val, suffix = (
                         match.group(1), match.group(2), match.group(3),
