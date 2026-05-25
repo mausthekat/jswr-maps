@@ -1,14 +1,14 @@
 /**
- * JSW:R Tiled Extensions — Trigger Property Helper
+ * JSW:R Tiled Extensions - Trigger Property Helper
  *
- * SOURCE FILE — do not edit the bundled output in .extensions/ directly.
+ * SOURCE FILE - do not edit the bundled output in .extensions/ directly.
  * Edit this file, then run: python tmx/scripts/tmx_project.py refresh
  *
  * Adds items to the Map menu that stamp the correct TriggerType, Action,
  * and any type-specific extra properties onto selected objects in a Special
  * layer.  Menu items are enabled only when valid objects are selected.
  *
- * Self-contained — no dependencies on other jswr-*.js source files.
+ * Self-contained - no dependencies on other jswr-*.js source files.
  */
 
 // =========================================================================
@@ -80,7 +80,7 @@ function hasSpecialLayerSelection(map) {
 /**
  * Apply trigger properties to the selected object(s).
  * Sets TriggerType and Action, plus any extra properties for that type.
- * Only adds properties that are missing — does not overwrite existing values.
+ * Only adds properties that are missing - does not overwrite existing values.
  */
 function applyTriggerTemplate(triggerTypeName) {
     var map = tiled.activeAsset;

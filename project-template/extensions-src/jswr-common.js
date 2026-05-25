@@ -1,9 +1,9 @@
 /// <reference types="@mapeditor/tiled-api" />
 
 /**
- * JSW:R Tiled Extensions — Common Utilities
+ * JSW:R Tiled Extensions - Common Utilities
  *
- * SOURCE FILE — do not edit the bundled output in .extensions/ directly.
+ * SOURCE FILE - do not edit the bundled output in .extensions/ directly.
  * Edit this file, then run: python tmx/scripts/tmx_project.py refresh
  * which bundles all extensions-src/*.js files into a single .extensions/jswr.js
  *

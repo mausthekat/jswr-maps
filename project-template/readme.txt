@@ -1,4 +1,4 @@
-JSW:R Tiled Extension — Project Template
+JSW:R Tiled Extension - Project Template
 ========================================
 
 This directory contains the archetype files for JSW:R Tiled map projects.
@@ -23,7 +23,7 @@ Source files (extensions-src/):
 The bundled output (.extensions/jswr.js) is generated automatically by:
   python tmx/scripts/tmx_project.py refresh
 
-DO NOT edit .extensions/jswr.js directly — your changes will be
+DO NOT edit .extensions/jswr.js directly - your changes will be
 overwritten on the next refresh.  Edit the source files in
 extensions-src/ instead.
 

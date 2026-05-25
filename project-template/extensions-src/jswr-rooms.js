@@ -1,7 +1,7 @@
 /**
- * JSW:R Tiled Extensions — Room Management
+ * JSW:R Tiled Extensions - Room Management
  *
- * SOURCE FILE — do not edit the bundled output in .extensions/ directly.
+ * SOURCE FILE - do not edit the bundled output in .extensions/ directly.
  * Edit this file, then run: python tmx/scripts/tmx_project.py refresh
  *
  * Handles room scanning, world placement, room creation (New Room dialog),

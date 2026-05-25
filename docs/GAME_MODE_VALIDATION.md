@@ -1,7 +1,7 @@
 # Game Mode Validation
 
 ValidGameModes is **computed from spawn data** at build time. There is no project-level
-declaration — the converter derives supported modes entirely from spawn point `GameModes`
+declaration - the converter derives supported modes entirely from spawn point `GameModes`
 properties and room `RoomPurpose` values.
 
 ## How ValidGameModes Is Computed
@@ -18,7 +18,7 @@ The build process (`tmx_to_jsw.py --pack`) computes the bitmask as follows:
 3. **MM_START flag (0x4000)**: Added if any spawn's `GameModes` includes MM_START
    (bit 14). This indicates Manic Miner entry/exit points are present.
 
-The result is written to the JSWP pack header. Runtime code reads it from there — no
+The result is written to the JSWP pack header. Runtime code reads it from there - no
 project file is consulted.
 
 ## Validation Rules

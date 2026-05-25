@@ -1,7 +1,7 @@
 /**
- * JSW:R Tiled Extensions — Guardian & Route Tools
+ * JSW:R Tiled Extensions - Guardian & Route Tools
  *
- * SOURCE FILE — do not edit the bundled output in .extensions/ directly.
+ * SOURCE FILE - do not edit the bundled output in .extensions/ directly.
  * Edit this file, then run: python tmx/scripts/tmx_project.py refresh
  *
  * Guardian/route property fixing and validation, orphaned-route repair,
@@ -743,7 +743,7 @@ function fixObjectProperties(obj, guardianCounts, guardianInstances, map) {
                 wasModified = true;
             }
             if (obj.property("Speed") === undefined) {
-                // Arrows default to "Fast" (= 2× Willy) — matches the
+                // Arrows default to "Fast" (= 2× Willy) - matches the
                 // pre-2026-migration behaviour after the engine table
                 // identity rewrite. New scale: Speed=8 → 4 px/tick.
                 obj.setProperty("Speed", tiled.propertyValue("Speed", 8));
@@ -1561,7 +1561,7 @@ function validateSpawnPoints() {
         const teamStarts = playerStarts.filter(s => s.team === t);
 
         if (teamFlags.length > 0 && teamStarts.length === 0) {
-            warnings.push("WARNING: " + teamName + " flag(s) exist but no " + teamName + " player start — players cannot reach the flag");
+            warnings.push("WARNING: " + teamName + " flag(s) exist but no " + teamName + " player start - players cannot reach the flag");
         }
 
         // Check GameModes compatibility: each flag's modes must overlap with at least one start's modes

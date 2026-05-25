@@ -50,7 +50,7 @@ The `GameModes` enum is stored as a flags bitmask in Tiled. Each bit corresponds
 | 12 | 0x1000 (4096) | CHAIN_GAMES | Visit rooms in order |
 | 13 | 0x2000 (8192) | IT_TAG | IT (Last Man Tag) mode |
 
-**Note:** `WILLY_TEAMS` (0x80, bit 7) is NOT in the Tiled enum — bit 7 is reserved. Team mode support is inferred from the presence of team spawns (see [Team Mode Inference](#team-mode-inference)).
+**Note:** `WILLY_TEAMS` (0x80, bit 7) is NOT in the Tiled enum - bit 7 is reserved. Team mode support is inferred from the presence of team spawns (see [Team Mode Inference](#team-mode-inference)).
 
 ### GameModes on Spawn Points
 
@@ -90,7 +90,7 @@ Spawns are resolved in room-ID order. The first matching spawn for each slot win
 
 - Team spawns always come in Red+Blue pairs (minimum). Green/Orange are optional for 4-team modes
 - Green/Orange spawns require Red+Blue to also be present
-- Team spawns do not need GameModes filtering — they are only used when the host selects a team mode
+- Team spawns do not need GameModes filtering - they are only used when the host selects a team mode
 
 ### CTF Requirements
 

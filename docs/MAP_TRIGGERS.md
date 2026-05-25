@@ -16,7 +16,7 @@ at the end of this document).
 2. Add objects to a `Special` layer.
 3. Set `TriggerType` and `Action` on each object.
 4. Optionally chain triggers with `Name` and `DependsOnCompletion`.
-5. Build the pack — the converter validates and embeds trigger data.
+5. Build the pack - the converter validates and embeds trigger data.
 
 ---
 
@@ -59,15 +59,15 @@ evaluated after the dependency has completed (AND logic).
 
 | TriggerType | Parameters | Fires when... |
 |-------------|------------|---------------|
-| `GameStart` | — | Immediately when the game begins (or when its dependency completes). |
+| `GameStart` | - | Immediately when the game begins (or when its dependency completes). |
 | `ScoreThreshold` | `Threshold` (int) | Player has collected >= N items globally. |
 | `ScorePctThreshold` | `Threshold` (int, percentage 0–100) | Player has collected >= N% of the map's total items. |
-| `RoomAllCollected` | — | All collectible items in this trigger's room have been picked up. |
+| `RoomAllCollected` | - | All collectible items in this trigger's room have been picked up. |
 | `ItemCollectedInRoom` | `Threshold` (int) | N or more items in this trigger's room have been collected. |
-| `CollisionWith` | — | Player's bounding box overlaps this object's rectangle in the same room. |
+| `CollisionWith` | - | Player's bounding box overlaps this object's rectangle in the same room. |
 | `RoomEntered` | `Threshold` (int, room ID) | Player enters the specified room. |
-| `ExternalEvent` | — | Never fires from condition evaluation. Only fired explicitly by game code (e.g., MM exit FLAG_CAPTURED handler). Used as an entry point for trigger chains driven by game events. |
-| `Never` | — | Never fires. Reserved for future use. |
+| `ExternalEvent` | - | Never fires from condition evaluation. Only fired explicitly by game code (e.g., MM exit FLAG_CAPTURED handler). Used as an entry point for trigger chains driven by game events. |
+| `Never` | - | Never fires. Reserved for future use. |
 
 ### Filters
 
@@ -88,7 +88,7 @@ These properties control multiplayer behavior:
 | `Visibility` | `AllPlayers`, `TriggeringPlayer` | `AllPlayers` | `AllPlayers`: server broadcasts TRIGGER_FIRED to all clients. `TriggeringPlayer`: server sends only to the player who caused the trigger. |
 | `TriggerMode` | `Unique`, `PerPlayer` | `Unique` | `Unique`: one-shot, first player triggers it, done forever. `PerPlayer`: each player can trigger independently. |
 
-These are orthogonal — all four combinations are valid:
+These are orthogonal - all four combinations are valid:
 
 | Mode | Visibility | Example |
 |------|-----------|---------|
@@ -123,19 +123,19 @@ These complete immediately.
 
 | Action | Parameters | Effect |
 |--------|------------|--------|
-| `Complete` | — | No visible effect. Immediately marks this trigger as complete. Useful as a dependency gate. |
+| `Complete` | - | No visible effect. Immediately marks this trigger as complete. Useful as a dependency gate. |
 | `HideGuardian` | `Target` (object ref to guardian) | Hides the guardian. It stops rendering and is no longer collidable. |
 | `ShowGuardian` | `Target` (object ref to guardian) | Un-hides a previously hidden guardian. |
 | `ReplaceGuardian` | `Target` (object ref to guardian) | Replaces the guardian's sprite with this object's tile graphic (GID). |
-| `ShowTile` | — | Places this object's tile graphic at its position as a tile overlay. |
-| `HideTile` | — | Restores the original tile at this object's position, removing a `ShowTile` overlay. |
-| `ShowEntity` | — | Shows this object's tile graphic as a sprite overlay at its position. Used for celebration graphics (e.g., swordfish). The object must have a GID (tile reference). |
+| `ShowTile` | - | Places this object's tile graphic at its position as a tile overlay. |
+| `HideTile` | - | Restores the original tile at this object's position, removing a `ShowTile` overlay. |
+| `ShowEntity` | - | Shows this object's tile graphic as a sprite overlay at its position. Used for celebration graphics (e.g., swordfish). The object must have a GID (tile reference). |
 | `HideEntity` | `Target` (optional, object ref to guardian) | Without Target: hides MM exit entities in this trigger's room (used during celebrations so the ShowEntity graphic is visible). With Target: hides the referenced guardian (same effect as `HideGuardian`). |
 | `TeleportPlayerTo` | `Target` (object ref to spawn point) | Moves the player to the target object's position. Clears all movement keys. |
-| `RemovePlayer` | — | Hides the player sprite. Physics continue but the sprite is not rendered. |
-| `DisablePlayerInput` | — | Suppresses movement keys (left, right, jump). Chat and menu keys still work. |
-| `EnablePlayerInput` | — | Re-enables movement keys. Reverses `DisablePlayerInput`. |
-| `EndGame` | — | Ends the game. SP: returns to title screen. MP: server declares the winner (player_id propagated through the trigger dependency chain) and transitions to the victory room. |
+| `RemovePlayer` | - | Hides the player sprite. Physics continue but the sprite is not rendered. |
+| `DisablePlayerInput` | - | Suppresses movement keys (left, right, jump). Chat and menu keys still work. |
+| `EnablePlayerInput` | - | Re-enables movement keys. Reverses `DisablePlayerInput`. |
+| `EndGame` | - | Ends the game. SP: returns to title screen. MP: server declares the winner (player_id propagated through the trigger dependency chain) and transitions to the victory room. |
 | `PlaySound` | `Target` (string, sound name) | Plays a sound effect. *(Not yet implemented.)* |
 
 ### Duration Actions
@@ -153,7 +153,7 @@ These take time to complete.  Downstream dependencies wait until the action fini
 
 ### Every TriggerType
 
-#### GameStart — Multiplayer-only platform overlays
+#### GameStart - Multiplayer-only platform overlays
 
 Extra platforms that appear only in multiplayer sessions.
 
@@ -163,9 +163,9 @@ Action       = ShowTile
 SessionType  = 2          (MP only)
 ```
 
-No `Name` or `DependsOnCompletion` needed — standalone immediate trigger.
+No `Name` or `DependsOnCompletion` needed - standalone immediate trigger.
 
-#### ScoreThreshold — Hide guardian after collecting N items
+#### ScoreThreshold - Hide guardian after collecting N items
 
 Hide Maria when the player has collected 82 items.
 
@@ -178,7 +178,7 @@ Name         = "score_gate"
 SessionType  = 1          (SP only)
 ```
 
-#### ScorePctThreshold — Show graphic at 50% completion
+#### ScorePctThreshold - Show graphic at 50% completion
 
 Show a congratulations tile when the player has collected half the items.
 
@@ -190,7 +190,7 @@ Action       = ShowTile
 
 Note: `Threshold` is a percentage (0–100) when used with `ScorePctThreshold`.
 
-#### RoomAllCollected — Gate on room completion
+#### RoomAllCollected - Gate on room completion
 
 Mark a room's items as fully collected.
 
@@ -200,7 +200,7 @@ Action       = Complete
 Name         = "room_clear"
 ```
 
-#### ItemCollectedInRoom — Gate on partial room collection
+#### ItemCollectedInRoom - Gate on partial room collection
 
 Fire after collecting 3 items in this room.
 
@@ -211,7 +211,7 @@ Action       = ShowGuardian
 Target       = (object ref to guardian)
 ```
 
-#### CollisionWith — Player walks into a zone
+#### CollisionWith - Player walks into a zone
 
 Trigger a replay when the player walks onto the bed (using this object's rectangle):
 
@@ -234,7 +234,7 @@ Action               = TeleportPlayerTo
 If `Target` is an object reference, the referenced object's bounds define the collision
 zone.  Otherwise, this object's own rectangle is used.  Player must be in the same room.
 
-#### RoomEntered — Trigger on entering a room
+#### RoomEntered - Trigger on entering a room
 
 Fire when the player enters room 5.
 
@@ -245,7 +245,7 @@ Action       = HideGuardian
 Target       = (object ref to guardian)
 ```
 
-#### ExternalEvent — Fired by game code
+#### ExternalEvent - Fired by game code
 
 Used as an entry point for trigger chains driven by game events.  The MM exit handler
 fires this when the player reaches the final exit.
@@ -256,10 +256,10 @@ Action       = Complete
 Name         = "items_done"
 ```
 
-This trigger never fires from the engine's condition evaluation — it is only fired
+This trigger never fires from the engine's condition evaluation - it is only fired
 by `fire_trigger_by_id("items_done")` from game code.
 
-#### Never — Placeholder
+#### Never - Placeholder
 
 Reserved.  Never fires automatically.
 
@@ -270,7 +270,7 @@ Action       = Complete
 
 ### Every Action
 
-#### Complete — Dependency gate
+#### Complete - Dependency gate
 
 ```
 TriggerType  = ScoreThreshold
@@ -281,7 +281,7 @@ Name         = "ten_items"
 
 Other triggers can use `DependsOnCompletion = "ten_items"` to fire after this.
 
-#### HideGuardian / ShowGuardian — Toggle guardian visibility
+#### HideGuardian / ShowGuardian - Toggle guardian visibility
 
 ```
 TriggerType  = ScoreThreshold
@@ -297,7 +297,7 @@ Action               = ShowGuardian
 Target               = (same guardian ref)
 ```
 
-#### ReplaceGuardian — Swap guardian sprite
+#### ReplaceGuardian - Swap guardian sprite
 
 The trigger object must be a tile object (have a GID).  The tile graphic replaces the
 guardian's sprite.
@@ -310,7 +310,7 @@ Target               = (object ref to guardian)
 Name                 = "replaced"
 ```
 
-#### ShowTile / HideTile — Tile overlays
+#### ShowTile / HideTile - Tile overlays
 
 The trigger object must be a tile object (have a GID) for ShowTile.
 
@@ -320,7 +320,7 @@ Action       = ShowTile
 SessionType  = 2
 ```
 
-#### ShowEntity — Sprite overlay (e.g., swordfish)
+#### ShowEntity - Sprite overlay (e.g., swordfish)
 
 The trigger object must be a tile object (have a GID).  The tile graphic renders as a
 sprite at the object's position.
@@ -333,9 +333,9 @@ Name                 = "swordfish"
 Visibility           = TriggeringPlayer
 ```
 
-#### HideEntity — Hide entities
+#### HideEntity - Hide entities
 
-Without Target — hides MM exit sprites so the ShowEntity graphic is visible:
+Without Target - hides MM exit sprites so the ShowEntity graphic is visible:
 
 ```
 TriggerType          = GameStart
@@ -344,7 +344,7 @@ Action               = HideEntity
 Visibility           = TriggeringPlayer
 ```
 
-With Target — hides a specific guardian:
+With Target - hides a specific guardian:
 
 ```
 TriggerType          = ScoreThreshold
@@ -353,7 +353,7 @@ Action               = HideEntity
 Target               = (object ref to guardian)
 ```
 
-#### TeleportPlayerTo — Move player to a position
+#### TeleportPlayerTo - Move player to a position
 
 The `Target` must be an object reference to a spawn point or any object with a position.
 
@@ -365,7 +365,7 @@ Target               = (object ref to spawn point)
 Name                 = "celebration"
 ```
 
-#### RemovePlayer — Hide player sprite
+#### RemovePlayer - Hide player sprite
 
 ```
 TriggerType          = GameStart
@@ -392,7 +392,7 @@ DependsOnCompletion  = "pause"
 Action               = EnablePlayerInput
 ```
 
-#### EndGame — End the game
+#### EndGame - End the game
 
 ```
 TriggerType          = GameStart
@@ -403,7 +403,7 @@ Action               = EndGame
 In multiplayer, the winner's player_id is propagated through the trigger dependency
 chain from the original event (e.g., FLAG_CAPTURED).
 
-#### Delay — Timed pause
+#### Delay - Timed pause
 
 ```
 TriggerType          = GameStart
@@ -416,7 +416,7 @@ Name                 = "wait"
 `Threshold` is in seconds.  The delay starts when the trigger fires (after all
 dependencies are satisfied).
 
-#### DoReplay — Play a replay file
+#### DoReplay - Play a replay file
 
 ```
 TriggerType          = CollisionWith
@@ -433,7 +433,7 @@ are disabled during playback.
 
 ## Worked Examples
 
-### Manic Miner — Final Celebration (manic/020.tmx)
+### Manic Miner - Final Celebration (manic/020.tmx)
 
 When the player reaches the MM exit in the final room, a celebration sequence plays:
 teleport to a position, show the swordfish graphic, hide the exit, wait 10 seconds,
@@ -486,7 +486,7 @@ The trigger chain then drives everything: teleport, celebration effects, timing,
 game end.  The winner's player_id propagates through the chain for Visibility targeting
 and winner declaration.
 
-### Jet Set Willy — Endgame Sequence (jsw-gorgeous/034.tmx + 032.tmx)
+### Jet Set Willy - Endgame Sequence (jsw-gorgeous/034.tmx + 032.tmx)
 
 When the player collects enough items, Maria disappears.  The player walks to the bed,
 triggering a replay.  After the replay, the player vanishes and the toilet guardian is
@@ -553,7 +553,7 @@ Extra platform tiles that only appear in multiplayer sessions.
     SessionType  = 2                   ← MP only
 ```
 
-No `Name` or `DependsOnCompletion` — standalone immediate triggers.
+No `Name` or `DependsOnCompletion` - standalone immediate triggers.
 
 ---
 
@@ -588,7 +588,7 @@ Each trigger progresses through three states:
 PENDING  ──→  ACTIVE  ──→  COMPLETE
 ```
 
-- **Pending:** Waiting for conditions — dependencies, filters, and the primary condition.
+- **Pending:** Waiting for conditions - dependencies, filters, and the primary condition.
 - **Active:** Action is executing.  Only duration actions (`Delay`, `DoReplay`) use this
   state.  Instant actions skip directly from Pending to Complete.
 - **Complete:** Action finished.  Downstream `DependsOnCompletion` triggers can now fire.
@@ -636,7 +636,7 @@ not by `Name` string.
 
 When the trigger chain reaches `EndGame`, the server detects `is_game_ending()` and
 declares the winner.  The winner's player_id is propagated through the trigger
-dependency chain — no separate tracking is needed.
+dependency chain - no separate tracking is needed.
 
 ### DoReplay in Multiplayer
 
@@ -648,7 +648,7 @@ sync.
 
 ## Special Objects (Team Doors/Barriers)
 
-Team doors and team barriers are **reactive** — they toggle dynamically and are NOT
+Team doors and team barriers are **reactive** - they toggle dynamically and are NOT
 part of the trigger system.
 
 | TMX Property | Effect |
@@ -700,7 +700,7 @@ For each trigger object, the converter:
 | File | Purpose |
 |------|---------|
 | `build_scripts/tmx/tmx_to_jsw.py` | TMX parsing, validation, serialization |
-| `src/triggers/engine.py` | `TriggerEngine` — evaluation, dispatch, state tracking |
+| `src/triggers/engine.py` | `TriggerEngine` - evaluation, dispatch, state tracking |
 | `src/triggers/types.py` | Enums, `TriggerDef`, `TriggerRuntime`, `TriggerInstance` |
 | `src/triggers/context.py` | `TriggerContext` protocol + `GameInstanceContext` adapter |
 | `src/triggers/actions.py` | Standalone action functions |

@@ -2,16 +2,16 @@
 
 // =======================================================================
 // JSWR Tiled Extension (bundled from extensions-src/*.js)
-// DO NOT EDIT — edit the source files in extensions-src/ instead,
+// DO NOT EDIT - edit the source files in extensions-src/ instead,
 // then run: python tmx/scripts/tmx_project.py refresh
 // =======================================================================
 
 // --- jswr-common.js ---
 
 /**
- * JSW:R Tiled Extensions — Common Utilities
+ * JSW:R Tiled Extensions - Common Utilities
  *
- * SOURCE FILE — do not edit the bundled output in .extensions/ directly.
+ * SOURCE FILE - do not edit the bundled output in .extensions/ directly.
  * Edit this file, then run: python tmx/scripts/tmx_project.py refresh
  * which bundles all extensions-src/*.js files into a single .extensions/jswr.js
  *
@@ -257,9 +257,9 @@ function getObjectGid(obj, map) {
 
 // --- jswr-guardians.js ---
 /**
- * JSW:R Tiled Extensions — Guardian & Route Tools
+ * JSW:R Tiled Extensions - Guardian & Route Tools
  *
- * SOURCE FILE — do not edit the bundled output in .extensions/ directly.
+ * SOURCE FILE - do not edit the bundled output in .extensions/ directly.
  * Edit this file, then run: python tmx/scripts/tmx_project.py refresh
  *
  * Guardian/route property fixing and validation, orphaned-route repair,
@@ -1001,7 +1001,7 @@ function fixObjectProperties(obj, guardianCounts, guardianInstances, map) {
                 wasModified = true;
             }
             if (obj.property("Speed") === undefined) {
-                // Arrows default to "Fast" (= 2× Willy) — matches the
+                // Arrows default to "Fast" (= 2× Willy) - matches the
                 // pre-2026-migration behaviour after the engine table
                 // identity rewrite. New scale: Speed=8 → 4 px/tick.
                 obj.setProperty("Speed", tiled.propertyValue("Speed", 8));
@@ -1819,7 +1819,7 @@ function validateSpawnPoints() {
         const teamStarts = playerStarts.filter(s => s.team === t);
 
         if (teamFlags.length > 0 && teamStarts.length === 0) {
-            warnings.push("WARNING: " + teamName + " flag(s) exist but no " + teamName + " player start — players cannot reach the flag");
+            warnings.push("WARNING: " + teamName + " flag(s) exist but no " + teamName + " player start - players cannot reach the flag");
         }
 
         // Check GameModes compatibility: each flag's modes must overlap with at least one start's modes
@@ -2346,9 +2346,9 @@ fixSelectedAction.enabled = false;
 
 // --- jswr-rooms.js ---
 /**
- * JSW:R Tiled Extensions — Room Management
+ * JSW:R Tiled Extensions - Room Management
  *
- * SOURCE FILE — do not edit the bundled output in .extensions/ directly.
+ * SOURCE FILE - do not edit the bundled output in .extensions/ directly.
  * Edit this file, then run: python tmx/scripts/tmx_project.py refresh
  *
  * Handles room scanning, world placement, room creation (New Room dialog),
@@ -3248,16 +3248,16 @@ tiled.extendMenu("New", [
 
 // --- jswr-triggers.js ---
 /**
- * JSW:R Tiled Extensions — Trigger Property Helper
+ * JSW:R Tiled Extensions - Trigger Property Helper
  *
- * SOURCE FILE — do not edit the bundled output in .extensions/ directly.
+ * SOURCE FILE - do not edit the bundled output in .extensions/ directly.
  * Edit this file, then run: python tmx/scripts/tmx_project.py refresh
  *
  * Adds items to the Map menu that stamp the correct TriggerType, Action,
  * and any type-specific extra properties onto selected objects in a Special
  * layer.  Menu items are enabled only when valid objects are selected.
  *
- * Self-contained — no dependencies on other jswr-*.js source files.
+ * Self-contained - no dependencies on other jswr-*.js source files.
  */
 
 // =========================================================================
@@ -3329,7 +3329,7 @@ function hasSpecialLayerSelection(map) {
 /**
  * Apply trigger properties to the selected object(s).
  * Sets TriggerType and Action, plus any extra properties for that type.
- * Only adds properties that are missing — does not overwrite existing values.
+ * Only adds properties that are missing - does not overwrite existing values.
  */
 function applyTriggerTemplate(triggerTypeName) {
     var map = tiled.activeAsset;

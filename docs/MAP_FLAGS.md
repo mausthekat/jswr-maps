@@ -10,7 +10,7 @@ Maps declare their capabilities through three independent flag systems. Each con
 | `MapFlags` | Infrastructure | JSWP bytes 8-9 (uint16 LE) | Non-gameplay markers (lobby packs, MM entry points) |
 | `SinglePlayerMode` | Single-player | JSWP byte 15 (uint8) | Which SP victory conditions the map supports |
 
-`GameMode` and `MapFlags` share the same uint16 bitmask (`ValidGameModes` in the pack header). They use non-overlapping bit positions. `SinglePlayerMode` is stored in a separate byte and is completely independent — a map can support any combination of MP and SP modes.
+`GameMode` and `MapFlags` share the same uint16 bitmask (`ValidGameModes` in the pack header). They use non-overlapping bit positions. `SinglePlayerMode` is stored in a separate byte and is completely independent - a map can support any combination of MP and SP modes.
 
 **Source files:**
 
@@ -18,10 +18,10 @@ Maps declare their capabilities through three independent flag systems. Each con
 |---------|------|------|
 | Enum definitions | `src/game_settings.py` | This document |
 | Pack header storage | `src/formats/jswp_pack.py` | [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md) |
-| Runtime registry | `src/map_registry.py` (`MapInfo`) | — |
+| Runtime registry | `src/map_registry.py` (`MapInfo`) | - |
 | TMX properties | `tmx/project-template/archetype.tiled-project` | [JSWR_ROOM_FILE_FORMAT.md](../../docs/formats/JSWR_ROOM_FILE_FORMAT.md) |
-| Lobby menu filtering | `src/lobby/service.py` | — |
-| SP menu filtering | `src/ui/menu_screens.py` | — |
+| Lobby menu filtering | `src/lobby/service.py` | - |
+| SP menu filtering | `src/ui/menu_screens.py` | - |
 
 ---
 
@@ -62,7 +62,7 @@ class GameMode(IntFlag):
 | 11 | 0x0800 | `COLLECT_ALL` | Collection | Collect every item on the map |
 | 12 | 0x1000 | `CHAIN_GAMES` | Exploration | Visit rooms in sequence |
 | 13 | 0x2000 | `IT_TAG` | Tag | Hot-potato tag (least IT time wins) |
-| 15 | 0x8000 | `WILLY_BALL` | Teams | Team ball-carrying game — carry to opposing goal |
+| 15 | 0x8000 | `WILLY_BALL` | Teams | Team ball-carrying game - carry to opposing goal |
 
 Bits 9 and 14 are used by `MapFlags` (see below). Bit 9 is `LOBBY` (0x0200), bit 14 is `MM_START` (0x4000).
 
@@ -77,17 +77,17 @@ Team Games       → Game Type → Map → [Settings] → Start
 
 Modes with `branch: "both"` appear in **both** branches (e.g., Collect X Items appears under Individual and Team). Modes with `branch: "individual"` or `branch: "team"` appear only in their respective branch. A mode entry only appears if at least one registered map supports it.
 
-The mode registry (`MODE_REGISTRY` in `game_mode_utils.py`) is the single source of truth for menu generation — display name, branch, settings type, and extra flags are all defined there.
+The mode registry (`MODE_REGISTRY` in `game_mode_utils.py`) is the single source of truth for menu generation - display name, branch, settings type, and extra flags are all defined there.
 
 ### Special Modes
 
-**WILLY_TEAMS (0x0080)** is a modifier, not a standalone mode. At runtime it is ORed with a base gameplay mode (e.g., `WILLY_TEAMS | COLLECT_X_ITEMS` for Team Collect). It is stored in per-spawn `GameModes` bitmasks in TMX but is NOT stored in per-spawn data in the binary JSWR format — team spawns are identified by their team assignment (RED, BLUE, etc.) instead. The Team Games branch automatically sets `WILLY_TEAMS` on entry.
+**WILLY_TEAMS (0x0080)** is a modifier, not a standalone mode. At runtime it is ORed with a base gameplay mode (e.g., `WILLY_TEAMS | COLLECT_X_ITEMS` for Team Collect). It is stored in per-spawn `GameModes` bitmasks in TMX but is NOT stored in per-spawn data in the binary JSWR format - team spawns are identified by their team assignment (RED, BLUE, etc.) instead. The Team Games branch automatically sets `WILLY_TEAMS` on entry.
 
 **GOLDEN_WILLY (0x0010)** appears under Individual Games. On selection, `COLLECT_X_ITEMS` is ORed in as an extra flag for scoring.
 
 **FIRST_TO_COLLECT (0x0400)** marks small maps designed for quick "first to collect 1 item" races. Appears in both Individual and Team branches.
 
-**WILLY_BALL (0x8000)** is a team ball-carrying game. Two teams compete to carry a ball to the opposing team's goal. The ball spawns at a `BALL_SPAWN` point (SpawnKind 3) defined in the map. The ball can be thrown, dropped on death, and intercepted by tackles. A possession timer forces the carrier to drop the ball if they hold it too long. WILLY_BALL implies team play — maps must also set `WILLY_TEAMS` (0x0080) and include CTF-style team spawns and flags alongside the `BALL_SPAWN`. See [CAPTURE_THE_FLAG](#special-modes) for team spawn requirements.
+**WILLY_BALL (0x8000)** is a team ball-carrying game. Two teams compete to carry a ball to the opposing team's goal. The ball spawns at a `BALL_SPAWN` point (SpawnKind 3) defined in the map. The ball can be thrown, dropped on death, and intercepted by tackles. A possession timer forces the carrier to drop the ball if they hold it too long. WILLY_BALL implies team play - maps must also set `WILLY_TEAMS` (0x0080) and include CTF-style team spawns and flags alongside the `BALL_SPAWN`. See [CAPTURE_THE_FLAG](#special-modes) for team spawn requirements.
 
 ### Additional Data Requirements
 
@@ -127,7 +127,7 @@ The LOBBY flag is also available as the constant `VALID_GAME_MODES_LOBBY = 0x200
 
 ### MM_START
 
-Marks per-spawn Manic Miner entry points — teleport destinations where the player appears when entering a new room through an MM exit door. When a player exits through an MM door in one room, the game looks for a `PLAYER_START` spawn with `MM_START` in the destination room's `game_modes` bitmask to determine the entry position.
+Marks per-spawn Manic Miner entry points - teleport destinations where the player appears when entering a new room through an MM exit door. When a player exits through an MM door in one room, the game looks for a `PLAYER_START` spawn with `MM_START` in the destination room's `game_modes` bitmask to determine the entry position.
 
 This flag appears in per-spawn `GameModes` bitmasks (not just at the pack level). It is checked at runtime via:
 
@@ -151,11 +151,11 @@ class SinglePlayerMode(IntFlag):
 |-----|-------|------|-------------|
 | 0 | 0x01 | `SP_CLASSIC` | Collect all items; optionally reach a destination room |
 | 1 | 0x02 | `SP_MANIC_MINER` | Room-by-room clearance, exit through final door |
-| 2-7 | — | Reserved | Reserved for future SP modes (zero) |
+| 2-7 | - | Reserved | Reserved for future SP modes (zero) |
 
 ### Storage
 
-Stored in JSWP header byte 15 (uint8). This byte was previously reserved (always zero), so existing packs are backward compatible — `SinglePlayerModes = 0` means no SP support, which is the correct default.
+Stored in JSWP header byte 15 (uint8). This byte was previously reserved (always zero), so existing packs are backward compatible - `SinglePlayerModes = 0` means no SP support, which is the correct default.
 
 ### SP_CLASSIC
 
@@ -164,7 +164,7 @@ The standard JSW single-player experience: collect every item in the map.
 - If `sp_victory_room` is set (V5 custom data, uint16 LE room ID): player must collect all items **and** reach that room. Example: collect all 82 items in JSW Gorgeous, then reach The Master Bedroom.
 - If `sp_victory_room = 0` (default): victory triggers immediately when the last item is collected.
 
-Victory detection runs locally in the game loop via `SPClassicStrategy` — no server involved.
+Victory detection runs locally in the game loop via `SPClassicStrategy` - no server involved.
 
 ### SP_MANIC_MINER
 
@@ -205,7 +205,7 @@ The TMX `GameModes` enum is a flags-type integer enum used for both `ValidGameMo
 | 14 | MM_START | 0x4000 |
 | 15 | WILLY_BALL | 0x8000 |
 
-This enum is shared between `GameMode` and `MapFlags` in TMX — Tiled sees them as one flags enum. The Python code separates them into distinct `IntFlag` classes for type clarity, but the stored integer values are identical.
+This enum is shared between `GameMode` and `MapFlags` in TMX - Tiled sees them as one flags enum. The Python code separates them into distinct `IntFlag` classes for type clarity, but the stored integer values are identical.
 
 ### SPModes Enum (TMX propertyType id=16)
 
@@ -277,7 +277,7 @@ Full-featured main map with nearly all MP modes and SP Classic:
 ```
 ValidGameModes:    0x11FF  (Collect, Timed, Race, Chain, Discovery, Golden, Tag, Bulldog, Teams, CTF)
 SinglePlayerModes: 0x01    (SP_CLASSIC)
-SPVictoryRoom:     48      (The Bathroom — must reach after collecting all items)
+SPVictoryRoom:     48      (The Bathroom - must reach after collecting all items)
 ```
 
 ### Manic Willy (`manic`)
@@ -285,10 +285,10 @@ SPVictoryRoom:     48      (The Bathroom — must reach after collecting all ite
 Manic Miner-style map with linear room progression:
 
 ```
-ValidGameModes:    0x0010  (GOLDEN_WILLY — for multiplayer Golden Willy mode)
+ValidGameModes:    0x0010  (GOLDEN_WILLY - for multiplayer Golden Willy mode)
 SinglePlayerModes: 0x02    (SP_MANIC_MINER)
 ManicFinalRoom:    20      (final room's exit triggers victory)
-SPVictoryRoom:     0       (not used — MM uses ManicFinalRoom)
+SPVictoryRoom:     0       (not used - MM uses ManicFinalRoom)
 ```
 
 ### Assault Course (`assault`)
@@ -298,21 +298,21 @@ Small SP-capable map with multiplayer Golden Willy and quick race modes:
 ```
 ValidGameModes:    0x0410  (GOLDEN_WILLY + FIRST_TO_COLLECT)
 SinglePlayerModes: 0x01    (SP_CLASSIC)
-SPVictoryRoom:     0       (no destination — victory on last item collected)
+SPVictoryRoom:     0       (no destination - victory on last item collected)
 ```
 
 ### Construction Site (`construction`)
 
-Multiplayer-only arena map — no SP support:
+Multiplayer-only arena map - no SP support:
 
 ```
 ValidGameModes:    0x2060  (WILLY_TAG + BRITISH_BULLDOG + IT_TAG)
-SinglePlayerModes: 0x00    (no SP — does not appear in Single Player menu)
+SinglePlayerModes: 0x00    (no SP - does not appear in Single Player menu)
 ```
 
 ### Gaming Lounge (`_gaminglounge`)
 
-Infrastructure pack — not a playable map:
+Infrastructure pack - not a playable map:
 
 ```
 ValidGameModes:    0x0200  (LOBBY only)

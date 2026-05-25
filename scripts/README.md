@@ -18,12 +18,12 @@ operates on `.tmx` / `.world` / `.tiled-project` files lives here.
 ## What does NOT go here
 
 - Anything invoked by the build (e.g. `regenerate_all_packs.py`,
-  `tmx_to_jsw.py`) — those live in `build_scripts/tmx/`.
-- Runtime tooling, asset generators — those live in `scripts/`.
+  `tmx_to_jsw.py`) - those live in `build_scripts/tmx/`.
+- Runtime tooling, asset generators - those live in `scripts/`.
 
 ## Conventions
 
 - Scripts that import from `src/` use
-  `sys.path.insert(0, str(Path(__file__).resolve().parents[2]))` —
+  `sys.path.insert(0, str(Path(__file__).resolve().parents[2]))` -
   ONE more `..` than the `scripts/` convention because this
   directory lives one level deeper.

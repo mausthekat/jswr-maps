@@ -122,7 +122,7 @@
   <object id="27" x="152" y="56" width="16" height="16">
    <properties>
     <property name="Action" propertytype="Action" value="HideEntity"/>
-    <property name="Comment" value="Untargeted HideEntity — hides the Manic Miner exit tiles in this room so the celebration tableau isn't cluttered with the live exit graphics. Visible only to the finishing player."/>
+    <property name="Comment" value="Untargeted HideEntity - hides the Manic Miner exit tiles in this room so the celebration tableau isn't cluttered with the live exit graphics. Visible only to the finishing player."/>
     <property name="DependsOnCompletion" value="celebration"/>
     <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
     <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>

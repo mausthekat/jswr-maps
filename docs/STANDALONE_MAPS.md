@@ -1,24 +1,24 @@
 # Standalone Map Packs
 
-This document describes how to create and use self-contained map packs with custom tile graphics. The shipping reference implementation is **`tmx/content/jsw-gorgeous`** (packed into `assets/maps/jsw-gorgeous.jsw`) — refer back to it whenever the description below is ambiguous.
+This document describes how to create and use self-contained map packs with custom tile graphics. The shipping reference implementation is **`tmx/content/jsw-gorgeous`** (packed into `assets/maps/jsw-gorgeous.jsw`) - refer back to it whenever the description below is ambiguous.
 
 ## Overview
 
 A standalone map pack (`.jsw` file) bundles:
 - Room data (layout, enemies, pickups, connections)
-- One or more **JSWC tileset collections** — the base collection plus zero or more variants (e.g. 2x high-res, ZX color-clash, alternate art style)
-- Optional **per-room tileset overrides** — distinct tile PNGs for individual rooms, packed as `tiles_<suffix>_room<NNN>` entries
-- V5 custom data (`default_tileset` — the tileset the game activates on load)
+- One or more **JSWC tileset collections** - the base collection plus zero or more variants (e.g. 2x high-res, ZX color-clash, alternate art style)
+- Optional **per-room tileset overrides** - distinct tile PNGs for individual rooms, packed as `tiles_<suffix>_room<NNN>` entries
+- V5 custom data (`default_tileset` - the tileset the game activates on load)
 
 This allows a map to travel as a single `.jsw` file without relying on the base game's tile graphics, and lets the player cycle between variants with F9.
 
 ### Prerequisites
 
 Before packing, you need:
-- **TMX room files** (`NNN.tmx`) — created in Tiled. See [JSWR_ROOM_FILE_FORMAT.md](../../docs/formats/JSWR_ROOM_FILE_FORMAT.md) for room format details.
-- **Category tileset PNGs** (`tiles_solid.png`, `tiles_stairs.png`, etc.) — tile graphics organized by category, 16 tiles per row.
-- **TSX tileset definitions** (`tiles_solid.tsx`, etc.) — optional, only required when `tilesets.json` is absent.
-- **`tilesets.json`** — the preferred manifest listing variants (see below).
+- **TMX room files** (`NNN.tmx`) - created in Tiled. See [JSWR_ROOM_FILE_FORMAT.md](../../docs/formats/JSWR_ROOM_FILE_FORMAT.md) for room format details.
+- **Category tileset PNGs** (`tiles_solid.png`, `tiles_stairs.png`, etc.) - tile graphics organized by category, 16 tiles per row.
+- **TSX tileset definitions** (`tiles_solid.tsx`, etc.) - optional, only required when `tilesets.json` is absent.
+- **`tilesets.json`** - the preferred manifest listing variants (see below).
 - **`.tiled-project`** with `DefaultTileset` set if the pack has more than one variant.
 
 See [TILESET_PROPERTIES.md](TILESET_PROPERTIES.md) for tileset property details.
@@ -29,7 +29,7 @@ See [TILESET_PROPERTIES.md](TILESET_PROPERTIES.md) for tileset property details.
 
 ### Canonical command: `tmx_to_jsw.py --pack`
 
-Every `--pack` output is a `ContentType.PACKS` outer pack — that's universal, regardless of whether the map is standalone (see [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md#map-packs) for the universal structure). The build pipeline detects standalone maps by calling `_detect_custom_tilesets()`: if any TMX file in the folder references a **local** `tiles_<category>.tsx` (i.e. not via `../../tilesets/`), the converter additionally writes a `tiles` entry plus every variant listed in `tilesets.json` into the outer pack. No separate command is required.
+Every `--pack` output is a `ContentType.PACKS` outer pack - that's universal, regardless of whether the map is standalone (see [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md#map-packs) for the universal structure). The build pipeline detects standalone maps by calling `_detect_custom_tilesets()`: if any TMX file in the folder references a **local** `tiles_<category>.tsx` (i.e. not via `../../tilesets/`), the converter additionally writes a `tiles` entry plus every variant listed in `tilesets.json` into the outer pack. No separate command is required.
 
 ```bash
 # Build jsw-gorgeous (the shipping reference) into a standalone pack
@@ -37,7 +37,7 @@ uv run python build_scripts/tmx/tmx_to_jsw.py tmx/content/jsw-gorgeous --pack
 # → assets/maps/jsw-gorgeous.jsw  (≈493 KB, content_type=PACKS)
 ```
 
-**Important:** do **not** run the converter without `--pack` for a standalone map. The folder-mode output (`assets/maps/<mapname>/NNN.jsw`) is loaded by `load_rooms_from_folder()`, which has no `tile_loader` hook and will silently fall back to the base game's tiles — the map will look wrong. If you accidentally create a per-room folder for a standalone map, delete it so the resolver falls through to the pack.
+**Important:** do **not** run the converter without `--pack` for a standalone map. The folder-mode output (`assets/maps/<mapname>/NNN.jsw`) is loaded by `load_rooms_from_folder()`, which has no `tile_loader` hook and will silently fall back to the base game's tiles - the map will look wrong. If you accidentally create a per-room folder for a standalone map, delete it so the resolver falls through to the pack.
 
 ### Input Folder Structure (jsw-gorgeous example)
 
@@ -53,12 +53,12 @@ tmx/content/jsw-gorgeous/
 ├── tiles_hazard.png / .tsx
 ├── tiles_decoration.png / .tsx
 ├── tiles_conveyor.png / .tsx
-├── tiles_solid_2x.png           # "2x" variant — 16px version of each category
+├── tiles_solid_2x.png           # "2x" variant - 16px version of each category
 ├── tiles_stairs_2x.png
 ├── …
-├── tiles_solid_jsw1.png         # "jsw1" variant — ZX color-clash art
+├── tiles_solid_jsw1.png         # "jsw1" variant - ZX color-clash art
 ├── …
-├── tiles_solid_jsw1-e.png       # "jsw1-e" variant — "Noble" enhanced JSW1 style
+├── tiles_solid_jsw1-e.png       # "jsw1-e" variant - "Noble" enhanced JSW1 style
 ├── …
 └── tilesets/
     ├── jsw1/                    # Per-room overrides for the jsw1 variant
@@ -85,24 +85,24 @@ Preferred source of variant metadata. The key `""` is the base variant; other ke
 }
 ```
 
-This produces four pack entries — `tiles` (base 8px), `tiles_2x`, `tiles_jsw1`, `tiles_jsw1-e` — plus one per-room `tiles_jsw1_room<NNN>` / `tiles_jsw1-e_room<NNN>` entry for every PNG under `tilesets/<suffix>/`. Each variant's `color_clash` flag is honoured independently, so the player can F9-cycle between an enhanced mode and a ZX-emulation mode within the same pack.
+This produces four pack entries - `tiles` (base 8px), `tiles_2x`, `tiles_jsw1`, `tiles_jsw1-e` - plus one per-room `tiles_jsw1_room<NNN>` / `tiles_jsw1-e_room<NNN>` entry for every PNG under `tilesets/<suffix>/`. Each variant's `color_clash` flag is honoured independently, so the player can F9-cycle between an enhanced mode and a ZX-emulation mode within the same pack.
 
 **TSX fallback:** if `tilesets.json` is absent, `collect_tileset_properties()` reads `TilesetName` and `SupportsColorClash` from `tiles_solid.tsx`. This only yields a single-variant pack (the base), plus whatever `_2x` files `_detect_2x_tilesets()` picks up. Used by a few legacy maps; manifest is preferred for everything new.
 
 ### Default Tileset Selection
 
-The `DefaultTileset` property in `.tiled-project` controls which variant the game activates when the map loads. **You can set it to either the manifest *suffix* or the variant's display *name*** — `tmx_to_jsw.py` (in the `--pack` flow, around the `_read_project_default_tileset()` call) resolves a suffix to its name via the manifest before writing the pack.
+The `DefaultTileset` property in `.tiled-project` controls which variant the game activates when the map loads. **You can set it to either the manifest *suffix* or the variant's display *name*** - `tmx_to_jsw.py` (in the `--pack` flow, around the `_read_project_default_tileset()` call) resolves a suffix to its name via the manifest before writing the pack.
 
 ```
 .tiled-project:                        →  resolved display name stored in pack
   "DefaultTileset": "2x"               →  "Gorgeous (16px)"
   "DefaultTileset": "Gorgeous (16px)"  →  "Gorgeous (16px)" (unchanged)
-  "DefaultTileset": ""                 →  (empty — game uses first loaded)
+  "DefaultTileset": ""                 →  (empty - game uses first loaded)
 ```
 
 jsw-gorgeous uses `"2x"`, so the 16px variant is the default on load and the player can F9-cycle to `Gorgeous (8px)`, `JSW1 Old School`, or `JSW1 Noble`.
 
-The resolved name is stored as V5 pack custom data under the key `default_tileset` (UTF-8 encoded) and read by the map registry at startup — see `src/map_registry.py:default_tileset` and `src/map_loading_service.py:_get_default_tileset`.
+The resolved name is stored as V5 pack custom data under the key `default_tileset` (UTF-8 encoded) and read by the map registry at startup - see `src/map_registry.py:default_tileset` and `src/map_loading_service.py:_get_default_tileset`.
 
 ### GID Validation and Remapping
 
@@ -127,12 +127,12 @@ This means you can pack TMX files with non-standard firstGid values without edit
 
 ### What `tmx_to_jsw.py --pack` Does For Standalone Maps
 
-Every `--pack` output is `ContentType.PACKS`-wrapped (see [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md#map-packs)) — `rooms` plus optional `preview` and `meta`. Standalone maps add tile entries to the same wrapper:
+Every `--pack` output is `ContentType.PACKS`-wrapped (see [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md#map-packs)) - `rooms` plus optional `preview` and `meta`. Standalone maps add tile entries to the same wrapper:
 
 1. `_detect_custom_tilesets()` scans the first TMX and flips the pack builder into standalone mode if any `tiles_<category>.tsx` reference is local rather than `../../tilesets/…`
 2. Reads `tilesets.json` (falls back to `tiles_solid.tsx` properties if absent)
 3. Detects tile size from the TMX `tilewidth`/`tileheight` attribute (8 or 16)
-4. Converts each TMX to a binary room record (JSWR) and bundles them into an inner `rooms` sub-pack (always — universal)
+4. Converts each TMX to a binary room record (JSWR) and bundles them into an inner `rooms` sub-pack (always - universal)
 5. Creates a JSWC collection for the base variant from `tiles_<category>.png` and writes it as the `tiles` entry on the outer pack
 6. Calls `pack_tileset_variants()` to build a JSWC collection per additional manifest key and per-room override PNGs from `tilesets/<suffix>/`
 7. Reads `DefaultTileset` from `.tiled-project`, resolves a suffix via the manifest, and writes the resolved name as V5 pack custom data `default_tileset`
@@ -178,45 +178,45 @@ in this mode.
 ```
 my-map.jsw (JSWP format, ContentType.PACKS)
 │
-├── rooms (inner JSWP, ContentType.ROOMS — one JSWR blob per room)
+├── rooms (inner JSWP, ContentType.ROOMS - one JSWR blob per room)
 │   ├── Header: "JSWP" + version + room_count + ValidGameModes + …
 │   ├── Custom data:
-│   │    ├── default_tileset (UTF-8 string)     — V5, set from DefaultTileset
-│   │    └── chain_groups / sp_* / …             — other per-map flags
+│   │    ├── default_tileset (UTF-8 string)     - V5, set from DefaultTileset
+│   │    └── chain_groups / sp_* / …             - other per-map flags
 │   ├── Table: [room_id, offset, size] for each room
 │   └── Data: Binary room data (tiles, enemies, pickups, spawns, specials)
 │
-├── tiles (JSWC format — base tileset, manifest key "")
+├── tiles (JSWC format - base tileset, manifest key "")
 │   ├── Header: tileset_name, supports_color_clash flag
 │   └── Tilesets: 6 category tilesets (solid, stairs, platform, hazard, decoration, conveyor)
 │       Each tileset contains: type, tile_width, tile_height, tile_count, PNG data
 │
-├── tiles_<suffix> (JSWC format — additional variants, one per non-empty manifest key)
+├── tiles_<suffix> (JSWC format - additional variants, one per non-empty manifest key)
 │   ├── Header: variant name, per-variant supports_color_clash flag
 │   └── Tilesets: category tilesets (may differ in resolution/tile count)
 │
-├── tiles_<suffix>_room<NNN> (JSWC format — per-room override for a variant) [optional]
+├── tiles_<suffix>_room<NNN> (JSWC format - per-room override for a variant) [optional]
 │   └── One entry per PNG under tilesets/<suffix>/tiles_<category>_<suffix>_<NNN>.png
 │
 │   Examples (from jsw-gorgeous):
-│     tiles                      — "Gorgeous (8px)"    base, color_clash=false
-│     tiles_2x                   — "Gorgeous (16px)"   high-res, color_clash=false
-│     tiles_jsw1                 — "JSW1 Old School"   color_clash=true
-│     tiles_jsw1-e               — "JSW1 Noble"        color_clash=false
-│     tiles_jsw1_room001…060     — per-room JSW1 overrides (one per room that customises)
-│     tiles_jsw1-e_room001…060   — per-room JSW1 Noble overrides
+│     tiles                      - "Gorgeous (8px)"    base, color_clash=false
+│     tiles_2x                   - "Gorgeous (16px)"   high-res, color_clash=false
+│     tiles_jsw1                 - "JSW1 Old School"   color_clash=true
+│     tiles_jsw1-e               - "JSW1 Noble"        color_clash=false
+│     tiles_jsw1_room001…060     - per-room JSW1 overrides (one per room that customises)
+│     tiles_jsw1-e_room001…060   - per-room JSW1 Noble overrides
 │
 │   Variant names and color_clash flags come from tilesets.json manifest.
 │   Without a manifest, only tiles_2x is auto-detected and per-room overrides are not supported.
 │
 ├── preview (nested JSWP, ContentType.PACKS) [optional]
-│   ├── layout — UTF-8 JSON: room_width / room_height / [{id, x, y}, ...]
-│   └── <room_id> — PNG bytes for each room (entry name is the room id as a decimal string)
+│   ├── layout - UTF-8 JSON: room_width / room_height / [{id, x, y}, ...]
+│   └── <room_id> - PNG bytes for each room (entry name is the room id as a decimal string)
 │
-└── meta (JSON authorship metadata — originator GUID, modification history) [optional]
+└── meta (JSON authorship metadata - originator GUID, modification history) [optional]
 ```
 
-The `preview` and `meta` entries are universal — every map pack carries them when enabled, regardless of whether it's standalone. The `tiles*` entries above are the standalone-specific additions.
+The `preview` and `meta` entries are universal - every map pack carries them when enabled, regardless of whether it's standalone. The `tiles*` entries above are the standalone-specific additions.
 
 See [JSWP_PACK_FORMAT.md](../../docs/formats/JSWP_PACK_FORMAT.md) for the JSWP container format and [JSWC_TILESET_COLLECTION_FORMAT.md](../../docs/formats/JSWC_TILESET_COLLECTION_FORMAT.md) for the JSWC tileset format.
 

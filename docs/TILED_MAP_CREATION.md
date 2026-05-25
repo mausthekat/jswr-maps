@@ -38,8 +38,8 @@ For the extension reference and conversion script details, see [tmx/README.md](.
 
 ## 1. Prerequisites
 
-- **Tiled Map Editor** 1.10+ (1.11+ recommended) — [mapeditor.org](https://www.mapeditor.org/)
-- **uv** ([astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/)) — for running build/conversion scripts (manages Python automatically)
+- **Tiled Map Editor** 1.10+ (1.11+ recommended) - [mapeditor.org](https://www.mapeditor.org/)
+- **uv** ([astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/)) - for running build/conversion scripts (manages Python automatically)
 - The map editing repository from GitHub
 
 ### Getting the Map Repository
@@ -73,7 +73,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 Verify with: `uv --version`
 
-That's it — `uv` downloads the correct Python version and handles all dependencies
+That's it - `uv` downloads the correct Python version and handles all dependencies
 automatically when you run scripts with `uv run`. No manual Python or pip install required.
 
 ---
@@ -117,9 +117,9 @@ This creates a directory under `_in_progress/<map-name>/` containing:
 ```
 
 Options:
-- `--location content` — create directly in `content/` (for finished maps)
-- `--location in_progress` (default) — create in `_in_progress/`
-- `--dry-run` — preview what would be created
+- `--location content` - create directly in `content/` (for finished maps)
+- `--location in_progress` (default) - create in `_in_progress/`
+- `--dry-run` - preview what would be created
 
 When ready to publish, move the directory from `_in_progress/` to `content/`.
 
@@ -150,10 +150,10 @@ uv run scripts\dat_to_tmx.py C:\path\to\my-map _in_progress\my-map --map
 ```
 
 The input folder should contain the legacy `.dat` files:
-- `*.dat` — room tile data (e.g., `1.dat`, `2.dat`)
-- `*_enemy.dat` or `*_ENEMY.dat` — guardian/enemy data
-- `*_pickups.dat` — collectible positions
-- `<mapname>_setup.dat` — spawn positions (optional)
+- `*.dat` - room tile data (e.g., `1.dat`, `2.dat`)
+- `*_enemy.dat` or `*_ENEMY.dat` - guardian/enemy data
+- `*_pickups.dat` - collectible positions
+- `<mapname>_setup.dat` - spawn positions (optional)
 
 The converter creates a complete Tiled project in the output folder, including:
 - Individual `.tmx` room files with all layers (Tiles, Collectables, Enemies, Routes, Spawn)
@@ -162,7 +162,7 @@ The converter creates a complete Tiled project in the output folder, including:
 - Templates and the Tiled extension
 
 > **Tip:** After conversion, open the `.tiled-project` file in Tiled and set the `MapName`
-> and `ValidGameModes` in Project > Project Properties — these are needed for the map to
+> and `ValidGameModes` in Project > Project Properties - these are needed for the map to
 > build correctly.
 
 ---
@@ -179,7 +179,7 @@ are configured in **Project > Project Properties**:
 | `ValidGameModes` | GameModes (flags) | Which game modes this map supports. See [Game Mode Configuration](#15-game-mode-configuration). |
 | `FallDamageMode` | FallDamageMode | `Lenient` (0, default) or `Strict` (1). |
 | `SoftLifts` | bool | Enable soft lift mechanics. Default: false. |
-| `OriginalArrows` | bool | Use original ZX Spectrum arrow behavior (per-arrow counter, 256-tick cycle). SP only — ignored in multiplayer. Default: false. |
+| `OriginalArrows` | bool | Use original ZX Spectrum arrow behavior (per-arrow counter, 256-tick cycle). SP only - ignored in multiplayer. Default: false. |
 | `ManicFinalRoom` | int | Room ID for the final room in Manic-style maps. Default: 0 (unused). |
 | `IncludeMapPreview` | bool | Generate a preview image in the pack file. Default: true. |
 | `InfiniteLivesSP` | bool | Dying does not cost a life in single-player. Default: false. |
@@ -199,10 +199,10 @@ The Tiled extension adds a **New JSW:R Room** command:
 - **Shortcut:** Ctrl+Shift+N (also available from New menu when no map is open)
 
 The dialog prompts for:
-1. **Room ID** — dropdown of available IDs (001–255, auto-detects occupied slots)
-2. **Room Name** — display name (max 32 characters)
-3. **Exits** — Up/Down/Left/Right dropdowns showing existing rooms by ID and name
-4. **Has Rope** — checkbox
+1. **Room ID** - dropdown of available IDs (001–255, auto-detects occupied slots)
+2. **Room Name** - display name (max 32 characters)
+3. **Exits** - Up/Down/Left/Right dropdowns showing existing rooms by ID and name
+4. **Has Rope** - checkbox
 
 The extension creates the `.tmx` file with:
 - Correct map dimensions (32×16 tiles, 8×8 pixel tiles)
@@ -221,14 +221,14 @@ Each `.tmx` room is an orthogonal Tiled map: **32 tiles wide × 16 tiles tall** 
 per tile** (256×128 pixel room).
 
 Required layers (in order):
-1. **Tiles** — tile layer for room geometry
-2. **Collectables** — object group for collectible items
-3. **Enemies** — object group for guardian sprites
-4. **Routes** — object group for guardian patrol paths (magenta/cyan color recommended)
-5. **Spawn** — object group for player spawn points
+1. **Tiles** - tile layer for room geometry
+2. **Collectables** - object group for collectible items
+3. **Enemies** - object group for guardian sprites
+4. **Routes** - object group for guardian patrol paths (magenta/cyan color recommended)
+5. **Spawn** - object group for player spawn points
 
 Optional layers:
-6. **Special** — object group for team doors, barriers, and additional spawns
+6. **Special** - object group for team doors, barriers, and additional spawns
 
 ---
 
@@ -258,7 +258,7 @@ command (Section 18) initializes any that are missing.
 
 Added to a room **only when that room actually uses the feature**. They are
 deliberately not in the archetype or the Fix Room Properties initializer to
-keep the common case lean — adding them to every room would mean ~600 lines
+keep the common case lean - adding them to every room would mean ~600 lines
 of noise for features used in a handful of rooms. Add them manually via
 Map > Map Properties > Add Property.
 
@@ -293,7 +293,7 @@ behavior:
 | **Stairs** | Allows walking at an angle. Direction determined by tile properties or column position. |
 | **Platform** | One-way platforms. Solid from above, passable from below and sides. |
 | **Hazard** | Kills the player on contact. |
-| **Decoration** | Visual only — no collision. |
+| **Decoration** | Visual only - no collision. |
 | **Conveyor** | Moves the player horizontally. Animated (8-frame, 100ms). |
 
 ### Specialty Tilesets
@@ -309,10 +309,10 @@ behavior:
 Stair tiles encode direction (left-going `\` or right-going `/`):
 
 - **Property-based** (preferred): Select stair tiles in the tileset editor and set their
-  `Direction` property — `Left` for `\` stairs, `Right` for `/` stairs. Tiles without a
+  `Direction` property - `Left` for `\` stairs, `Right` for `/` stairs. Tiles without a
   Direction property are treated as decoration.
 - **Position-based** (fallback): If no stair tiles have Direction properties, direction is
-  determined by column index — odd columns = left-going, even columns = right-going.
+  determined by column index - odd columns = left-going, even columns = right-going.
 
 ---
 
@@ -328,7 +328,7 @@ Collectible items are placed on the **Collectables** object layer.
 4. Click in the map to place the collectible
 
 The collectibles tileset contains 148 tiles, many with 4-frame animations. No additional
-properties are needed — the collectible type is determined by which tile you pick.
+properties are needed - the collectible type is determined by which tile you pick.
 
 > **Example:** Open `training/012.tmx` to see a room with a placed collectible.
 
@@ -355,9 +355,9 @@ After placing a guardian, select it with the **Select Objects** tool (S) and con
 Properties panel:
 
 1. Set **Type** to `Guardian` (the extension's fix tools can do this automatically)
-2. Give it a descriptive **Name** (e.g., "Beetle 1") — the fix tools auto-generate these
-3. Set **Color** — click the color swatch to pick the guardian's display color
-4. Optionally set **Flags** — `HARMLESS` (cannot kill), `ALWAYS_DEADLY` (kills through invincibility)
+2. Give it a descriptive **Name** (e.g., "Beetle 1") - the fix tools auto-generate these
+3. Set **Color** - click the color swatch to pick the guardian's display color
+4. Optionally set **Flags** - `HARMLESS` (cannot kill), `ALWAYS_DEADLY` (kills through invincibility)
 
 ### Guardian Sprite Types
 
@@ -371,7 +371,7 @@ The Guardians tileset contains several categories of sprites:
 | 73 | Periscope Tank | 16×32 (oversized). Needs a Route. |
 | 74 | Evil Giant Head | 32×32 (oversized). Needs a Route. |
 
-Each guardian needs a **Route** object to define its patrol path — see [Routes](#10-routes).
+Each guardian needs a **Route** object to define its patrol path - see [Routes](#10-routes).
 Arrows are the exception (see [Arrows](#9-arrows)).
 
 > **Example:** Open `training/001.tmx` to see a simple room with two guardians and their
@@ -387,8 +387,8 @@ Arrows are horizontal projectiles that fire from screen edges on a global timer.
 
 There are two arrow sprites in the Guardians tileset, each on an independent timer:
 
-- **Arrow I** (sprite 71) — fires on timer 1, starts immediately
-- **Arrow II** (sprite 72) — fires on timer 2, starts with a longer initial delay
+- **Arrow I** (sprite 71) - fires on timer 1, starts immediately
+- **Arrow II** (sprite 72) - fires on timer 2, starts with a longer initial delay
 
 Using both types in the same room gives staggered firing patterns. The timer reset interval
 depends on the total number of arrows in the room: ~2.5 seconds with 1 arrow, ~5 seconds
@@ -408,11 +408,11 @@ with 2 or more.
 Select the placed arrow and configure in the Properties panel:
 
 1. Set **Type** to `Arrow`
-2. Set **Color** — click the color swatch to pick the arrow's display color
-3. Set **FlightDirection** — `Right→Left` or `Left→Right`
-4. Set **Speed** — flight speed (0–8)
+2. Set **Color** - click the color swatch to pick the arrow's display color
+3. Set **FlightDirection** - `Right→Left` or `Left→Right`
+4. Set **Speed** - flight speed (0–8)
 
-Arrows do **not** need a Route object — they fly in a straight horizontal line.
+Arrows do **not** need a Route object - they fly in a straight horizontal line.
 
 > **Example:** Open `pitfall2/016.tmx` to see an Arrow II with FlightDirection and Speed
 > configured.
@@ -430,7 +430,7 @@ Routes define guardian patrol paths. They are placed on the **Routes** layer.
 2. Use **Insert Template** (drag from the Templates panel, or use the Insert Template tool)
    and select `templates/route.tx`
 3. Click to place at the start of the patrol path
-4. Double-click the placed route to edit its polyline — drag the endpoint to define the path
+4. Double-click the placed route to edit its polyline - drag the endpoint to define the path
 
 **Manually:**
 1. Select the **Routes** layer
@@ -480,7 +480,7 @@ Every route must be linked to the guardian it controls:
 Alternatively, you can type the guardian's object ID directly into the field.
 
 > **Tip:** The extension's **Check/Fix Orphaned Routes** tool (Map menu) can auto-link routes
-> to guardians based on spatial overlap — useful after placing several guardians and routes.
+> to guardians based on spatial overlap - useful after placing several guardians and routes.
 
 > **Example:** Open `training/003.tmx` to see a horizontal route, or `training/001.tmx`
 > for vertical routes.
@@ -505,7 +505,7 @@ Spawn points define where players appear. They are placed on the **Spawn** layer
 
 | Template | Kind | Team | Default GameModes | Use Case |
 |----------|------|------|-------------------|----------|
-| `spawn_player.tx` | Player Start | Neutral | — | Generic player spawn |
+| `spawn_player.tx` | Player Start | Neutral | - | Generic player spawn |
 | `spawn_player_red.tx` | Player Start | Red | WILLY_TEAMS | Red team spawn |
 | `spawn_player_blue.tx` | Player Start | Blue | WILLY_TEAMS | Blue team spawn |
 | `spawn_player_green.tx` | Player Start | Green | WILLY_TEAMS | Green team spawn |
@@ -526,7 +526,7 @@ Template defaults can be overridden per-instance:
 |----------|------|-------------|
 | `Kind` | SpawnKind | `Player Start`, `Flag`, `Exit`, or `Ball Spawn`. |
 | `Team` | Team | `No Team`, `Red`, `Blue`, `Green`, `Orange`. |
-| `GameModes` | GameModes (flags) | Which game modes this spawn is active for. Tiled shows these as checkboxes — tick the modes you want. **Must be non-zero** (except for Exit spawns). |
+| `GameModes` | GameModes (flags) | Which game modes this spawn is active for. Tiled shows these as checkboxes - tick the modes you want. **Must be non-zero** (except for Exit spawns). |
 | `Position` | int | Ordered spawn position (0 = default/unordered, 1+ = ordered e.g. podium). Default: 0. |
 | `VarianceX` | int | Horizontal spread per player in tiles. Default: 0. |
 | `VarianceY` | int | Vertical spread per player in tiles. Default: 0. |
@@ -548,7 +548,7 @@ CHAIN_GAMES, IT_TAG, MM_START, WILLY_BALL
 
 ### MM Exit Spawns
 
-Manic Miner exit gates are placed as tile objects using the MM Exit tileset — not as spawn
+Manic Miner exit gates are placed as tile objects using the MM Exit tileset - not as spawn
 templates. The last tile in the MM Exit tileset has the `Final` flag set, which triggers the
 victory condition when reached. See [Specialty Tilesets](#specialty-tilesets) for how to add
 the MM Exit tileset to a room.
@@ -564,12 +564,12 @@ in infrastructure rooms.
 
 Team doors are tile overlays that act as solid blockages. The overlay is **removed** (door
 opens) when the assigned team is active, and **placed** (door closes) when the team is not
-active. Use these to gate areas by team — e.g., a Red team door opens only when Red is an
+active. Use these to gate areas by team - e.g., a Red team door opens only when Red is an
 active team.
 
 1. Select the **Special** layer in the Layers panel
 2. Select the **Insert Tile** tool (T)
-3. Pick a solid tile from the tilesets — this tile is placed as the blocking overlay
+3. Pick a solid tile from the tilesets - this tile is placed as the blocking overlay
 4. Click to place the tile object where you want the door
 5. Select the placed object and add a **Team** property (Team enum) in the Properties panel
 
@@ -609,7 +609,7 @@ LOBBY mode.
 
 ## 13. Ropes
 
-Ropes are enabled per-room via room properties — there is no rope object to place.
+Ropes are enabled per-room via room properties - there is no rope object to place.
 
 1. Set the room's `Rope` property to `true`
 2. Optionally adjust `Rope Offset` (signed integer) to shift the rope horizontally in tiles
@@ -647,20 +647,20 @@ their exit connections.
 ### Snap Commands (Shift+Arrow)
 
 Repositions the current room in the world to align with its exit target:
-- **Snap Up** (Shift+↑) — places current room above its Up exit target
-- **Snap Down** (Shift+↓) — places current room below its Down exit target
-- **Snap Left** (Shift+←) — places current room left of its Left exit target
-- **Snap Right** (Shift+→) — places current room right of its Right exit target
+- **Snap Up** (Shift+↑) - places current room above its Up exit target
+- **Snap Down** (Shift+↓) - places current room below its Down exit target
+- **Snap Left** (Shift+←) - places current room left of its Left exit target
+- **Snap Right** (Shift+→) - places current room right of its Right exit target
 
 These are only enabled when the exit is defined and the target position is unoccupied.
 
 ### Go To Commands (Ctrl+Arrow)
 
 Opens the room connected via the specified exit:
-- **Go Up** (Ctrl+↑) — opens the Up exit room
-- **Go Down** (Ctrl+↓) — opens the Down exit room
-- **Go Left** (Ctrl+←) — opens the Left exit room
-- **Go Right** (Ctrl+→) — opens the Right exit room
+- **Go Up** (Ctrl+↑) - opens the Up exit room
+- **Go Down** (Ctrl+↓) - opens the Down exit room
+- **Go Left** (Ctrl+←) - opens the Left exit room
+- **Go Right** (Ctrl+→) - opens the Right exit room
 
 The action label shows the target room ID (e.g., "Go ↑ to 178").
 
@@ -669,7 +669,7 @@ The action label shows the target room ID (e.g., "Go ↑ to 178").
 ## 15. Game Mode Configuration
 
 The `ValidGameModes` property on the `.tiled-project` declares which game modes the map
-supports. This is a flags enum — multiple modes can be selected.
+supports. This is a flags enum - multiple modes can be selected.
 
 ### Available Game Modes
 
@@ -700,9 +700,9 @@ supports. This is a flags enum — multiple modes can be selected.
 ### Spawn Coverage Rules
 
 - **Modes requiring neutral spawns:** RACE_TO_GAMES, DISCOVERY_GAMES, WILLY_TAG,
-  BRITISH_BULLDOG, IT_TAG, CHAIN_GAMES — these *always* need a neutral (teamless) player spawn.
+  BRITISH_BULLDOG, IT_TAG, CHAIN_GAMES - these *always* need a neutral (teamless) player spawn.
 - **Team-capable modes:** COLLECT_X_ITEMS, TIMED_GAMES, CAPTURE_THE_FLAG, GOLDEN_WILLY,
-  COLLECT_ALL, FIRST_TO_COLLECT — these need *either* a neutral spawn *or* team spawns
+  COLLECT_ALL, FIRST_TO_COLLECT - these need *either* a neutral spawn *or* team spawns
   (Red + Blue minimum).
 - **WILLY_TEAMS:** Requires Red and Blue team spawns. Green/Orange are optional but can only
   exist if Red and Blue are present.
@@ -720,9 +720,9 @@ supports. This is a flags enum — multiple modes can be selected.
 
 **WILLY_BALL** requires all three of:
 
-1. **A `BALL_SPAWN` point** — place using the `spawn_ball.tx` template. This is the ball's reset position (where it appears at match start and after a goal). Only one BALL_SPAWN per map is expected. Its `GameModes` must include `WILLY_BALL`.
-2. **CTF-style team flags** — Red and Blue (minimum) flag spawns tagged with both `CAPTURE_THE_FLAG` and `WILLY_TEAMS` in their `GameModes`. These define the goal zones — the ball carrier scores by reaching the opposing team's flag position.
-3. **WILLY_TEAMS player spawns** — Red and Blue (minimum) player spawns tagged with `WILLY_TEAMS`. Green and Orange are optional but require Red and Blue to be present.
+1. **A `BALL_SPAWN` point** - place using the `spawn_ball.tx` template. This is the ball's reset position (where it appears at match start and after a goal). Only one BALL_SPAWN per map is expected. Its `GameModes` must include `WILLY_BALL`.
+2. **CTF-style team flags** - Red and Blue (minimum) flag spawns tagged with both `CAPTURE_THE_FLAG` and `WILLY_TEAMS` in their `GameModes`. These define the goal zones - the ball carrier scores by reaching the opposing team's flag position.
+3. **WILLY_TEAMS player spawns** - Red and Blue (minimum) player spawns tagged with `WILLY_TEAMS`. Green and Orange are optional but require Red and Blue to be present.
 
 `ValidGameModes` for a Willy Ball map must include at minimum: `WILLY_BALL | WILLY_TEAMS | CAPTURE_THE_FLAG`.
 
@@ -750,16 +750,16 @@ identified by the `RoomPurpose` property.
 - Each non-Gameplay purpose can only appear **once** across all rooms in a map.
 - Non-Gameplay rooms require `ValidGameModes` to include only `LOBBY`.
 - Infrastructure rooms may place spawns on the **Special** layer (not just Spawn).
-- Always use `RoomPurpose` to identify infrastructure rooms — never hardcode room IDs.
+- Always use `RoomPurpose` to identify infrastructure rooms - never hardcode room IDs.
 
 ### Gaming Lounge Pattern
 
 Open the `_gaminglounge` project in Tiled to see the standard infrastructure layout:
-- Lobby room (RoomPurpose=1) — main gathering point
-- Briefing room (RoomPurpose=5) — countdown before game
-- Team Select room (RoomPurpose=2) — team picking
-- Launchpad (RoomPurpose=3) — game launch transition
-- Victory Room (RoomPurpose=4) — game over celebration
+- Lobby room (RoomPurpose=1) - main gathering point
+- Briefing room (RoomPurpose=5) - countdown before game
+- Team Select room (RoomPurpose=2) - team picking
+- Launchpad (RoomPurpose=3) - game launch transition
+- Victory Room (RoomPurpose=4) - game over celebration
 
 ---
 
@@ -803,7 +803,7 @@ uv run build_scripts/tmx/tmx_to_jsw.py tmx/content/<map-name> --pack --no-meta
 
 **First export** anchors `originator_guid` + `originator_name`.
 **Re-exports** preserve the original anchor and append a fresh
-modification entry — the originator never gets overwritten, so a
+modification entry - the originator never gets overwritten, so a
 map's lineage stays intact even when contributors take turns
 editing. **Non-standalone (rooms-only) packs** silently skip
 stamping; the compact `ContentType.ROOMS` entry table strips entry
@@ -811,7 +811,7 @@ names on save, so a `meta` entry wouldn't survive a round-trip
 there. The exporter prints a one-line note if `--originator-*` was
 given on a non-standalone target.
 
-The metadata feeds the upcoming custom-map sharing flow — see
+The metadata feeds the upcoming custom-map sharing flow - see
 [`docs/formats/CUSTOM_MAPS_TRANSFER.md`](../../docs/formats/CUSTOM_MAPS_TRANSFER.md)
 for how forks / divergence / network distribution are layered on top.
 
@@ -891,7 +891,7 @@ Checks the current room for missing standard properties and adds defaults:
 - Exit properties `Up`/`Down`/`Left`/`Right` (typed `file`, empty string default).
   Legacy rooms with untyped string exits are auto-promoted to `file` type.
 - `WillySuit` (Normal)
-- `RoomPurpose` (Gameplay) — exposes the enum in the sidebar so it's
+- `RoomPurpose` (Gameplay) - exposes the enum in the sidebar so it's
   discoverable; the pack-time converter also regex-scans the raw TMX when
   the property is absent.
 
@@ -920,7 +920,7 @@ build to fail; warnings are reported but don't block.
 - `MapName` not set in `.tiled-project`
 - Any non-EXIT spawn has `GameModes=0`
 - Neutral spawn has `WILLY_TEAMS` in its `GameModes`
-- Red team spawns exist without Blue (or vice versa) — incomplete team pair
+- Red team spawns exist without Blue (or vice versa) - incomplete team pair
 - Green/Orange spawns exist without both Red and Blue
 - Mode requiring neutral spawn (RACE, DISCOVERY, TAG, BULLDOG) has no neutral spawn
 - Team-capable mode has neither neutral spawn nor team spawns
@@ -971,16 +971,16 @@ adjustment.
 
 ### Common Mistakes
 
-1. **Forgetting GameModes on spawns** — every player start and flag must have a non-zero
+1. **Forgetting GameModes on spawns** - every player start and flag must have a non-zero
    `GameModes` value.
-2. **Incomplete team pairs** — if you add a Red spawn, you must also add Blue.
-3. **Running only `--pack`** — always run both individual conversion and pack conversion.
-4. **Wrong firstgid for specialty tilesets** — if Tiled auto-assigns a different firstgid when
+2. **Incomplete team pairs** - if you add a Red spawn, you must also add Blue.
+3. **Running only `--pack`** - always run both individual conversion and pack conversion.
+4. **Wrong firstgid for specialty tilesets** - if Tiled auto-assigns a different firstgid when
    adding Penrose or Collapsible tilesets, the converter's GID fixer can correct it, but it's
    better to accept the default values from the `.tsx` files.
-5. **Orphaned routes** — every route must have its `Guardian` property linked to a guardian
+5. **Orphaned routes** - every route must have its `Guardian` property linked to a guardian
    object. Use the extension's Check/Fix tools to detect and fix these.
-6. **Neutral spawns in team-only modes** — a neutral spawn must not have `WILLY_TEAMS` in its
+6. **Neutral spawns in team-only modes** - a neutral spawn must not have `WILLY_TEAMS` in its
    `GameModes`.
 
 ---
@@ -1007,9 +1007,9 @@ The built-in styles are:
 For custom styles, the game reads optional properties from `tiles_solid.tsx` in the tiles
 directory:
 
-- **TilesetName** — overrides the display name (e.g., directory "gorgeous" shows as
+- **TilesetName** - overrides the display name (e.g., directory "gorgeous" shows as
   "Gorgeous" in the menu)
-- **SupportsColorClash** — whether the ZX Spectrum color clash shader can be applied to
+- **SupportsColorClash** - whether the ZX Spectrum color clash shader can be applied to
   this tileset (default: false)
 
 Players cycle through available styles with F9 during gameplay.
@@ -1032,7 +1032,7 @@ assets/sprites/<style>/tiles/
 
 Each PNG is a tilesheet in the same 16-column layout as the shared tilesets in
 `tmx/tilesets/`. Tile dimensions are 8x8 pixels. The tile count per image must match or
-exceed the standard tilesets — the game uses tile index to look up graphics, so index 0 in
+exceed the standard tilesets - the game uses tile index to look up graphics, so index 0 in
 the custom solid tileset replaces index 0 in the standard solid tileset, and so on.
 
 ### Distributing Custom Tilesets with Map Packs
@@ -1048,12 +1048,12 @@ my-map.jsw (JSWP)
 ├── rooms (room data)
 └── tiles (JSWC)
     ├── Collection Header (name="Gorgeous", supports_color_clash=false)
-    ├── solid (JSWX — tiles_solid.png)
-    ├── stairs (JSWX — tiles_stairs.png)
-    ├── platform (JSWX — tiles_platform.png)
-    ├── hazard (JSWX — tiles_hazard.png)
-    ├── decoration (JSWX — tiles_decoration.png)
-    └── conveyor (JSWX — tiles_conveyor.png)
+    ├── solid (JSWX - tiles_solid.png)
+    ├── stairs (JSWX - tiles_stairs.png)
+    ├── platform (JSWX - tiles_platform.png)
+    ├── hazard (JSWX - tiles_hazard.png)
+    ├── decoration (JSWX - tiles_decoration.png)
+    └── conveyor (JSWX - tiles_conveyor.png)
 ```
 
 When a player loads a pack that contains a JSWC tiles entry, the game registers that
@@ -1075,7 +1075,7 @@ To create a new tileset style from scratch:
 1. Create a directory under `assets/sprites/` with your style name (e.g.,
    `assets/sprites/retro/tiles/`)
 
-2. Create PNG tilesheets for each tile type, matching the standard layout — 16 columns,
+2. Create PNG tilesheets for each tile type, matching the standard layout - 16 columns,
    8x8 pixel tiles, same tile count as the corresponding shared tileset in `tmx/tilesets/`
 
 3. Optionally create a `tiles_solid.tsx` in your tiles directory with `TilesetName` and
