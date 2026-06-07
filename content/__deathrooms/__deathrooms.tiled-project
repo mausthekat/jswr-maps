@@ -20,12 +20,6 @@
             "value": "2x"
         },
         {
-            "name": "FallDamageMode",
-            "propertytype": "FallDamageMode",
-            "type": "int",
-            "value": 1
-        },
-        {
             "name": "IncludeMapPreview",
             "propertytype": "",
             "type": "bool",
@@ -42,12 +36,6 @@
             "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "JumpType",
-            "propertytype": "JumpType",
-            "type": "int",
-            "value": 0
         },
         {
             "name": "ManicFinalRoom",
@@ -102,6 +90,12 @@
             "propertytype": "GuardianSpeed",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "MovementType",
+            "propertytype": "MovementType",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -141,17 +135,6 @@
                 "Down",
                 "Left",
                 "Right"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 15,
-            "name": "FallDamageMode",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Lenient",
-                "Strict"
             ],
             "valuesAsFlags": false
         },
@@ -204,7 +187,7 @@
         },
         {
             "id": 22,
-            "name": "JumpType",
+            "name": "MovementType",
             "storageType": "int",
             "type": "enum",
             "values": [

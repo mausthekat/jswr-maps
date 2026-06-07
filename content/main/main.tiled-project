@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -19,12 +18,6 @@
             "propertytype": "",
             "type": "string",
             "value": ""
-        },
-        {
-            "name": "FallDamageMode",
-            "propertytype": "FallDamageMode",
-            "type": "int",
-            "value": 0
         },
         {
             "name": "GuardianSpeed",
@@ -49,12 +42,6 @@
             "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "JumpType",
-            "propertytype": "JumpType",
-            "type": "int",
-            "value": 0
         },
         {
             "name": "ManicFinalRoom",
@@ -103,6 +90,12 @@
             "propertytype": "",
             "type": "bool",
             "value": true
+        },
+        {
+            "name": "MovementType",
+            "propertytype": "MovementType",
+            "type": "int",
+            "value": 0
         }
     ],
     "propertyTypes": [
@@ -146,24 +139,13 @@
             "valuesAsFlags": false
         },
         {
-            "id": 15,
-            "name": "FallDamageMode",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Lenient",
-                "Strict"
-            ],
-            "valuesAsFlags": false
-        },
-        {
             "id": 3,
             "name": "FlightDirection",
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },
@@ -216,7 +198,7 @@
         },
         {
             "id": 22,
-            "name": "JumpType",
+            "name": "MovementType",
             "storageType": "int",
             "type": "enum",
             "values": [
