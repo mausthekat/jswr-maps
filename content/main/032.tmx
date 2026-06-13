@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="8" nextobjectid="10">
+<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="9" nextobjectid="14">
  <properties>
   <property name="Down" type="file" value="180.tmx" />
   <property name="Flags" propertytype="RoomFlags" value="" />
@@ -90,6 +90,44 @@
   <object id="9" template="templates/spawn_player_orange.tx" x="112" y="120">
    <properties>
     <property name="GameModes" type="int" propertytype="GameModes" value="143" />
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="Special">
+  <object id="10" x="224" y="104" width="16" height="16">
+   <properties>
+    <property name="Action" propertytype="Action" value="RemovePlayer" />
+    <property name="DependsOnCompletion" value="replay" />
+    <property name="SessionType" type="int" propertytype="SessionType" value="1" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart" />
+   </properties>
+  </object>
+  <object id="11" gid="14402" x="224" y="120" width="16" height="16">
+   <properties>
+    <property name="Action" propertytype="Action" value="ReplaceGuardian" />
+    <property name="DependsOnCompletion" value="replay" />
+    <property name="Name" value="replaced" />
+    <property name="SessionType" type="int" propertytype="SessionType" value="1" />
+    <property name="Target" type="object" value="4" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart" />
+   </properties>
+  </object>
+  <object id="12" x="0" y="0" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="Delay" />
+    <property name="DependsOnCompletion" value="replaced" />
+    <property name="Name" value="wait" />
+    <property name="SessionType" type="int" propertytype="SessionType" value="1" />
+    <property name="Threshold" type="int" value="10" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart" />
+   </properties>
+  </object>
+  <object id="13" x="0" y="0" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="EndGame" />
+    <property name="DependsOnCompletion" value="wait" />
+    <property name="SessionType" type="int" propertytype="SessionType" value="1" />
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart" />
    </properties>
   </object>
  </objectgroup>
