@@ -96,6 +96,11 @@
             "propertytype": "MovementType",
             "type": "int",
             "value": 0
+        },
+        {
+            "name": "SpStartingLives",
+            "type": "int",
+            "value": 9
         }
     ],
     "propertyTypes": [
