@@ -101,6 +101,12 @@
             "name": "SpStartingLives",
             "type": "int",
             "value": 9
+        },
+        {
+            "name": "Tune",
+            "propertytype": "Tune",
+            "type": "int",
+            "value": 17
         }
     ],
     "propertyTypes": [
@@ -549,6 +555,38 @@
             "values": [
                 "JSW1",
                 "JSWR"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 27,
+            "name": "Tune",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Cello Suite 1",
+                "Invention No 1",
+                "Moonlight 1",
+                "Moonlight 2",
+                "Moonlight 3",
+                "Moonlight (ZX)",
+                "Prelude (C Major)",
+                "Toccata and Fugue",
+                "Flower Duet",
+                "Mountain King (ZX)",
+                "Mountain King",
+                "Greensleeves",
+                "Passacaglia",
+                "Alla Turca",
+                "Canon in D",
+                "Rich Man (ZX)",
+                "Bumble Bee",
+                "Rich Man",
+                "Romance Anonimo",
+                "Ave Maria",
+                "Blue Danube",
+                "Gymnopedie 1",
+                "Valse Triste"
             ],
             "valuesAsFlags": false
         }

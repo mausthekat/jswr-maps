@@ -302,6 +302,110 @@ def copy_extensions(src_dir: Path, dst_dir: Path, dry_run: bool = False) -> list
     return changes
 
 
+# --- map tune-select enum (driven by the build-tunes manifest) -------------
+
+TUNE_ENUM_NAME = "Tune"
+TUNE_PROP_NAME = "Tune"
+GAMINGLOUNGE_PROJECT = "_gaminglounge"
+
+
+def _load_tune_code_list() -> list[tuple[str, str]]:
+    """[(code, display_name)] sorted by code, from assets/tunes/__tune_codes.json
+    (written by the build-tunes pipeline). Raises FileNotFoundError if absent."""
+    manifest = get_tmx_dir().parent / "assets" / "tunes" / "__tune_codes.json"
+    return sorted(json.loads(manifest.read_text(encoding="utf-8")).items())
+
+
+def _current_tune_defaults() -> tuple[str | None, str | None]:
+    """(in-game default, lobby default) display names from the live tune set -
+    the same logic the game uses (jswt_format.get_enhanced_defaults)."""
+    import sys
+    repo = get_tmx_dir().parent
+    if str(repo) not in sys.path:
+        sys.path.insert(0, str(repo))
+    from src.formats.jswt_format import get_enhanced_defaults
+    d = get_enhanced_defaults(str(repo / "assets" / "tunes" / "jswt"))
+    return d.get("ingame_default_display_name"), d.get("lobby_display_name")
+
+
+def sync_tune_select_enum(dry_run: bool = False) -> tuple[list[str], int, int]:
+    """Create/update the archetype's `Tune` enum and the map-level `Tune`
+    property from the tune-code manifest + current tune defaults.
+
+    The enum values are the tune display names ordered by code (stable; the
+    refresh's enum-remap then fixes any per-map indices on a value change). The
+    map property defaults to the current in-game default tune. Returns
+    (change descriptions, ingame_default_index, lobby_default_index)."""
+    ordered = _load_tune_code_list()
+    values = [name for _code, name in ordered]
+    ingame_name, lobby_name = _current_tune_defaults()
+    ingame_idx = values.index(ingame_name) if ingame_name in values else 0
+    lobby_idx = values.index(lobby_name) if lobby_name in values else 0
+
+    arch_path = get_template_dir() / "archetype.tiled-project"
+    arch = json.loads(arch_path.read_text(encoding="utf-8"))
+    changes: list[str] = []
+
+    pts = arch.setdefault("propertyTypes", [])
+    enum = next((p for p in pts if p.get("name") == TUNE_ENUM_NAME), None)
+    if enum is None:
+        new_id = max((p.get("id", 0) for p in pts), default=0) + 1
+        pts.append({
+            "id": new_id, "name": TUNE_ENUM_NAME, "storageType": "int",
+            "type": "enum", "values": values, "valuesAsFlags": False,
+        })
+        changes.append(f"Added {TUNE_ENUM_NAME} enum ({len(values)} tunes)")
+    elif enum.get("values") != values:
+        enum["values"] = values
+        changes.append(f"Updated {TUNE_ENUM_NAME} enum values ({len(values)} tunes)")
+
+    props = arch.setdefault("properties", [])
+    prop = next((p for p in props if p.get("name") == TUNE_PROP_NAME), None)
+    if prop is None:
+        props.append({
+            "name": TUNE_PROP_NAME, "propertytype": TUNE_ENUM_NAME,
+            "type": "int", "value": ingame_idx,
+        })
+        changes.append(f"Added map {TUNE_PROP_NAME} property (default {ingame_name!r})")
+    elif prop.get("value") != ingame_idx or prop.get("propertytype") != TUNE_ENUM_NAME:
+        prop["propertytype"] = TUNE_ENUM_NAME
+        prop["type"] = "int"
+        prop["value"] = ingame_idx
+        changes.append(f"Updated map {TUNE_PROP_NAME} default ({ingame_name!r})")
+
+    if changes and not dry_run:
+        with open(arch_path, "w", encoding="utf-8") as f:
+            json.dump(arch, f, indent=4)
+            f.write("\n")
+    return changes, ingame_idx, lobby_idx
+
+
+def set_project_tune(project_path: Path, value: int, replace_if: int,
+                     dry_run: bool = False) -> list[str]:
+    """Set a project's map `Tune` to `value`, but only when it's missing or
+    still at `replace_if` (the gameplay default) - so a hand-picked per-map
+    tune is preserved. Used to give _gaminglounge the lobby tune."""
+    files = list(project_path.glob("*.tiled-project"))
+    if not files:
+        return []
+    pf = files[0]
+    data = json.loads(pf.read_text(encoding="utf-8"))
+    props = data.setdefault("properties", [])
+    prop = next((p for p in props if p.get("name") == TUNE_PROP_NAME), None)
+    if prop is None:
+        props.append({"name": TUNE_PROP_NAME, "propertytype": TUNE_ENUM_NAME,
+                      "type": "int", "value": value})
+    elif prop.get("value") == replace_if and replace_if != value:
+        prop["value"] = value
+    else:
+        return []                       # missing-handled above, else preserve
+    if not dry_run:
+        with open(pf, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4)
+            f.write("\n")
+    return [f"Set {TUNE_PROP_NAME} = {value}"]
+
+
 def merge_properties(existing: list, archetype: list) -> tuple[list, list, list]:
     """
     Merge archetype project properties into existing list.

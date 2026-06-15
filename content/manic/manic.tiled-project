@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -9,13 +10,11 @@
     "properties": [
         {
             "name": "Author",
-            "propertytype": "",
             "type": "string",
             "value": "Ovine+MauS"
         },
         {
             "name": "DefaultTileset",
-            "propertytype": "",
             "type": "string",
             "value": ""
         },
@@ -27,37 +26,37 @@
         },
         {
             "name": "IncludeMapPreview",
-            "propertytype": "",
             "type": "bool",
             "value": true
         },
         {
             "name": "InfiniteLivesMP",
-            "propertytype": "",
             "type": "bool",
             "value": true
         },
         {
             "name": "InfiniteLivesSP",
-            "propertytype": "",
             "type": "bool",
             "value": false
         },
         {
             "name": "ManicFinalRoom",
-            "propertytype": "",
             "type": "int",
             "value": 20
         },
         {
             "name": "MapName",
-            "propertytype": "",
             "type": "string",
             "value": "Manic Willy"
         },
         {
+            "name": "MovementType",
+            "propertytype": "MovementType",
+            "type": "int",
+            "value": 2
+        },
+        {
             "name": "OriginalArrows",
-            "propertytype": "",
             "type": "bool",
             "value": false
         },
@@ -75,7 +74,6 @@
         },
         {
             "name": "SPVictoryRoom",
-            "propertytype": "",
             "type": "int",
             "value": 0
         },
@@ -87,20 +85,19 @@
         },
         {
             "name": "SoftLifts",
-            "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "MovementType",
-            "propertytype": "MovementType",
-            "type": "int",
-            "value": 2
         },
         {
             "name": "SpStartingLives",
             "type": "int",
             "value": 3
+        },
+        {
+            "name": "Tune",
+            "propertytype": "Tune",
+            "type": "int",
+            "value": 10
         }
     ],
     "propertyTypes": [
@@ -149,8 +146,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -524,6 +521,38 @@
                 "GameStart",
                 "Never",
                 "ExternalEvent"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 27,
+            "name": "Tune",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Cello Suite 1",
+                "Invention No 1",
+                "Moonlight 1",
+                "Moonlight 2",
+                "Moonlight 3",
+                "Moonlight (ZX)",
+                "Prelude (C Major)",
+                "Toccata and Fugue",
+                "Flower Duet",
+                "Mountain King (ZX)",
+                "Mountain King",
+                "Greensleeves",
+                "Passacaglia",
+                "Alla Turca",
+                "Canon in D",
+                "Rich Man (ZX)",
+                "Bumble Bee",
+                "Rich Man",
+                "Romance Anonimo",
+                "Ave Maria",
+                "Blue Danube",
+                "Gymnopedie 1",
+                "Valse Triste"
             ],
             "valuesAsFlags": false
         },

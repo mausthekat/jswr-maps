@@ -27,6 +27,9 @@ from tmx_project_lib import (
     find_all_projects,
     scaffold_project,
     bundle_extensions,
+    sync_tune_select_enum,
+    set_project_tune,
+    GAMINGLOUNGE_PROJECT,
 )
 
 
@@ -117,6 +120,20 @@ def cmd_refresh(args: argparse.Namespace) -> int:
     if not dry_run:
         bundle_extensions(get_template_dir())
 
+    # Sync the map tune-select enum from the build-tunes manifest into the
+    # archetype BEFORE propagating, so the per-project merge picks it up.
+    lobby_idx: int | None = None
+    ingame_idx = 0
+    try:
+        tune_changes, ingame_idx, lobby_idx = sync_tune_select_enum(dry_run)
+        for c in tune_changes:
+            print(f"{'[DRY RUN] ' if dry_run else ''}archetype: {c}")
+        if tune_changes:
+            print()
+    except FileNotFoundError:
+        print("Note: assets/tunes/__tune_codes.json not found - skipping tune "
+              "enum sync (run the build-tunes pipeline first).\n")
+
     projects = find_all_projects()
 
     if not projects:
@@ -146,6 +163,15 @@ def cmd_refresh(args: argparse.Namespace) -> int:
         else:
             print("  Up to date.")
         print()
+
+    # The lobby (_gaminglounge) plays the lobby tune, not the gameplay default.
+    # Apply it only where the map is still at the gameplay default, so a
+    # hand-picked tune is preserved.
+    if lobby_idx is not None:
+        gl = get_tmx_dir() / "content" / GAMINGLOUNGE_PROJECT
+        if gl.is_dir():
+            for c in set_project_tune(gl, lobby_idx, ingame_idx, dry_run):
+                print(f"{'[DRY RUN] ' if dry_run else ''}{GAMINGLOUNGE_PROJECT}: {c}")
 
     print(f"Done! Processed {len(projects)} project(s), {total_changes} change(s).")
     return 0 if all_ok else 1
