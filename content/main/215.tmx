@@ -1,137 +1,152 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<map class="Room" version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" backgroundcolor="#040204" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" nextlayerid="7" nextobjectid="49">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" class="Room" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="49">
  <properties>
-  <property name="Down" type="file" value="" />
-  <property name="Left" type="file" value="216.tmx" />
-  <property name="Name" value="Connect 4" />
-  <property name="Right" type="file" value="" />
-  <property name="Rope" type="bool" value="false" />
-  <property name="Up" type="file" value="214.tmx" />
+  <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value="216.tmx"/>
+  <property name="Name" value="Connect 4"/>
+  <property name="Right" type="file" value=""/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Up" type="file" value="214.tmx"/>
  </properties>
-  <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx" />
- <tileset firstgid="2049" source="../../tilesets/tiles_stairs.tsx" />
- <tileset firstgid="4097" source="../../tilesets/tiles_platform.tsx" />
- <tileset firstgid="6145" source="../../tilesets/tiles_hazard.tsx" />
- <tileset firstgid="8193" source="../../tilesets/tiles_decoration.tsx" />
- <tileset firstgid="10241" source="../../tilesets/tiles_conveyor.tsx" />
- <tileset firstgid="12289" source="../../tilesets/collectibles.tsx" />
- <tileset firstgid="14337" source="../../tilesets/guardians.tsx" />
-<layer id="1" name="Tiles" width="32" height="16">
-  <data encoding="csv">95,95,95,95,0,0,0,0,0,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,95,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,95,95,0,0,0,4129,4129,4129,4129,4129,0,0,0,0,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,95,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,95,95,0,0,4129,4129,4129,4129,4129,4129,4129,0,0,0,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,95,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,95,95,0,0,4129,4129,4129,4129,4129,4129,4129,4129,4129,4129,4129,4129,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,95,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,95,95,4129,4129,4129,4129,2070,0,0,0,0,0,0,0,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,95,95,0,0,0,0,0,2070,0,0,0,0,0,0,0,0,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,95,95,0,0,0,0,0,0,2070,0,0,0,0,0,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,95,95,0,0,0,0,0,0,0,2070,0,0,0,0,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,0,0,4110,95,0,0,0,0,0,0,0,0,0,2070,0,0,0,0,0,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,95,0,0,0,0,0,0,0,0,0,0,2070,0,0,0,0,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,4110,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95</data>
+ <tileset firstgid="1" source="../../tilesets/tiles_solid.tsx"/>
+ <tileset firstgid="433" source="../../tilesets/tiles_stairs.tsx"/>
+ <tileset firstgid="497" source="../../tilesets/tiles_platform.tsx"/>
+ <tileset firstgid="641" source="../../tilesets/tiles_hazard.tsx"/>
+ <tileset firstgid="705" source="../../tilesets/tiles_decoration.tsx"/>
+ <tileset firstgid="833" source="../../tilesets/tiles_conveyor.tsx"/>
+ <tileset firstgid="1745" source="../../tilesets/collectibles.tsx"/>
+ <tileset firstgid="1977" source="../../tilesets/guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+95,95,95,95,0,0,0,0,0,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,
+95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,95,
+95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,95,
+95,0,0,0,529,529,529,529,529,0,0,0,0,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,95,
+95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,95,
+95,0,0,529,529,529,529,529,529,529,0,0,0,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,95,
+95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,95,
+95,0,0,529,529,529,529,529,529,529,529,529,529,529,529,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,95,
+95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,95,
+95,529,529,529,529,454,0,0,0,0,0,0,0,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,95,
+95,0,0,0,0,0,454,0,0,0,0,0,0,0,0,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,95,
+95,0,0,0,0,0,0,454,0,0,0,0,0,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,95,
+95,0,0,0,0,0,0,0,454,0,0,0,0,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,0,0,510,95,
+0,0,0,0,0,0,0,0,0,454,0,0,0,0,0,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,95,
+0,0,0,0,0,0,0,0,0,0,454,0,0,0,0,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,510,95,
+95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95
+</data>
  </layer>
  <objectgroup id="5" name="Collectables">
-  <object id="1" gid="12357" x="8" y="112" width="8" height="8" />
-  <object id="2" gid="12357" x="8" y="120" width="8" height="8" />
-  <object id="3" gid="12357" x="16" y="112" width="8" height="8" />
-  <object id="4" gid="12357" x="128" y="80" width="8" height="8" />
-  <object id="5" gid="12357" x="128" y="72" width="8" height="8" />
-  <object id="6" gid="12357" x="128" y="56" width="8" height="8" />
-  <object id="7" gid="12357" x="128" y="48" width="8" height="8" />
-  <object id="8" gid="12357" x="128" y="32" width="8" height="8" />
-  <object id="9" gid="12357" x="128" y="24" width="8" height="8" />
-  <object id="10" gid="12357" x="136" y="80" width="8" height="8" />
-  <object id="11" gid="12357" x="136" y="72" width="8" height="8" />
-  <object id="12" gid="12357" x="136" y="56" width="8" height="8" />
-  <object id="13" gid="12357" x="136" y="48" width="8" height="8" />
-  <object id="14" gid="12357" x="136" y="32" width="8" height="8" />
-  <object id="15" gid="12357" x="136" y="24" width="8" height="8" />
-  <object id="16" gid="12357" x="152" y="56" width="8" height="8" />
-  <object id="17" gid="12357" x="152" y="48" width="8" height="8" />
-  <object id="18" gid="12357" x="152" y="24" width="8" height="8" />
-  <object id="19" gid="12357" x="152" y="32" width="8" height="8" />
-  <object id="20" gid="12357" x="160" y="48" width="8" height="8" />
-  <object id="21" gid="12357" x="160" y="56" width="8" height="8" />
-  <object id="22" gid="12357" x="160" y="32" width="8" height="8" />
-  <object id="23" gid="12357" x="160" y="24" width="8" height="8" />
-  <object id="24" gid="12357" x="176" y="32" width="8" height="8" />
-  <object id="25" gid="12357" x="176" y="24" width="8" height="8" />
-  <object id="26" gid="12357" x="184" y="24" width="8" height="8" />
-  <object id="27" gid="12357" x="184" y="32" width="8" height="8" />
-  <object id="28" gid="12357" x="200" y="32" width="8" height="8" />
-  <object id="29" gid="12357" x="200" y="24" width="8" height="8" />
-  <object id="30" gid="12357" x="208" y="32" width="8" height="8" />
-  <object id="31" gid="12357" x="208" y="24" width="8" height="8" />
+  <object id="1" gid="1813" x="8" y="112" width="8" height="8"/>
+  <object id="2" gid="1813" x="8" y="120" width="8" height="8"/>
+  <object id="3" gid="1813" x="16" y="112" width="8" height="8"/>
+  <object id="4" gid="1813" x="128" y="80" width="8" height="8"/>
+  <object id="5" gid="1813" x="128" y="72" width="8" height="8"/>
+  <object id="6" gid="1813" x="128" y="56" width="8" height="8"/>
+  <object id="7" gid="1813" x="128" y="48" width="8" height="8"/>
+  <object id="8" gid="1813" x="128" y="32" width="8" height="8"/>
+  <object id="9" gid="1813" x="128" y="24" width="8" height="8"/>
+  <object id="10" gid="1813" x="136" y="80" width="8" height="8"/>
+  <object id="11" gid="1813" x="136" y="72" width="8" height="8"/>
+  <object id="12" gid="1813" x="136" y="56" width="8" height="8"/>
+  <object id="13" gid="1813" x="136" y="48" width="8" height="8"/>
+  <object id="14" gid="1813" x="136" y="32" width="8" height="8"/>
+  <object id="15" gid="1813" x="136" y="24" width="8" height="8"/>
+  <object id="16" gid="1813" x="152" y="56" width="8" height="8"/>
+  <object id="17" gid="1813" x="152" y="48" width="8" height="8"/>
+  <object id="18" gid="1813" x="152" y="24" width="8" height="8"/>
+  <object id="19" gid="1813" x="152" y="32" width="8" height="8"/>
+  <object id="20" gid="1813" x="160" y="48" width="8" height="8"/>
+  <object id="21" gid="1813" x="160" y="56" width="8" height="8"/>
+  <object id="22" gid="1813" x="160" y="32" width="8" height="8"/>
+  <object id="23" gid="1813" x="160" y="24" width="8" height="8"/>
+  <object id="24" gid="1813" x="176" y="32" width="8" height="8"/>
+  <object id="25" gid="1813" x="176" y="24" width="8" height="8"/>
+  <object id="26" gid="1813" x="184" y="24" width="8" height="8"/>
+  <object id="27" gid="1813" x="184" y="32" width="8" height="8"/>
+  <object id="28" gid="1813" x="200" y="32" width="8" height="8"/>
+  <object id="29" gid="1813" x="200" y="24" width="8" height="8"/>
+  <object id="30" gid="1813" x="208" y="32" width="8" height="8"/>
+  <object id="31" gid="1813" x="208" y="24" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="4" name="Enemies">
-  <object id="32" name="Razor Blade" type="Guardian" gid="14358" x="24" y="96" width="16" height="16">
+  <object id="32" name="Razor Blade" type="Guardian" gid="1998" x="24" y="96" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff100f" />
+    <property name="Color" type="color" value="#ffff100f"/>
    </properties>
   </object>
-  
-  <object id="34" name="Guillotine" type="Guardian" gid="14345" x="96" y="80" width="16" height="16">
+  <object id="34" name="Guillotine" type="Guardian" gid="1985" x="96" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#0fff10" />
+    <property name="Color" type="color" value="#ff0fff10"/>
    </properties>
   </object>
-  
-  <object id="36" name="Coin 1" type="Guardian" gid="14366" x="128" y="104" width="16" height="16">
+  <object id="36" name="Coin 1" type="Guardian" gid="2006" x="128" y="104" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff080f" />
+    <property name="Color" type="color" value="#ffff080f"/>
    </properties>
   </object>
-  <object id="37" name="Coin 2" type="Guardian" gid="14366" x="152" y="104" width="16" height="16">
+  <object id="37" name="Coin 2" type="Guardian" gid="2006" x="152" y="104" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#0f48ff" />
+    <property name="Color" type="color" value="#ff0f48ff"/>
    </properties>
   </object>
-  <object id="38" name="Coin 3" type="Guardian" gid="14366" x="152" y="80" width="16" height="16">
+  <object id="38" name="Coin 3" type="Guardian" gid="2006" x="152" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#2005ff" />
+    <property name="Color" type="color" value="#ff0f48ff"/>
    </properties>
   </object>
-  <object id="39" name="Coin 4" type="Guardian" gid="14366" x="176" y="80" width="16" height="16">
+  <object id="39" name="Coin 4" type="Guardian" gid="2006" x="176" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#0b40ff" />
+    <property name="Color" type="color" value="#ff0b40ff"/>
    </properties>
   </object>
-  <object id="40" name="Coin 5" type="Guardian" gid="14366" x="176" y="56" width="16" height="16">
+  <object id="40" name="Coin 5" type="Guardian" gid="2006" x="176" y="56" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff060c" />
+    <property name="Color" type="color" value="#ffff060c"/>
    </properties>
   </object>
-  <object id="41" name="Coin 6" type="Guardian" gid="14366" x="176" y="104" width="16" height="16">
+  <object id="41" name="Coin 6" type="Guardian" gid="2006" x="176" y="104" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff0910" />
+    <property name="Color" type="color" value="#ffff0910"/>
    </properties>
   </object>
-  <object id="42" name="Coin 7" type="Guardian" gid="14366" x="200" y="56" width="16" height="16">
+  <object id="42" name="Coin 7" type="Guardian" gid="2006" x="200" y="56" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#0438ff" />
+    <property name="Color" type="color" value="#ff0438ff"/>
    </properties>
   </object>
-  <object id="43" name="Coin 8" type="Guardian" gid="14366" x="200" y="80" width="16" height="16">
+  <object id="43" name="Coin 8" type="Guardian" gid="2006" x="200" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff1610" />
+    <property name="Color" type="color" value="#ffff1610"/>
    </properties>
   </object>
-  <object id="44" name="Coin 9" type="Guardian" gid="14366" x="200" y="104" width="16" height="16">
+  <object id="44" name="Coin 9" type="Guardian" gid="2006" x="200" y="104" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#0620ff" />
+    <property name="Color" type="color" value="#ff0620ff"/>
    </properties>
   </object>
-  <object id="45" name="Coin 10" type="Guardian" gid="14366" x="224" y="32" width="16" height="16">
+  <object id="45" name="Coin 10" type="Guardian" gid="2006" x="224" y="32" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#064bff" />
+    <property name="Color" type="color" value="#ff064bff"/>
    </properties>
   </object>
-  <object id="46" name="Coin 11" type="Guardian" gid="14366" x="224" y="56" width="16" height="16">
+  <object id="46" name="Coin 11" type="Guardian" gid="2006" x="224" y="56" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff1110" />
+    <property name="Color" type="color" value="#ffff1110"/>
    </properties>
   </object>
-  <object id="47" name="Coin 12" type="Guardian" gid="14366" x="224" y="80" width="16" height="16">
+  <object id="47" name="Coin 12" type="Guardian" gid="2006" x="224" y="80" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff050a" />
+    <property name="Color" type="color" value="#ffff050a"/>
    </properties>
   </object>
-  <object id="48" name="Coin 13" type="Guardian" gid="14366" x="224" y="104" width="16" height="16">
+  <object id="48" name="Coin 13" type="Guardian" gid="2006" x="224" y="104" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff0800" />
+    <property name="Color" type="color" value="#ffff0800"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="6" name="Routes" color="#ff00ffff">
+ <objectgroup color="#00ffff" id="6" name="Routes">
   <object id="33" type="Route" x="32" y="80">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
