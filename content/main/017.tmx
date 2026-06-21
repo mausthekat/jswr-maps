@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.1" class="Room" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="4">
+<map version="1.10" tiledversion="1.12.2" class="Room" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#040204" nextlayerid="7" nextobjectid="4">
  <properties>
   <property name="Down" type="file" value=""/>
   <property name="Left" type="file" value="018.tmx"/>
@@ -37,7 +37,7 @@
 </data>
  </layer>
  <objectgroup id="5" name="Collectables">
-  <object id="1" gid="1821" x="224" y="56" width="8" height="8"/>
+  <object id="1" gid="1821" x="248" y="48" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="4" name="Enemies">
   <object id="2" name="Bird" type="Guardian" gid="2008" x="24" y="48" width="16" height="16">
