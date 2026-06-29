@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="1">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="1">
  <properties>
   <property name="Down" type="file" value="053.tmx"/>
   <property name="Flags" propertytype="RoomFlags" value=""/>
   <property name="Left" type="file" value="001.tmx"/>
   <property name="Name" value="West Bedroom"/>
   <property name="Right" type="file" value="054.tmx"/>
+  <property name="RigorMortis" type="bool" value="false"/>
   <property name="Rope" type="bool" value="false"/>
   <property name="Rope Offset" type="int" value="0"/>
-  <property name="Up" type="file" value="057.tmx"/>
-  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
   <property name="Superjump" type="bool" value="false"/>
-  <property name="RigorMortis" type="bool" value="false"/>
+  <property name="Up" type="file" value="057.tmx"/>
   <property name="WillyColor" type="int" value="0"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx"/>
- <tileset firstgid="60" source="tiles_stairs.tsx"/>
- <tileset firstgid="99" source="tiles_platform.tsx"/>
- <tileset firstgid="159" source="tiles_hazard.tsx"/>
- <tileset firstgid="196" source="tiles_conveyor.tsx"/>
- <tileset firstgid="227" source="collectibles.tsx"/>
- <tileset firstgid="371" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="472" source="guardians.tsx"/>
+ <tileset firstgid="65" source="tiles_stairs.tsx"/>
+ <tileset firstgid="113" source="tiles_platform.tsx"/>
+ <tileset firstgid="177" source="tiles_hazard.tsx"/>
+ <tileset firstgid="225" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="257" source="collectibles.tsx"/>
+ <tileset firstgid="401" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="502" source="guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,54,54,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,0,54,54,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,153,0,0,0,0,0,223,223,223,153,153,153,
-0,0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,54,54,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,153,0,0,54,54,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0,153,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,54,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,
+0,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,54,54,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,54,54,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,167,0,0,0,0,0,252,252,252,167,167,167,
+0,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,54,54,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,167,0,0,54,54,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0,167,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,54,167,167,167,167,167,167,167,167,167,167,167,167,167,167,167,167,167,167,167,167,167,
 0,0,0,0,0,0,0,0,0,0,54,54,54,54,54,54,54,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-  </data>
+</data>
  </layer>
  <objectgroup id="2" name="Collectables"/>
  <objectgroup id="3" name="Enemies">
-  <object id="1" name="Vert 0x1E" type="Guardian" gid="513" x="88" y="48" width="16" height="16">
+  <object id="1" name="Vert 0x1E" type="Guardian" gid="543" x="88" y="48" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00d7d7"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="2" name="Vert 0x33" type="Guardian" gid="434" x="112" y="40" width="16" height="16">
+  <object id="2" name="Vert 0x33" type="Guardian" gid="464" x="112" y="40" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#fffc0104"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
