@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="Stairs" class="Tile" tilewidth="8" tileheight="8" tilecount="64" columns="16" backgroundcolor="#000000">
+<tileset version="1.10" tiledversion="1.12.2" name="Stairs" class="Tile" tilewidth="8" tileheight="8" tilecount="64" columns="16" backgroundcolor="#000000">
  <image source="tiles_stairs.png" width="128" height="32"/>
  <tile id="0">
   <properties>
@@ -349,13 +349,25 @@
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
-  <tile id="58">
+ <tile id="58">
   <properties>
    <property name="Direction" type="int" propertytype="Direction" value="3"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
   </properties>
  </tile>
  <tile id="59">
+  <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+   <property name="TileType" propertytype="TileType" value="stairs"/>
+  </properties>
+ </tile>
+ <tile id="60">
+  <properties>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+   <property name="TileType" propertytype="TileType" value="stairs"/>
+  </properties>
+ </tile>
+ <tile id="61">
   <properties>
    <property name="Direction" type="int" propertytype="Direction" value="2"/>
    <property name="TileType" propertytype="TileType" value="stairs"/>
