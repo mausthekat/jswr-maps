@@ -53,7 +53,7 @@
     <property name="Name" value="score_gate"/>
     <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
     <property name="Target" type="object" value="100"/>
-    <property name="Threshold" type="int" value="82"/>
+    <property name="Threshold" type="int" value="83"/>
     <property name="TriggerType" propertytype="TriggerType" value="ScoreThreshold"/>
    </properties>
   </object>
