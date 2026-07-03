@@ -403,7 +403,8 @@
                 "PlaySound",
                 "Delay",
                 "DoReplay",
-                "SetWillySuit"
+                "SetWillySuit",
+                "TeleportRoom"
             ],
             "valuesAsFlags": false
         },

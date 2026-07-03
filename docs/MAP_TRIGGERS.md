@@ -30,8 +30,8 @@ Every trigger object in the Special layer uses these properties:
 | `Action` | `Action` enum | **Yes** | The effect when the trigger fires. See [Actions](#actions). |
 | `Name` | string | Optional | A unique name for this trigger. Required if other triggers reference it via `DependsOnCompletion`. Must be unique across all rooms in the map. |
 | `DependsOnCompletion` | string | Optional | The `Name` of a prerequisite trigger. This trigger's condition is not evaluated until the prerequisite completes. Multiple triggers can depend on the same prerequisite. Cross-room references are supported. |
-| `Target` | object ref or string | Per action | What the action applies to. Object references point to guardians or spawn points. Strings are used for filenames (`DoReplay`) and sound names (`PlaySound`). See each action for details. |
-| `Threshold` | int | Per trigger/action | Numeric parameter. Meaning depends on context: item count for `ScoreThreshold`, percentage for `ScorePctThreshold`, room ID for `RoomEntered`, seconds for `Delay`, item count for `ItemCollectedInRoom`. |
+| `Target` | object ref or string | Per action | What the action applies to. Object references point to guardians or spawn points. Strings are used for filenames (`DoReplay`), sound names (`PlaySound`), and destination tile coords (`TeleportRoom`, `"tx,ty"`). See each action for details. |
+| `Threshold` | int | Per trigger/action | Numeric parameter. Meaning depends on context: item count for `ScoreThreshold`, percentage for `ScorePctThreshold`, room ID for `RoomEntered` and `TeleportRoom`, seconds for `Delay`, item count for `ItemCollectedInRoom`. |
 | `GameModes` | `GameModes` enum (flags) | Optional | Restrict to specific game modes. If absent or 0, fires in all modes. |
 | `SessionType` | `SessionType` enum (flags) | Optional | Restrict to single player (1), multiplayer (2), or both (3). If absent or 0, fires in all session types. |
 | `Visibility` | `Visibility` enum | Optional | Who sees the effect: `AllPlayers` (default) or `TriggeringPlayer`. |
@@ -136,7 +136,8 @@ These complete immediately.
 | `DisablePlayerInput` | - | Suppresses movement keys (left, right, jump). Chat and menu keys still work. |
 | `EnablePlayerInput` | - | Re-enables movement keys. Reverses `DisablePlayerInput`. |
 | `EndGame` | - | Ends the game. SP: returns to title screen. MP: server declares the winner (player_id propagated through the trigger dependency chain) and transitions to the victory room. |
-| `PlaySound` | `Target` (string, sound name) | Plays a sound effect. *(Not yet implemented.)* |
+| `PlaySound` | `Target` (string, sound name) | Plays a built-in sound effect: `pickup`, `death`, `arrow`, `tick`, or `mm_air`. Room-gated: only players currently in this trigger's room hear it. Never replayed to late joiners. Unknown names are silent (build warning). On the Spectrum Next only `pickup`/`death`/`arrow` exist; `tick`/`mm_air` are PC-only (build warning). |
+| `TeleportRoom` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | Teleports the player to a DIFFERENT room. `Threshold` is the destination room id; `Target` is the destination in TILE coordinates (`tx` 0-31, `ty` 0-15) - note this differs from `TeleportPlayerTo`, which works in pixels. Grants the standard 1.5s post-teleport immunity, and updates the death-respawn point to the destination. Player-specific in MP: only the player who caused the trigger teleports; never applied to late joiners. Spectrum Next: destination room ids must be 1-255 (build warning otherwise). |
 
 ### Duration Actions
 
@@ -364,6 +365,45 @@ Action               = TeleportPlayerTo
 Target               = (object ref to spawn point)
 Name                 = "celebration"
 ```
+
+#### TeleportRoom - Move player to a DIFFERENT room
+
+`Threshold` is the destination room id; `Target` is a literal `"tx,ty"` string
+in TILE coordinates (0-31, 0-15) - unlike `TeleportPlayerTo`, which is
+pixel-based and same-room only. Object refs cannot cross rooms in Tiled, so
+the destination is always written literally. The player gets the standard
+1.5-second post-teleport immunity, and dying afterwards respawns them at the
+destination (it becomes the room-entry point).
+
+A "cartography room" (one teleport pad per destination):
+
+```
+TriggerType  = CollisionWith          # pad zone 1
+Action       = TeleportRoom
+Threshold    = 12                     # room 12: The Beach
+Target       = "4,13"                 # arrive at tile (4,13)
+Visibility   = TriggeringPlayer
+TriggerMode  = PerPlayer              # every player can use the pad
+
+TriggerType  = CollisionWith          # pad zone 2
+Action       = TeleportRoom
+Threshold    = 47                     # room 47: The Moon
+Target       = "16,8"
+Visibility   = TriggeringPlayer
+TriggerMode  = PerPlayer
+```
+
+#### PlaySound - Play a built-in sound
+
+```
+TriggerType  = CollisionWith
+Action       = PlaySound
+Target       = "pickup"               # pickup / death / arrow / tick / mm_air
+```
+
+Only players in the trigger's room hear it, and it is never replayed to a
+late joiner. Chain it with `Delay` + `TeleportRoom` for vehicle set-pieces
+(board -> sound -> delay -> arrive).
 
 #### RemovePlayer - Hide player sprite
 
@@ -628,9 +668,13 @@ not by `Name` string.
    `Visibility=TriggeringPlayer`).
 5. **Clients apply** the action:
    - World actions (HideGuardian, ShowTile, EndGame, etc.): all clients execute.
-   - Player-specific actions (TeleportPlayerTo, DisablePlayerInput, RemovePlayer):
-     only the targeted player executes.
+     `PlaySound` is world-state but room-gated (only clients in the trigger's
+     room play it).
+   - Player-specific actions (TeleportPlayerTo, TeleportRoom, DisablePlayerInput,
+     EnablePlayerInput, RemovePlayer): only the targeted player executes.
 6. **Late joiners** receive `TRIGGER_SYNC` with a bitset of all completed triggers.
+   World effects are re-applied EXCEPT player-specific actions and `PlaySound`
+   (stale sounds are not replayed on join).
 
 ### EndGame in Multiplayer
 
@@ -680,6 +724,13 @@ For each trigger object, the converter:
 - Circular dependency chains.
 - `DoReplay` with a missing replay file.
 - Unresolvable `Target` object references.
+- `TeleportRoom` whose `Threshold` room id does not exist in the map, or whose
+  `Target` is not a valid `"tx,ty"` tile coordinate (0-31, 0-15). The JSWN
+  (Spectrum Next) build additionally warns when the destination room id is
+  outside 1-255 (unreachable on the Next).
+- `PlaySound` whose `Target` is not a built-in sound name
+  (`pickup`/`death`/`arrow`/`tick`/`mm_air`); the JSWN build additionally warns
+  for `tick`/`mm_air` (PC-only, silent on the Next).
 
 ---
 

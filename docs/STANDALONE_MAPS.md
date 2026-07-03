@@ -72,14 +72,14 @@ Room filenames are `NNN.tmx`. Category PNGs follow `tiles_<category>[_<suffix>].
 
 ### Tileset Manifest (`tilesets.json`)
 
-Preferred source of variant metadata. The key `""` is the base variant; other keys are the filename suffixes that identify additional variants. Each entry declares its own display name and `color_clash` flag independently.
+Preferred source of variant metadata. The key `""` is the base variant; other keys are the filename suffixes that identify additional variants. Each entry declares its own display name, `color_clash` flag and (optional) `artist` credit independently. The `artist` string is embedded in the variant's JSWC header and shown when the player selects/cycles that tileset; omit it (or leave it `""`) to ship no credit.
 
 **jsw-gorgeous's manifest:**
 
 ```json
 {
-    "": {"name": "Gorgeous (8px)", "color_clash": false},
-    "2x": {"name": "Gorgeous (16px)", "color_clash": false},
+    "": {"name": "Gorgeous (8px)", "color_clash": false, "artist": "Paul Vera-Broadbent/MauS"},
+    "2x": {"name": "Gorgeous (16px)", "color_clash": false, "artist": "Paul Vera-Broadbent"},
     "jsw1": {"name": "JSW1 Old School", "color_clash": true},
     "jsw1-e": {"name": "JSW1 Noble", "color_clash": false}
 }
@@ -87,7 +87,7 @@ Preferred source of variant metadata. The key `""` is the base variant; other ke
 
 This produces four pack entries - `tiles` (base 8px), `tiles_2x`, `tiles_jsw1`, `tiles_jsw1-e` - plus one per-room `tiles_jsw1_room<NNN>` / `tiles_jsw1-e_room<NNN>` entry for every PNG under `tilesets/<suffix>/`. Each variant's `color_clash` flag is honoured independently, so the player can F9-cycle between an enhanced mode and a ZX-emulation mode within the same pack.
 
-**TSX fallback:** if `tilesets.json` is absent, `collect_tileset_properties()` reads `TilesetName` and `SupportsColorClash` from `tiles_solid.tsx`. This only yields a single-variant pack (the base), plus whatever `_2x` files `_detect_2x_tilesets()` picks up. Used by a few legacy maps; manifest is preferred for everything new.
+**TSX fallback:** if `tilesets.json` is absent, `collect_tileset_properties()` reads `TilesetName`, `SupportsColorClash` and `Artist` from `tiles_solid.tsx`. This only yields a single-variant pack (the base), plus whatever `_2x` files `_detect_2x_tilesets()` picks up. Used by a few legacy maps; manifest is preferred for everything new.
 
 ### Default Tileset Selection
 

@@ -1,7 +1,6 @@
 {
     "automappingRulesFile": "",
-    "commands": [
-    ],
+    "commands": [],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -123,7 +122,8 @@
                 "PlaySound",
                 "Delay",
                 "DoReplay",
-                "SetWillySuit"
+                "SetWillySuit",
+                "TeleportRoom"
             ],
             "valuesAsFlags": false
         },
@@ -146,8 +146,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right→Left",
-                "Left→Right"
+                "Right\u2192Left",
+                "Left\u2192Right"
             ],
             "valuesAsFlags": false
         },

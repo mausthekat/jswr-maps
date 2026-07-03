@@ -11,7 +11,7 @@
             "name": "Author",
             "propertytype": "",
             "type": "string",
-            "value": "MauS + Matthew Smith + Paul Vera-Broadbent"
+            "value": "P. Vera-Broadbent/M. Smith/MauS"
         },
         {
             "name": "DefaultTileset",
@@ -132,7 +132,8 @@
                 "PlaySound",
                 "Delay",
                 "DoReplay",
-                "SetWillySuit"
+                "SetWillySuit",
+                "TeleportRoom"
             ],
             "valuesAsFlags": false
         },
