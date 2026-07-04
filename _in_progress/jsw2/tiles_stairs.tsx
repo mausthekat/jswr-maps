@@ -3,7 +3,7 @@
  <properties>
   <property name="TilesetName" value="JSW2"/>
  </properties>
- <image source="tiles_stairs.png" width="128" height="40"/>
+ <image source="tiles_stairs_e.png" width="128" height="40"/>
  <tile id="0">
   <properties>
    <property name="TileType" propertytype="TileType" value="stairs"/>
