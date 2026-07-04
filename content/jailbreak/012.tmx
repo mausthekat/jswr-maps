@@ -63,7 +63,7 @@
     <property name="Speed" type="int" propertytype="Speed" value="4"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 0,56"/>
+   <polyline points="0,0 0,48"/>
   </object>
   <object id="4" type="Route" x="104" y="64">
    <properties>
@@ -72,7 +72,7 @@
     <property name="Speed" type="int" propertytype="Speed" value="4"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
-   <polyline points="0,0 0,56"/>
+   <polyline points="0,0 0,48"/>
   </object>
  </objectgroup>
 </map>

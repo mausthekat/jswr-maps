@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="Guardians" class="Guardian" tilewidth="16" tileheight="16" tilecount="101" columns="0" backgroundcolor="#000000">
+<tileset version="1.10" tiledversion="1.11.2" name="Guardians" class="Guardian" tilewidth="16" tileheight="16" tilecount="102" columns="0" backgroundcolor="#000000">
  <properties>
   <property name="Color" type="color" value=""/>
  </properties>
@@ -306,5 +306,14 @@
  </tile>
  <tile id="100">
   <image source="guardians/guardian_100.png" width="16" height="16"/>
+ </tile>
+ <tile id="101">
+  <image source="guardians/guardian_101.png" width="16" height="16"/>
+ </tile>
+ <tile id="102">
+  <image source="guardians/guardian_102.png" width="16" height="16"/>
+ </tile>
+ <tile id="103">
+  <image source="guardians/guardian_103.png" width="16" height="16"/>
  </tile>
 </tileset>

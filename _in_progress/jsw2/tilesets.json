@@ -1,0 +1,12 @@
+{
+    "": {
+        "name": "JSW2 Original",
+        "color_clash": true,
+        "artist": "M.Smith/D.P.Rowson/S.Wetherill"
+    },
+    "e": {
+        "name": "JSW2 Enhanced",
+        "color_clash": false,
+        "artist": "MauS/generated"
+    }
+}

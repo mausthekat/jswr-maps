@@ -1,6 +1,6 @@
 # Map Authoring Docs
 
-Reference documentation for authoring Jet Set Willy: Redux maps in Tiled.
+Reference documentation for authoring Jet Set Willy: Next maps in Tiled.
 Start with [`TILED_MAP_CREATION.md`](TILED_MAP_CREATION.md) for the end-to-end
 workflow; the other docs are topic-specific deep dives you'll need as you add
 features to a map.

@@ -97,6 +97,11 @@
             "propertytype": "Tune",
             "type": "int",
             "value": 10
+        },
+        {
+            "name": "ArrowPhaseSeed",
+            "type": "bool",
+            "value": false
         }
     ],
     "propertyTypes": [
@@ -491,7 +496,8 @@
                 "Ping-Pong",
                 "One-Way Reset",
                 "One-Way Stop",
-                "Loop"
+                "Loop",
+                "Bounce"
             ],
             "valuesAsFlags": false
         },

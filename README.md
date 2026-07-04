@@ -1,6 +1,6 @@
 # JSW:R Map Editing Toolkit
 
-Map editing tools and content for **Jet Set Willy: Redux** using the
+Map editing tools and content for **Jet Set Willy: Next** using the
 [Tiled Map Editor](https://www.mapeditor.org/).
 
 ## Getting Started
@@ -61,5 +61,5 @@ Maps are reviewed and merged into the game's next release.
 
 ## License
 
-Map content and tooling for Jet Set Willy: Redux. See the main game repository for
+Map content and tooling for Jet Set Willy: Next. See the main game repository for
 license details.

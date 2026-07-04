@@ -3,7 +3,7 @@ Egg
 Maria
 Chip
 Scroll
-Pliars
+Pliers
 Warehouse Beast
 Tear
 Guillotine
@@ -99,3 +99,6 @@ Flaming Barrel
 Wallaby
 Pac-Hop
 Hungry Toilet
+Ylliw
+Half-Tank
+Mobile Arrow

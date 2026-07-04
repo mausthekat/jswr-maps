@@ -38,6 +38,11 @@
             "value": false
         },
         {
+            "name": "ArrowPhaseSeed",
+            "type": "bool",
+            "value": false
+        },
+        {
             "name": "OriginalArrows",
             "type": "bool",
             "value": false
@@ -364,7 +369,8 @@
                 "Ping-Pong",
                 "One-Way Reset",
                 "One-Way Stop",
-                "Loop"
+                "Loop",
+                "Bounce"
             ],
             "valuesAsFlags": false
         },

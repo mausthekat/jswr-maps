@@ -2,7 +2,7 @@
 
 ## Overview
 
-Tilesets in JSW Redux can define properties that control graphics style behavior and tile categorization. These properties are read from Tiled TSX (tileset) files.
+Tilesets in JSW Next can define properties that control graphics style behavior and tile categorization. These properties are read from Tiled TSX (tileset) files.
 
 ## Property Locations
 
@@ -102,7 +102,7 @@ If no `Direction` property is set on any tile in a stairs tileset, direction is 
 
 ### Built-in Tilesets
 
-JSW Redux includes built-in tilesets that are always available:
+JSW Next includes built-in tilesets that are always available:
 
 | Tileset | Color Clash Support | Styles Created |
 |---------|---------------------|----------------|

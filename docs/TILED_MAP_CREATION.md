@@ -1,6 +1,6 @@
 # Tiled Map Creation Guide for JSW:R
 
-A start-to-finish guide for creating custom maps for Jet Set Willy: Redux using the
+A start-to-finish guide for creating custom maps for Jet Set Willy: Next using the
 [Tiled Map Editor](https://www.mapeditor.org/).
 
 For the extension reference and conversion script details, see [tmx/README.md](../README.md).

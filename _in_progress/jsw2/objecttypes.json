@@ -1,0 +1,59 @@
+[
+    {
+        "name": "Guardian",
+        "color": "#ff0000",
+        "properties": [
+            {
+                "name": "Sprite",
+                "type": "int"
+            },
+            {
+                "name": "Step",
+                "type": "int"
+            },
+            {
+                "name": "Limit0",
+                "type": "int"
+            },
+            {
+                "name": "Limit1",
+                "type": "int"
+            },
+            {
+                "name": "Horizontal",
+                "type": "bool"
+            },
+            {
+                "name": "Unidirectional",
+                "type": "bool"
+            },
+            {
+                "name": "AnimMask",
+                "type": "int"
+            },
+            {
+                "name": "Color",
+                "type": "string",
+                "propertytype": "GuardianColor"
+            },
+            {
+                "name": "SecondaryStep",
+                "type": "int"
+            },
+            {
+                "name": "ReverseFrames",
+                "type": "bool"
+            }
+        ]
+    },
+    {
+        "name": "Arrow",
+        "color": "#ffff00",
+        "properties": [
+            {
+                "name": "Direction",
+                "type": "string"
+            }
+        ]
+    }
+]

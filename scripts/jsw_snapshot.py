@@ -1973,7 +1973,7 @@ def _parse_items_jsw64(snap: Snapshot,
 
     Verified against ManicMinerRedux's MMDD level data: cavern 0 ("The
     Hollow Chamber") items at `$A400/$A500` decode to the exact (x, y)
-    positions Redux lists.
+    positions Next lists.
     """
     by_room: dict[int, list[ItemData]] = {}
     ram = snap.ram
