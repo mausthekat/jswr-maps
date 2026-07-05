@@ -55,5 +55,36 @@
                 "type": "string"
             }
         ]
+    },
+    {
+        "name": "MovingGap",
+        "color": "#00ff7f",
+        "properties": [
+            {
+                "name": "Width",
+                "type": "int",
+                "value": 4
+            },
+            {
+                "name": "Base",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "Phase",
+                "type": "int",
+                "value": 0
+            },
+            {
+                "name": "StepFrames",
+                "type": "int",
+                "value": 2
+            },
+            {
+                "name": "Amplitude",
+                "type": "int",
+                "value": 127
+            }
+        ]
     }
 ]
