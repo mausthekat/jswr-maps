@@ -60,4 +60,17 @@
    <polyline points="0,0 256,0"/>
   </object>
  </objectgroup>
+ <objectgroup id="9" name="Special">
+  <object id="903" name="teleporter_081" x="56" y="104" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="TeleportRoomBeam"/>
+    <property name="Comment" value="TODO: real JSW2 gates this pad on the yacht event (unimplemented) - authored always-active"/>
+    <property name="Name" value="teleporter_081"/>
+    <property name="Target" value="17,11"/>
+    <property name="Threshold" type="int" value="97"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

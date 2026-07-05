@@ -410,7 +410,8 @@
                 "Delay",
                 "DoReplay",
                 "SetWillySuit",
-                "TeleportRoom"
+                "TeleportRoom",
+                "TeleportRoomBeam"
             ],
             "valuesAsFlags": false
         },

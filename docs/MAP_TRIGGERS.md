@@ -4,7 +4,9 @@ Map triggers are data-driven events defined in TMX Special layers.  Each trigger
 **condition** (when it fires) and an **action** (what it does).  Triggers can be chained
 via dependencies to create multi-step sequences.
 
-Triggers are one-shot: they fire once, execute their action, and complete.  Reactive
+Triggers are one-shot: they fire once, execute their action, and complete.  The single
+exception is `TeleportRoomBeam`, which re-arms itself after its beam sequence so the
+teleporter pad is reusable (see [Actions](#actions)).  Reactive
 elements like team doors and barriers remain separate (see [Special Objects](#special-objects-team-doorsbarriers)
 at the end of this document).
 
@@ -138,6 +140,7 @@ These complete immediately.
 | `EndGame` | - | Ends the game. SP: returns to title screen. MP: server declares the winner (player_id propagated through the trigger dependency chain) and transitions to the victory room. |
 | `PlaySound` | `Target` (string, sound name) | Plays a built-in sound effect: `pickup`, `death`, `arrow`, `tick`, or `mm_air`. Room-gated: only players currently in this trigger's room hear it. Never replayed to late joiners. Unknown names are silent (build warning). On the Spectrum Next only `pickup`/`death`/`arrow` exist; `tick`/`mm_air` are PC-only (build warning). |
 | `TeleportRoom` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | Teleports the player to a DIFFERENT room. `Threshold` is the destination room id; `Target` is the destination in TILE coordinates (`tx` 0-31, `ty` 0-15) - note this differs from `TeleportPlayerTo`, which works in pixels. Grants the standard 1.5s post-teleport immunity, and updates the death-respawn point to the destination. Player-specific in MP: only the player who caused the trigger teleports; never applied to late joiners. Spectrum Next: destination room ids must be 1-255 (build warning otherwise). |
+| `TeleportRoomBeam` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | JSW2-style delayed teleport with dematerialize/materialize effects. Same fields as `TeleportRoom`, but instead of an instant switch the world freezes for 150 physics ticks: 75 ticks of dematerialize effect in the source room, room switch, 75 ticks of materialize at the destination (input dead and the player invulnerable throughout - the ROM handler hijacks the whole frame). Unlike every other action it is RE-ARMABLE: the trigger returns to pending 150 ticks after firing so the pad can be reused (JSW2 teleporters are two-way navigation pairs). Player-specific in MP (recommended authoring: `Visibility = TriggeringPlayer`); never applied to late joiners. Spectrum Next: not yet implemented - the JSWN build transcodes the unknown action to `Complete` with a warning. |
 
 ### Duration Actions
 
@@ -392,6 +395,29 @@ Target       = "16,8"
 Visibility   = TriggeringPlayer
 TriggerMode  = PerPlayer
 ```
+
+#### TeleportRoomBeam - JSW2 teleporter pad
+
+Same `Threshold`/`Target` convention as `TeleportRoom`, but with the JSW2
+transporter sequence: standing on the pad freezes the world, dissolves Willy
+over 75 ticks (sparkling static + YELLOW/WHITE ink alternation in original
+graphics styles; flicker -> contract -> beam in enhanced), switches rooms, and
+re-materializes him over 75 more. A transporter buzz plays throughout. The
+pad re-arms 150 ticks after firing, so teleporters can be authored as
+two-way pairs. The trigger rect should be the CELL Willy stands on (the JSW2
+ROM matches WILLYX to cell precision at a standing head-y).
+
+```
+TriggerType  = CollisionWith          # the pad cell (8x8)
+Action       = TeleportRoomBeam
+Threshold    = 121                    # destination room id
+Target       = "3,1"                  # arrive at tile (3,1)
+Visibility   = TriggeringPlayer
+```
+
+The four JSW2 map teleporters are authored by
+`analysis/jsw2zx/add_jsw2_teleporters.py` and verified by
+`analysis/jsw2zx/probe_teleporters.py`.
 
 #### PlaySound - Play a built-in sound
 

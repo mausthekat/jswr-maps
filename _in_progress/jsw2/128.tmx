@@ -62,4 +62,16 @@
    <polyline points="0,0 190,0"/>
   </object>
  </objectgroup>
+ <objectgroup id="9" name="Special">
+  <object id="902" name="teleporter_128" x="232" y="24" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="TeleportRoomBeam"/>
+    <property name="Name" value="teleporter_128"/>
+    <property name="Target" value="3,11"/>
+    <property name="Threshold" type="int" value="97"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

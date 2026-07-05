@@ -46,4 +46,26 @@
  </objectgroup>
  <objectgroup color="#00ffff" id="4" name="Routes">
  </objectgroup>
+ <objectgroup id="9" name="Special">
+  <object id="900" name="teleporter_097_a" x="40" y="32" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="TeleportRoomBeam"/>
+    <property name="Name" value="teleporter_097_a"/>
+    <property name="Target" value="3,1"/>
+    <property name="Threshold" type="int" value="121"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
+   </properties>
+  </object>
+  <object id="901" name="teleporter_097_b" x="120" y="32" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="TeleportRoomBeam"/>
+    <property name="Name" value="teleporter_097_b"/>
+    <property name="Target" value="18,13"/>
+    <property name="Threshold" type="int" value="32"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
