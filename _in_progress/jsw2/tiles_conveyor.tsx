@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_conveyor" tilewidth="8" tileheight="8" tilecount="284" columns="16">
+<tileset version="1.10" tiledversion="1.11.2" name="tiles_conveyor" tilewidth="8" tileheight="8" tilecount="286" columns="16">
  <properties>
   <property name="TilesetName" value="JSW2"/>
  </properties>
- <image source="tiles_conveyor_e.png" width="128" height="144"/>
+ <image source="tiles_conveyor.png" width="128" height="144"/>
  <tile id="0">
   <properties>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
@@ -1790,6 +1790,18 @@
   </properties>
  </tile>
  <tile id="283">
+  <properties>
+   <property name="TileType" propertytype="TileType" value="conveyor"/>
+   <property name="Direction" type="int" propertytype="Direction" value="3"/>
+  </properties>
+ </tile>
+ <tile id="284">
+  <properties>
+   <property name="TileType" propertytype="TileType" value="conveyor"/>
+   <property name="Direction" type="int" propertytype="Direction" value="2"/>
+  </properties>
+ </tile>
+ <tile id="285">
   <properties>
    <property name="TileType" propertytype="TileType" value="conveyor"/>
    <property name="Direction" type="int" propertytype="Direction" value="3"/>

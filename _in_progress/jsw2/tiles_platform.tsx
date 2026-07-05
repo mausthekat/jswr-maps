@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_platform" tilewidth="8" tileheight="8" tilecount="88" columns="16">
+<tileset version="1.10" tiledversion="1.11.2" name="tiles_platform" tilewidth="8" tileheight="8" tilecount="89" columns="16">
  <properties>
   <property name="TilesetName" value="JSW2"/>
  </properties>
- <image source="tiles_platform_e.png" width="128" height="48"/>
+ <image source="tiles_platform.png" width="128" height="48"/>
  <tile id="0">
   <properties>
    <property name="TileType" propertytype="TileType" value="platform"/>
@@ -440,6 +440,11 @@
   </properties>
  </tile>
  <tile id="87">
+  <properties>
+   <property name="TileType" propertytype="TileType" value="platform"/>
+  </properties>
+ </tile>
+ <tile id="88">
   <properties>
    <property name="TileType" propertytype="TileType" value="platform"/>
   </properties>

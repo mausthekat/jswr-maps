@@ -23,17 +23,17 @@
 77,0,0,0,0,0,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
-77,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,77,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+77,4169,4169,4169,4169,4169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
+4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
-77,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,77,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4169,4169,77,
+4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
-77,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,77,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+77,4169,4169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
+4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
-77,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,4169,77,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4169,4169,77,
+4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,4185,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
 77,77,0,0,0,0,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77
 </data>
@@ -42,135 +42,171 @@
   <object id="1" gid="12517" x="8" y="120" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="Enemies">
-  <object id="100" name="Robot" type="Guardian" gid="14359" x="8" y="96" width="16" height="16">
+  <object id="100" name="Robot" type="Guardian" gid="14359" x="8" y="104" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="102" name="Robot" type="Guardian" gid="14359" x="238" y="72" width="16" height="16">
+  <object id="102" name="Robot" type="Guardian" gid="14359" x="238" y="80" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00ffff"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="104" name="Robot" type="Guardian" gid="14359" x="8" y="48" width="16" height="16">
+  <object id="104" name="Robot" type="Guardian" gid="14359" x="8" y="56" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00ff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="106" name="MovingGap" type="MovingGap" x="8" y="24" width="32" height="8">
+  <object id="106" name="MovingGap" type="MovingGap" x="8" y="32" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-65"/>
     <property name="Phase" type="int" value="67"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="107" name="MovingGap" type="MovingGap" x="104" y="24" width="32" height="8">
+  <object id="107" name="MovingGap" type="MovingGap" x="104" y="32" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-65"/>
     <property name="Phase" type="int" value="163"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="108" name="MovingGap" type="MovingGap" x="136" y="48" width="32" height="8">
+  <object id="108" name="MovingGap" type="MovingGap" x="136" y="56" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-81"/>
     <property name="Phase" type="int" value="115"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="109" name="MovingGap" type="MovingGap" x="0" y="48" width="32" height="8">
+  <object id="109" name="MovingGap" type="MovingGap" x="0" y="56" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-49"/>
     <property name="Phase" type="int" value="243"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="110" name="MovingGap" type="MovingGap" x="136" y="48" width="32" height="8">
+  <object id="110" name="MovingGap" type="MovingGap" x="136" y="56" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-1"/>
     <property name="Phase" type="int" value="35"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="111" name="MovingGap" type="MovingGap" x="232" y="48" width="32" height="8">
+  <object id="111" name="MovingGap" type="MovingGap" x="232" y="56" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-1"/>
     <property name="Phase" type="int" value="195"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="112" name="MovingGap" type="MovingGap" x="0" y="72" width="32" height="8">
+  <object id="112" name="MovingGap" type="MovingGap" x="0" y="80" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-65"/>
     <property name="Phase" type="int" value="35"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="113" name="MovingGap" type="MovingGap" x="0" y="72" width="32" height="8">
+  <object id="113" name="MovingGap" type="MovingGap" x="0" y="80" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-65"/>
     <property name="Phase" type="int" value="195"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="114" name="MovingGap" type="MovingGap" x="0" y="96" width="32" height="8">
+  <object id="114" name="MovingGap" type="MovingGap" x="0" y="104" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-81"/>
     <property name="Phase" type="int" value="243"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="115" name="MovingGap" type="MovingGap" x="248" y="96" width="32" height="8">
+  <object id="115" name="MovingGap" type="MovingGap" x="248" y="104" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-49"/>
     <property name="Phase" type="int" value="115"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="116" name="MovingGap" type="MovingGap" x="248" y="96" width="32" height="8">
+  <object id="116" name="MovingGap" type="MovingGap" x="248" y="104" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-1"/>
     <property name="Phase" type="int" value="67"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
-  <object id="117" name="MovingGap" type="MovingGap" x="248" y="96" width="32" height="8">
+  <object id="117" name="MovingGap" type="MovingGap" x="248" y="104" width="32" height="8">
    <properties>
     <property name="Amplitude" type="int" value="127"/>
     <property name="Base" type="int" value="-1"/>
     <property name="Phase" type="int" value="163"/>
     <property name="StepFrames" type="int" value="2"/>
     <property name="Width" type="int" value="4"/>
+    <property name="PlatformTile" type="int" value="88"/>
+    <property name="ConveyorLeftTile" type="int" value="284"/>
+    <property name="ConveyorRightTile" type="int" value="285"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup color="#00ffff" id="4" name="Routes">
-  <object id="101" type="Route" x="8" y="88">
+  <object id="101" type="Route" x="8" y="96">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="3"/>
     <property name="Guardian" type="object" value="100"/>
@@ -179,7 +215,7 @@
    </properties>
    <polyline points="0,0 224,0"/>
   </object>
-  <object id="103" type="Route" x="24" y="64">
+  <object id="103" type="Route" x="24" y="72">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="2"/>
     <property name="Guardian" type="object" value="102"/>
@@ -188,7 +224,7 @@
    </properties>
    <polyline points="0,0 224,0"/>
   </object>
-  <object id="105" type="Route" x="8" y="40">
+  <object id="105" type="Route" x="8" y="48">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="3"/>
     <property name="Guardian" type="object" value="104"/>

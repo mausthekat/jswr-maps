@@ -3,7 +3,7 @@
  <properties>
   <property name="TilesetName" value="JSW2"/>
  </properties>
- <image source="tiles_solid_e.png" width="128" height="48"/>
+ <image source="tiles_solid.png" width="128" height="48"/>
  <tile id="0">
   <properties>
    <property name="TileType" propertytype="TileType" value="solid"/>
