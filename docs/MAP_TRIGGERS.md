@@ -4,9 +4,12 @@ Map triggers are data-driven events defined in TMX Special layers.  Each trigger
 **condition** (when it fires) and an **action** (what it does).  Triggers can be chained
 via dependencies to create multi-step sequences.
 
-Triggers are one-shot: they fire once, execute their action, and complete.  The single
-exception is `TeleportRoomBeam`, which re-arms itself after its beam sequence so the
-teleporter pad is reusable (see [Actions](#actions)).  Reactive
+Triggers are one-shot by default: they fire once, execute their action, and complete.
+Two authorable re-arm properties make a trigger repeatable - `RearmTicks` (return to
+pending N ticks after completing) and `RearmOnRoomExit` (return to pending when the
+player leaves the trigger's room); `TeleportRoomBeam` re-arms implicitly after its
+beam sequence so the teleporter pad is reusable (see [Actions](#actions) and
+[Re-arm](#re-arm-repeatable-triggers)).  Reactive
 elements like team doors and barriers remain separate (see [Special Objects](#special-objects-team-doorsbarriers)
 at the end of this document).
 
@@ -38,6 +41,8 @@ Every trigger object in the Special layer uses these properties:
 | `SessionType` | `SessionType` enum (flags) | Optional | Restrict to single player (1), multiplayer (2), or both (3). If absent or 0, fires in all session types. |
 | `Visibility` | `Visibility` enum | Optional | Who sees the effect: `AllPlayers` (default) or `TriggeringPlayer`. |
 | `TriggerMode` | `TriggerMode` enum | Optional | Whether multiple players can trigger independently: `Unique` (default) or `PerPlayer`. |
+| `RearmTicks` | int | Optional | Re-arm timer: the trigger returns to pending N physics ticks after completing, so it can fire again. 0/absent = one-shot. (`TeleportRoomBeam` has an implicit 150-tick default.) See [Re-arm](#re-arm-repeatable-triggers). |
+| `RearmOnRoomExit` | bool | Optional | Re-arms the trigger when the player leaves the trigger's room, and when the room is reset (single-player death respawn re-runs the set piece). Ignored by the headless server. Pair it with a room-gated condition (e.g. a whole-room `CollisionWith` zone) so the re-armed trigger cannot refire while the player is elsewhere. |
 
 ### Object Geometry
 
@@ -140,7 +145,8 @@ These complete immediately.
 | `EndGame` | - | Ends the game. SP: returns to title screen. MP: server declares the winner (player_id propagated through the trigger dependency chain) and transitions to the victory room. |
 | `PlaySound` | `Target` (string, sound name) | Plays a built-in sound effect: `pickup`, `death`, `arrow`, `tick`, or `mm_air`. Room-gated: only players currently in this trigger's room hear it. Never replayed to late joiners. Unknown names are silent (build warning). On the Spectrum Next only `pickup`/`death`/`arrow` exist; `tick`/`mm_air` are PC-only (build warning). |
 | `TeleportRoom` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | Teleports the player to a DIFFERENT room. `Threshold` is the destination room id; `Target` is the destination in TILE coordinates (`tx` 0-31, `ty` 0-15) - note this differs from `TeleportPlayerTo`, which works in pixels. Grants the standard 1.5s post-teleport immunity, and updates the death-respawn point to the destination. Player-specific in MP: only the player who caused the trigger teleports; never applied to late joiners. Spectrum Next: destination room ids must be 1-255 (build warning otherwise). |
-| `TeleportRoomBeam` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | JSW2-style delayed teleport with dematerialize/materialize effects. Same fields as `TeleportRoom`, but instead of an instant switch the world freezes for 150 physics ticks: 75 ticks of dematerialize effect in the source room, room switch, 75 ticks of materialize at the destination (input dead and the player invulnerable throughout - the ROM handler hijacks the whole frame). Unlike every other action it is RE-ARMABLE: the trigger returns to pending 150 ticks after firing so the pad can be reused (JSW2 teleporters are two-way navigation pairs). Player-specific in MP (recommended authoring: `Visibility = TriggeringPlayer`); never applied to late joiners. Spectrum Next: not yet implemented - the JSWN build transcodes the unknown action to `Complete` with a warning. |
+| `TeleportRoomBeam` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | JSW2-style delayed teleport with dematerialize/materialize effects. Same fields as `TeleportRoom`, but instead of an instant switch the world freezes for 150 physics ticks: 75 ticks of dematerialize effect in the source room, room switch, 75 ticks of materialize at the destination (input dead and the player invulnerable throughout - the ROM handler hijacks the whole frame). RE-ARMABLE by default: the trigger returns to pending 150 ticks after firing so the pad can be reused (JSW2 teleporters are two-way navigation pairs). Player-specific in MP (recommended authoring: `Visibility = TriggeringPlayer`); never applied to late joiners. |
+| `ScrollRegion` | region + scroll properties (see [ScrollRegion](#scrollregion-jsw2-region-scroll-set-piece)) | JSW2 region-scroll set piece (the yacht sail and the Deserted Isle sink). A cell-aligned region of the room's tile grid shifts by `CellsPerTick` cells each tick with empty infill while the world is frozen (the teleport-beam freeze), optionally preceded by a forced auto-walk phase (`ForceWalk`/`WalkTicks`) and optionally followed by a chained room teleport (`DestRoom`/`DestTile`). Room reset (re-entry) restores the authored tiles. Player-specific in MP; never applied to late joiners. Spectrum Next: unported - the JSWN build transcodes it to `Complete` (state-only) with a warning, so dependents still unblock. |
 
 ### Duration Actions
 
@@ -417,7 +423,90 @@ Visibility   = TriggeringPlayer
 
 The four JSW2 map teleporters are authored by
 `analysis/jsw2zx/add_jsw2_teleporters.py` and verified by
-`analysis/jsw2zx/probe_teleporters.py`.
+`analysis/jsw2zx/probe_teleporters.py`.  The Deserted Isle pad is an SP/MP
+pair: the SP pad `DependsOnCompletion = "isle_sink"` (dead until the island
+collapse completes, matching the JSW2 ROM), plus an always-active
+`SessionType = 2` twin for multiplayer.
+
+#### ScrollRegion - JSW2 region-scroll set piece
+
+Recreates the JSW2 back-buffer region scrolls (the yacht voyage and the
+Deserted Isle sink, `analysis/jsw2zx/YACHT_CHAIN_MECHANICS.md`): a
+cell-aligned region of the room's tile grid shifts each tick with empty
+infill while the world is frozen via the teleport-beam freeze (input dead,
+guardians paused, player invulnerable).  Runtime: `src/scroll_region.py` +
+the `GameInstance` scroll-region machine.
+
+Scroll parameters live either on the trigger object itself (its own rect =
+the region) or - when the trigger's own rect is a `CollisionWith` zone - on
+a separate plain rect object referenced via `Target` (object ref):
+
+| Property | Type | Default | Meaning |
+|----------|------|---------|---------|
+| `Direction` | `Direction` enum | required | Which way the region content moves (`Left`/`Right`/`Up`/`Down`); empty cells fill in from the opposite edge. |
+| `CellsPerTick` | int | 1 | Cells shifted per physics tick (0 = freeze only, no shifting). |
+| `DurationTicks` | int | required | Length of the shift phase, in physics ticks. |
+| `ForceWalk` | `Direction` enum | none | Optional forced auto-walk (`Left`/`Right` only) BEFORE the shift phase: the player physics run with that key held (immune) while the rest of the world stays frozen - the ROM isle sink's forced LEFT walk. |
+| `WalkTicks` | int | 0 | Length of the forced-walk phase. |
+| `DestRoom` | int | 0 (none) | Optional chained teleport when the sequence ends (the ROM yacht warps to the isle) - same semantics as `TeleportRoom`. |
+| `DestTile` | string | - | `"tx,ty"` TILE destination for `DestRoom`. |
+
+Rects must be cell-aligned (8px).  The shifted tiles persist for the rest of
+the room visit; leaving/re-entering the room restores the authored grid (the
+same reset hook collapsible tiles and moving floors use).  The pack encodes
+everything as `Threshold` = `DurationTicks` plus an 11-field CSV in `target`
+(`"cx,cy,cw,ch,dir,cpt,walk_ticks,walk_dir,dest_room,dtx,dty"`, cell
+coordinates - `src/scroll_region.ScrollRegionSpec.parse`).
+
+```
+(rect object, id 954)                  # the region
+Direction     = Left
+CellsPerTick  = 1
+DurationTicks = 150
+DestRoom      = 81
+DestTile      = "10,10"
+
+TriggerType  = CollisionWith           # the deck spot (8x8 cell)
+Action       = ScrollRegion
+Target       = (object ref to 954)
+RearmTicks   = 150                     # re-fires on a later revisit
+SessionType  = 1                       # SP set piece
+```
+
+### Re-arm (repeatable triggers)
+
+A completed trigger normally stays complete forever.  Two orthogonal
+properties (generalized from the `TeleportRoomBeam` pad re-arm,
+`src/triggers/engine.py:tick_rearm` / `rearm_ticks_for`) return it to
+pending:
+
+- **`RearmTicks`** - a countdown armed at completion time; the trigger
+  re-arms exactly N ticks later.  `TeleportRoomBeam` defaults to 150 (its
+  beam length) with no authoring; an authored value overrides.  Suited to
+  triggers whose condition needs a fresh player action (e.g. a
+  `CollisionWith` pad/spot that must be re-touched).
+- **`RearmOnRoomExit`** - re-arms when the player leaves the trigger's
+  room, AND whenever the room itself is reset - which in single-player
+  includes dying and respawning in the room (`GameInstance.reset_room` ->
+  `TriggerEngine.rearm_room`).  So a set piece re-runs both on re-entry
+  and on death, matching the ROM (die on the JSW2 isle and the room
+  resets and the collapse countdown restarts).  A completed OR in-flight
+  (`Delay` part-elapsed) set-piece trigger is returned to a clean pending
+  on reset, so the timer restarts from the top rather than resuming.
+  Single-player only (the server has no player-room context).  The
+  trigger's own condition must be false outside the room (use `CollisionWith`
+  - a whole-room rect works as "player is in this room") or the re-armed
+  trigger would refire remotely.
+
+  Dependents re-gate themselves: `_should_fire` re-reads a dependency's
+  live state, so a trigger with `DependsOnCompletion` on a re-armed
+  set-piece (the isle teleport pad depends on `isle_sink`) goes inert
+  again the instant its dependency re-arms - no explicit reset needed.
+
+Beware level-triggered conditions: a trigger whose condition stays true
+(`GameStart`, a satisfied `RoomAllCollected`) refires IMMEDIATELY after
+re-arming.  The JSW2 isle chain pairs `RearmOnRoomExit` with whole-room
+`CollisionWith` zones for exactly this reason.
 
 #### PlaySound - Play a built-in sound
 
@@ -621,6 +710,51 @@ Extra platform tiles that only appear in multiplayer sessions.
 
 No `Name` or `DependsOnCompletion` - standalone immediate triggers.
 
+### JSW2 - Trip Switch / Yacht / Deserted Isle chain (jsw2 map)
+
+The ROM-verified chain (`analysis/jsw2zx/YACHT_CHAIN_MECHANICS.md`),
+authored by `analysis/jsw2zx/add_jsw2_yacht_chain.py` +
+`analysis/jsw2zx/add_jsw2_teleporters.py` and verified by
+`analysis/jsw2zx/probe_yacht_chain.py`.  All SessionType = 1 (SP).
+
+```
+Room 072 (Trip Switch):
+  trip_switch:        CollisionWith (16,8) 16x8    ← Willy's head touches
+                      Action = PlaySound "tick"      the lever cell (1,3)
+  trip_switch_tile:   GameStart, dep trip_switch
+                      Action = ShowTile (gid 10501)← lever art flips
+
+Room 056 (The Bow):
+  bow_clear:          RoomAllCollected, dep trip_switch, Action = Complete
+
+Room 057 (The Yacht):
+  yacht_clear:        RoomAllCollected, dep bow_clear, Action = Complete
+  yacht_sail:         CollisionWith (64,96) 8x8    ← the exact deck spot
+                      dep yacht_clear
+                      Action = ScrollRegion        ← band rows 5-14 cols
+                      RearmTicks = 150               0-20 scrolls LEFT for
+                                                     150 ticks, then warp
+                                                     to 081 tile (10,10)
+
+Room 081 (Deserted Isle):
+  isle_clear:         RoomAllCollected, Action = Complete
+  isle_countdown:     CollisionWith (whole room), dep isle_clear
+                      Action = Delay 56s, RearmOnRoomExit
+  isle_sink:          CollisionWith (whole room), dep isle_countdown
+                      Action = ScrollRegion, RearmOnRoomExit
+                      (39-tick forced LEFT walk, then the island band
+                       rows 3-11 cols 9-20 sinks DOWN for 85 ticks)
+  teleporter_081:     CollisionWith pad, dep isle_sink ← dead until the
+                      Action = TeleportRoomBeam         collapse completes
+  teleporter_081_mp:  same pad, SessionType = 2, no dep (MP twin)
+```
+
+The chain is order-independent (state conditions re-evaluate while
+pending): the switch and the two items can be done in any order; the deck
+spot is the final gate.  `RearmOnRoomExit` on countdown + sink makes a
+re-entry rerun the whole collapse with the pad dead again, matching the
+ROM's per-visit scratch state.
+
 ---
 
 ## Replay Files
@@ -757,6 +891,12 @@ For each trigger object, the converter:
 - `PlaySound` whose `Target` is not a built-in sound name
   (`pickup`/`death`/`arrow`/`tick`/`mm_air`); the JSWN build additionally warns
   for `tick`/`mm_air` (PC-only, silent on the Next).
+- `ScrollRegion` whose region is not cell-aligned or falls outside the 32x16
+  grid, whose direction/walk fields are invalid, whose total duration
+  (`DurationTicks` + `WalkTicks`) is zero, whose `DestRoom` does not exist in
+  the map, or whose `Target` object reference cannot be resolved. The JSWN
+  build additionally warns that `ScrollRegion` transcodes to `Complete`
+  (unported on the Next).
 
 ---
 
@@ -781,6 +921,7 @@ For each trigger object, the converter:
 | `src/triggers/types.py` | Enums, `TriggerDef`, `TriggerRuntime`, `TriggerInstance` |
 | `src/triggers/context.py` | `TriggerContext` protocol + `GameInstanceContext` adapter |
 | `src/triggers/actions.py` | Standalone action functions |
+| `src/scroll_region.py` | `ScrollRegionSpec`/`ScrollRegionFx` - ScrollRegion grid math + restore |
 | `src/server/trigger_service.py` | Server-authoritative engine + arbitration + broadcast |
 | `src/network/protocol.py` | TRIGGER_REQ/FIRED/SYNC packet format |
 | `src/map_registry.py` | Pack deserialization |
@@ -788,3 +929,5 @@ For each trigger object, the converter:
 | `src/rendering/entity_renderer.py` | Trigger graphic rendering |
 | `tests/test_trigger_engine.py` | 74 unit tests |
 | `tests/test_mp_trigger_celebration.py` | 19 MP trigger tests |
+| `tests/test_teleport_beam.py` | TeleportRoomBeam machine/effects/re-arm tests |
+| `tests/test_yacht_chain.py` | ScrollRegion + generalized re-arm + JSW2 chain tests |

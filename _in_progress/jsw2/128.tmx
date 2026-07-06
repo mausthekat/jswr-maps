@@ -1,50 +1,51 @@
-<?xml version="1.0" ?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="102">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="102">
  <properties>
-  <property name="Name" value="Beam me Up Spotty"/>
   <property name="Border" type="int" value="7"/>
-  <property name="Left" type="file" value="127.tmx"/>
-  <property name="Up" type="file" value=""/>
-  <property name="Right" type="file" value="097.tmx"/>
   <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value="127.tmx"/>
+  <property name="Name" value="Beam me Up Spotty"/>
+  <property name="Right" type="file" value="097.tmx"/>
   <property name="Rope" type="bool" value="false"/>
   <property name="SpecialCode" type="int" value="11"/>
+  <property name="Up" type="file" value=""/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="1"/>
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx"/>
- <tileset firstgid="2049" source="tiles_stairs.tsx"/>
- <tileset firstgid="4097" source="tiles_platform.tsx"/>
- <tileset firstgid="6145" source="tiles_hazard.tsx"/>
- <tileset firstgid="10241" source="tiles_conveyor.tsx"/>
- <tileset firstgid="12289" source="jsw2_collectibles.tsx"/>
- <tileset firstgid="14337" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="16385" source="jsw2_guardians.tsx"/>
+ <tileset firstgid="97" source="tiles_stairs.tsx"/>
+ <tileset firstgid="177" source="tiles_platform.tsx"/>
+ <tileset firstgid="273" source="tiles_hazard.tsx"/>
+ <tileset firstgid="337" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="625" source="jsw2_collectibles.tsx"/>
+ <tileset firstgid="873" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="977" source="jsw2_guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,76,76,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10425,10425,76,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,521,521,76,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,
-0,0,0,0,0,0,0,0,4152,0,0,0,0,0,76,10426,0,0,76,76,0,0,0,0,4152,0,0,0,0,0,76,76,
-0,0,0,0,0,0,0,0,4152,0,0,0,0,0,76,0,0,10425,76,0,0,0,0,0,4152,0,0,0,0,0,0,76,
-0,0,0,0,0,0,0,0,4152,0,0,0,0,0,76,10426,0,0,76,0,0,0,0,0,4152,0,0,0,0,0,0,76,
-0,0,0,0,0,0,0,0,4152,0,0,0,0,0,76,0,0,10425,76,0,0,0,0,0,4152,0,0,0,0,0,0,76,
-0,0,0,0,0,0,0,0,4152,0,0,0,0,0,76,10426,0,0,76,0,0,0,0,0,4152,0,0,0,0,0,0,76,
-0,0,0,0,0,0,0,0,4152,0,0,0,0,0,76,0,0,10425,76,0,0,0,0,0,4152,0,0,0,0,0,0,76,
-0,0,0,0,0,0,0,0,4152,0,0,0,0,0,76,10426,0,0,76,0,0,0,0,0,4152,0,0,0,0,0,0,76,
-0,0,0,0,0,0,0,2106,4152,2105,0,0,0,0,76,0,0,0,0,0,0,0,0,2106,4152,2105,0,0,0,0,0,76,
-0,0,0,0,0,0,2106,0,4152,0,2105,0,0,0,76,0,0,0,0,0,0,0,2106,0,4152,0,2105,0,0,0,0,76,
+0,0,0,0,0,0,0,0,232,0,0,0,0,0,76,522,0,0,76,76,0,0,0,0,232,0,0,0,0,0,76,76,
+0,0,0,0,0,0,0,0,232,0,0,0,0,0,76,0,0,521,76,0,0,0,0,0,232,0,0,0,0,0,0,76,
+0,0,0,0,0,0,0,0,232,0,0,0,0,0,76,522,0,0,76,0,0,0,0,0,232,0,0,0,0,0,0,76,
+0,0,0,0,0,0,0,0,232,0,0,0,0,0,76,0,0,521,76,0,0,0,0,0,232,0,0,0,0,0,0,76,
+0,0,0,0,0,0,0,0,232,0,0,0,0,0,76,522,0,0,76,0,0,0,0,0,232,0,0,0,0,0,0,76,
+0,0,0,0,0,0,0,0,232,0,0,0,0,0,76,0,0,521,76,0,0,0,0,0,232,0,0,0,0,0,0,76,
+0,0,0,0,0,0,0,0,232,0,0,0,0,0,76,522,0,0,76,0,0,0,0,0,232,0,0,0,0,0,0,76,
+0,0,0,0,0,0,0,154,232,153,0,0,0,0,76,0,0,0,0,0,0,0,0,154,232,153,0,0,0,0,0,76,
+0,0,0,0,0,0,154,0,232,0,153,0,0,0,76,0,0,0,0,0,0,0,154,0,232,0,153,0,0,0,0,76,
 76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76
 </data>
  </layer>
  <objectgroup id="2" name="Collectables">
-  <object id="1" gid="12421" x="64" y="48" width="8" height="8"/>
-  <object id="2" gid="12421" x="192" y="48" width="8" height="8"/>
-  <object id="3" gid="12421" x="232" y="120" width="8" height="8"/>
+  <object id="1" gid="757" x="64" y="48" width="8" height="8"/>
+  <object id="2" gid="757" x="192" y="48" width="8" height="8"/>
+  <object id="3" gid="757" x="232" y="120" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="Enemies">
-  <object id="100" name="Bird" type="Guardian" gid="14368" x="0" y="51" width="16" height="16">
+  <object id="100" name="Bird" type="Guardian" gid="904" x="0" y="51" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffd7d7d7"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
@@ -63,7 +64,7 @@
   </object>
  </objectgroup>
  <objectgroup id="9" name="Special">
-  <object id="902" name="teleporter_128" x="232" y="24" width="8" height="8">
+  <object id="902" name="teleporter_128" x="232" y="16" width="16" height="8">
    <properties>
     <property name="Action" propertytype="Action" value="TeleportRoomBeam"/>
     <property name="Name" value="teleporter_128"/>

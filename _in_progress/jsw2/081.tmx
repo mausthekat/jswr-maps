@@ -1,48 +1,48 @@
-<?xml version="1.0" ?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="102">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="102">
  <properties>
-  <property name="Name" value="Deserted Isle"/>
   <property name="Border" type="int" value="1"/>
-  <property name="Left" type="file" value=""/>
-  <property name="Up" type="file" value=""/>
-  <property name="Right" type="file" value="080.tmx"/>
   <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value=""/>
+  <property name="Name" value="Deserted Isle"/>
+  <property name="Right" type="file" value="080.tmx"/>
   <property name="Rope" type="bool" value="false"/>
   <property name="SpecialCode" type="int" value="22"/>
+  <property name="Up" type="file" value=""/>
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx"/>
- <tileset firstgid="2049" source="tiles_stairs.tsx"/>
- <tileset firstgid="4097" source="tiles_platform.tsx"/>
- <tileset firstgid="6145" source="tiles_hazard.tsx"/>
- <tileset firstgid="10241" source="tiles_conveyor.tsx"/>
- <tileset firstgid="12289" source="jsw2_collectibles.tsx"/>
- <tileset firstgid="14337" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="16385" source="jsw2_guardians.tsx"/>
+ <tileset firstgid="97" source="tiles_stairs.tsx"/>
+ <tileset firstgid="177" source="tiles_platform.tsx"/>
+ <tileset firstgid="273" source="tiles_hazard.tsx"/>
+ <tileset firstgid="337" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="625" source="jsw2_collectibles.tsx"/>
+ <tileset firstgid="873" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="977" source="jsw2_guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,10432,0,0,0,0,0,0,0,0,0,10432,10432,10433,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,10432,10433,10433,0,0,0,0,0,0,10432,10432,10432,10433,10433,10433,10433,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,10432,10432,10433,10433,10433,10433,0,0,0,10432,0,10432,10432,10432,10433,10433,0,10433,0,0,0,0,0,0,0,0,0,0,0,0,0,
-10432,10432,10432,10432,10433,10433,0,10433,0,0,0,10432,10432,10432,10433,10433,10433,10433,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,10432,10432,10433,10433,10433,10433,0,0,0,10432,0,0,10432,70,10433,0,0,10433,0,0,0,0,0,0,0,0,0,0,0,0,0,
-10432,0,10432,70,10433,0,0,10433,0,0,0,0,10432,0,70,0,10433,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,10432,0,70,0,10433,0,0,0,0,0,10432,0,0,70,0,0,10433,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,528,0,0,0,0,0,0,0,0,0,528,528,529,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,528,529,529,0,0,0,0,0,0,528,528,528,529,529,529,529,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,528,528,529,529,529,529,0,0,0,528,0,528,528,528,529,529,0,529,0,0,0,0,0,0,0,0,0,0,0,0,0,
+528,528,528,528,529,529,0,529,0,0,0,528,528,528,529,529,529,529,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,528,528,529,529,529,529,0,0,0,528,0,0,528,70,529,0,0,529,0,0,0,0,0,0,0,0,0,0,0,0,0,
+528,0,528,70,529,0,0,529,0,0,0,0,528,0,70,0,529,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,528,0,70,0,529,0,0,0,0,0,528,0,0,70,0,0,529,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,70,0,0,0,0,0,0,0,0,0,0,70,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,70,0,0,0,0,0,0,0,0,0,0,70,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,70,0,0,0,0,2112,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,2113,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,70,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,0,0,0,0,0,0,0,0,
-0,0,2112,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,4177,2113,0,0,0,0,0,0,
-6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168,6168
+0,0,0,70,0,0,0,0,160,257,257,257,257,257,257,257,257,257,257,257,161,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,70,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,0,0,0,0,0,0,0,0,
+0,0,160,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,161,0,0,0,0,0,0,
+296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296,296
 </data>
  </layer>
  <objectgroup id="2" name="Collectables">
-  <object id="1" gid="12529" x="32" y="80" width="8" height="8"/>
+  <object id="1" gid="865" x="32" y="80" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="Enemies">
-  <object id="100" name="Saw" type="Guardian" gid="14337" x="128" y="120" width="16" height="16">
+  <object id="100" name="Saw" type="Guardian" gid="873" x="128" y="120" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffd7d7d7"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
@@ -61,15 +61,72 @@
   </object>
  </objectgroup>
  <objectgroup id="9" name="Special">
-  <object id="903" name="teleporter_081" x="56" y="104" width="8" height="8">
+  <object id="903" name="teleporter_081" x="56" y="96" width="8" height="8">
    <properties>
     <property name="Action" propertytype="Action" value="TeleportRoomBeam"/>
-    <property name="Comment" value="TODO: real JSW2 gates this pad on the yacht event (unimplemented) - authored always-active"/>
+    <property name="Comment" value="SP: dead until the isle collapse completes (ROM-exact gating)"/>
+    <property name="DependsOnCompletion" value="isle_sink"/>
     <property name="Name" value="teleporter_081"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
     <property name="Target" value="17,11"/>
     <property name="Threshold" type="int" value="97"/>
     <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
     <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
+   </properties>
+  </object>
+  <object id="904" name="teleporter_081_mp" x="56" y="96" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="TeleportRoomBeam"/>
+    <property name="Comment" value="MP twin of teleporter_081: always active (the SP-only yacht chain cannot fire in MP)"/>
+    <property name="Name" value="teleporter_081_mp"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="2"/>
+    <property name="Target" value="17,11"/>
+    <property name="Threshold" type="int" value="97"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
+   </properties>
+  </object>
+  <object id="956" name="isle_clear" x="224" y="32" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="Complete"/>
+    <property name="Comment" value="ROM $8452: the isle loop is entirely gated on all items in room 80 collected (one item, row 9 col 4); item state persists across death and room changes like the ROM bitmap"/>
+    <property name="Name" value="isle_clear"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="TriggerType" propertytype="TriggerType" value="RoomAllCollected"/>
+   </properties>
+  </object>
+  <object id="957" name="isle_countdown" x="0" y="0" width="256" height="128">
+   <properties>
+    <property name="Action" propertytype="Action" value="Delay"/>
+    <property name="Comment" value="ROM $845E: 1000-frame countdown after the item; 56s at the map 18 fps = 1008 ticks (nearest whole second). The ROM 4-digit countdown display has no engine mechanism. RearmOnRoomExit: re-entry reruns it"/>
+    <property name="DependsOnCompletion" value="isle_clear"/>
+    <property name="Name" value="isle_countdown"/>
+    <property name="RearmOnRoomExit" type="bool" value="true"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="Threshold" type="int" value="56"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+   </properties>
+  </object>
+  <object id="958" name="isle_sink_region" x="72" y="24" width="96" height="72">
+   <properties>
+    <property name="CellsPerTick" type="int" value="1"/>
+    <property name="Comment" value="ROM $8496: island band cols 9-20 slides DOWN under the waterline (85 frames); walk phase = ROM states 1-39 forcing LEFT ($8467: JUMP=0, RIGHT=0, LEFT=$FF)"/>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="DurationTicks" type="int" value="85"/>
+    <property name="ForceWalk" type="int" propertytype="Direction" value="2"/>
+    <property name="WalkTicks" type="int" value="39"/>
+   </properties>
+  </object>
+  <object id="959" name="isle_sink" x="0" y="0" width="256" height="128">
+   <properties>
+    <property name="Action" propertytype="Action" value="ScrollRegion"/>
+    <property name="Comment" value="Gates teleporter_081 (the ROM only calls the teleport matcher for room 80 from the post-collapse state&gt;=125 branch). RearmOnRoomExit: re-entry reruns the collapse and re-kills the pad, per the ROM per-visit scratch state"/>
+    <property name="DependsOnCompletion" value="isle_countdown"/>
+    <property name="Name" value="isle_sink"/>
+    <property name="RearmOnRoomExit" type="bool" value="true"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="Target" type="object" value="958"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
    </properties>
   </object>
  </objectgroup>

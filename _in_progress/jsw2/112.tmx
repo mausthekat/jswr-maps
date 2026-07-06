@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="106">
  <properties>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="1"/>
   <property name="Name" value="Aye 'Appen"/>
   <property name="Border" type="int" value="3"/>
   <property name="Left" type="file" value="111.tmx"/>

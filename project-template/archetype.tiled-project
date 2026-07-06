@@ -519,7 +519,8 @@
                 "DoReplay",
                 "SetWillySuit",
                 "TeleportRoom",
-                "TeleportRoomBeam"
+                "TeleportRoomBeam",
+                "ScrollRegion"
             ],
             "valuesAsFlags": false
         },

@@ -1,23 +1,23 @@
-<?xml version="1.0" ?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="104">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="104">
  <properties>
-  <property name="Name" value="The Yacht"/>
   <property name="Border" type="int" value="3"/>
-  <property name="Left" type="file" value="056.tmx"/>
-  <property name="Up" type="file" value=""/>
-  <property name="Right" type="file" value="028.tmx"/>
   <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value="056.tmx"/>
+  <property name="Name" value="The Yacht"/>
+  <property name="Right" type="file" value="028.tmx"/>
   <property name="Rope" type="bool" value="false"/>
   <property name="SpecialCode" type="int" value="14"/>
+  <property name="Up" type="file" value=""/>
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx"/>
- <tileset firstgid="2049" source="tiles_stairs.tsx"/>
- <tileset firstgid="4097" source="tiles_platform.tsx"/>
- <tileset firstgid="6145" source="tiles_hazard.tsx"/>
- <tileset firstgid="10241" source="tiles_conveyor.tsx"/>
- <tileset firstgid="12289" source="jsw2_collectibles.tsx"/>
- <tileset firstgid="14337" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="16385" source="jsw2_guardians.tsx"/>
+ <tileset firstgid="97" source="tiles_stairs.tsx"/>
+ <tileset firstgid="177" source="tiles_platform.tsx"/>
+ <tileset firstgid="273" source="tiles_hazard.tsx"/>
+ <tileset firstgid="337" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="625" source="jsw2_collectibles.tsx"/>
+ <tileset firstgid="873" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="977" source="jsw2_guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -25,30 +25,30 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-4121,4121,4121,4121,4121,32,2069,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,32,0,2069,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,32,0,0,2069,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,32,0,0,0,2069,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,32,0,0,0,0,2069,6169,0,0,0,6169,0,0,0,0,6169,0,0,0,0,0,0,0,0,0,0,0,
-4121,4121,4121,4121,4121,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,0,0,4121,4121,4121,4121,4121,4121,4121,4121,4121,
-0,0,0,4121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,4121,0,0,0,0,0,0,0,0,
-0,0,0,4121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,4121,0,0,0,0,0,0,0,0,
-0,0,0,4121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,
+201,201,201,201,201,32,117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,32,0,117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,32,0,0,117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,32,0,0,0,117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,32,0,0,0,0,117,297,0,0,0,297,0,0,0,0,297,0,0,0,0,0,0,0,0,0,0,0,
+201,201,201,201,201,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,0,0,201,201,201,201,201,201,201,201,201,
+0,0,0,201,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,201,0,0,0,0,0,0,0,0,
+0,0,0,201,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,201,0,0,0,0,0,0,0,0,
+0,0,0,201,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,
 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,0,0,0,0,0,0,0,0,0,0,0,
-10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410,10410
+506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506,506
 </data>
  </layer>
  <objectgroup id="2" name="Collectables">
-  <object id="1" gid="12413" x="112" y="112" width="8" height="8"/>
+  <object id="1" gid="749" x="112" y="112" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="Enemies">
-  <object id="100" name="Flag" type="Guardian" gid="14361" x="168" y="88" width="16" height="16">
+  <object id="100" name="Flag" type="Guardian" gid="897" x="168" y="88" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00ff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="102" name="Saw" type="Guardian" gid="14337" x="64" y="112" width="16" height="16">
+  <object id="102" name="Saw" type="Guardian" gid="873" x="64" y="112" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00ffff"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
@@ -73,6 +73,40 @@
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 96,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="12" name="Special">
+  <object id="953" name="yacht_clear" x="0" y="8" width="16" height="16">
+   <properties>
+    <property name="Action" propertytype="Action" value="Complete"/>
+    <property name="Comment" value="ROM $83E5: all items in The Yacht collected (one item, row 13 col 14)"/>
+    <property name="DependsOnCompletion" value="bow_clear"/>
+    <property name="Name" value="yacht_clear"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="TriggerType" propertytype="TriggerType" value="RoomAllCollected"/>
+   </properties>
+  </object>
+  <object id="954" name="yacht_sail_region" x="0" y="40" width="168" height="80">
+   <properties>
+    <property name="CellsPerTick" type="int" value="1"/>
+    <property name="Comment" value="ROM $8419: band scrolls left 8px/frame for 150 frames, black infill; warp to room 81 at (40 units, 80) = tile (10,10) at the end"/>
+    <property name="DestRoom" type="int" value="81"/>
+    <property name="DestTile" value="10,10"/>
+    <property name="Direction" type="int" propertytype="Direction" value="2"/>
+    <property name="DurationTicks" type="int" value="150"/>
+   </properties>
+  </object>
+  <object id="955" name="yacht_sail" x="64" y="96" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="ScrollRegion"/>
+    <property name="Comment" value="ROM $83EB/$83F1: WILLYROW==96 and WILLYX==32 units; re-arms after the 150-tick voyage so a revisit can sail again (ROM re-fires too)"/>
+    <property name="DependsOnCompletion" value="yacht_clear"/>
+    <property name="Name" value="yacht_sail"/>
+    <property name="RearmTicks" type="int" value="150"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="Target" type="object" value="954"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

@@ -18,10 +18,10 @@
  <tileset firstgid="833" source="../../tilesets/tiles_conveyor.tsx"/>
  <tileset firstgid="1745" source="../../tilesets/collectibles.tsx"/>
  <tileset firstgid="1977" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="2078" source="../../tilesets/tiles_mm_exit.tsx"/>
- <tileset firstgid="2098" source="../../tilesets/meta/meta_markers.tsx"/>
- <tileset firstgid="2109" source="../../tilesets/tiles_collapsible.tsx"/>
- <tileset firstgid="2269" source="../../tilesets/final.tsx"/>
+ <tileset firstgid="2081" source="../../tilesets/tiles_mm_exit.tsx"/>
+ <tileset firstgid="2101" source="../../tilesets/meta/meta_markers.tsx"/>
+ <tileset firstgid="2112" source="../../tilesets/tiles_collapsible.tsx"/>
+ <tileset firstgid="2272" source="../../tilesets/final.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,
@@ -34,7 +34,7 @@
 411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,0,0,430,0,0,0,0,0,0,0,0,0,431,
 27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,545,545,27,
 27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,
-27,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,0,0,0,2109,0,0,0,0,27,
+27,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,1273,0,0,0,2112,0,0,0,0,27,
 27,0,0,0,0,0,0,0,0,682,0,0,682,0,0,0,0,682,0,0,0,682,0,0,0,0,0,0,545,0,0,27,
 27,545,545,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,
 27,0,0,0,0,545,545,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,
@@ -82,7 +82,7 @@
   </object>
  </objectgroup>
  <objectgroup id="7" name="Spawn">
-  <object id="10" gid="2097" x="152" y="56" width="16" height="16"/>
+  <object id="10" gid="2100" x="152" y="56" width="16" height="16"/>
   <object id="11" template="templates/spawn_player.tx" x="208" y="120">
    <properties>
     <property name="GameModes" type="int" propertytype="GameModes" value="16384"/>
@@ -98,7 +98,7 @@
     <property name="TriggerType" propertytype="TriggerType" value="ExternalEvent"/>
    </properties>
   </object>
-  <object id="24" x="152" y="56" width="16" height="16">
+  <object id="24" x="152" y="40" width="16" height="16">
    <properties>
     <property name="Action" propertytype="Action" value="TeleportPlayerTo"/>
     <property name="Comment" value="THIS is the trigger that performs the end-game teleport. Once 'items_done' is satisfied (every collectible picked up), walking into this 16x16 region teleports Willy onto the plinth (object 25) and fires the 'celebration' latch that the rest of the chain (swordfish, hide-exits, suit-revert, delay, EndGame) hangs off."/>
@@ -109,7 +109,7 @@
    </properties>
   </object>
   <object id="25" template="templates/spawn_player.tx" x="160" y="32"/>
-  <object id="26" gid="2271" x="152" y="56" width="16" height="16">
+  <object id="26" gid="2274" x="152" y="56" width="16" height="16">
    <properties>
     <property name="Action" propertytype="Action" value="ShowEntity"/>
     <property name="Comment" value="Reveals the celebratory swordfish sprite on the plinth after the teleport. TriggeringPlayer visibility so only the finishing player sees it; spectators still see the pre-end-game room."/>

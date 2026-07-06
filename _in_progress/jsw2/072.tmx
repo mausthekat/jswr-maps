@@ -1,78 +1,78 @@
-<?xml version="1.0" ?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="112">
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="112">
  <properties>
-  <property name="Name" value="Trip Switch"/>
   <property name="Border" type="int" value="2"/>
-  <property name="Left" type="file" value="058.tmx"/>
-  <property name="Up" type="file" value="023.tmx"/>
-  <property name="Right" type="file" value="073.tmx"/>
   <property name="Down" type="file" value=""/>
+  <property name="Left" type="file" value="058.tmx"/>
+  <property name="Name" value="Trip Switch"/>
+  <property name="Right" type="file" value="073.tmx"/>
   <property name="Rope" type="bool" value="false"/>
   <property name="SpecialCode" type="int" value="15"/>
+  <property name="Up" type="file" value="023.tmx"/>
  </properties>
  <tileset firstgid="1" source="tiles_solid.tsx"/>
- <tileset firstgid="2049" source="tiles_stairs.tsx"/>
- <tileset firstgid="4097" source="tiles_platform.tsx"/>
- <tileset firstgid="6145" source="tiles_hazard.tsx"/>
- <tileset firstgid="10241" source="tiles_conveyor.tsx"/>
- <tileset firstgid="12289" source="jsw2_collectibles.tsx"/>
- <tileset firstgid="14337" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="16385" source="jsw2_guardians.tsx"/>
+ <tileset firstgid="97" source="tiles_stairs.tsx"/>
+ <tileset firstgid="177" source="tiles_platform.tsx"/>
+ <tileset firstgid="273" source="tiles_hazard.tsx"/>
+ <tileset firstgid="337" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="625" source="jsw2_collectibles.tsx"/>
+ <tileset firstgid="873" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="977" source="jsw2_guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
-77,0,0,10502,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2109,4175,77,
-77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2109,0,0,77,
-77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2109,0,0,0,77,
-77,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,0,0,77,
+77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,157,255,77,
+77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,157,0,0,77,
+77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,157,0,0,0,77,
+77,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,0,0,77,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
-77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4175,4175,77,
-77,0,0,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,0,0,77,
+77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,255,77,
+77,0,0,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,0,0,77,
 77,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
-77,4175,4175,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
-77,0,0,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,4175,4175,0,0,0,0,77,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4175,4175,77,
+77,255,255,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
+77,0,0,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,255,255,0,0,0,0,77,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,255,77,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,
 77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77
 </data>
  </layer>
  <objectgroup id="2" name="Collectables">
-  <object id="1" gid="12509" x="8" y="48" width="8" height="8"/>
+  <object id="1" gid="845" x="8" y="48" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="Enemies">
-  <object id="100" name="Jelly" type="Guardian" gid="14400" x="24" y="40" width="16" height="16">
+  <object id="100" name="Jelly" type="Guardian" gid="936" x="24" y="40" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffd7d7d7"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="102" name="Razor Blade" type="Guardian" gid="14358" x="56" y="112" width="16" height="16">
+  <object id="102" name="Razor Blade" type="Guardian" gid="894" x="56" y="112" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ffffff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="104" name="Jelly" type="Guardian" gid="14400" x="88" y="40" width="16" height="16">
+  <object id="104" name="Jelly" type="Guardian" gid="936" x="88" y="40" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00ffff"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="106" name="Spiral" type="Guardian" gid="14357" x="120" y="64" width="16" height="16">
+  <object id="106" name="Spiral" type="Guardian" gid="893" x="120" y="64" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00ff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="108" name="Foot" type="Guardian" gid="14348" x="152" y="112" width="16" height="16">
+  <object id="108" name="Foot" type="Guardian" gid="884" x="152" y="112" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00ffff"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
    </properties>
   </object>
-  <object id="110" name="Razor Blade" type="Guardian" gid="14358" x="184" y="40" width="16" height="16">
+  <object id="110" name="Razor Blade" type="Guardian" gid="894" x="184" y="40" width="16" height="16">
    <properties>
     <property name="Color" type="color" value="#ff00ff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
@@ -133,6 +133,28 @@
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 0,88"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="12" name="Special">
+  <object id="950" name="trip_switch" x="16" y="8" width="16" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="PlaySound"/>
+    <property name="Comment" value="ROM $8512: head cell (row 1, col 3) type 5 touched; buzz = $FF8E beeper (built-in tick is the closest shipped sound)"/>
+    <property name="Name" value="trip_switch"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="Target" value="tick"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+   </properties>
+  </object>
+  <object id="951" name="trip_switch_tile" gid="597" x="24" y="16" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="ShowTile"/>
+    <property name="Comment" value="ROM $8520/$82A5: cell stamped + lever art XOR-flipped; gid 10501 is the paired lever pose in tiles_conveyor"/>
+    <property name="DependsOnCompletion" value="trip_switch"/>
+    <property name="Name" value="trip_switch_tile"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
+   </properties>
   </object>
  </objectgroup>
 </map>
