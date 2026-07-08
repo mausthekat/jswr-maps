@@ -17,7 +17,7 @@
  <tileset firstgid="337" source="tiles_conveyor.tsx"/>
  <tileset firstgid="625" source="jsw2_collectibles.tsx"/>
  <tileset firstgid="873" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="977" source="jsw2_guardians.tsx"/>
+ <tileset firstgid="978" source="jsw2_guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,
@@ -79,8 +79,8 @@
     <property name="Action" propertytype="Action" value="ToggleSwitch"/>
     <property name="Comment" value="ROM $853E: cell (col 16, row 3) type 5; each touch adds 16 to guardian 0's patrol counter-reset (and flips the cell to ConvR). Modelled as a two-state switch driving the alternate route below."/>
     <property name="Name" value="crypt_switch"/>
-    <property name="OnTile" type="int" value="599"/>
-    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="OnTile" type="int" value="598"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="3"/>
     <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
    </properties>
   </object>

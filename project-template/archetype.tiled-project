@@ -13,6 +13,11 @@
             "value": ""
         },
         {
+            "name": "MapCode",
+            "type": "string",
+            "value": ""
+        },
+        {
             "name": "Author",
             "type": "string",
             "value": ""

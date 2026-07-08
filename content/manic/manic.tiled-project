@@ -1,12 +1,18 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
         "."
     ],
     "properties": [
+        {
+            "name": "ArrowPhaseSeed",
+            "type": "bool",
+            "value": false
+        },
         {
             "name": "Author",
             "type": "string",
@@ -42,6 +48,11 @@
             "name": "ManicFinalRoom",
             "type": "int",
             "value": 20
+        },
+        {
+            "name": "MapCode",
+            "type": "string",
+            "value": "0MNM"
         },
         {
             "name": "MapName",
@@ -97,11 +108,6 @@
             "propertytype": "Tune",
             "type": "int",
             "value": 10
-        },
-        {
-            "name": "ArrowPhaseSeed",
-            "type": "bool",
-            "value": false
         }
     ],
     "propertyTypes": [
@@ -157,8 +163,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },

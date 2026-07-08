@@ -1,6 +1,7 @@
 {
     "automappingRulesFile": "",
-    "commands": [],
+    "commands": [
+    ],
     "compatibilityVersion": 1100,
     "extensionsPath": ".extensions",
     "folders": [
@@ -8,14 +9,17 @@
     ],
     "properties": [
         {
+            "name": "ArrowPhaseSeed",
+            "type": "bool",
+            "value": false
+        },
+        {
             "name": "Author",
-            "propertytype": "",
             "type": "string",
             "value": "P. Vera-Broadbent/M. Smith/MauS"
         },
         {
             "name": "DefaultTileset",
-            "propertytype": "",
             "type": "string",
             "value": "2x"
         },
@@ -27,37 +31,42 @@
         },
         {
             "name": "IncludeMapPreview",
-            "propertytype": "",
             "type": "bool",
             "value": true
         },
         {
             "name": "InfiniteLivesMP",
-            "propertytype": "",
             "type": "bool",
             "value": false
         },
         {
             "name": "InfiniteLivesSP",
-            "propertytype": "",
             "type": "bool",
             "value": false
         },
         {
             "name": "ManicFinalRoom",
-            "propertytype": "",
             "type": "int",
             "value": 0
         },
         {
+            "name": "MapCode",
+            "type": "string",
+            "value": "1JSG"
+        },
+        {
             "name": "MapName",
-            "propertytype": "",
             "type": "string",
             "value": "JSW Gorgeous"
         },
         {
+            "name": "MovementType",
+            "propertytype": "MovementType",
+            "type": "int",
+            "value": 2
+        },
+        {
             "name": "OriginalArrows",
-            "propertytype": "",
             "type": "bool",
             "value": true
         },
@@ -75,7 +84,6 @@
         },
         {
             "name": "SPVictoryRoom",
-            "propertytype": "",
             "type": "int",
             "value": 0
         },
@@ -87,15 +95,8 @@
         },
         {
             "name": "SoftLifts",
-            "propertytype": "",
             "type": "bool",
             "value": false
-        },
-        {
-            "name": "MovementType",
-            "propertytype": "MovementType",
-            "type": "int",
-            "value": 2
         },
         {
             "name": "SpStartingLives",
@@ -107,11 +108,6 @@
             "propertytype": "Tune",
             "type": "int",
             "value": 17
-        },
-        {
-            "name": "ArrowPhaseSeed",
-            "type": "bool",
-            "value": false
         }
     ],
     "propertyTypes": [
@@ -167,8 +163,8 @@
             "storageType": "int",
             "type": "enum",
             "values": [
-                "Right\u2192Left",
-                "Left\u2192Right"
+                "Right→Left",
+                "Left→Right"
             ],
             "valuesAsFlags": false
         },
@@ -548,31 +544,6 @@
             "valuesAsFlags": false
         },
         {
-            "id": 20,
-            "name": "Visibility",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "AllPlayers",
-                "TriggeringPlayer"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "id": 12,
-            "name": "WillySuit",
-            "storageType": "int",
-            "type": "enum",
-            "values": [
-                "Normal",
-                "SpaceSuit",
-                "DivingSuit",
-                "FlyingPig",
-                "Miner"
-            ],
-            "valuesAsFlags": false
-        },
-        {
             "id": 27,
             "name": "Tune",
             "storageType": "int",
@@ -601,6 +572,31 @@
                 "Blue Danube",
                 "Gymnopedie 1",
                 "Valse Triste"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 20,
+            "name": "Visibility",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "AllPlayers",
+                "TriggeringPlayer"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 12,
+            "name": "WillySuit",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "Normal",
+                "SpaceSuit",
+                "DivingSuit",
+                "FlyingPig",
+                "Miner"
             ],
             "valuesAsFlags": false
         }

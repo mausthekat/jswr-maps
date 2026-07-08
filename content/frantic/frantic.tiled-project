@@ -102,6 +102,11 @@
             "name": "ArrowPhaseSeed",
             "type": "bool",
             "value": false
+        },
+        {
+            "name": "MapCode",
+            "type": "string",
+            "value": "FRAN"
         }
     ],
     "propertyTypes": [

@@ -15,7 +15,7 @@
         {
             "name": "Author",
             "type": "string",
-            "value": ""
+            "value": "D.P.Rowson, S.Wetherill, M.Smith"
         },
         {
             "name": "DefaultTileset",
@@ -102,6 +102,11 @@
             "propertytype": "Tune",
             "type": "int",
             "value": 12
+        },
+        {
+            "name": "MapCode",
+            "type": "string",
+            "value": "2JSW"
         }
     ],
     "propertyTypes": [
