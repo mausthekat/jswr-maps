@@ -316,3 +316,76 @@ For guardians with `Waypoint Count > 1`, additional 20-byte segments follow the 
   <polyline points="0,0 0,96"/>
 </object>
 ```
+---
+
+## Switch-Selected Alternate Routes (JSW2 Crypt)
+
+A guardian can carry a second patrol that applies **while a named
+ToggleSwitch is ON** (see `MAP_TRIGGERS.md` for ToggleSwitch authoring).
+The alternate route is an ordinary route object - rectangle or 2-point
+polyline, same geometry rules as above - placed in a **Special** layer
+with two properties:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Guardian` | object | The guardian this alternate route applies to |
+| `Switch` | string | The ToggleSwitch latch `Name` that activates it |
+
+While the switch is ON the guardian patrols the alternate bounds; thrown
+OFF, it reverts to its authored route. On each swap the guardian keeps
+its position and direction, clamped into the newly active bounds (a
+parked One-Way-Stop guardian gets moving again if the new bounds put it
+off its boundary). Speed, pattern, and direction stay those of the
+authored route - the alternate supplies geometry only.
+
+Switch state is per-player on each client (ToggleSwitch is not
+network-synced), so treat this as a single-player / co-op-lenient
+mechanic for now.
+
+```xml
+<!-- In a Special layer: the Crypt guardian sweeps further while the
+     switch is on, opening the passage it normally blocks -->
+<object id="31" x="64" y="88" width="112" height="16">
+  <properties>
+    <property name="Guardian" type="object" value="12"/>
+    <property name="Switch" value="crypt_switch"/>
+  </properties>
+</object>
+```
+
+---
+
+## Guardian Trails (JSW2 Foot leg / Belfry rope)
+
+A guardian can draw a strip of a chosen 8x8 tile along its movement axis
+- authored as properties **on the guardian object** (Enemies layer):
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Trail` | string | `smear` or `tether` (anything else = no trail) |
+| `TrailTile` | string (GID, CSV of GIDs, or `leg`) | The tile repeated along the strip (required). A comma-separated list draws N parallel strips across the guardian from its leading edge, one tile per 8px column. A single tile draws one strip at the sprite's centre column. The special token `leg` renders the strip with the final-death foot-crush **leg segment** sprite (16x8, per graphics style - works in enhanced and original modes without map tile art); it spans the guardian's full width from its left edge. Map-tile trails need the art present in BOTH tileset styles (`tiles_*.png` and `tiles_*_e.png`). |
+| `TrailDeadly` | bool | The strip kills on touch, pixel-tested like the guardian's own sprite (default `false`) |
+| `TrailAnchor` | string `"col,row"` | Anchor cell override (optional, see defaults below) |
+
+Two modes:
+
+- **`tether`** - a live strip from the anchor to the guardian's trailing
+  edge; it extends and retracts as the guardian moves. Default anchor:
+  the top of the room at the sprite's centre column (the Belfry bell
+  rope, the Galactic Invasion threads).
+- **`smear`** - a persistent strip from the guardian's spawn to the
+  furthest point it has reached (its high-water mark); it never
+  retracts, and clears only when the room resets. Default anchor: the
+  spawn position (the Foot's leg descending over the exit).
+
+Trails apply to single-axis (horizontal or vertical) movers only;
+diagonal and bounce guardians ignore the properties (build note).
+The strip renders beneath the guardian sprite and is derived entirely
+from the guardian's synced state - late joiners see the same trail.
+
+**The Foot Room recipe** (all-items-collected releases a descending
+smear guardian): a vertical `START_FROZEN` guardian with `Trail=smear`,
+`TrailDeadly=true`, a One-Way-Stop route running down over the exit, and
+a trigger `RoomAllCollected -> StartGuardian` with
+`RearmOnRoomExit=true` so the foot re-descends on every visit once the
+room has been emptied.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="tiles_platform" tilewidth="8" tileheight="8" tilecount="89" columns="16">
+<tileset version="1.10" tiledversion="1.11.2" name="tiles_platform" tilewidth="8" tileheight="8" tilecount="92" columns="16">
  <properties>
   <property name="TilesetName" value="JSW2"/>
  </properties>
@@ -445,6 +445,21 @@
   </properties>
  </tile>
  <tile id="88">
+  <properties>
+   <property name="TileType" propertytype="TileType" value="platform"/>
+  </properties>
+ </tile>
+ <tile id="89">
+  <properties>
+   <property name="TileType" propertytype="TileType" value="platform"/>
+  </properties>
+ </tile>
+ <tile id="90">
+  <properties>
+   <property name="TileType" propertytype="TileType" value="platform"/>
+  </properties>
+ </tile>
+ <tile id="91">
   <properties>
    <property name="TileType" propertytype="TileType" value="platform"/>
   </properties>

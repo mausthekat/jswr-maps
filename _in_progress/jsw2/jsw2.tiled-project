@@ -130,7 +130,11 @@
                 "SetWillySuit",
                 "TeleportRoom",
                 "TeleportRoomBeam",
-                "ScrollRegion"
+                "ScrollRegion",
+                "Countdown",
+                "StartGuardian",
+                "StopGuardian",
+                "ToggleSwitch"
             ],
             "valuesAsFlags": false
         },
@@ -190,7 +194,8 @@
             "type": "enum",
             "values": [
                 "HARMLESS",
-                "ALWAYS_DEADLY"
+                "ALWAYS_DEADLY",
+                "START_FROZEN"
             ],
             "valuesAsFlags": true
         },

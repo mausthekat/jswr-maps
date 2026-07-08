@@ -316,4 +316,7 @@
  <tile id="103">
   <image source="guardians/guardian_103.png" width="16" height="16"/>
  </tile>
+ <tile id="104">
+  <image source="guardians/guardian_104.png" width="16" height="16"/>
+ </tile>
 </tileset>

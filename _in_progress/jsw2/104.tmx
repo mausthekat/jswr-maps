@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="100">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="103">
  <properties>
   <property name="WillySuit" type="int" propertytype="WillySuit" value="1"/>
   <property name="Name" value="Foot Room"/>
@@ -44,7 +44,37 @@
   <object id="2" gid="12473" x="232" y="120" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="Enemies">
+  <object id="100" name="The Foot" type="Guardian" gid="14348" x="128" y="24" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffd7d7d7"/>
+    <property name="Flags" propertytype="GuardianFlags" value="START_FROZEN"/>
+    <property name="Trail" value="smear"/>
+    <property name="TrailDeadly" type="bool" value="true"/>
+    <property name="TrailTile" value="leg"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="101" type="Route" x="136" y="8">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="100"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="2"/>
+   </properties>
+   <polyline points="0,0 0,112"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Special">
+  <object id="102" x="56" y="8" width="8" height="8">
+   <properties>
+    <property name="Action" propertytype="Action" value="StartGuardian"/>
+    <property name="Comment" value="ROM $84F4: once both items are taken the foot descends 1px/frame for 96 frames (Speed 2 = 1px/tick) at column 16 (draw call C=$10 -> x=128), leaving its leg (deadly smear, the final-death leg-segment art) and sealing the room; re-runs per visit (init resets state on entry)."/>
+    <property name="Name" value="foot_descends"/>
+    <property name="RearmOnRoomExit" type="bool" value="true"/>
+    <property name="Target" type="object" value="100"/>
+    <property name="TriggerType" propertytype="TriggerType" value="RoomAllCollected"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
