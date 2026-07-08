@@ -42,7 +42,11 @@ Every trigger object in the Special layer uses these properties:
 | `Visibility` | `Visibility` enum | Optional | Who sees the effect: `AllPlayers` (default) or `TriggeringPlayer`. |
 | `TriggerMode` | `TriggerMode` enum | Optional | Whether multiple players can trigger independently: `Unique` (default) or `PerPlayer`. |
 | `RearmTicks` | int | Optional | Re-arm timer: the trigger returns to pending N physics ticks after completing, so it can fire again. 0/absent = one-shot. (`TeleportRoomBeam` has an implicit 150-tick default.) See [Re-arm](#re-arm-repeatable-triggers). |
-| `RearmOnRoomExit` | bool | Optional | Re-arms the trigger when the player leaves the trigger's room, and when the room is reset (single-player death respawn re-runs the set piece). Ignored by the headless server. Pair it with a room-gated condition (e.g. a whole-room `CollisionWith` zone) so the re-armed trigger cannot refire while the player is elsewhere. |
+| `RearmOnRoomExit` | bool | Optional | Re-arms the trigger when the player leaves the trigger's room, and when the room is reset (single-player death respawn re-runs the set piece). Ignored by the headless server. Pair it with a room-gated condition (e.g. a whole-room `CollisionWith` zone, or a `CollisionWith` marker with `WholeRoom`) so the re-armed trigger cannot refire while the player is elsewhere. |
+| `WholeRoom` | bool | Optional | For a `CollisionWith` trigger: fire whenever the player is anywhere in this trigger's room, ignoring the object's rectangle. Lets a "player is in this room" gate be a small, selectable marker in Tiled instead of an un-editable full-room rect. No effect on other trigger types. |
+| `OnTile` | int (GID) | `ToggleSwitch` only | The ON (thrown) lever pose. The object's own GID is the OFF pose; `OnTile` is the tile shown while the switch is on. |
+| `Caption` | string | `ToggleSwitch` only | Label text; drawn as `<Caption> On` / `<Caption> Off` at `CaptionCell` in yellow ink on a red paper block (the ROM's top-row status text), e.g. `Trip Switch`. Omit for no caption. |
+| `CaptionCell` | string `"col,row"` | `ToggleSwitch` only | Tile cell (col 0-31, row 0-15) where the caption is drawn. |
 
 ### Object Geometry
 
@@ -71,7 +75,7 @@ evaluated after the dependency has completed (AND logic).
 | `ScorePctThreshold` | `Threshold` (int, percentage 0–100) | Player has collected >= N% of the map's total items. |
 | `RoomAllCollected` | - | All collectible items in this trigger's room have been picked up. |
 | `ItemCollectedInRoom` | `Threshold` (int) | N or more items in this trigger's room have been collected. |
-| `CollisionWith` | - | Player's bounding box overlaps this object's rectangle in the same room. |
+| `CollisionWith` | - | Player's bounding box overlaps this object's rectangle in the same room. Set the `WholeRoom` property (see [Property Reference](#property-reference)) to instead fire whenever the player is anywhere in the room, ignoring the rectangle - so the object can be a small marker. |
 | `RoomEntered` | `Threshold` (int, room ID) | Player enters the specified room. |
 | `ExternalEvent` | - | Never fires from condition evaluation. Only fired explicitly by game code (e.g., MM exit FLAG_CAPTURED handler). Used as an entry point for trigger chains driven by game events. |
 | `Never` | - | Never fires. Reserved for future use. |
@@ -147,6 +151,8 @@ These complete immediately.
 | `TeleportRoom` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | Teleports the player to a DIFFERENT room. `Threshold` is the destination room id; `Target` is the destination in TILE coordinates (`tx` 0-31, `ty` 0-15) - note this differs from `TeleportPlayerTo`, which works in pixels. Grants the standard 1.5s post-teleport immunity, and updates the death-respawn point to the destination. Player-specific in MP: only the player who caused the trigger teleports; never applied to late joiners. Spectrum Next: destination room ids must be 1-255 (build warning otherwise). |
 | `TeleportRoomBeam` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | JSW2-style delayed teleport with dematerialize/materialize effects. Same fields as `TeleportRoom`, but instead of an instant switch the world freezes for 150 physics ticks: 75 ticks of dematerialize effect in the source room, room switch, 75 ticks of materialize at the destination (input dead and the player invulnerable throughout - the ROM handler hijacks the whole frame). RE-ARMABLE by default: the trigger returns to pending 150 ticks after firing so the pad can be reused (JSW2 teleporters are two-way navigation pairs). Player-specific in MP (recommended authoring: `Visibility = TriggeringPlayer`); never applied to late joiners. |
 | `ScrollRegion` | region + scroll properties (see [ScrollRegion](#scrollregion-jsw2-region-scroll-set-piece)) | JSW2 region-scroll set piece (the yacht sail and the Deserted Isle sink). A cell-aligned region of the room's tile grid shifts by `CellsPerTick` cells each tick with empty infill while the world is frozen (the teleport-beam freeze), optionally preceded by a forced auto-walk phase (`ForceWalk`/`WalkTicks`) and optionally followed by a chained room teleport (`DestRoom`/`DestTile`). Room reset (re-entry) restores the authored tiles. Player-specific in MP; never applied to late joiners. Spectrum Next: unported - the JSWN build transcodes it to `Complete` (state-only) with a warning, so dependents still unblock. |
+| `Countdown` | `Threshold` (int, seconds), `Target` (string, `"num_cx,num_cy[,start][\|label_cx,label_cy,TEXT]"`) | A `Delay` (see [Duration Actions](#duration-actions)) that ALSO draws an on-screen countdown while it runs - the JSW2 Deserted Isle collapse counter. Times exactly like `Delay` (`Threshold` seconds -> ticks; `Complete` at 0, so dependents fire the same way), and while ACTIVE renders a number at cell `(num_cx, num_cy)` in the large in-game font, counting the authored `start` down to 0 (or the raw remaining ticks if `start` is omitted). An optional label after `\|` draws static caption text (e.g. `COUNTDOWN TO RESCUE`) at its own cell in the small font; both appear and disappear with the countdown. Spectrum Next: unported (transcodes to `Delay`; the on-screen text is PC-only for now). |
+| `ToggleSwitch` | `OnTile` (int, on-pose GID), `Caption` (string), `CaptionCell` (string `"col,row"`), `Name` (latch) | A dedicated two-pose toggle switch (the JSW2 trip switch) - authored as an action but loaded as its own entity, NOT a trigger. The object's own GID is the OFF (resting) lever pose; `OnTile` is the ON pose. Willy flips it whenever his head enters the lever cell (or the cell to its left, the ROM head check); it re-arms as soon as he leaves the cell, so it can be flipped on/off freely. The pose is drawn as a static overlay (no tile-grid stamp, so a conveyor-tileset lever does not animate). Its `Name` becomes a **live latch**: any trigger with `DependsOnCompletion = "<Name>"` is satisfied while the switch is ON and re-closes (reverting completed dependents down the chain) when it is thrown OFF - true on/off. `Caption` renders as `<Caption> On` / `<Caption> Off` (yellow ink on a red paper block, the ROM's top-row status text) at `CaptionCell`. Spectrum Next: unported for now. |
 
 ### Duration Actions
 
@@ -713,16 +719,22 @@ No `Name` or `DependsOnCompletion` - standalone immediate triggers.
 ### JSW2 - Trip Switch / Yacht / Deserted Isle chain (jsw2 map)
 
 The ROM-verified chain (`analysis/jsw2zx/YACHT_CHAIN_MECHANICS.md`),
-authored by `analysis/jsw2zx/add_jsw2_yacht_chain.py` +
-`analysis/jsw2zx/add_jsw2_teleporters.py` and verified by
-`analysis/jsw2zx/probe_yacht_chain.py`.  All SessionType = 1 (SP).
+verified by `analysis/jsw2zx/probe_yacht_chain.py`.  Rooms 072/056/057 are
+authored by `analysis/jsw2zx/add_jsw2_yacht_chain.py`; room 081 is
+hand-maintained in `tmx/_in_progress/jsw2/081.tmx` (teleporters from
+`add_jsw2_teleporters.py`).  All SessionType = 1 (SP).
 
 ```
 Room 072 (Trip Switch):
-  trip_switch:        CollisionWith (16,8) 16x8    ← Willy's head touches
-                      Action = PlaySound "tick"      the lever cell (1,3)
-  trip_switch_tile:   GameStart, dep trip_switch
-                      Action = ShowTile (gid 10501)← lever art flips
+  trip_switch:        ToggleSwitch, lever cell (3,1)  ← head flips it while
+                      OFF gid 597 (R) / OnTile gid 598 (L)  jumping: straight
+                      Name = trip_switch (live latch)    up flips either way,
+                      Caption "Trip Switch" @ (8,0)       a directional jump
+                                                          only against the lean.
+                                                          Name gates the chain:
+                                                          on = open, off
+                                                          re-closes it live
+                                                          (true on/off)
 
 Room 056 (The Bow):
   bow_clear:          RoomAllCollected, dep trip_switch, Action = Complete
@@ -730,20 +742,21 @@ Room 056 (The Bow):
 Room 057 (The Yacht):
   yacht_clear:        RoomAllCollected, dep bow_clear, Action = Complete
   yacht_sail:         CollisionWith (64,96) 8x8    ← the exact deck spot
-                      dep yacht_clear
-                      Action = ScrollRegion        ← band rows 5-14 cols
-                      RearmTicks = 150               0-20 scrolls LEFT for
-                                                     150 ticks, then warp
-                                                     to 081 tile (10,10)
+                      dep yacht_clear                (throwing the switch
+                      Action = ScrollRegion          back off re-closes this
+                      RearmTicks = 150               gate). Band rows 5-14
+                                                     cols 0-20 scrolls LEFT
+                                                     30 ticks, then warp to
+                                                     081 tile (10,10)
 
 Room 081 (Deserted Isle):
   isle_clear:         RoomAllCollected, Action = Complete
-  isle_countdown:     CollisionWith (whole room), dep isle_clear
-                      Action = Delay 56s, RearmOnRoomExit
-  isle_sink:          CollisionWith (whole room), dep isle_countdown
+  isle_countdown:     CollisionWith + WholeRoom, dep isle_clear
+                      Action = Countdown 10s, RearmOnRoomExit
+  isle_sink:          CollisionWith + WholeRoom, dep isle_countdown
                       Action = ScrollRegion, RearmOnRoomExit
                       (39-tick forced LEFT walk, then the island band
-                       rows 3-11 cols 9-20 sinks DOWN for 85 ticks)
+                       rows 3-11 cols 10-18 sinks DOWN for 27 ticks)
   teleporter_081:     CollisionWith pad, dep isle_sink ← dead until the
                       Action = TeleportRoomBeam         collapse completes
   teleporter_081_mp:  same pad, SessionType = 2, no dep (MP twin)

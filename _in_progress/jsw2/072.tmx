@@ -136,24 +136,16 @@
   </object>
  </objectgroup>
  <objectgroup id="12" name="Special">
-  <object id="950" name="trip_switch" x="16" y="8" width="16" height="8">
+  <object id="950" name="trip_switch" gid="597" x="24" y="16" width="8" height="8">
    <properties>
-    <property name="Action" propertytype="Action" value="PlaySound"/>
-    <property name="Comment" value="ROM $8512: head cell (row 1, col 3) type 5 touched; buzz = $FF8E beeper (built-in tick is the closest shipped sound)"/>
+    <property name="Action" propertytype="Action" value="ToggleSwitch"/>
+    <property name="Caption" value="Trip Switch"/>
+    <property name="CaptionCell" value="8,0"/>
+    <property name="Comment" value="ROM $855C: head cell (row 1, col 3) type 5; toggles latch $5396 on/off once per visit, flips the lever art, shows Trip Switch On/Off"/>
     <property name="Name" value="trip_switch"/>
+    <property name="OnTile" type="int" value="598"/>
     <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
-    <property name="Target" value="tick"/>
     <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
-   </properties>
-  </object>
-  <object id="951" name="trip_switch_tile" gid="597" x="24" y="16" width="8" height="8">
-   <properties>
-    <property name="Action" propertytype="Action" value="ShowTile"/>
-    <property name="Comment" value="ROM $8520/$82A5: cell stamped + lever art XOR-flipped; gid 10501 is the paired lever pose in tiles_conveyor"/>
-    <property name="DependsOnCompletion" value="trip_switch"/>
-    <property name="Name" value="trip_switch_tile"/>
-    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
-    <property name="TriggerType" propertytype="TriggerType" value="GameStart"/>
    </properties>
   </object>
  </objectgroup>

@@ -39,7 +39,7 @@
 </data>
  </layer>
  <objectgroup id="2" name="Collectables">
-  <object id="1" gid="749" x="112" y="112" width="8" height="8"/>
+  <object id="1" gid="749" x="104" y="112" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="Enemies">
   <object id="100" name="Flag" type="Guardian" gid="897" x="168" y="88" width="16" height="16">
@@ -76,7 +76,7 @@
   </object>
  </objectgroup>
  <objectgroup id="12" name="Special">
-  <object id="953" name="yacht_clear" x="0" y="8" width="16" height="16">
+  <object id="953" name="yacht_clear" x="8" y="8" width="8" height="8">
    <properties>
     <property name="Action" propertytype="Action" value="Complete"/>
     <property name="Comment" value="ROM $83E5: all items in The Yacht collected (one item, row 13 col 14)"/>
@@ -86,14 +86,14 @@
     <property name="TriggerType" propertytype="TriggerType" value="RoomAllCollected"/>
    </properties>
   </object>
-  <object id="954" name="yacht_sail_region" x="0" y="40" width="168" height="80">
+  <object id="954" name="yacht_sail_region" x="0" y="40" width="184" height="80">
    <properties>
     <property name="CellsPerTick" type="int" value="1"/>
-    <property name="Comment" value="ROM $8419: band scrolls left 8px/frame for 150 frames, black infill; warp to room 81 at (40 units, 80) = tile (10,10) at the end"/>
+    <property name="Comment" value="ROM $8419: band scrolls left 8px/frame, black infill; warp to room 81 at (40 units, 80) = tile (10,10) at the end. The ROM runs 150 frames but the 21-cell band clears in 21; we use 30 (21 to clear + ~0.5s hold) so control returns promptly"/>
     <property name="DestRoom" type="int" value="81"/>
     <property name="DestTile" value="10,10"/>
     <property name="Direction" type="int" propertytype="Direction" value="2"/>
-    <property name="DurationTicks" type="int" value="150"/>
+    <property name="DurationTicks" type="int" value="30"/>
    </properties>
   </object>
   <object id="955" name="yacht_sail" x="64" y="96" width="8" height="8">

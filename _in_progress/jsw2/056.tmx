@@ -76,7 +76,7 @@
   </object>
  </objectgroup>
  <objectgroup id="12" name="Special">
-  <object id="952" name="bow_clear" x="128" y="24" width="16" height="16">
+  <object id="952" name="bow_clear" x="0" y="0" width="8" height="8">
    <properties>
     <property name="Action" propertytype="Action" value="Complete"/>
     <property name="Comment" value="ROM $83DF: all items in The Bow collected (one item, row 8 col 27); chained after the switch - state conditions re-evaluate, so collection order does not matter"/>

@@ -86,7 +86,7 @@
     <property name="Visibility" propertytype="Visibility" value="TriggeringPlayer"/>
    </properties>
   </object>
-  <object id="956" name="isle_clear" x="224" y="32" width="8" height="8">
+  <object id="956" name="isle_clear" x="176" y="56" width="8" height="8">
    <properties>
     <property name="Action" propertytype="Action" value="Complete"/>
     <property name="Comment" value="ROM $8452: the isle loop is entirely gated on all items in room 80 collected (one item, row 9 col 4); item state persists across death and room changes like the ROM bitmap"/>
@@ -95,29 +95,31 @@
     <property name="TriggerType" propertytype="TriggerType" value="RoomAllCollected"/>
    </properties>
   </object>
-  <object id="957" name="isle_countdown" x="0" y="0" width="256" height="128">
+  <object id="957" name="isle_countdown" x="0" y="0" width="256" height="16">
    <properties>
-    <property name="Action" propertytype="Action" value="Delay"/>
-    <property name="Comment" value="ROM $845E: 1000-frame countdown after the item; 56s at the map 18 fps = 1008 ticks (nearest whole second). The ROM 4-digit countdown display has no engine mechanism. RearmOnRoomExit: re-entry reruns it"/>
+    <property name="Action" propertytype="Action" value="Countdown"/>
+    <property name="Comment" value="ROM $845E: 1000-frame countdown after the item; shortened to 10s (5x faster than the ROM's ~56s) while the on-screen number still maxes at 1000. Countdown action = Delay timing + an on-screen number: Target cell_x,cell_y,start draws start to 0 scaled by the remaining fraction at that cell. RearmOnRoomExit: re-entry reruns it"/>
     <property name="DependsOnCompletion" value="isle_clear"/>
     <property name="Name" value="isle_countdown"/>
     <property name="RearmOnRoomExit" type="bool" value="true"/>
     <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
-    <property name="Threshold" type="int" value="56"/>
+    <property name="Target" value="14,1,1000|11,0,COUNTDOWN TO RESCUE"/>
+    <property name="Threshold" type="int" value="10"/>
     <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="WholeRoom" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="958" name="isle_sink_region" x="72" y="24" width="96" height="72">
+  <object id="958" name="isle_sink_region" x="80" y="24" width="72" height="72">
    <properties>
     <property name="CellsPerTick" type="int" value="1"/>
-    <property name="Comment" value="ROM $8496: island band cols 9-20 slides DOWN under the waterline (85 frames); walk phase = ROM states 1-39 forcing LEFT ($8467: JUMP=0, RIGHT=0, LEFT=$FF)"/>
+    <property name="Comment" value="ROM $8496: island band cols 9-20 slides DOWN under the waterline; walk phase = ROM states 1-39 forcing LEFT ($8467: JUMP=0, RIGHT=0, LEFT=$FF). ROM scrolls 85 frames but the 9-row band clears in 9; we use 27 (9 to clear + ~1s hold) so control returns promptly"/>
     <property name="Direction" type="int" propertytype="Direction" value="1"/>
-    <property name="DurationTicks" type="int" value="85"/>
+    <property name="DurationTicks" type="int" value="27"/>
     <property name="ForceWalk" type="int" propertytype="Direction" value="2"/>
     <property name="WalkTicks" type="int" value="39"/>
    </properties>
   </object>
-  <object id="959" name="isle_sink" x="0" y="0" width="256" height="128">
+  <object id="959" name="isle_sink" x="176" y="24" width="16" height="16">
    <properties>
     <property name="Action" propertytype="Action" value="ScrollRegion"/>
     <property name="Comment" value="Gates teleporter_081 (the ROM only calls the teleport matcher for room 80 from the post-collapse state&gt;=125 branch). RearmOnRoomExit: re-entry reruns the collapse and re-kills the pad, per the ROM per-visit scratch state"/>
@@ -127,6 +129,7 @@
     <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
     <property name="Target" type="object" value="958"/>
     <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="WholeRoom" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>

@@ -64,7 +64,7 @@
   </object>
  </objectgroup>
  <objectgroup id="9" name="Special">
-  <object id="902" name="teleporter_128" x="232" y="16" width="16" height="8">
+  <object id="902" name="teleporter_128" x="232" y="16" width="8" height="8">
    <properties>
     <property name="Action" propertytype="Action" value="TeleportRoomBeam"/>
     <property name="Name" value="teleporter_128"/>
