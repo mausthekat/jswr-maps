@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="100">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="13" nextobjectid="951">
  <properties>
   <property name="WillySuit" type="int" propertytype="WillySuit" value="1"/>
   <property name="Name" value="Cartography Room"/>
@@ -45,5 +45,21 @@
  <objectgroup id="3" name="Enemies">
  </objectgroup>
  <objectgroup color="#00ffff" id="4" name="Routes">
+ </objectgroup>
+ <objectgroup id="12" name="Special">
+  <object id="950" name="carto_island" x="0" y="0" width="256" height="128">
+   <properties>
+    <property name="Action" propertytype="Action" value="CartographyMap"/>
+    <property name="CellTile" type="int" value="4155"/>
+    <property name="Comment" value="ROM $7EC8/$805F (JSW2_SPECIALS.md): the island map. Each authored CellTile (water) cell represents one room, row-major, per the ROM $FBE8 table (129 entries, a duplicate-free permutation of rooms 1-129). Never visited = invisible (empty), visited with items left = VisitedTile solid block, all items collected = the authored cell tile. Re-evaluated on every entry (RearmOnRoomExit) - the ROM recomputes at room load"/>
+    <property name="Name" value="carto_island"/>
+    <property name="RearmOnRoomExit" type="bool" value="true"/>
+    <property name="Rooms" value="116,117,118,119,97,98,99,100,101,102,103,104,115,105,106,114,107,108,109,110,111,112,113,120,95,49,69,121,122,123,124,125,126,127,128,90,91,92,93,94,46,19,18,17,16,15,43,129,96,42,41,40,61,39,62,38,37,55,54,36,35,34,33,63,64,32,31,53,52,71,30,29,27,65,66,26,25,14,13,51,50,24,23,22,21,67,68,20,59,12,11,10,9,8,81,80,56,57,28,48,47,58,72,73,74,75,76,77,78,79,6,5,4,3,2,70,1,82,83,84,85,86,60,44,45,87,88,7,89"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="VisitedTile" type="int" value="86"/>
+    <property name="WholeRoom" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

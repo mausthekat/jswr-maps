@@ -425,7 +425,8 @@
                 "Countdown",
                 "StartGuardian",
                 "StopGuardian",
-                "ToggleSwitch"
+                "ToggleSwitch",
+                "CartographyMap"
             ],
             "valuesAsFlags": false
         },

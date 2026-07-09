@@ -152,8 +152,9 @@ These complete immediately.
 | `PlaySound` | `Target` (string, sound name) | Plays a built-in sound effect: `pickup`, `death`, `arrow`, `tick`, or `mm_air`. Room-gated: only players currently in this trigger's room hear it. Never replayed to late joiners. Unknown names are silent (build warning). On the Spectrum Next only `pickup`/`death`/`arrow` exist; `tick`/`mm_air` are PC-only (build warning). |
 | `TeleportRoom` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | Teleports the player to a DIFFERENT room. `Threshold` is the destination room id; `Target` is the destination in TILE coordinates (`tx` 0-31, `ty` 0-15) - note this differs from `TeleportPlayerTo`, which works in pixels. Grants the standard 1.5s post-teleport immunity, and updates the death-respawn point to the destination. Player-specific in MP: only the player who caused the trigger teleports; never applied to late joiners. Spectrum Next: destination room ids must be 1-255 (build warning otherwise). |
 | `TeleportRoomBeam` | `Threshold` (int, dest room id), `Target` (string, `"tx,ty"`) | JSW2-style delayed teleport with dematerialize/materialize effects. Same fields as `TeleportRoom`, but instead of an instant switch the world freezes for 150 physics ticks: 75 ticks of dematerialize effect in the source room, room switch, 75 ticks of materialize at the destination (input dead and the player invulnerable throughout - the ROM handler hijacks the whole frame). RE-ARMABLE by default: the trigger returns to pending 150 ticks after firing so the pad can be reused (JSW2 teleporters are two-way navigation pairs). Player-specific in MP (recommended authoring: `Visibility = TriggeringPlayer`); never applied to late joiners. |
-| `ScrollRegion` | region + scroll properties (see [ScrollRegion](#scrollregion-jsw2-region-scroll-set-piece)) | JSW2 region-scroll set piece (the yacht sail and the Deserted Isle sink). A cell-aligned region of the room's tile grid shifts by `CellsPerTick` cells each tick with empty infill while the world is frozen (the teleport-beam freeze), optionally preceded by a forced auto-walk phase (`ForceWalk`/`WalkTicks`) and optionally followed by a chained room teleport (`DestRoom`/`DestTile`). Room reset (re-entry) restores the authored tiles. Player-specific in MP; never applied to late joiners. Spectrum Next: ported (`next/src/scrollrgn.c` - world freeze, forced walk, grid+tilemap band shift, rider carry, chained warp, RearmTicks/RearmOnRoomExit re-arm). |
+| `ScrollRegion` | region + scroll properties (see [ScrollRegion](#scrollregion-jsw2-region-scroll-set-piece)) | JSW2 region-scroll set piece (the yacht sail, the Deserted Isle sink and the Rocket Room launch). A cell-aligned region of the room's tile grid shifts by `CellsPerTick` cells each tick with empty infill while the world is frozen (the teleport-beam freeze), optionally preceded by a forced auto-walk phase (`ForceWalk`/`WalkTicks`), optionally followed by a chained room teleport (`DestRoom`/`DestTile`), optionally carrying an FX sprite that rides the band (`FxSprite`/`FxCell` - the rocket flame trail). Room reset (re-entry) restores the authored tiles. Player-specific in MP; never applied to late joiners. Spectrum Next: ported (`next/src/scrollrgn.c` - world freeze, forced walk, grid+tilemap band shift, rider carry, chained warp, RearmTicks/RearmOnRoomExit re-arm; no FX sprite yet). |
 | `Countdown` | `Threshold` (int, seconds), `Target` (string, `"num_cx,num_cy[,start][\|label_cx,label_cy,TEXT]"`) | A `Delay` (see [Duration Actions](#duration-actions)) that ALSO draws an on-screen countdown while it runs - the JSW2 Deserted Isle collapse counter. Times exactly like `Delay` (`Threshold` seconds -> ticks; `Complete` at 0, so dependents fire the same way), and while ACTIVE renders a number at cell `(num_cx, num_cy)` in the large in-game font, counting the authored `start` down to 0 (or the raw remaining ticks if `start` is omitted). An optional label after `\|` draws static caption text (e.g. `COUNTDOWN TO RESCUE`) at its own cell in the small font; both appear and disappear with the countdown. Spectrum Next: ported (`next/src/trig_switch.c` - Layer 2, large ROM-glyph number + small-font label, edge-triggered redraws). |
+| `CartographyMap` | `CellTile` (int GID), `VisitedTile` (int GID), `UnvisitedTile` (int GID, optional), `Rooms` (string CSV) - see [CartographyMap](#cartographymap-jsw2-cartography-room-live-map) | JSW2 Cartography Room live map display (ROM `$7EC8`/`$805F`). A bulk `ShowTile`: every map cell shows one of three tiles from the LOCAL player's view of the room it represents - never visited = `UnvisitedTile` (default empty/invisible), visited with items remaining = `VisitedTile` (the ROM's solid block), all items collected = the authored `CellTile`. Visited-ness is the minimap fog (session-persistent); the mutation is real collision. Pair with a whole-room `CollisionWith` + `RearmOnRoomExit` for the ROM's snapshot-on-every-entry. Self-contained per object, so a map split across several cartography rooms (JSW3) is just several objects. Spectrum Next: NOT ported (transcoded to `Complete`; the map room shows its authored art). |
 | `ToggleSwitch` | `OnTile` (int, on-pose GID), `Caption` (string), `CaptionCell` (string `"col,row"`), `Name` (latch) | A dedicated two-pose toggle switch (the JSW2 trip switch) - authored as an action but loaded as its own entity, NOT a trigger. The object's own GID is the OFF (resting) lever pose; `OnTile` is the ON pose. Willy flips it when his head enters the lever cell (or the cell to its left, the ROM head check); after each flip the switch is disabled for 30 physics ticks (the lever flashes while disabled), so one jump - whose head crosses the zone going up and coming down - flips it exactly once. The pose is drawn as a static overlay (no tile-grid stamp, so a conveyor-tileset lever does not animate). Its `Name` becomes a **live latch**: any trigger with `DependsOnCompletion = "<Name>"` is satisfied while the switch is ON and re-closes (reverting completed dependents down the chain) when it is thrown OFF - true on/off. `Caption` renders as `<Caption> On` / `<Caption> Off` (yellow ink on a red paper block, the ROM's top-row status text) at `CaptionCell`. Spectrum Next: ported (`next/src/trig_switch.c`; the caption renders as ROM-font tilemap cells, and both pose GIDs are folded into the map's NTIL at build time). |
 
 ### Duration Actions
@@ -477,13 +478,27 @@ a separate plain rect object referenced via `Target` (object ref):
 | `WalkTicks` | int | 0 | Length of the forced-walk phase. |
 | `DestRoom` | int | 0 (none) | Optional chained teleport when the sequence ends (the ROM yacht warps to the isle) - same semantics as `TeleportRoom`. |
 | `DestTile` | string | - | `"tx,ty"` TILE destination for `DestRoom`. |
+| `FxSprite` | string | - (none) | Optional FX sprite carried with the band (the JSW2 rocket-launch flame trail): the stem of an animation sheet in the map's `sprites/<style>/misc/` folder - a horizontal run of SQUARE frames (frame size = image height), black = transparent. Drawn offset by the accumulated shift delta so it rides the band, clipped to the room bounds in game-pixel space, and in colour-clash its covered cells are stamped with the sheet's dominant colour as ink (`EntityRenderer.draw_scroll_region_fx`). PC-only for now: the Next `scrollrgn.c` port scrolls without it. |
+| `FxPixel` | string | `"0,0"` | `"px,py"` game PIXEL the FX sheet's top-left starts at; may lie outside the 256x128 room (the rocket flame starts 1px below the rocket base and rides up into the vacated cells). |
+| `FxFrameTicks` | int | 2 | Physics ticks per FX animation frame. |
+| `TicksPerCell` | int | 1 | Shift cadence: the grid shifts every Nth tick of the shift phase (the rocket ascends at half the yacht's sail rate with `TicksPerCell = 2`; `DurationTicks` still counts raw ticks, so double it too). PC-only for now (the Next port shifts every tick). |
 
 Rects must be cell-aligned (8px).  The shifted tiles persist for the rest of
 the room visit; leaving/re-entering the room restores the authored grid (the
 same reset hook collapsible tiles and moving floors use).  The pack encodes
 everything as `Threshold` = `DurationTicks` plus an 11-field CSV in `target`
 (`"cx,cy,cw,ch,dir,cpt,walk_ticks,walk_dir,dest_room,dtx,dty"`, cell
-coordinates - `src/scroll_region.ScrollRegionSpec.parse`).
+coordinates - `src/scroll_region.ScrollRegionSpec.parse`); when `FxSprite`
+is authored the CSV grows to 14 fields (`"...,fx_sprite,fx_px,fx_py"`), an
+authored `TicksPerCell` appends a 15th and a non-default `FxFrameTicks` a
+16th (earlier optional fields ride along at their defaults when only a
+later one is authored).
+
+Author the region as the moving OBJECT itself (the yacht hull, the rocket -
+not the scenery around it): the band's tiles ARE what flies, riders are
+carried automatically (Willy + any guardian standing inside the band when
+the first shift happens), and everything outside the rect stays put (the
+JSW2 rocket's gantry platforms, the row-15 launch pad).
 
 ```
 (rect object, id 954)                  # the region
@@ -499,6 +514,55 @@ Target       = (object ref to 954)
 RearmTicks   = 150                     # re-fires on a later revisit
 SessionType  = 1                       # SP set piece
 ```
+
+#### CartographyMap - JSW2 Cartography Room live map
+
+Recreates the JSW2 Cartography Room (ROM `$7EC8`/`$805F`/`$807E` -
+`analysis/jsw2zx/JSW2_SPECIALS.md`): the room is a live map of the game
+where each authored cell represents one room and shows its progress
+state.  Runtime: `src/triggers/engine._exec_cartography_map`.
+
+Authoring is WYSIWYG: draw every map cell with its COMPLETED look (the
+ROM authors them all as water), then describe the rest on one rect
+object whose bounds cover the map cells:
+
+| Property | Type | Default | Meaning |
+|----------|------|---------|---------|
+| `CellTile` | int GID | required | The authored tile that marks a participating map cell (and IS the completed-state look). Cells inside the object's rect whose Tiles-layer gid matches participate, in row-major order. |
+| `VisitedTile` | int GID | required | Shown for a room that has been visited but still has items (the ROM's solid earth block). |
+| `UnvisitedTile` | int GID | empty | Shown for a never-visited room; default empty - the map square is invisible. |
+| `Rooms` | string | required | Comma-separated room numbers, one per participating cell, in the SAME row-major order. The build errors when the counts differ (art/list drift). |
+
+State sources: visited-ness is the local player's minimap fog
+(session-persistent, cleared on new game - the ROM's `$5740` bitmap);
+completion is `room_all_items_collected`.  The chosen tiles are written
+into the live grid, so the blocks are real collision, exactly like the
+ROM's cell map.  The state is a snapshot at fire time: pair with a
+whole-room `CollisionWith` + `RearmOnRoomExit` (the isle-countdown
+pattern) to re-evaluate on every entry and after an in-room death
+reset, like the ROM's room-load recompute.
+
+The pack encodes everything as a binary `payload`: `'<HHHH'`
+unvisited/visited/completed encoded tiles + cell count, then
+count x `'<BBH'` (cell_x, cell_y, room_id).  Everything is
+self-contained per object - several cartography rooms each carrying
+their own `Rooms` subset (the JSW3 split map), or several objects in
+one room, all just work.
+
+```
+TriggerType     = CollisionWith        # rect covers the whole room
+Action          = CartographyMap
+Name            = carto_island
+RearmOnRoomExit = true
+SessionType     = 1                    # per-player fog -> SP authored
+CellTile        = 4155                 # the map-cell (completed) tile
+VisitedTile     = 86                   # the solid-block state
+Rooms           = "116,117,118,…"      # one per cell, row-major
+```
+
+MP note: visited fog is per-player while item state is shared, and
+`RearmOnRoomExit` is SP-only - author `SessionType = 1` (the jsw2
+precedent).  In MP the map room simply shows its authored art.
 
 ### Re-arm (repeatable triggers)
 
