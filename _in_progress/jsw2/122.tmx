@@ -46,7 +46,8 @@
     <property name="Color" type="color" value="#ff00ff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
     <property name="Trail" value="tether"/>
-    <property name="TrailTile" value="4188"/>
+    <property name="TrailTile" value="tiles_platform:91"/>
+    <property name="TrailOffset" value="1"/>
    </properties>
   </object>
   <object id="102" name="Smiley" type="Guardian" gid="14401" x="104" y="16" width="16" height="16">
@@ -54,7 +55,8 @@
     <property name="Color" type="color" value="#ffffff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
     <property name="Trail" value="tether"/>
-    <property name="TrailTile" value="4188"/>
+    <property name="TrailTile" value="tiles_platform:91"/>
+    <property name="TrailOffset" value="1"/>
    </properties>
   </object>
   <object id="104" name="Smiley" type="Guardian" gid="14401" x="128" y="16" width="16" height="16">
@@ -62,7 +64,8 @@
     <property name="Color" type="color" value="#ff00ffff"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
     <property name="Trail" value="tether"/>
-    <property name="TrailTile" value="4188"/>
+    <property name="TrailTile" value="tiles_platform:91"/>
+    <property name="TrailOffset" value="1"/>
    </properties>
   </object>
   <object id="106" name="Smiley" type="Guardian" gid="14401" x="152" y="16" width="16" height="16">
@@ -70,7 +73,8 @@
     <property name="Color" type="color" value="#ff00ff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
     <property name="Trail" value="tether"/>
-    <property name="TrailTile" value="4188"/>
+    <property name="TrailTile" value="tiles_platform:91"/>
+    <property name="TrailOffset" value="1"/>
    </properties>
   </object>
   <object id="108" name="Smiley" type="Guardian" gid="14401" x="192" y="16" width="16" height="16">
@@ -78,7 +82,8 @@
     <property name="Color" type="color" value="#ffffff00"/>
     <property name="Flags" propertytype="GuardianFlags" value=""/>
     <property name="Trail" value="tether"/>
-    <property name="TrailTile" value="4188"/>
+    <property name="TrailTile" value="tiles_platform:91"/>
+    <property name="TrailOffset" value="1"/>
    </properties>
   </object>
   <object id="110" name="Bouncing Ball" type="Guardian" gid="14370" x="104" y="102" width="16" height="16">
