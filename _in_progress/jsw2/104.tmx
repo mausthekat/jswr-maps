@@ -66,7 +66,7 @@
   </object>
  </objectgroup>
  <objectgroup id="5" name="Special">
-  <object id="102" x="56" y="8" width="8" height="8">
+  <object id="102" x="88" y="8" width="8" height="8">
    <properties>
     <property name="Action" propertytype="Action" value="StartGuardian"/>
     <property name="Comment" value="ROM $84F4: once both items are taken the foot descends 1px/frame for 96 frames (Speed 2 = 1px/tick) at column 16 (draw call C=$10 -&gt; x=128), leaving its leg (deadly smear, the final-death leg-segment art) and sealing the room; re-runs per visit (init resets state on entry)."/>
