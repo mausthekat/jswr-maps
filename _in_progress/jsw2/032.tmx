@@ -74,10 +74,10 @@
   </object>
  </objectgroup>
  <objectgroup id="6" name="Special">
-  <object id="103" name="to_final" x="224" y="120" width="16" height="16">
+  <object id="103" name="to_final" x="208" y="104" width="16" height="16">
    <properties>
     <property name="Action" propertytype="Action" value="TeleportRoom"/>
-    <property name="Comment" value="ROM $88CC: at the end of the toilet run (victory flag set + Willy X==100) warp to the Central Cavern. Here: fires ONLY once the bedroom 'replay' run has completed (DependsOnCompletion=replay) -> TeleportRoom to the final room 134 at tile 25,13 (the victory-jump replay's start)."/>
+    <property name="Comment" value="ROM $88CC: at the end of the toilet run (victory flag set + Willy X==100) warp to the Central Cavern. Here: fires ONLY once the bedroom 'replay' run has completed (DependsOnCompletion=replay) -&gt; TeleportRoom to the final room 134 at tile 25,13 (the victory-jump replay's start)."/>
     <property name="DependsOnCompletion" value="replay"/>
     <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
     <property name="Target" value="25,13"/>
