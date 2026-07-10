@@ -64,4 +64,38 @@
    <polyline points="0,0 72,0"/>
   </object>
  </objectgroup>
+ <objectgroup id="5" name="Special">
+  <object id="102" name="victory_jump" x="192" y="96" width="16" height="16">
+   <properties>
+    <property name="Action" propertytype="Action" value="DoReplay"/>
+    <property name="Comment" value="ROM $87D7: in the final room Willy is pinned in a jump-state every frame (bounces on the spot, no user control) forever until reset. We loop this single ground-to-ground jump replay for the 10s window. LoopReplay = restart the replay on end (needs the replay-loop engine support - pending)."/>
+    <property name="LoopReplay" type="bool" value="true"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="Target" value="rec6a50-4f9d.jsr"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="WholeRoom" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="103" name="endgame_timer" x="192" y="96" width="16" height="16">
+   <properties>
+    <property name="Action" propertytype="Action" value="Delay"/>
+    <property name="Comment" value="10s victory-jump window, then EndGame -> title. The JSW2 ROM loops the jump forever; we time-limit it to 10s."/>
+    <property name="Name" value="endgame_timer"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="Threshold" type="int" value="10"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="WholeRoom" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="104" name="endgame" x="192" y="96" width="16" height="16">
+   <properties>
+    <property name="Action" propertytype="Action" value="EndGame"/>
+    <property name="Comment" value="Fires when endgame_timer (10s Delay) completes -> GF_GAME_ENDING -> main loop returns to title (boot_to_title)."/>
+    <property name="DependsOnCompletion" value="endgame_timer"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="WholeRoom" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="4" nextobjectid="102">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="5" nextobjectid="102">
  <properties>
   <property name="Border" type="int" value="2"/>
   <property name="Down" type="file" value="026.tmx"/>
@@ -17,7 +17,7 @@
  <tileset firstgid="337" source="tiles_conveyor.tsx"/>
  <tileset firstgid="625" source="jsw2_collectibles.tsx"/>
  <tileset firstgid="873" source="../../tilesets/guardians.tsx"/>
- <tileset firstgid="977" source="jsw2_guardians.tsx"/>
+ <tileset firstgid="978" source="jsw2_guardians.tsx"/>
  <layer id="1" name="Tiles" width="32" height="16">
   <data encoding="csv">
 38,38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,38,38,
@@ -71,6 +71,20 @@
     <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
    </properties>
    <polyline points="0,0 232,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="Special">
+  <object id="103" name="to_final" x="224" y="120" width="16" height="16">
+   <properties>
+    <property name="Action" propertytype="Action" value="TeleportRoom"/>
+    <property name="Comment" value="ROM $88CC: at the end of the toilet run (victory flag set + Willy X==100) warp to the Central Cavern. Here: fires ONLY once the bedroom 'replay' run has completed (DependsOnCompletion=replay) -> TeleportRoom to the final room 134 at tile 25,13 (the victory-jump replay's start)."/>
+    <property name="DependsOnCompletion" value="replay"/>
+    <property name="SessionType" type="int" propertytype="SessionType" value="1"/>
+    <property name="Target" value="25,13"/>
+    <property name="Threshold" type="int" value="134"/>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="WholeRoom" type="bool" value="true"/>
+   </properties>
   </object>
  </objectgroup>
 </map>
