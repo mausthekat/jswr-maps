@@ -69,23 +69,25 @@
   </object>
  </objectgroup>
  <objectgroup color="#00ffff" id="4" name="Routes">
-  <object id="101" type="Route" x="46" y="106">
+  <object id="101" type="Route" x="118" y="34">
    <properties>
     <property name="Direction" type="int" propertytype="Direction" value="2"/>
     <property name="Guardian" type="object" value="100"/>
+    <property name="ResetDelay" type="int" value="36"/>
     <property name="Speed" type="int" propertytype="Speed" value="4"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="1"/>
    </properties>
-   <polyline points="0,0 72,-72"/>
+   <polyline points="0,0 -72,72"/>
   </object>
   <object id="103" type="Route" x="110" y="32">
    <properties>
-    <property name="Direction" type="int" propertytype="Direction" value="3"/>
+    <property name="Direction" type="int" propertytype="Direction" value="2"/>
     <property name="Guardian" type="object" value="102"/>
+    <property name="ResetDelay" type="int" value="36"/>
     <property name="Speed" type="int" propertytype="Speed" value="4"/>
     <property name="Traversal" type="int" propertytype="Traversal" value="1"/>
    </properties>
-   <polyline points="0,0 82,0"/>
+   <polyline points="0,0 88,0"/>
   </object>
   <object id="105" type="Route" x="182" y="32">
    <properties>
