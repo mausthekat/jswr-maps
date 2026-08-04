@@ -1,7 +1,7 @@
 [project]
 name = "jswr-maps"
-version = "0.91.15"
-description = "Map editing toolkit for Jet Set Willy: Next"
+version = "0.91.16"
+description = "Map editing toolkit for Jet Set Willy .Net"
 requires-python = ">=3.10"
 dependencies = [
     "Pillow>=11.3.0",
