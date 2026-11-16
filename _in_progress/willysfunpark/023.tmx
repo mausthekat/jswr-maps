@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#ffffff" nextlayerid="7" nextobjectid="4">
+ <properties>
+  <property name="Down" type="file" value="033.tmx"/>
+  <property name="Flags" propertytype="RoomFlags" value=""/>
+  <property name="Left" type="file" value="022.tmx"/>
+  <property name="Name" value="The Funhouse         D"/>
+  <property name="Right" type="file" value="024.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Rope Offset" type="int" value="0"/>
+  <property name="Up" type="file" value="014.tmx"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="44" source="tiles_stairs.tsx"/>
+ <tileset firstgid="116" source="tiles_platform.tsx"/>
+ <tileset firstgid="251" source="tiles_hazard.tsx"/>
+ <tileset firstgid="322" source="tiles_decoration.tsx"/>
+ <tileset firstgid="453" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="503" source="tiles_collapsible.tsx"/>
+ <tileset firstgid="546" source="tiles_trampoline.tsx"/>
+ <tileset firstgid="575" source="collectibles.tsx"/>
+ <tileset firstgid="787" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="888" source="guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+280,0,0,280,280,280,280,376,376,376,376,376,376,376,376,376,376,376,376,376,376,376,376,376,376,376,280,280,280,280,280,280,
+280,0,0,0,280,280,280,376,376,376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,280,280,280,
+280,0,0,0,0,280,280,376,376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,280,280,
+280,377,0,0,0,280,280,376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,280,
+280,0,0,0,0,280,280,376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+280,0,0,0,377,280,280,376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+280,0,0,0,0,280,280,376,0,0,0,154,0,0,154,0,0,0,0,154,154,154,154,0,0,154,280,280,280,280,280,280,
+280,377,0,0,0,280,280,376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,280,280,
+280,0,0,0,0,280,280,376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,280,
+280,0,0,0,377,280,280,376,376,376,376,154,0,0,154,0,0,0,0,154,154,154,154,0,0,154,280,78,0,0,0,0,
+280,0,0,0,0,280,280,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,154,280,280,78,0,0,0,
+280,377,0,0,0,280,280,0,0,0,0,0,0,0,154,0,0,0,0,0,0,0,0,0,0,154,280,280,280,523,523,280,
+280,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,280,280,523,523,280,
+0,0,0,0,377,0,0,0,0,0,0,0,0,0,154,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,280,280,0,0,476,477,0,0,0,0,0,0,0,0,0,476,477,0,0,0,0,0,0,0,0,0,0,
+280,280,280,280,280,280,280,378,378,18,18,378,378,378,378,378,378,378,378,378,18,18,378,378,378,378,280,280,280,280,280,280
+  </data>
+ </layer>
+ <objectgroup id="2" name="Collectables">
+  <object id="1" gid="595" x="224" y="64" width="8" height="8"/>
+  <object id="2" gid="595" x="152" y="16" width="8" height="8"/>
+  <object id="3" gid="595" x="88" y="16" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup id="3" name="Enemies">
+  <object id="4" name="Vert 0x00" type="Guardian" gid="983" x="16" y="96" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00ff00"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="5" name="Vert 0x01" type="Guardian" gid="984" x="96" y="64" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff00ffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="6" name="Vert 0x02" type="Guardian" gid="985" x="136" y="104" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#fffc0104"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="7" name="Vert 0x03" type="Guardian" gid="983" x="16" y="48" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff0000ff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="8" name="Horiz 0x04" type="Guardian" gid="983" x="72" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#fffc0104"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="9" name="Vert 0x05" type="Guardian" gid="986" x="120" y="104" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#fffc0104"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="10" name="Vert 0x06" type="Guardian" gid="987" x="128" y="88" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#fffc0104"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="11" name="Vert 0x07" type="Guardian" gid="988" x="128" y="120" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#fffc0104"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="12" type="Route" x="24" y="58">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="4"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,62"/>
+  </object>
+  <object id="13" type="Route" x="104" y="56">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="0"/>
+    <property name="Guardian" type="object" value="5"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,32"/>
+  </object>
+  <object id="14" type="Route" x="144" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="0"/>
+    <property name="Guardian" type="object" value="6"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,80"/>
+  </object>
+  <object id="15" type="Route" x="24" y="10">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="7"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,62"/>
+  </object>
+  <object id="16" type="Route" x="128" y="24">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="0"/>
+    <property name="Guardian" type="object" value="9"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,80"/>
+  </object>
+  <object id="17" type="Route" x="136" y="8">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="0"/>
+    <property name="Guardian" type="object" value="10"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,80"/>
+  </object>
+  <object id="18" type="Route" x="136" y="40">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="0"/>
+    <property name="Guardian" type="object" value="11"/>
+    <property name="Speed" type="int" propertytype="Speed" value="2"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,80"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Spawn"/>
+ <objectgroup id="6" name="Special"/>
+</map>

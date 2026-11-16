@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#ff0000" nextlayerid="7" nextobjectid="5">
+ <properties>
+  <property name="Down" type="file" value="017.tmx"/>
+  <property name="Flags" propertytype="RoomFlags" value=""/>
+  <property name="Left" type="file" value="007.tmx"/>
+  <property name="Name" value="The Dancer          F"/>
+  <property name="Right" type="file" value="009.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Rope Offset" type="int" value="0"/>
+  <property name="Up" type="file" value="002.tmx"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="44" source="tiles_stairs.tsx"/>
+ <tileset firstgid="116" source="tiles_platform.tsx"/>
+ <tileset firstgid="251" source="tiles_hazard.tsx"/>
+ <tileset firstgid="322" source="tiles_decoration.tsx"/>
+ <tileset firstgid="453" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="503" source="tiles_collapsible.tsx"/>
+ <tileset firstgid="546" source="tiles_trampoline.tsx"/>
+ <tileset firstgid="575" source="collectibles.tsx"/>
+ <tileset firstgid="787" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="888" source="guardians.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+342,0,0,0,0,0,0,0,56,342,0,0,0,0,0,0,0,0,0,131,0,0,0,0,0,0,0,0,0,0,0,0,
+342,0,0,0,0,0,0,56,342,342,0,0,343,0,0,343,0,0,0,0,124,0,0,0,0,0,0,0,0,0,0,343,
+342,0,0,0,0,0,56,342,0,342,0,0,459,0,0,460,460,460,343,343,126,0,0,0,0,0,0,0,0,0,343,343,
+342,0,0,0,0,56,342,0,0,0,342,0,343,509,509,0,0,0,0,343,123,0,0,0,0,0,0,0,0,0,343,343,
+342,0,0,0,56,342,0,0,0,0,342,0,343,0,0,0,0,0,0,343,0,125,0,0,0,0,0,0,0,0,0,343,
+132,342,0,56,342,0,0,0,0,0,342,0,343,460,460,460,460,343,343,343,0,127,0,0,0,0,0,0,0,0,4,343,
+133,132,342,342,0,0,0,342,0,0,0,342,0,0,0,0,0,0,0,0,0,126,0,0,0,0,343,459,0,0,4,343,
+134,133,132,0,0,0,0,0,0,0,0,342,0,0,0,0,0,0,0,0,0,123,0,0,0,0,258,343,459,459,4,343,
+134,134,133,342,342,342,343,343,343,343,343,342,342,342,342,342,342,342,342,342,342,124,0,0,0,0,0,459,4,4,4,4,
+134,133,132,0,0,0,343,0,0,0,343,342,0,0,0,0,0,0,0,56,344,344,344,57,0,0,0,343,343,4,4,4,
+133,132,0,0,0,0,343,0,0,0,343,342,0,0,0,0,0,0,0,344,0,0,0,344,0,0,0,0,343,343,343,343,
+132,342,57,0,0,0,460,343,460,460,343,0,0,0,0,0,0,0,0,344,0,0,0,344,0,0,0,0,0,0,4,4,
+342,342,342,57,0,0,0,343,0,0,342,0,0,0,0,0,0,0,509,344,344,344,344,344,0,0,0,0,0,0,0,0,
+342,342,342,342,57,0,0,0,0,0,342,0,0,0,0,0,0,0,0,0,123,0,0,0,0,0,0,0,0,0,0,0,
+342,0,342,342,342,57,0,0,0,342,0,0,0,0,0,0,0,0,0,0,124,0,0,0,0,0,0,0,0,0,0,0,
+342,0,0,342,342,342,57,0,342,0,0,342,342,0,0,0,0,342,342,125,0,0,0,0,0,509,0,0,0,0,0,0
+  </data>
+ </layer>
+ <objectgroup id="2" name="Collectables">
+  <object id="1" gid="603" x="56" y="88" width="8" height="8"/>
+  <object id="2" gid="603" x="128" y="40" width="8" height="8"/>
+  <object id="3" gid="603" x="200" y="120" width="8" height="8"/>
+  <object id="4" gid="603" x="240" y="40" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup id="3" name="Enemies">
+  <object id="5" name="Horiz 0x00" type="Guardian" gid="932" x="160" y="96" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ff0000ff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+  <object id="9" name="Horiz 0x04" type="Guardian" gid="889" x="120" y="94" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffffffff"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="12" type="Route" x="112" y="86">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="2"/>
+    <property name="Guardian" type="object" value="9"/>
+    <property name="Speed" type="int" propertytype="Speed" value="4"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 40,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Spawn"/>
+ <objectgroup id="6" name="Special">
+  <object id="1007" name="wall_R7_0" type="OpeningWall" x="136" y="48" width="16" height="8">
+   <properties>
+    <property name="TriggerType" propertytype="TriggerType" value="ExternalEvent"/>
+    <property name="Action" propertytype="Action" value="HideEntity"/>
+    <property name="Visibility" propertytype="Visibility" value="AllPlayers"/>
+   </properties>
+  </object>
+  <object id="1008" name="wall_R7_1" type="OpeningWall" x="144" y="48" width="16" height="8">
+   <properties>
+    <property name="TriggerType" propertytype="TriggerType" value="ExternalEvent"/>
+    <property name="Action" propertytype="Action" value="HideEntity"/>
+    <property name="Visibility" propertytype="Visibility" value="AllPlayers"/>
+   </properties>
+  </object>
+  <object id="1009" name="wall_R7_2" type="OpeningWall" x="48" y="88" width="16" height="16">
+   <properties>
+    <property name="TriggerType" propertytype="TriggerType" value="ExternalEvent"/>
+    <property name="Action" propertytype="Action" value="HideEntity"/>
+    <property name="Visibility" propertytype="Visibility" value="AllPlayers"/>
+   </properties>
+  </object>
+  <object id="1010" name="wall_R7_3" type="OpeningWall" x="128" y="128" width="16" height="32">
+   <properties>
+    <property name="TriggerType" propertytype="TriggerType" value="ExternalEvent"/>
+    <property name="Action" propertytype="Action" value="HideEntity"/>
+    <property name="Visibility" propertytype="Visibility" value="AllPlayers"/>
+   </properties>
+  </object>
+  <object id="1011" name="switch_R7" type="Switch" x="136" y="48" width="16" height="16">
+   <properties>
+    <property name="TriggerType" propertytype="TriggerType" value="CollisionWith"/>
+    <property name="Action" propertytype="Action" value="HideEntity"/>
+    <property name="Target" type="object" value="1007"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

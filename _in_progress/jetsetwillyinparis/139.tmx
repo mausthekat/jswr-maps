@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="1">
+ <properties>
+  <property name="Down" type="file" value="139.tmx"/>
+  <property name="Flags" propertytype="RoomFlags" value=""/>
+  <property name="Left" type="file" value="140.tmx"/>
+  <property name="Name" value="The Underground River"/>
+  <property name="Right" type="file" value="138.tmx"/>
+  <property name="Rope" type="bool" value="false"/>
+  <property name="Rope Offset" type="int" value="0"/>
+  <property name="Up" type="file" value="144.tmx"/>
+  <property name="WillySuit" type="int" propertytype="WillySuit" value="0"/>
+ </properties>
+ <tileset firstgid="1" source="tiles_solid.tsx"/>
+ <tileset firstgid="210" source="tiles_stairs.tsx"/>
+ <tileset firstgid="351" source="tiles_platform.tsx"/>
+ <tileset firstgid="566" source="tiles_hazard.tsx"/>
+ <tileset firstgid="730" source="tiles_conveyor.tsx"/>
+ <tileset firstgid="844" source="collectibles.tsx"/>
+ <tileset firstgid="848" source="../../tilesets/guardians.tsx"/>
+ <tileset firstgid="949" source="guardians.tsx"/>
+ <tileset firstgid="1134" source="tiles_mm_exit.tsx"/>
+ <layer id="1" name="Tiles" width="32" height="16">
+  <data encoding="csv">
+133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,
+133,133,669,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,669,0,669,0,133,133,133,133,669,0,
+133,0,0,669,133,133,669,0,133,133,133,133,133,133,133,133,133,133,133,133,0,669,0,0,0,0,669,0,133,669,0,0,
+669,0,0,0,0,669,0,0,669,133,133,133,133,133,133,133,133,133,133,669,0,0,0,0,0,0,0,0,669,0,0,0,
+0,0,0,0,0,0,0,0,0,0,133,133,133,133,133,133,133,133,133,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,669,133,133,133,133,133,133,133,669,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,133,133,133,133,133,133,133,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,669,133,133,133,133,133,133,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+133,133,133,133,483,483,483,483,483,483,483,483,133,133,133,133,133,483,483,0,0,483,483,133,133,133,133,0,0,0,0,0,
+133,133,133,133,133,483,483,483,483,483,483,483,483,133,133,133,133,483,483,483,483,0,0,483,133,133,133,133,0,0,0,0,
+133,133,133,133,133,133,483,483,483,483,483,483,483,483,133,133,483,0,0,483,483,483,483,483,483,483,483,133,0,0,0,0,
+133,133,133,133,133,133,133,133,483,483,483,483,483,483,133,133,483,483,483,483,483,483,0,0,483,133,133,483,133,0,0,0,
+133,133,0,0,133,133,133,133,483,483,483,483,483,483,483,133,483,483,483,0,0,483,483,483,483,133,133,133,483,483,483,483,
+133,133,0,0,133,133,133,133,133,483,483,483,483,483,483,483,483,483,483,483,483,483,0,0,133,133,133,133,133,133,133,133,
+133,133,133,133,133,133,133,133,133,133,483,483,483,483,483,483,483,0,0,483,483,483,483,483,133,133,133,133,133,133,133,133,
+133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133,133
+  </data>
+ </layer>
+ <objectgroup id="2" name="Collectables"/>
+ <objectgroup id="3" name="Enemies">
+  <object id="1" name="Vert 0x12" type="Guardian" gid="1120" x="16" y="72" width="16" height="16">
+   <properties>
+    <property name="Color" type="color" value="#ffd7d7d7"/>
+    <property name="Flags" propertytype="GuardianFlags" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#00ffff" id="4" name="Routes">
+  <object id="2" type="Route" x="24" y="56">
+   <properties>
+    <property name="Direction" type="int" propertytype="Direction" value="1"/>
+    <property name="Guardian" type="object" value="1"/>
+    <property name="Speed" type="int" propertytype="Speed" value="0"/>
+    <property name="Traversal" type="int" propertytype="Traversal" value="0"/>
+   </properties>
+   <polyline points="0,0 0,17"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Spawn"/>
+ <objectgroup id="6" name="Special"/>
+</map>
