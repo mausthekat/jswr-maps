@@ -50,7 +50,7 @@
   </object>
   <object id="7" name="Triangle 1" type="Guardian" gid="2023" x="112" y="56" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffa75b"/>
+    <property name="Color" type="color" value="#ffffaf6f"/>
    </properties>
   </object>
   <object id="8" name="Pulser Panel 1" type="Guardian" gid="2022" x="128" y="56" width="16" height="16">
@@ -65,7 +65,7 @@
   </object>
   <object id="10" name="Sponge 1" type="Guardian" gid="2043" x="136" y="104" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff3fd7ff"/>
+    <property name="Color" type="color" value="#ff2fe5ff"/>
    </properties>
   </object>
   <object id="11" name="Spiral 1" type="Guardian" gid="1997" x="136" y="120" width="16" height="16">
@@ -95,7 +95,7 @@
   </object>
   <object id="16" name="Hammer 2" type="Guardian" gid="2147485664" x="152" y="88" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff4fffff"/>
+    <property name="Color" type="color" value="#ff2fe5ff"/>
    </properties>
   </object>
   <object id="17" name="Sponge 4" type="Guardian" gid="2043" x="152" y="104" width="16" height="16">
@@ -105,7 +105,7 @@
   </object>
   <object id="18" name="Spiral 2" type="Guardian" gid="2147485645" x="152" y="120" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ff003153"/>
+    <property name="Color" type="color" value="#ff03365f"/>
    </properties>
   </object>
   <object id="19" name="Pulser Panel 2" type="Guardian" gid="2147485670" x="160" y="56" width="16" height="16">
@@ -115,7 +115,7 @@
   </object>
   <object id="20" name="Triangle 2" type="Guardian" gid="2147485671" x="176" y="56" width="16" height="16">
    <properties>
-    <property name="Color" type="color" value="#ffffb24f"/>
+    <property name="Color" type="color" value="#ffffaf6f"/>
    </properties>
   </object>
  </objectgroup>
